@@ -27,7 +27,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<ViewHolder>{
     private android.app.Activity activityOringin;
     private android.app.Activity activityDestiny;
 
-    public RecyclerViewAdapter(ArrayList<ObjectDefault> list, Context context,  android.app.Activity activityOringin, android.app.Activity activityDestiny) {
+    public RecyclerViewAdapter(ArrayList<ObjectDefault> list) {
         this.list = list;
         this.context = context;
         this.activityOringin = activityOringin;

@@ -60,7 +60,8 @@ public class TelaCadastro7Activity extends AppCompatActivity {
 
 
     public void voltarTelaLogin(View v){
-
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 
 }
