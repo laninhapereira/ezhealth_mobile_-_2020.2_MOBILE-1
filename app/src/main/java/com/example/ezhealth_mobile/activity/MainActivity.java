@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         // Confirmar se todos os campos estão preenchidos *//
 
         //TESTE COMMIT
+        //TESTE COMMIT 2
 
     }
 

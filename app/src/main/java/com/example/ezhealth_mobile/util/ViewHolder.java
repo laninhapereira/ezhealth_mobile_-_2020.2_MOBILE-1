@@ -1,5 +1,7 @@
 package com.example.ezhealth_mobile.util;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.Gravity;
 import android.view.MenuInflater;
 import android.view.View;
@@ -11,8 +13,11 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ezhealth_mobile.R;
+import com.example.ezhealth_mobile.entity.ObjectDefault;
 
 import java.lang.reflect.InvocationTargetException;
+
+import static androidx.core.app.ActivityCompat.startActivityForResult;
 
 public class ViewHolder extends RecyclerView.ViewHolder {
 
@@ -23,6 +28,7 @@ public class ViewHolder extends RecyclerView.ViewHolder {
     private ImageView imageViewItemMore;
 
     private PopupMenu popup;
+    private ObjectDefault obj;
 
     private View rootView;
     private int position;
@@ -51,6 +57,17 @@ public class ViewHolder extends RecyclerView.ViewHolder {
         });
     }
 
+    public void setOnMenuItemClickListener(PopupMenu.OnMenuItemClickListener listener){
+        popup.setOnMenuItemClickListener(listener);
+    }
+
+    public ObjectDefault getObj() {
+        return obj;
+    }
+
+    public void setObj(ObjectDefault obj) {
+        this.obj = obj;
+    }
 
     public TextView getTitle() {
         return title;
