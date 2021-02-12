@@ -11,10 +11,10 @@
         android:id="@+id/textViewFragmentResumo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="176dp"
-        android:layout_marginTop="63dp"
+        android:layout_marginTop="60dp"
         android:text="Resumo"
         android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -22,9 +22,9 @@
         android:id="@+id/textViewPainelCalorias"
         android:layout_width="349dp"
         android:layout_height="199dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:background="#CED6E0"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewFragmentResumo" />
 
@@ -33,32 +33,39 @@
         android:layout_width="wrap_content"
         android:layout_height="27dp"
         android:layout_marginStart="140dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="136dp"
         android:text="Calorias"
         android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/textViewPainelCalorias"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textViewPainelCalorias"
         app:layout_constraintTop_toBottomOf="@+id/textViewFragmentResumo" />
+
+    <TextView
+        android:id="@+id/textViewGastos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="13dp"
+        android:text="Gastos"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="@+id/textViewPainelCalorias"
+        app:layout_constraintStart_toEndOf="@+id/textViewElipse"
+        app:layout_constraintTop_toTopOf="@+id/textViewPainelCalorias" />
 
     <TextView
         android:id="@+id/textViewConsumidos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="4dp"
         android:text="Consumidos"
         android:textSize="17sp"
+        app:layout_constraintEnd_toStartOf="@+id/textViewElipse"
         app:layout_constraintStart_toStartOf="@+id/textViewPainelCalorias"
-        app:layout_constraintTop_toTopOf="@+id/textViewPainelCalorias" />
-
-    <TextView
-        android:id="@+id/textViewGastos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="20dp"
-        android:text="Gastos"
-        android:textSize="17sp"
-        app:layout_constraintEnd_toEndOf="@+id/textViewPainelCalorias"
         app:layout_constraintTop_toTopOf="@+id/textViewPainelCalorias" />
 
     <TextView
@@ -66,8 +73,10 @@
         android:layout_width="134dp"
         android:layout_height="121dp"
         android:layout_marginStart="108dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="107dp"
         android:background="@drawable/elipses_diario"
+        app:layout_constraintEnd_toEndOf="@+id/textViewPainelCalorias"
         app:layout_constraintStart_toStartOf="@+id/textViewPainelCalorias"
         app:layout_constraintTop_toBottomOf="@+id/textViewFragmentCalorias" />
 
@@ -90,7 +99,7 @@
         android:layout_height="35dp"
         android:layout_marginStart="9dp"
         android:layout_marginTop="13dp"
-        android:text="0"
+        android:text="2200"
         android:textAlignment="textEnd"
         android:textSize="23sp"
         app:layout_constraintStart_toStartOf="@+id/textViewElipse"
@@ -114,7 +123,7 @@
         android:layout_height="25dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="4dp"
-        android:text="Kcal"
+        android:text="kcal"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/textViewPainelCalorias"
         app:layout_constraintTop_toBottomOf="@+id/textViewGastos" />
@@ -125,8 +134,10 @@
         android:layout_height="25dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="24dp"
-        android:text="Kcal"
+        android:layout_marginEnd="11dp"
+        android:text="kcal"
         android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/textViewElipse"
         app:layout_constraintStart_toEndOf="@+id/textViewFragmentKcalConsumidosValor"
         app:layout_constraintTop_toBottomOf="@+id/textViewConsumidos" />
 
@@ -134,12 +145,14 @@
         android:id="@+id/textViewFragmentKcalGastosValor"
         android:layout_width="50dp"
         android:layout_height="24dp"
+        android:layout_marginStart="5dp"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="4dp"
         android:text="0"
         android:textAlignment="textEnd"
         android:textSize="20sp"
         app:layout_constraintEnd_toStartOf="@+id/textViewKcal"
+        app:layout_constraintStart_toEndOf="@+id/textViewElipse"
         app:layout_constraintTop_toBottomOf="@+id/textViewGastos" />
 
     <TextView
@@ -157,9 +170,9 @@
         android:id="@+id/textViewItemPanelCafe"
         android:layout_width="349dp"
         android:layout_height="55dp"
-        android:layout_marginStart="28dp"
         android:layout_marginTop="8dp"
         android:background="#CED6E0"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewDiarioLabel" />
 
@@ -167,9 +180,9 @@
         android:id="@+id/textViewItemPanelLancheManha"
         android:layout_width="349dp"
         android:layout_height="55dp"
-        android:layout_marginStart="28dp"
         android:layout_marginTop="22dp"
         android:background="#CED6E0"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewItemPanelCafe" />
 
@@ -177,9 +190,9 @@
         android:id="@+id/textViewItemPanelAlmoco"
         android:layout_width="349dp"
         android:layout_height="55dp"
-        android:layout_marginStart="28dp"
         android:layout_marginTop="22dp"
         android:background="#CED6E0"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewItemPanelLancheManha" />
 
@@ -187,9 +200,9 @@
         android:id="@+id/textViewItemPanelLancheTarde"
         android:layout_width="349dp"
         android:layout_height="55dp"
-        android:layout_marginStart="28dp"
         android:layout_marginTop="22dp"
         android:background="#CED6E0"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewItemPanelAlmoco" />
 
@@ -197,9 +210,9 @@
         android:id="@+id/textViewItemPanelJantar"
         android:layout_width="349dp"
         android:layout_height="55dp"
-        android:layout_marginStart="28dp"
         android:layout_marginTop="22dp"
         android:background="#CED6E0"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewItemPanelLancheTarde" />
 
@@ -207,49 +220,42 @@
         android:id="@+id/textViewDiarioLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="152dp"
         android:layout_marginTop="28dp"
         android:text="Diário Alimentar"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewPainelCalorias" />
-
-    <TextView
-        android:id="@+id/textViewCafeLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
-        android:layout_marginTop="6dp"
-        android:text="Café da manhã"
-        app:layout_constraintStart_toEndOf="@+id/imageView3"
-        app:layout_constraintTop_toTopOf="@+id/textViewItemPanelCafe" />
-
-    <TextView
-        android:id="@+id/textViewLancheManhaLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="8dp"
-        android:text="Lanche da Manhã"
-        app:layout_constraintStart_toEndOf="@+id/imageView8"
-        app:layout_constraintTop_toTopOf="@+id/textViewItemPanelLancheManha" />
 
     <TextView
         android:id="@+id/textViewAlmocoLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
         android:text="Almoço"
+        android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/imageView9"
         app:layout_constraintTop_toTopOf="@+id/textViewItemPanelAlmoco" />
+
+    <TextView
+        android:id="@+id/textViewCafeLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:text="Café da manhã"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintTop_toTopOf="@+id/textViewItemPanelCafe" />
 
     <TextView
         android:id="@+id/textViewLancheTardeLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
         android:text="Lanche da Tarde"
+        android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/imageView10"
         app:layout_constraintTop_toTopOf="@+id/textViewItemPanelLancheTarde" />
 
@@ -257,11 +263,23 @@
         android:id="@+id/textViewLancheTardeLabel2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
         android:text="Jantar"
+        android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/imageView11"
         app:layout_constraintTop_toTopOf="@+id/textViewItemPanelJantar" />
+
+    <TextView
+        android:id="@+id/textViewLancheManhaLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:text="Lanche da Manhã"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/imageView8"
+        app:layout_constraintTop_toTopOf="@+id/textViewItemPanelLancheManha" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -277,8 +295,8 @@
         android:id="@+id/imageView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="74dp"
+        android:layout_marginTop="6dp"
         android:src="@drawable/ic_lanche_manha"
         app:layout_constraintStart_toStartOf="@+id/textViewItemPanelLancheManha"
         app:layout_constraintTop_toTopOf="@+id/textViewItemPanelLancheManha" />
@@ -287,8 +305,8 @@
         android:id="@+id/imageView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="78dp"
+        android:layout_marginTop="6dp"
         android:src="@drawable/ic_almoco"
         app:layout_constraintStart_toStartOf="@+id/textViewItemPanelAlmoco"
         app:layout_constraintTop_toTopOf="@+id/textViewItemPanelAlmoco" />
@@ -297,8 +315,8 @@
         android:id="@+id/imageView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="78dp"
+        android:layout_marginTop="6dp"
         android:src="@drawable/ic_lanche_tarde"
         app:layout_constraintStart_toStartOf="@+id/textViewItemPanelLancheTarde"
         app:layout_constraintTop_toTopOf="@+id/textViewItemPanelLancheTarde" />
@@ -307,8 +325,8 @@
         android:id="@+id/imageView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="78dp"
+        android:layout_marginTop="6dp"
         android:src="@drawable/ic_jantar"
         app:layout_constraintStart_toStartOf="@+id/textViewItemPanelJantar"
         app:layout_constraintTop_toTopOf="@+id/textViewItemPanelJantar" />
@@ -320,6 +338,7 @@
         android:layout_marginStart="2dp"
         android:layout_marginBottom="3dp"
         android:text="kcal"
+        android:textColor="#999A9C"
         android:textSize="13sp"
         app:layout_constraintBottom_toBottomOf="@+id/textViewItemPanelCafe"
         app:layout_constraintStart_toEndOf="@+id/textViewItemPainelValorKcalCafe" />
@@ -330,6 +349,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
         android:text="kcal"
+        android:textColor="#999A9C"
         android:textSize="13sp"
         app:layout_constraintBottom_toBottomOf="@+id/textViewItemPanelLancheManha"
         app:layout_constraintStart_toEndOf="@+id/textViewItemPainelValorKcalLancheManha" />
@@ -340,6 +360,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
         android:text="kcal"
+        android:textColor="#999A9C"
         android:textSize="13sp"
         app:layout_constraintBottom_toBottomOf="@+id/textViewItemPanelLancheTarde"
         app:layout_constraintStart_toEndOf="@+id/textViewItemPainelValorKcalLancheTarde" />
@@ -350,6 +371,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
         android:text="kcal"
+        android:textColor="#999A9C"
         android:textSize="13sp"
         app:layout_constraintBottom_toBottomOf="@+id/textViewItemPanelAlmoco"
         app:layout_constraintStart_toEndOf="@+id/textViewItemPainelValorKcalAlmoco" />
@@ -362,14 +384,16 @@
         android:text="kcal"
         android:textSize="13sp"
         app:layout_constraintBottom_toBottomOf="@+id/textViewItemPanelJantar"
-        app:layout_constraintStart_toEndOf="@+id/textViewItemPainelValorKcalJantar" />
+        app:layout_constraintStart_toEndOf="@+id/textViewItemPainelValorKcalJantar"
+        android:textColor="#999A9C" />
 
     <TextView
         android:id="@+id/textViewItemPainelValorKcalLancheTarde"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
+        android:layout_marginStart="78dp"
         android:text="0"
+        android:textColor="#999A9C"
         android:textSize="13sp"
         app:layout_constraintBottom_toBottomOf="@+id/textViewItemPanelLancheTarde"
         app:layout_constraintStart_toStartOf="@+id/textViewItemPanelLancheTarde" />
@@ -378,8 +402,9 @@
         android:id="@+id/textViewItemPainelValorKcalAlmoco"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
+        android:layout_marginStart="78dp"
         android:text="0"
+        android:textColor="#999A9C"
         android:textSize="13sp"
         app:layout_constraintBottom_toBottomOf="@+id/textViewItemPanelAlmoco"
         app:layout_constraintStart_toStartOf="@+id/textViewItemPanelAlmoco" />
@@ -388,8 +413,9 @@
         android:id="@+id/textViewItemPainelValorKcalJantar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
+        android:layout_marginStart="78dp"
         android:text="0"
+        android:textColor="#999A9C"
         android:textSize="13sp"
         app:layout_constraintBottom_toBottomOf="@+id/textViewItemPanelJantar"
         app:layout_constraintStart_toStartOf="@+id/textViewItemPanelJantar" />
@@ -451,6 +477,7 @@
         android:layout_marginStart="78dp"
         android:layout_marginBottom="3dp"
         android:text="0"
+        android:textColor="#999A9C"
         android:textSize="13sp"
         app:layout_constraintBottom_toBottomOf="@+id/textViewItemPanelCafe"
         app:layout_constraintStart_toStartOf="@+id/textViewItemPanelCafe" />
@@ -459,8 +486,9 @@
         android:id="@+id/textViewItemPainelValorKcalLancheManha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
+        android:layout_marginStart="78dp"
         android:text="0"
+        android:textColor="#999A9C"
         android:textSize="13sp"
         app:layout_constraintBottom_toBottomOf="@+id/textViewItemPanelLancheManha"
         app:layout_constraintStart_toStartOf="@+id/textViewItemPanelLancheManha" />
