@@ -1,5 +1,6 @@
 package com.example.ezhealth_mobile.ui.diario;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,8 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import com.example.ezhealth_mobile.R;
+import com.example.ezhealth_mobile.activity.EditarRefeicaoActivity;
+import com.example.ezhealth_mobile.activity.HomeActivity;
 
 public class DiarioFragment extends Fragment {
 
@@ -29,4 +32,5 @@ public class DiarioFragment extends Fragment {
         });
         return root;
     }
+
 }

@@ -471,6 +471,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="23dp"
         android:layout_marginEnd="28dp"
+        android:onClick="irEditarRefeicao"
         android:src="@drawable/ic_baseline_add_24"
         app:layout_constraintEnd_toEndOf="@+id/textViewItemPanelCafe"
         app:layout_constraintTop_toTopOf="@+id/textViewItemPanelCafe" />

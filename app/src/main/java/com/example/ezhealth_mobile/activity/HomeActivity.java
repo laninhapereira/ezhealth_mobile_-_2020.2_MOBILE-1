@@ -1,6 +1,8 @@
 package com.example.ezhealth_mobile.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
@@ -29,4 +31,8 @@ public class HomeActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navView, navController);
     }
 
+    public void irEditarRefeicao(View view){
+        Intent intent = new Intent(this, EditarRefeicaoActivity.class);
+        startActivity(intent);
+    }
 }
