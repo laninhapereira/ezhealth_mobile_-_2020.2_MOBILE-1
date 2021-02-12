@@ -38,7 +38,7 @@ public class ListaExercicioActivity extends AppCompatActivity {
 
         ((TextView) findViewById(R.id.textViewTituloPrimeiroPainel)).setText("Lista de Exercícios");
 
-        // Classe para configuração do conteúdo do painel
+        // Classe para configuração do conteúdo do primeiro painel
         new ContentFirstPanelInformation(
                 this,
                 EditarAlimentoActivity.class,
@@ -46,6 +46,7 @@ public class ListaExercicioActivity extends AppCompatActivity {
         );
     }
 
+    // Classe para configuração do conteúdo do segundo painel
     private void configuraSegundoPainel(){
         ((TextView) findViewById(R.id.textViewTituloSegundoPainel)).setText("Informações gerais");
 
@@ -64,27 +65,27 @@ public class ListaExercicioActivity extends AppCompatActivity {
         ((TextView) findViewById(R.id.textViewValorTotalKcal)).setText("700");
     }
 
-    //Botão "check" para confirmar que o usuário já adicionou os alimentos/refeições desejados
-    public void checkAlimentoRefeição(View v){
+    //Botão "check" para confirmar que o usuário deseja salvar os itens
+    public void salvar(View v){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
     //Botão "voltar" para caso o usuário desista e volte para a tela anterior
-    public void voltarListaAlimentos(View v){
+    public void voltar(View v){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
-    //Botão "add" para caso o usuário queria adicionar um novo alimento a refeicao
-    public void adicionarNovoAlimento(View view){
+    //Botão "add" para caso o usuário queria adicionar um novo item
+    public void adicionar(View view){
         Intent intent = new Intent(this, EditarExercicioActivity.class);
         startActivity(intent);
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Log.d("asdasd", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa: ");
+        // Ainda será implementado
     }
 
     private void popular(){

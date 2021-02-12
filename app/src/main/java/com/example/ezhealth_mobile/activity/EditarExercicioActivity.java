@@ -38,7 +38,7 @@ public class EditarExercicioActivity extends AppCompatActivity {
         includeFirstPanel.removeAllViews();
         includeFirstPanel.addView(view);
 
-        // Classe para configuração do conteúdo do painel
+        // Classe para configuração do conteúdo do primeiro painel
         new ContentFirstPanelQuantity(
                 this,
                 objectDefault.getName(),
@@ -47,6 +47,7 @@ public class EditarExercicioActivity extends AppCompatActivity {
         );
     }
 
+    // Classe para configuração do conteúdo do segundo painel
     private void configuraSegundoPainel(){
         ((TextView) findViewById(R.id.textViewTituloSegundoPainel)).setText("Informações gerais");
 
@@ -65,21 +66,21 @@ public class EditarExercicioActivity extends AppCompatActivity {
         ((TextView) findViewById(R.id.textViewValorTotalKcal)).setText("700");
     }
 
-    //Botão "check" para confirmar que o usuário já adicionou os alimentos/refeições desejados
-    public void checkAlimentoRefeição(View v){
+    //Botão "check" para confirmar que o usuário deseja salvar os itens
+    public void salvar(View v){
         Intent intent = new Intent(this, ListaExercicioActivity.class);
         startActivity(intent);
     }
 
     //Botão "voltar" para caso o usuário desista e volte para a tela anterior
-    public void voltarListaAlimentos(View v){
+    public void voltar(View v){
         Intent intent = new Intent(this, ListaExercicioActivity.class);
         startActivity(intent);
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Log.d("asdasd", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa: ");
+        // Ainda será implementado
     }
 
     private void popular(){

@@ -33,7 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="13dp"
-        android:onClick="adicionarNovoAlimento"
+        android:onClick="adicionar"
         app:layout_constraintEnd_toEndOf="@+id/textViewPanel1"
         app:layout_constraintTop_toTopOf="@+id/textViewPanel1"
         app:srcCompat="@drawable/ic_baseline_add_24" />
