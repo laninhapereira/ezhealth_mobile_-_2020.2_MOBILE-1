@@ -16,18 +16,20 @@ public class RefeicaoFragment extends Fragment {
 
     private RefeicaoViewModel refeicaoViewModel;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-            ViewGroup container, Bundle savedInstanceState) {
-        refeicaoViewModel =
-                new ViewModelProvider(this).get(RefeicaoViewModel.class);
+    public View onCreateView(
+            @NonNull LayoutInflater inflater,
+            ViewGroup container,
+            Bundle savedInstanceState)
+    {
+        refeicaoViewModel = new ViewModelProvider(this).get(RefeicaoViewModel.class);
         View root = inflater.inflate(R.layout.fragment_refeicao, container, false);
-        final TextView textView = root.findViewById(R.id.text_refeicao);
-        refeicaoViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+
+        refeicaoViewModel.getText().observe( getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
-                textView.setText(s);
             }
         });
+
         return root;
     }
 }
