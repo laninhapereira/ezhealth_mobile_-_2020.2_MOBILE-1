@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,14 +18,15 @@ import com.example.ezhealth_mobile.content.ContentFirstPanelInformation;
 import com.example.ezhealth_mobile.entity.ObjectDefault;
 import com.example.ezhealth_mobile.entity.RepositoryObjectDefault;
 
-public class EditarRefeicaoActivity extends AppCompatActivity {
+public class VisualizarRefeicaoActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dual_panel);
-        ((TextView) findViewById(R.id.textViewTitelDualPanel)).setText(RepositoryObjectDefault.getTitleListItens());
+        ((Button) findViewById(R.id.buttonCheck)).setVisibility(View.INVISIBLE);
         popular();
+        ((TextView) findViewById(R.id.textViewTitelDualPanel)).setText(RepositoryObjectDefault.getTitleListItens());
         this.configuraPrimeiroPainel();
     }
 
@@ -40,7 +43,7 @@ public class EditarRefeicaoActivity extends AppCompatActivity {
         new ContentFirstPanelInformation(
                 this,
                 EditarAlimentoActivity.class,
-                true
+                false
         );
     }
 
@@ -74,5 +77,4 @@ public class EditarRefeicaoActivity extends AppCompatActivity {
         RepositoryObjectDefault.add(new ObjectDefault("Coca-Cola", "500", "ml", "120"));
         RepositoryObjectDefault.add(new ObjectDefault("Pedaço de Pizza", "2", null, "500"));
     }
-
 }

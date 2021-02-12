@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.PopupMenu;
 
 import androidx.annotation.NonNull;
@@ -25,10 +26,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<ViewHolder>{
     private static final int ATUALIZAR = 1;
     private Context contextOrigin;
     private Class classEdicaoItem;
+    private boolean menuOpcoesHabilitado;
 
-    public RecyclerViewAdapter(Context contextOrigin,  Class classEdicaoItem) {
+    public RecyclerViewAdapter(Context contextOrigin,  Class classEdicaoItem, boolean menuOpcoesHabilitado) {
         this.contextOrigin = contextOrigin;
         this.classEdicaoItem = classEdicaoItem;
+        this.menuOpcoesHabilitado = menuOpcoesHabilitado;
     }
 
     @NonNull
@@ -36,6 +39,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<ViewHolder>{
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.exemple_item, parent, false);
         ViewHolder viewHolder = new ViewHolder(view);
+
+        if(!menuOpcoesHabilitado)
+            ((ImageView) view.findViewById(R.id.imageViewButtonMore)).setVisibility(View.INVISIBLE);
+
         return viewHolder;
     }
 
@@ -60,7 +67,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<ViewHolder>{
             return false;
         });
     }
-
 
     @Override
     public int getItemCount() {

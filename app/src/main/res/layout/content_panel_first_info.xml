@@ -20,8 +20,8 @@
         android:id="@+id/textViewTitlePanel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
         android:text="Titulo"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@+id/textViewPanel1"
@@ -40,13 +40,14 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="385dp"
-        android:layout_height="133dp"
-        android:layout_marginBottom="17dp"
+        android:layout_width="372dp"
+        android:layout_height="144dp"
+        android:layout_marginBottom="8dp"
         android:padding="4dp"
         android:scrollbars="vertical"
         app:layout_constraintBottom_toBottomOf="@+id/textViewPanel1"
         app:layout_constraintEnd_toEndOf="@+id/textViewPanel1"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/textViewPanel1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

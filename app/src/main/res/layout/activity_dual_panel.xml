@@ -30,16 +30,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_marginBottom="672dp"
         android:text="10/02"
-        android:textColor="#6E6F71"
+        android:textColor="#999A9C"
         android:textSize="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.215"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTitlePanel"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitelDualPanel" />
 
     <TextView
         android:id="@+id/textViewTitelDualPanel"
@@ -109,6 +106,7 @@
         android:layout_marginStart="156dp"
         android:layout_marginBottom="13dp"
         android:text="Total"
+        android:textColor="#999A9C"
         app:layout_constraintBottom_toBottomOf="@+id/textViewPanel2"
         app:layout_constraintStart_toStartOf="@+id/textViewPanel2" />
 
@@ -130,6 +128,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="12dp"
         android:text="Carboidratos"
+        android:textColor="#999A9C"
         app:layout_constraintStart_toStartOf="@+id/textViewPanel2"
         app:layout_constraintTop_toBottomOf="@+id/textViewInfoNutri" />
 
@@ -140,6 +139,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="12dp"
         android:text="Proteínas"
+        android:textColor="#999A9C"
         app:layout_constraintStart_toStartOf="@+id/textViewPanel2"
         app:layout_constraintTop_toBottomOf="@+id/textViewCarboidratos" />
 
@@ -150,6 +150,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="12dp"
         android:text="Gorduras"
+        android:textColor="#999A9C"
         app:layout_constraintStart_toStartOf="@+id/textViewPanel2"
         app:layout_constraintTop_toBottomOf="@+id/textViewProteinas" />
 
@@ -160,6 +161,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="12dp"
         android:text="kcal"
+        android:textColor="#999A9C"
         app:layout_constraintStart_toEndOf="@+id/textViewCarboValue"
         app:layout_constraintTop_toBottomOf="@+id/textViewInfoNutri" />
 
@@ -170,6 +172,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="13dp"
         android:text="kcal"
+        android:textColor="#999A9C"
         app:layout_constraintStart_toEndOf="@+id/textViewProteValue"
         app:layout_constraintTop_toBottomOf="@+id/textViewKcal" />
 
@@ -180,6 +183,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="12dp"
         android:text="kcal"
+        android:textColor="#999A9C"
         app:layout_constraintStart_toEndOf="@+id/textViewGorduValue"
         app:layout_constraintTop_toBottomOf="@+id/textViewKcal2" />
 
@@ -191,7 +195,8 @@
         android:layout_marginBottom="12dp"
         android:text="kcal"
         app:layout_constraintBottom_toBottomOf="@+id/textViewPanel2"
-        app:layout_constraintStart_toEndOf="@+id/textViewTotalKcalValue" />
+        app:layout_constraintStart_toEndOf="@+id/textViewTotalKcalValue"
+        android:textColor="#999A9C" />
 
     <TextView
         android:id="@+id/textViewCarboValue"
@@ -200,6 +205,7 @@
         android:layout_marginStart="106dp"
         android:layout_marginTop="12dp"
         android:text="0"
+        android:textColor="#999A9C"
         app:layout_constraintStart_toEndOf="@+id/textViewCarboidratos"
         app:layout_constraintTop_toBottomOf="@+id/textViewInfoNutri" />
 
@@ -210,6 +216,7 @@
         android:layout_marginStart="127dp"
         android:layout_marginTop="14dp"
         android:text="0"
+        android:textColor="#999A9C"
         app:layout_constraintStart_toEndOf="@+id/textViewProteinas"
         app:layout_constraintTop_toBottomOf="@+id/textViewCarboValue" />
 
@@ -220,6 +227,7 @@
         android:layout_marginStart="129dp"
         android:layout_marginTop="12dp"
         android:text="0"
+        android:textColor="#999A9C"
         app:layout_constraintStart_toEndOf="@+id/textViewGorduras"
         app:layout_constraintTop_toBottomOf="@+id/textViewProteValue" />
 
@@ -240,6 +248,7 @@
         android:layout_marginStart="7dp"
         android:layout_marginBottom="13dp"
         android:text="0"
+        android:textColor="#999A9C"
         app:layout_constraintBottom_toBottomOf="@+id/textViewPanel2"
         app:layout_constraintStart_toEndOf="@+id/textViewTotal" />
 
