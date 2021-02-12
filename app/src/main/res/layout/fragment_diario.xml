@@ -1,0 +1,544 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.diario.DiarioFragment" >
+
+    <TextView
+        android:id="@+id/textViewTituloHome"
+        android:layout_width="wrap_content"
+        android:layout_height="27dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="8dp"
+        android:text="Quinta-Feira"
+        android:textColor="#2F3542"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textViewData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginLeft="20dp"
+        android:text="10/02"
+        android:textColor="#999A9C"
+        android:textSize="15dp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTituloHome" />
+
+    <Button
+        android:id="@+id/buttonPerfil"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginRight="25dp"
+        android:background="@drawable/ic_account_circle_24px"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewFragmentResumo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="63dp"
+        android:text="Resumo"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewPainelCalorias"
+        android:layout_width="349dp"
+        android:layout_height="199dp"
+        android:layout_marginTop="9dp"
+        android:background="#CED6E0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewFragmentResumo" />
+
+    <TextView
+        android:id="@+id/textViewFragmentCalorias"
+        android:layout_width="wrap_content"
+        android:layout_height="27dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="136dp"
+        android:text="Calorias"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/textViewPainelCalorias"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textViewPainelCalorias"
+        app:layout_constraintTop_toTopOf="@+id/textViewPainelCalorias" />
+
+    <TextView
+        android:id="@+id/textViewGastos"
+        android:layout_width="wrap_content"
+        android:layout_height="22dp"
+        android:layout_marginTop="61dp"
+        android:layout_marginEnd="25dp"
+        android:text="Gastos"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="@+id/textViewPainelCalorias"
+        app:layout_constraintTop_toTopOf="@+id/textViewPainelCalorias" />
+
+    <TextView
+        android:id="@+id/textViewConsumidos"
+        android:layout_width="wrap_content"
+        android:layout_height="22dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="61dp"
+        android:layout_marginEnd="4dp"
+        android:text="Consumidos"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toStartOf="@+id/textViewElipse"
+        app:layout_constraintStart_toStartOf="@+id/textViewPainelCalorias"
+        app:layout_constraintTop_toTopOf="@+id/textViewPainelCalorias" />
+
+    <TextView
+        android:id="@+id/textViewElipse"
+        android:layout_width="134dp"
+        android:layout_height="121dp"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="107dp"
+        android:background="@drawable/elipses_diario"
+        app:layout_constraintEnd_toEndOf="@+id/textViewPainelCalorias"
+        app:layout_constraintStart_toStartOf="@+id/textViewPainelCalorias"
+        app:layout_constraintTop_toBottomOf="@+id/textViewFragmentCalorias" />
+
+    <TextView
+        android:id="@+id/textViewConsumirLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="30dp"
+        android:text="Consumir"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="@+id/textViewElipse"
+        app:layout_constraintStart_toStartOf="@+id/textViewElipse"
+        app:layout_constraintTop_toTopOf="@+id/textViewElipse" />
+
+    <TextView
+        android:id="@+id/textViewFragmentKcalConsumirValor"
+        android:layout_width="63dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="6dp"
+        android:text="2200"
+        android:textAlignment="textEnd"
+        android:textSize="23sp"
+        app:layout_constraintStart_toStartOf="@+id/textViewElipse"
+        app:layout_constraintTop_toBottomOf="@+id/textViewConsumirLabel" />
+
+    <TextView
+        android:id="@+id/textViewFragmentKcalConsumidosValor"
+        android:layout_width="41dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="7dp"
+        android:text="0"
+        android:textAlignment="textEnd"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/textViewPainelCalorias"
+        app:layout_constraintTop_toBottomOf="@+id/textViewConsumidos" />
+
+    <TextView
+        android:id="@+id/textViewKcal"
+        android:layout_width="44dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="4dp"
+        android:text="kcal"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/textViewPainelCalorias"
+        app:layout_constraintTop_toBottomOf="@+id/textViewGastos" />
+
+    <TextView
+        android:id="@+id/textViewKcal5"
+        android:layout_width="44dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="11dp"
+        android:text="kcal"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/textViewElipse"
+        app:layout_constraintStart_toEndOf="@+id/textViewFragmentKcalConsumidosValor"
+        app:layout_constraintTop_toBottomOf="@+id/textViewConsumidos" />
+
+    <TextView
+        android:id="@+id/textViewFragmentKcalGastosValor"
+        android:layout_width="50dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="4dp"
+        android:text="0"
+        android:textAlignment="textEnd"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/textViewKcal"
+        app:layout_constraintStart_toEndOf="@+id/textViewElipse"
+        app:layout_constraintTop_toBottomOf="@+id/textViewGastos" />
+
+    <TextView
+        android:id="@+id/textViewKcalConsumirLabel"
+        android:layout_width="47dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="6dp"
+        android:text="Kcal"
+        android:textSize="23sp"
+        app:layout_constraintStart_toEndOf="@+id/textViewFragmentKcalConsumirValor"
+        app:layout_constraintTop_toBottomOf="@+id/textViewConsumirLabel" />
+
+    <TextView
+        android:id="@+id/textViewItemPanelCafe"
+        android:layout_width="380dp"
+        android:layout_height="69dp"
+        android:layout_marginTop="9dp"
+        android:background="#CED6E0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDiarioLabel" />
+
+    <TextView
+        android:id="@+id/textViewItemPanelLancheManha"
+        android:layout_width="380dp"
+        android:layout_height="69dp"
+        android:layout_marginTop="25dp"
+        android:background="#CED6E0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewItemPanelCafe" />
+
+    <TextView
+        android:id="@+id/textViewItemPanelAlmoco"
+        android:layout_width="380dp"
+        android:layout_height="69dp"
+        android:layout_marginTop="25dp"
+        android:background="#CED6E0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewItemPanelLancheManha" />
+
+    <TextView
+        android:id="@+id/textViewItemPanelLancheTarde"
+        android:layout_width="380dp"
+        android:layout_height="69dp"
+        android:layout_marginTop="25dp"
+        android:background="#CED6E0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewItemPanelAlmoco" />
+
+    <TextView
+        android:id="@+id/textViewItemPanelJantar"
+        android:layout_width="380dp"
+        android:layout_height="69dp"
+        android:layout_marginTop="25dp"
+        android:background="#CED6E0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewItemPanelLancheTarde" />
+
+    <TextView
+        android:id="@+id/textViewDiarioLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:text="Diário Alimentar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewPainelCalorias" />
+
+    <TextView
+        android:id="@+id/textViewAlmocoLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="15dp"
+        android:text="Almoço"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/imageView9"
+        app:layout_constraintTop_toTopOf="@+id/textViewItemPanelAlmoco" />
+
+    <TextView
+        android:id="@+id/textViewCafeLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="15dp"
+        android:text="Café da manhã"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintTop_toTopOf="@+id/textViewItemPanelCafe" />
+
+    <TextView
+        android:id="@+id/textViewLancheTardeLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="15dp"
+        android:text="Lanche da Tarde"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/imageView10"
+        app:layout_constraintTop_toTopOf="@+id/textViewItemPanelLancheTarde" />
+
+    <TextView
+        android:id="@+id/textViewLancheTardeLabel2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="15dp"
+        android:text="Jantar"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/imageView11"
+        app:layout_constraintTop_toTopOf="@+id/textViewItemPanelJantar" />
+
+    <TextView
+        android:id="@+id/textViewLancheManhaLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="15dp"
+        android:text="Lanche da Manhã"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/imageView8"
+        app:layout_constraintTop_toTopOf="@+id/textViewItemPanelLancheManha" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="29dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/ic_coffe"
+        app:layout_constraintStart_toStartOf="@+id/textViewItemPanelCafe"
+        app:layout_constraintTop_toTopOf="@+id/textViewItemPanelCafe" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="29dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/ic_lanche_manha"
+        app:layout_constraintStart_toStartOf="@+id/textViewItemPanelLancheManha"
+        app:layout_constraintTop_toTopOf="@+id/textViewItemPanelLancheManha" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="29dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/ic_almoco"
+        app:layout_constraintStart_toStartOf="@+id/textViewItemPanelAlmoco"
+        app:layout_constraintTop_toTopOf="@+id/textViewItemPanelAlmoco" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="29dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/ic_lanche_tarde"
+        app:layout_constraintStart_toStartOf="@+id/textViewItemPanelLancheTarde"
+        app:layout_constraintTop_toTopOf="@+id/textViewItemPanelLancheTarde" />
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="29dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/ic_jantar"
+        app:layout_constraintStart_toStartOf="@+id/textViewItemPanelJantar"
+        app:layout_constraintTop_toTopOf="@+id/textViewItemPanelJantar" />
+
+    <TextView
+        android:id="@+id/textViewItemPanelKcal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginBottom="2dp"
+        android:text="kcal"
+        android:textColor="#999A9C"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewItemPanelCafe"
+        app:layout_constraintStart_toEndOf="@+id/textViewItemPainelValorKcalCafe" />
+
+    <TextView
+        android:id="@+id/textViewItemPanelKcal7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginBottom="2dp"
+        android:text="kcal"
+        android:textColor="#999A9C"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewItemPanelLancheManha"
+        app:layout_constraintStart_toEndOf="@+id/textViewItemPainelValorKcalLancheManha" />
+
+    <TextView
+        android:id="@+id/textViewItemPanelKcal8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginBottom="2dp"
+        android:text="kcal"
+        android:textColor="#999A9C"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewItemPanelLancheTarde"
+        app:layout_constraintStart_toEndOf="@+id/textViewItemPainelValorKcalLancheTarde" />
+
+    <TextView
+        android:id="@+id/textViewItemPanelKcal11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginBottom="2dp"
+        android:text="kcal"
+        android:textColor="#999A9C"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewItemPanelAlmoco"
+        app:layout_constraintStart_toEndOf="@+id/textViewItemPainelValorKcalAlmoco" />
+
+    <TextView
+        android:id="@+id/textViewItemPanelKcal10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginBottom="2dp"
+        android:text="kcal"
+        android:textColor="#999A9C"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewItemPanelJantar"
+        app:layout_constraintStart_toEndOf="@+id/textViewItemPainelValorKcalJantar" />
+
+    <TextView
+        android:id="@+id/textViewItemPainelValorKcalLancheTarde"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="88dp"
+        android:layout_marginBottom="2dp"
+        android:text="0"
+        android:textColor="#999A9C"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewItemPanelLancheTarde"
+        app:layout_constraintStart_toStartOf="@+id/textViewItemPanelLancheTarde" />
+
+    <TextView
+        android:id="@+id/textViewItemPainelValorKcalAlmoco"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="88dp"
+        android:layout_marginBottom="2dp"
+        android:text="0"
+        android:textColor="#999A9C"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewItemPanelAlmoco"
+        app:layout_constraintStart_toStartOf="@+id/textViewItemPanelAlmoco" />
+
+    <TextView
+        android:id="@+id/textViewItemPainelValorKcalJantar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="88dp"
+        android:layout_marginBottom="2dp"
+        android:text="0"
+        android:textColor="#999A9C"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewItemPanelJantar"
+        app:layout_constraintStart_toStartOf="@+id/textViewItemPanelJantar" />
+
+    <ImageView
+        android:id="@+id/imageViewItemPanelAddCafe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="28dp"
+        android:onClick="irEditarRefeicao"
+        android:src="@drawable/ic_baseline_add_24"
+        app:layout_constraintEnd_toEndOf="@+id/textViewItemPanelCafe"
+        app:layout_constraintTop_toTopOf="@+id/textViewItemPanelCafe" />
+
+    <ImageView
+        android:id="@+id/imageViewItemPanelAddLancheManha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="28dp"
+        android:src="@drawable/ic_baseline_add_24"
+        app:layout_constraintEnd_toEndOf="@+id/textViewItemPanelLancheManha"
+        app:layout_constraintTop_toTopOf="@+id/textViewItemPanelLancheManha" />
+
+    <ImageView
+        android:id="@+id/imageViewItemPanelAddAlmoco"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="28dp"
+        android:src="@drawable/ic_baseline_add_24"
+        app:layout_constraintEnd_toEndOf="@+id/textViewItemPanelAlmoco"
+        app:layout_constraintTop_toTopOf="@+id/textViewItemPanelAlmoco" />
+
+    <ImageView
+        android:id="@+id/imageViewItemPanelAddLancheTarde"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="28dp"
+        android:src="@drawable/ic_baseline_add_24"
+        app:layout_constraintEnd_toEndOf="@+id/textViewItemPanelLancheTarde"
+        app:layout_constraintTop_toTopOf="@+id/textViewItemPanelLancheTarde" />
+
+    <ImageView
+        android:id="@+id/imageViewItemPanelAddJantar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="28dp"
+        android:src="@drawable/ic_baseline_add_24"
+        app:layout_constraintEnd_toEndOf="@+id/textViewItemPanelJantar"
+        app:layout_constraintTop_toTopOf="@+id/textViewItemPanelJantar" />
+
+    <TextView
+        android:id="@+id/textViewItemPainelValorKcalCafe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="88dp"
+        android:layout_marginBottom="2dp"
+        android:text="0"
+        android:textColor="#999A9C"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewItemPanelCafe"
+        app:layout_constraintStart_toStartOf="@+id/textViewItemPanelCafe" />
+
+    <TextView
+        android:id="@+id/textViewItemPainelValorKcalLancheManha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="88dp"
+        android:layout_marginBottom="2dp"
+        android:text="0"
+        android:textColor="#999A9C"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewItemPanelLancheManha"
+        app:layout_constraintStart_toStartOf="@+id/textViewItemPanelLancheManha" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

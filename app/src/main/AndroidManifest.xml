@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.ezhealth_mobile">
+    package="com.example.ezhealth_mobile" >
 
     <application
         android:allowBackup="true"
@@ -8,9 +8,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Ezhealth_mobile">
-        <activity android:name=".activity.TabAlimento_Fragment"></activity>
-        <activity android:name=".activity.AdicionarExercicioActivity" />
+        android:theme="@style/Theme.Ezhealth_mobile" >
+        <activity android:name=".activity.HomeActivity" />
+        <activity android:name=".activity.AdicionarExercicioActivity"
+            android:theme="@style/Theme.Ezhealth_mobile.NoActionBar"/>
         <activity
             android:name=".activity.Add_Alimento_Refeicao"
             android:label="@string/title_activity_add__alimento__refeicao"
@@ -27,7 +28,7 @@
         <activity android:name=".activity.TelaCadastro3Activity" />
         <activity android:name=".activity.TelaCadastro2Activity" />
         <activity android:name=".activity.TelaCadastro1Activity" />
-        <activity android:name=".activity.MainActivity">
+        <activity android:name=".activity.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
