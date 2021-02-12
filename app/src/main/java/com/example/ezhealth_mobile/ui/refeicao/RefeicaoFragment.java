@@ -1,5 +1,6 @@
 package com.example.ezhealth_mobile.ui.refeicao;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,16 +12,23 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import com.example.ezhealth_mobile.R;
+import com.example.ezhealth_mobile.activity.EditarRefeicaoActivity;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 public class RefeicaoFragment extends Fragment {
 
     private RefeicaoViewModel refeicaoViewModel;
+    private ViewGroup container;
+    private LayoutInflater inflater;
 
     public View onCreateView(
             @NonNull LayoutInflater inflater,
             ViewGroup container,
             Bundle savedInstanceState)
     {
+        this.container = container;
+        this.inflater = inflater;
         refeicaoViewModel = new ViewModelProvider(this).get(RefeicaoViewModel.class);
         View root = inflater.inflate(R.layout.fragment_refeicao, container, false);
 
@@ -31,5 +39,11 @@ public class RefeicaoFragment extends Fragment {
         });
 
         return root;
+    }
+
+    public void irAdicionarAlimento(View view){
+        View root = inflater.inflate(R.layout.activity_home, container, false);
+        Intent intent = new Intent(root.getContext(), EditarRefeicaoActivity.class);
+        startActivity(intent);
     }
 }
