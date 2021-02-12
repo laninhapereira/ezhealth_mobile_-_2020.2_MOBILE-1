@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -72,5 +73,16 @@ public class DualPanelActivity extends AppCompatActivity {
         includeFirstPanel.addView(layout);
     }
 
+    //Botão "check" para confirmar que o usuário já adicionou os alimentos/refeições desejados
+    public void check_Alimento_refeição(View v){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    //Botão "voltar" para caso o usuário desista e volte para a tela anterior
+    public void voltarListaAlimentos(View v){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
 
 }

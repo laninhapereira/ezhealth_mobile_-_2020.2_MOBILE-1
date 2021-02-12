@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">EzHealth</string>
+    <string name="title_activity_add__alimento__refeicao">Add_Alimento_Refeicao</string>
+    <string name="tab_text_1">Alimentos</string>
+    <string name="tab_text_2">Refeições</string>
 </resources>
