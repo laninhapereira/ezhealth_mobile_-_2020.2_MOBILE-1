@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ezhealth_mobile.R;
 import com.example.ezhealth_mobile.entity.ObjectDefault;
+import com.example.ezhealth_mobile.entity.RepositoryObjectDefault;
 
 import java.util.ArrayList;
 
@@ -22,16 +23,12 @@ import static androidx.core.app.ActivityCompat.startActivityForResult;
 public class RecyclerViewAdapter extends RecyclerView.Adapter<ViewHolder>{
 
     private static final int ATUALIZAR = 1;
-    private ArrayList<ObjectDefault> list;
-    private Context context;
-    private android.app.Activity activityOringin;
-    private android.app.Activity activityDestiny;
+    private Context contextOrigin;
+    private Class classEdicaoItem;
 
-    public RecyclerViewAdapter(ArrayList<ObjectDefault> list) {
-        this.list = list;
-        this.context = context;
-        this.activityOringin = activityOringin;
-        this.activityDestiny = activityDestiny;
+    public RecyclerViewAdapter(Context contextOrigin,  Class classEdicaoItem) {
+        this.contextOrigin = contextOrigin;
+        this.classEdicaoItem = classEdicaoItem;
     }
 
     @NonNull
@@ -44,7 +41,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<ViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        ObjectDefault obj = list.get(position);
+        ObjectDefault obj = RepositoryObjectDefault.getItemList(position);
         holder.setObj(obj);
         holder.setPosition(position);
         holder.setTitle(obj.getName());
@@ -54,9 +51,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<ViewHolder>{
 
         holder.setOnMenuItemClickListener(item -> {
             if(item.getTitle().equals("Editar")) {
-                Intent intent = new Intent(context, activityDestiny.getClass());
+                Intent intent = new Intent(contextOrigin, classEdicaoItem);
                 intent.putExtra("POSITION", position);
-                startActivityForResult(activityOringin, intent, ATUALIZAR, null);
+                startActivityForResult((Activity) contextOrigin, intent, ATUALIZAR, null);
             }else if(item.getTitle().equals("Excluir")){
 
             }
@@ -67,8 +64,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<ViewHolder>{
 
     @Override
     public int getItemCount() {
-        return this.list.size();
+        return RepositoryObjectDefault.getList().size();
     }
-
 
 }

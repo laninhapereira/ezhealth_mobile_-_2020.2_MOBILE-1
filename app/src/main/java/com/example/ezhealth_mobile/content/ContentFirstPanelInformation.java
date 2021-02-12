@@ -1,35 +1,36 @@
 package com.example.ezhealth_mobile.content;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.ezhealth_mobile.activity.MainActivity;
 import com.example.ezhealth_mobile.entity.ObjectDefault;
 import com.example.ezhealth_mobile.R;
 import com.example.ezhealth_mobile.util.RecyclerViewAdapter;
 
 import java.util.ArrayList;
 
-public class ContentFirstPanelInformation extends ContentPanel {
+import static androidx.core.content.ContextCompat.startActivity;
 
-    private ImageView imageViewAdd;
+public class ContentFirstPanelInformation {
 
-    public ContentFirstPanelInformation(View view, String titlePanel, ArrayList<ObjectDefault> list) {
-        super(view, titlePanel);
+    public ContentFirstPanelInformation(AppCompatActivity appCompatActivity, String titlePanel, Class classEdicaoItem) {
+        View view = appCompatActivity.getWindow().getDecorView();
 
-        RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(list);
+        ((TextView)view.findViewById(R.id.textViewTitle)).setText(titlePanel);
+
+        RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(appCompatActivity, classEdicaoItem);
 
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         recyclerView.setAdapter(recyclerViewAdapter);
-
-        imageViewAdd = getView().findViewById(R.id.imageViewButtonAdd);
-    }
-
-    public void setOnListernButtonAdd(View.OnClickListener l){
-        imageViewAdd.setOnClickListener(l);
     }
 
 }
