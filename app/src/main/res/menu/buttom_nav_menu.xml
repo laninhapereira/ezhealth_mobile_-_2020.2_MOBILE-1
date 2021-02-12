@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_diario"
+        android:icon="@drawable/ic_library_books_24px"
+        android:title="Diário" />
+
+    <item
+        android:id="@+id/navigation_refeicoes"
+        android:icon="@drawable/ic_restaurant_menu_24px"
+        android:title="Refeições" />
+
+    <item
+        android:id="@+id/navigation_exercicios"
+        android:icon="@drawable/ic_fitness_center_24px"
+        android:title="Exercícios" />
+    <item
+        android:id="@+id/navigation_perfil"
+        android:icon="@drawable/ic_account_circle_24px"
+        android:title="Perfil" />
+
+</menu>

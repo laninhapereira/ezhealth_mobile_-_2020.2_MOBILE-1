@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_diario">
+
+    <fragment
+        android:id="@+id/navigation_diario"
+        android:name="com.example.ezhealth_mobile.ui.diario.DiarioFragment"
+        android:label="Diário"
+        tools:layout="@layout/fragment_diario" />
+
+    <fragment
+        android:id="@+id/navigation_refeicoes"
+        android:name="com.example.ezhealth_mobile.ui.refeicao.RefeicaoFragment"
+        android:label="Refeições"
+        tools:layout="@layout/fragment_refeicao" />
+
+    <fragment
+        android:id="@+id/navigation_exercicios"
+        android:name="com.example.ezhealth_mobile.ui.exercicio.ExercicioFragment"
+        android:label="Exercícios"
+        tools:layout="@layout/fragment_exercicio" />
+
+    <fragment
+        android:id="@+id/navigation_perfil"
+        android:name="com.example.ezhealth_mobile.ui.perfil.PerfilFragment"
+        android:label="Perfil"
+        tools:layout="@layout/fragment_perfil" />
+</navigation>
