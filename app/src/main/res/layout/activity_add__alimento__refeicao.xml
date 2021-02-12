@@ -85,10 +85,27 @@
             app:tabIndicatorColor="@color/white"/>
     </com.google.android.material.appbar.AppBarLayout>
 
+    <TextView
+        android:id="@+id/BarraPesquisa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="120dp"
+        android:paddingTop="150dp"
+        android:text="Barra de pesquisa"
+        android:textColor="#2F3542"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.22"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.00999999" />
+
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
-        android:layout_height="615dp"
+        android:layout_height="542dp"
+        android:layout_marginTop="75dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

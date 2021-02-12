@@ -4,10 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.ezhealth_mobile.R;
+import com.example.ezhealth_mobile.util.ExampleAdapter;
+import com.example.ezhealth_mobile.util.Example_Item_Alimento;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,7 +21,11 @@ import android.view.View;
 
 import com.example.ezhealth_mobile.activity.ui.main.SectionsPagerAdapter;
 
+import java.util.ArrayList;
+
 public class Add_Alimento_Refeicao extends AppCompatActivity {
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +38,8 @@ public class Add_Alimento_Refeicao extends AppCompatActivity {
         tabs.setupWithViewPager(viewPager);
         FloatingActionButton fab = findViewById(R.id.fab);
 
+        // tabs.getTabAt(0).setIcon(R.drawable.check);
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -37,6 +47,8 @@ public class Add_Alimento_Refeicao extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+
     }
 
     //Botão "check" para confirmar que o usuário já adicionou os alimentos/refeições desejados

@@ -18,7 +18,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Titulo"
-            android:textColor="#999A9C" />
+            android:textSize="15dp"
+            android:textColor="#6E6F71" />
 
         <TextView
             android:id="@+id/textViewItemQuant"
@@ -27,7 +28,8 @@
             android:layout_below="@+id/textViewItemTitle"
             android:layout_marginTop="0dp"
             android:text="30"
-            android:textColor="#999A9C" />
+            android:textSize="15dp"
+            android:textColor="#6E6F71" />
 
         <TextView
             android:id="@+id/textViewItemQuantMeasure"
@@ -38,7 +40,8 @@
             android:layout_marginTop="0dp"
             android:layout_toEndOf="@+id/textViewItemQuant"
             android:text="min"
-            android:textColor="#999A9C" />
+            android:textSize="15dp"
+            android:textColor="#6E6F71" />
 
         <TextView
             android:id="@+id/textViewItemKcal"
@@ -49,18 +52,20 @@
             android:layout_marginTop="0dp"
             android:layout_toEndOf="@+id/textView5"
             android:text="0"
-            android:textColor="#999A9C" />
+            android:textSize="15dp"
+            android:textColor="#6E6F71" />
 
         <TextView
             android:id="@+id/textViewItemKcalMeasure"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textViewItemTitle"
-            android:layout_marginStart="13dp"
+            android:layout_marginStart="4dp"
             android:layout_marginTop="0dp"
             android:layout_toEndOf="@+id/textViewItemKcal"
             android:text="Kcal"
-            android:textColor="#999A9C" />
+            android:textColor="#6E6F71"
+            android:textSize="15dp" />
 
         <TextView
             android:id="@+id/textView5"
@@ -71,7 +76,8 @@
             android:layout_marginTop="0dp"
             android:layout_toEndOf="@+id/textViewItemQuantMeasure"
             android:text="-"
-            android:textColor="#999A9C" />
+            android:textSize="15dp"
+            android:textColor="#6E6F71" />
 
         <ImageView
             android:id="@+id/imageViewButtonMore"

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardBackgroundColor="#CED6E0">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="4dp"
+        android:background="#CED6E0">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:padding="2dp"/>
+
+        <TextView
+            android:id="@+id/TextViewAlimento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Alimento"
+            android:textSize="15dp"
+            android:textColor="#6E6F71"/>
+
+        <TextView
+            android:id="@+id/TextViewMassaAlimento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="200"
+            android:textColor="#6E6F71"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/TextViewUnidadeMassaAlimento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="28dp"
+            android:text="g"
+            android:textColor="#6E6F71"
+            android:textSize="15dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="48dp"
+            android:text="-"
+            android:textColor="#6E6F71"
+            android:textSize="15dp" />
+
+
+        <TextView
+            android:id="@+id/TextViewCaloriasAlimento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="62dp"
+            android:text="700"
+            android:textColor="#6E6F71"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/TextViewUnidadeCaloriasAlimento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="92dp"
+            android:text="kcal"
+            android:textColor="#6E6F71"
+            android:textSize="15dp" />
+
+
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>

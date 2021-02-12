@@ -9,6 +9,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.example.ezhealth_mobile.R;
+import com.example.ezhealth_mobile.activity.TabAlimento_Fragment;
+import com.example.ezhealth_mobile.activity.TabRefeicao_Fragment;
 
 /**
  * A [FragmentPagerAdapter] that returns a fragment corresponding to
@@ -29,7 +31,18 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         // getItem is called to instantiate the fragment for the given page.
         // Return a PlaceholderFragment (defined as a static inner class below).
-        return PlaceholderFragment.newInstance(position + 1);
+        //return PlaceholderFragment.newInstance(position + 1);
+        Fragment fragment = null;
+        switch (position){
+            case 0:
+                fragment = new TabAlimento_Fragment();
+                break;
+            case 1:
+                fragment = new TabRefeicao_Fragment();
+                break;
+        }
+        return fragment;
+
     }
 
     @Nullable
