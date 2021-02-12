@@ -31,7 +31,7 @@
         app:layout_constraintTop_toTopOf="@+id/textViewPanel1" />
 
     <TextView
-        android:id="@+id/textViewTitle"
+        android:id="@+id/textViewTitlePanel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="9dp"

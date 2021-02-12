@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class RepositoryObjectDefault {
 
     private static ArrayList<ObjectDefault> listObject = new ArrayList<ObjectDefault>();
+    private static String titleListItens = "";
 
     public static void setList(ArrayList<ObjectDefault> list){
         listObject = list;
@@ -24,5 +25,13 @@ public class RepositoryObjectDefault {
 
     public static ObjectDefault getItemList(int position){
         return listObject.get(position);
+    }
+
+    public static String getTitleListItens() {
+        return titleListItens;
+    }
+
+    public static void setTitleListItens(String title) {
+        titleListItens = title;
     }
 }

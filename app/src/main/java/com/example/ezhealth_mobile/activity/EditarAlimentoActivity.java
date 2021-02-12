@@ -13,50 +13,49 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.ezhealth_mobile.R;
 import com.example.ezhealth_mobile.content.ContentFirstPanelInformation;
+import com.example.ezhealth_mobile.content.ContentFirstPanelQuantity;
 import com.example.ezhealth_mobile.entity.ObjectDefault;
 import com.example.ezhealth_mobile.entity.RepositoryObjectDefault;
 
-public class EditarRefeicaoActivity extends AppCompatActivity {
+public class EditarAlimentoActivity extends AppCompatActivity {
+
+    private ObjectDefault objectDefault;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dual_panel);
-        ((TextView) findViewById(R.id.textViewTitelDualPanel)).setText(RepositoryObjectDefault.getTitleListItens());
+
+        ((TextView) findViewById(R.id.textViewTitelDualPanel)).setText("Editar Alimento");
         popular();
         this.configuraPrimeiroPainel();
     }
 
     private void configuraPrimeiroPainel(){
         LayoutInflater inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.content_panel_first_info, null);
+        View view = inflater.inflate(R.layout.content_panel_first_quant, null);
 
         ConstraintLayout includeFirstPanel = (ConstraintLayout) findViewById(R.id.include);
         includeFirstPanel.removeAllViews();
         includeFirstPanel.addView(view);
 
-        new ContentFirstPanelInformation(
+        new ContentFirstPanelQuantity(
                 this,
-                "Lista de alimentos",
-                EditarAlimentoActivity.class
+                objectDefault.getName(),
+                objectDefault.getQuantity(),
+                objectDefault.getQuantityMeasure()
         );
     }
 
     //Botão "check" para confirmar que o usuário já adicionou os alimentos/refeições desejados
     public void checkAlimentoRefeição(View v){
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, EditarRefeicaoActivity.class);
         startActivity(intent);
     }
 
     //Botão "voltar" para caso o usuário desista e volte para a tela anterior
     public void voltarListaAlimentos(View v){
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-    }
-
-    //Botão "add" para caso o usuário queria adicionar um novo alimento a refeicao
-    public void adicionarNovoAlimento(View view){
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, EditarRefeicaoActivity.class);
         startActivity(intent);
     }
 
@@ -66,11 +65,7 @@ public class EditarRefeicaoActivity extends AppCompatActivity {
     }
 
     private void popular(){
-        RepositoryObjectDefault.setTitleListItens("Café da manhã");
-        RepositoryObjectDefault.add(new ObjectDefault("Maçã", "4", null, "100"));
-        RepositoryObjectDefault.add(new ObjectDefault("Uva", "3", null, "80"));
-        RepositoryObjectDefault.add(new ObjectDefault("Coca-Cola", "500", "ml", "120"));
-        RepositoryObjectDefault.add(new ObjectDefault("Pedaço de Pizza", "2", null, "500"));
+        objectDefault = new ObjectDefault("Maçã", "4", null, "100");
     }
 
 }
