@@ -39,6 +39,7 @@ public class EditarAlimentoActivity extends AppCompatActivity {
         includeFirstPanel.removeAllViews();
         includeFirstPanel.addView(view);
 
+        // Classe para configuração do conteúdo do painel
         new ContentFirstPanelQuantity(
                 this,
                 objectDefault.getName(),

@@ -107,129 +107,145 @@
         android:layout_marginBottom="13dp"
         android:text="Total"
         android:textColor="#999A9C"
+        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="@+id/textViewPanel2"
         app:layout_constraintStart_toStartOf="@+id/textViewPanel2" />
 
     <TextView
-        android:id="@+id/textViewInfoNutri"
+        android:id="@+id/textViewTituloSegundoPainel"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="20dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="12dp"
         android:text="Informações Nutricionais"
-        android:textSize="18sp"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="@+id/textViewPanel2"
         app:layout_constraintTop_toTopOf="@+id/textViewPanel2" />
 
     <TextView
-        android:id="@+id/textViewCarboidratos"
+        android:id="@+id/textViewPrimeiroItem"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="20dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="12dp"
         android:text="Carboidratos"
         android:textColor="#999A9C"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="@+id/textViewPanel2"
-        app:layout_constraintTop_toBottomOf="@+id/textViewInfoNutri" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewTituloSegundoPainel" />
 
     <TextView
-        android:id="@+id/textViewProteinas"
+        android:id="@+id/textViewSegundoItem"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="20dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="12dp"
         android:text="Proteínas"
         android:textColor="#999A9C"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="@+id/textViewPanel2"
-        app:layout_constraintTop_toBottomOf="@+id/textViewCarboidratos" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewPrimeiroItem" />
 
     <TextView
-        android:id="@+id/textViewGorduras"
+        android:id="@+id/textViewTerceiroItem"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="20dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="12dp"
         android:text="Gorduras"
         android:textColor="#999A9C"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="@+id/textViewPanel2"
-        app:layout_constraintTop_toBottomOf="@+id/textViewProteinas" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewSegundoItem" />
 
     <TextView
-        android:id="@+id/textViewKcal"
-        android:layout_width="wrap_content"
+        android:id="@+id/textViewPrimeiraMedida"
+        android:layout_width="45dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
         android:layout_marginTop="12dp"
+        android:layout_marginEnd="7dp"
         android:text="kcal"
+        android:textAlignment="viewStart"
         android:textColor="#999A9C"
-        app:layout_constraintStart_toEndOf="@+id/textViewCarboValue"
-        app:layout_constraintTop_toBottomOf="@+id/textViewInfoNutri" />
+        android:textSize="15sp"
+        app:layout_constraintEnd_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTituloSegundoPainel" />
 
     <TextView
-        android:id="@+id/textViewKcal2"
-        android:layout_width="wrap_content"
+        android:id="@+id/textViewSegundaMedida"
+        android:layout_width="45dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
         android:layout_marginTop="13dp"
+        android:layout_marginEnd="7dp"
         android:text="kcal"
+        android:textAlignment="viewStart"
         android:textColor="#999A9C"
-        app:layout_constraintStart_toEndOf="@+id/textViewProteValue"
-        app:layout_constraintTop_toBottomOf="@+id/textViewKcal" />
+        app:layout_constraintEnd_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/textViewPrimeiraMedida" />
 
     <TextView
-        android:id="@+id/textViewKcal3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
+        android:id="@+id/textViewTerceiraMedida"
+        android:layout_width="45dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="7dp"
         android:text="kcal"
+        android:textAlignment="viewStart"
         android:textColor="#999A9C"
-        app:layout_constraintStart_toEndOf="@+id/textViewGorduValue"
-        app:layout_constraintTop_toBottomOf="@+id/textViewKcal2" />
+        android:textSize="15sp"
+        app:layout_constraintEnd_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSegundaMedida" />
 
     <TextView
         android:id="@+id/textViewKcal4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="7dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginBottom="13dp"
         android:text="kcal"
+        android:textColor="#999A9C"
+        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="@+id/textViewPanel2"
-        app:layout_constraintStart_toEndOf="@+id/textViewTotalKcalValue"
-        android:textColor="#999A9C" />
+        app:layout_constraintStart_toEndOf="@+id/textViewValorTotalKcal" />
 
     <TextView
-        android:id="@+id/textViewCarboValue"
+        android:id="@+id/textViewPrimeiroValor"
         android:layout_width="31dp"
-        android:layout_height="19dp"
-        android:layout_marginStart="106dp"
+        android:layout_height="20dp"
         android:layout_marginTop="12dp"
+        android:layout_marginEnd="55dp"
         android:text="0"
+        android:textAlignment="textEnd"
         android:textColor="#999A9C"
-        app:layout_constraintStart_toEndOf="@+id/textViewCarboidratos"
-        app:layout_constraintTop_toBottomOf="@+id/textViewInfoNutri" />
+        android:textSize="15sp"
+        app:layout_constraintEnd_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTituloSegundoPainel" />
 
     <TextView
-        android:id="@+id/textViewProteValue"
+        android:id="@+id/textViewSegundoValor"
         android:layout_width="31dp"
-        android:layout_height="19dp"
-        android:layout_marginStart="127dp"
-        android:layout_marginTop="14dp"
-        android:text="0"
-        android:textColor="#999A9C"
-        app:layout_constraintStart_toEndOf="@+id/textViewProteinas"
-        app:layout_constraintTop_toBottomOf="@+id/textViewCarboValue" />
-
-    <TextView
-        android:id="@+id/textViewGorduValue"
-        android:layout_width="31dp"
-        android:layout_height="19dp"
-        android:layout_marginStart="129dp"
+        android:layout_height="20dp"
         android:layout_marginTop="12dp"
+        android:layout_marginEnd="55dp"
         android:text="0"
+        android:textAlignment="textEnd"
         android:textColor="#999A9C"
-        app:layout_constraintStart_toEndOf="@+id/textViewGorduras"
-        app:layout_constraintTop_toBottomOf="@+id/textViewProteValue" />
+        android:textSize="15sp"
+        app:layout_constraintEnd_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/textViewPrimeiroValor" />
+
+    <TextView
+        android:id="@+id/textViewTerceiroValor"
+        android:layout_width="31dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="55dp"
+        android:text="0"
+        android:textAlignment="textEnd"
+        android:textColor="#999A9C"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSegundoValor" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -242,13 +258,14 @@
         app:srcCompat="@drawable/ic_insert_chart_outlined_24px" />
 
     <TextView
-        android:id="@+id/textViewTotalKcalValue"
+        android:id="@+id/textViewValorTotalKcal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="7dp"
         android:layout_marginBottom="13dp"
         android:text="0"
         android:textColor="#999A9C"
+        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="@+id/textViewPanel2"
         app:layout_constraintStart_toEndOf="@+id/textViewTotal" />
 

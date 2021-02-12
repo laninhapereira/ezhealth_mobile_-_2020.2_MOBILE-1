@@ -17,13 +17,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textViewTitlePanel"
+        android:id="@+id/textViewTituloPrimeiroPainel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="12dp"
         android:text="Titulo"
-        android:textSize="18sp"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="@+id/textViewPanel1"
         app:layout_constraintTop_toTopOf="@+id/textViewPanel1" />
 

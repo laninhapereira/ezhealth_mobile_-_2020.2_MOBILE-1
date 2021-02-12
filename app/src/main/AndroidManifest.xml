@@ -9,11 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Ezhealth_mobile">
-        <activity android:name=".AdicionarExercicioActivity"></activity>
+        <activity android:name=".activity.AdicionarExercicioActivity"></activity>
         <activity
             android:name=".activity.Add_Alimento_Refeicao"
             android:label="@string/title_activity_add__alimento__refeicao"
             android:theme="@style/Theme.Ezhealth_mobile.NoActionBar" />
+        <activity android:name=".activity.ListaExercicioActivity" />
         <activity android:name=".activity.VisualizarRefeicaoActivity" />
         <activity android:name=".activity.EditarAlimentoActivity" />
         <activity android:name=".activity.EditarRefeicaoActivity" />

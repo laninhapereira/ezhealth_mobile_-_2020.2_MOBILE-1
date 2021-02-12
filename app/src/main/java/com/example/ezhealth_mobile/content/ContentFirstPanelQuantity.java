@@ -11,7 +11,7 @@ public class ContentFirstPanelQuantity {
 
     public ContentFirstPanelQuantity(AppCompatActivity appCompatActivity, String titlePanel, String quantity, String quantityMeasure) {
         View view = appCompatActivity.getWindow().getDecorView();
-        ((TextView)view.findViewById(R.id.textViewTitlePanel)).setText(titlePanel);
+        ((TextView)view.findViewById(R.id.textViewTituloPrimeiroPainel)).setText(titlePanel);
         ((TextView)view.findViewById(R.id.editTextQtd)).setText(quantity);
         ((TextView)view.findViewById(R.id.textViewUniMed)).setText(quantityMeasure);
     }

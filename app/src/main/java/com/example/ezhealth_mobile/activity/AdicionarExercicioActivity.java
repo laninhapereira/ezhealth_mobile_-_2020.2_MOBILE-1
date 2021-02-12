@@ -1,8 +1,10 @@
-package com.example.ezhealth_mobile;
+package com.example.ezhealth_mobile.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.ezhealth_mobile.R;
 
 public class AdicionarExercicioActivity extends AppCompatActivity {
 

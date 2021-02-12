@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         //Testar se email e senha existem e ir para Home //
         //------------------------------------------------//
 
-        Intent intent = new Intent(this, EditarRefeicaoActivity.class);
+        Intent intent = new Intent(this, ListaExercicioActivity.class);
         startActivity(intent);
 
         //Intent intent = new Intent(this, Add_Alimento_Refeicao.class);

@@ -16,15 +16,16 @@ import com.example.ezhealth_mobile.content.ContentFirstPanelInformation;
 import com.example.ezhealth_mobile.entity.ObjectDefault;
 import com.example.ezhealth_mobile.entity.RepositoryObjectDefault;
 
-public class EditarRefeicaoActivity extends AppCompatActivity {
+public class ListaExercicioActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dual_panel);
         popular();
-        ((TextView) findViewById(R.id.textViewTitelDualPanel)).setText(RepositoryObjectDefault.getTitleListItens());
+        ((TextView) findViewById(R.id.textViewTitelDualPanel)).setText("Lista de Exercícios");
         this.configuraPrimeiroPainel();
+        this.configuraSegundoPainel();
     }
 
     private void configuraPrimeiroPainel(){
@@ -35,7 +36,7 @@ public class EditarRefeicaoActivity extends AppCompatActivity {
         includeFirstPanel.removeAllViews();
         includeFirstPanel.addView(view);
 
-        ((TextView) findViewById(R.id.textViewTituloPrimeiroPainel)).setText("Lista de alimentos");
+        ((TextView) findViewById(R.id.textViewTituloPrimeiroPainel)).setText("Lista de Exercícios");
 
         // Classe para configuração do conteúdo do painel
         new ContentFirstPanelInformation(
@@ -43,6 +44,24 @@ public class EditarRefeicaoActivity extends AppCompatActivity {
                 EditarAlimentoActivity.class,
                 true
         );
+    }
+
+    private void configuraSegundoPainel(){
+        ((TextView) findViewById(R.id.textViewTituloSegundoPainel)).setText("Informações gerais");
+
+        ((TextView) findViewById(R.id.textViewPrimeiroItem)).setText("Tempo");
+        ((TextView) findViewById(R.id.textViewPrimeiroValor)).setText("5");
+        ((TextView) findViewById(R.id.textViewPrimeiraMedida)).setText("h");
+
+        ((TextView) findViewById(R.id.textViewSegundoItem)).setText("Quantidade");
+        ((TextView) findViewById(R.id.textViewSegundoValor)).setText("1");
+        ((TextView) findViewById(R.id.textViewSegundaMedida)).setText("");
+
+        ((TextView) findViewById(R.id.textViewTerceiroItem)).setText("");
+        ((TextView) findViewById(R.id.textViewTerceiroValor)).setText("");
+        ((TextView) findViewById(R.id.textViewTerceiraMedida)).setText("");
+
+        ((TextView) findViewById(R.id.textViewValorTotalKcal)).setText("700");
     }
 
     //Botão "check" para confirmar que o usuário já adicionou os alimentos/refeições desejados
@@ -69,11 +88,10 @@ public class EditarRefeicaoActivity extends AppCompatActivity {
     }
 
     private void popular(){
-        RepositoryObjectDefault.setTitleListItens("Café da manhã");
-        RepositoryObjectDefault.add(new ObjectDefault("Maçã", "4", null, "100"));
-        RepositoryObjectDefault.add(new ObjectDefault("Uva", "3", null, "80"));
-        RepositoryObjectDefault.add(new ObjectDefault("Coca-Cola", "500", "ml", "120"));
-        RepositoryObjectDefault.add(new ObjectDefault("Pedaço de Pizza", "2", null, "500"));
+        RepositoryObjectDefault.setTitleListItens("Exercicios da manhã");
+        RepositoryObjectDefault.add(new ObjectDefault("Correr", "4", "Km", "400"));
+        RepositoryObjectDefault.add(new ObjectDefault("Abdominal", "3", "Series", "300"));
     }
+
 
 }

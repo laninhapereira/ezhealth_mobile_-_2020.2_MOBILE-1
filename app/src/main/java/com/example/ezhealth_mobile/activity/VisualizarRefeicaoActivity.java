@@ -7,7 +7,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -38,8 +37,9 @@ public class VisualizarRefeicaoActivity extends AppCompatActivity {
         includeFirstPanel.removeAllViews();
         includeFirstPanel.addView(view);
 
-        ((TextView) findViewById(R.id.textViewTitlePanel)).setText("Lista de alimentos");
+        ((TextView) findViewById(R.id.textViewTituloPrimeiroPainel)).setText("Lista de alimentos");
 
+        // Classe para configuração do conteúdo do painel
         new ContentFirstPanelInformation(
                 this,
                 EditarAlimentoActivity.class,
