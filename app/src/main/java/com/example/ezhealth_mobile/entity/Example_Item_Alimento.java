@@ -1,4 +1,4 @@
-package com.example.ezhealth_mobile.util;
+package com.example.ezhealth_mobile.entity;
 
 public class Example_Item_Alimento {
     private int mImageResource;

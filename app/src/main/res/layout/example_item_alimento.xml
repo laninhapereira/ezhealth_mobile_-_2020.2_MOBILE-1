@@ -1,34 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardBackgroundColor="#CED6E0">
+    app:cardBackgroundColor="#6E6F71">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="4dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="0.5dp"
         android:background="#CED6E0">
 
         <ImageView
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:padding="2dp"/>
+            android:padding="2dp" />
+
+        <Button
+            android:id="@+id/buttonADD"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/ic_baseline_add_24"
+            android:elevation="4dp"
+            android:layout_marginLeft="350dp"
+            android:layout_marginTop="25dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.55" />
+
+        <Button
+            android:id="@+id/buttonEDIT"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:background="@drawable/ic_edit"
+            android:elevation="4dp"
+            android:layout_marginLeft="310dp"
+            android:layout_marginTop="25dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.55" />
 
         <TextView
             android:id="@+id/TextViewAlimento"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="10dp"
             android:text="Alimento"
-            android:textSize="15dp"
-            android:textColor="#6E6F71"/>
+            android:textColor="#6E6F71"
+            android:textSize="15dp" />
 
         <TextView
             android:id="@+id/TextViewMassaAlimento"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="10dp"
             android:text="200"
             android:textColor="#6E6F71"
             android:textSize="15dp" />
@@ -37,8 +71,8 @@
             android:id="@+id/TextViewUnidadeMassaAlimento"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="28dp"
+            android:layout_marginLeft="36dp"
+            android:layout_marginTop="35dp"
             android:text="g"
             android:textColor="#6E6F71"
             android:textSize="15dp" />
@@ -46,8 +80,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="48dp"
+            android:layout_marginLeft="56dp"
+            android:layout_marginTop="35dp"
             android:text="-"
             android:textColor="#6E6F71"
             android:textSize="15dp" />
@@ -57,8 +91,8 @@
             android:id="@+id/TextViewCaloriasAlimento"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="62dp"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="35dp"
             android:text="700"
             android:textColor="#6E6F71"
             android:textSize="15dp" />
@@ -67,8 +101,8 @@
             android:id="@+id/TextViewUnidadeCaloriasAlimento"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="92dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="35dp"
             android:text="kcal"
             android:textColor="#6E6F71"
             android:textSize="15dp" />

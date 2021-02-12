@@ -11,7 +11,7 @@
         android:id="@+id/textViewTituloPrimeiroPainel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
+        android:layout_marginLeft="5dp"
         android:paddingTop="10dp"
         android:text="Lista de Alimentos"
         android:textColor="#2F3542"
@@ -25,10 +25,10 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewAlimentos"
-        android:layout_width="410dp"
+        android:layout_width="412dp"
         android:layout_height="500dp"
         android:layout_marginBottom="0dp"
-        android:paddingLeft="16dp"
+        android:paddingLeft="0dp"
         android:scrollbars="horizontal"
         android:background="#CED6E0"
         app:layout_constraintBottom_toBottomOf="parent"

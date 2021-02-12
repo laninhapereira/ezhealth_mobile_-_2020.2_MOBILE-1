@@ -3,7 +3,6 @@ package com.example.ezhealth_mobile.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
@@ -59,7 +58,7 @@ public class EditarRefeicaoActivity extends AppCompatActivity {
 
     //Botão "add" para caso o usuário queria adicionar um novo item
     public void adicionar(View view){
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, Add_Alimento_Refeicao.class);
         startActivity(intent);
     }
 

@@ -11,10 +11,12 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ezhealth_mobile.R;
+import com.example.ezhealth_mobile.entity.Example_Item_Alimento;
 
 import java.util.ArrayList;
 
-public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleViewHolder> {
+public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleViewHolder>{
+
 
     //Array auxiliar
     private ArrayList<Example_Item_Alimento> mListaAlimentos;
@@ -37,7 +39,18 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
             textAlimento = itemView.findViewById(R.id.TextViewAlimento);
             textMassa = itemView.findViewById(R.id.TextViewMassaAlimento);
             textCalorias = itemView.findViewById(R.id.TextViewCaloriasAlimento);
+
+            /*itemView.findViewById(R.id.buttonTESTE).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(this, HomeActivity.class);
+                    startActivity(intent);
+                    //Log.d("demo", "TESTE");
+                }
+            });*/
+
         }
+
     }
 
     public ExampleAdapter(ArrayList<Example_Item_Alimento> listaAlimentos){

@@ -13,8 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ezhealth_mobile.R;
 import com.example.ezhealth_mobile.util.ExampleAdapter;
-import com.example.ezhealth_mobile.util.Example_Item_Alimento;
-import com.example.ezhealth_mobile.util.RecyclerViewAdapter;
+import com.example.ezhealth_mobile.entity.Example_Item_Alimento;
 
 import java.util.ArrayList;
 
@@ -48,17 +47,16 @@ public class TabAlimento_Fragment extends Fragment {
 
         //Array de Alimentos
 
-        listaAlimentos.add(new Example_Item_Alimento("Banana", "40", "120"));
-        listaAlimentos.add(new Example_Item_Alimento("Caju", "40", "120"));
-        listaAlimentos.add(new Example_Item_Alimento("Mamão", "40", "120"));
-        listaAlimentos.add(new Example_Item_Alimento("Pera", "40", "120"));
-        listaAlimentos.add(new Example_Item_Alimento("Morango", "40", "120"));
-        listaAlimentos.add(new Example_Item_Alimento("Banana", "40", "120"));
-        listaAlimentos.add(new Example_Item_Alimento("Caju", "40", "120"));
-        listaAlimentos.add(new Example_Item_Alimento("Mamão", "40", "120"));
-        listaAlimentos.add(new Example_Item_Alimento("Pera", "40", "120"));
-        listaAlimentos.add(new Example_Item_Alimento("Morango", "40", "120"));
-
+        listaAlimentos.add(new Example_Item_Alimento("Banana", "100", "320"));
+        listaAlimentos.add(new Example_Item_Alimento("Caju", "100", "320"));
+        listaAlimentos.add(new Example_Item_Alimento("Mamão", "100", "320"));
+        listaAlimentos.add(new Example_Item_Alimento("Pera", "100", "320"));
+        listaAlimentos.add(new Example_Item_Alimento("Morango", "100", "320"));
+        listaAlimentos.add(new Example_Item_Alimento("Banana", "100", "320"));
+        listaAlimentos.add(new Example_Item_Alimento("Caju", "100", "320"));
+        listaAlimentos.add(new Example_Item_Alimento("Mamão", "100", "320"));
+        listaAlimentos.add(new Example_Item_Alimento("Pera", "100", "320"));
+        listaAlimentos.add(new Example_Item_Alimento("Morango", "100", "320"));
 
         //mRecyclerView.setHasFixedSize(true);
         //mLayoutManager = new LinearLayoutManager(this);
