@@ -39,5 +39,4 @@ public class ActivityAdicionarAlimentoRefeicao extends AppCompatActivity {
         startActivity(intent);
     }
 
-
 }

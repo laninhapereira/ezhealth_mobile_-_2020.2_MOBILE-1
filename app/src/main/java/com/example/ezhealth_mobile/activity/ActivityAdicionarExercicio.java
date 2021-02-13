@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ezhealth_mobile.R;
 import com.example.ezhealth_mobile.entity.ExampleItemExercicio;
+import com.example.ezhealth_mobile.ui.exercicio.ExercicioFragment;
 import com.example.ezhealth_mobile.util.ExampleAdapterExercicio;
 
 import java.util.ArrayList;
@@ -57,7 +58,7 @@ public class ActivityAdicionarExercicio extends AppCompatActivity {
     }
 
     public void adicionarExercicio(View v){
-        Intent intent = new Intent(this, ActivityListaExercicio.class);
+        Intent intent = new Intent(this, ExercicioFragment.class);
         startActivity(intent);
     }
 

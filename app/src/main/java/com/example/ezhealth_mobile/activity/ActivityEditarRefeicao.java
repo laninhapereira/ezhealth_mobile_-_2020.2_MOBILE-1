@@ -38,7 +38,7 @@ public class ActivityEditarRefeicao extends AppCompatActivity {
 
         // Classe para configuração do conteúdo do painel
         new ContentFirstPainelInformacoes(
-                this,
+                getWindow().getDecorView(),
                 ActivityEditarAlimento.class,
                 true
         );

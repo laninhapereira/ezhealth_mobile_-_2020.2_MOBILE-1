@@ -13,18 +13,17 @@ import com.example.ezhealth_mobile.util.RecyclerViewAdapter;
 
 public class ContentFirstPainelInformacoes {
 
-    public ContentFirstPainelInformacoes(AppCompatActivity appCompatActivity,
+    public ContentFirstPainelInformacoes(View viewOrigin,
                                          Class classEdicaoItem, boolean menuOpcoesHabilitado) {
-        View view = appCompatActivity.getWindow().getDecorView();
 
         if(!menuOpcoesHabilitado)
-            ((ImageView)view.findViewById(R.id.imageViewButtonAdd)).setVisibility(View.INVISIBLE);
+            ((ImageView)viewOrigin.findViewById(R.id.imageViewButtonAdd)).setVisibility(View.INVISIBLE);
 
-        RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(appCompatActivity,
+        RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(viewOrigin.getContext(),
                 classEdicaoItem, menuOpcoesHabilitado);
 
-        RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
+        RecyclerView recyclerView = viewOrigin.findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(viewOrigin.getContext()));
         recyclerView.setAdapter(recyclerViewAdapter);
     }
 

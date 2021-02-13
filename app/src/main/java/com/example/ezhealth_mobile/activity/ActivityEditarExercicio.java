@@ -13,6 +13,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import com.example.ezhealth_mobile.R;
 import com.example.ezhealth_mobile.content.ContentFirstPainelQuantidades;
 import com.example.ezhealth_mobile.entity.ObjectDefault;
+import com.example.ezhealth_mobile.ui.exercicio.ExercicioFragment;
 
 public class ActivityEditarExercicio extends AppCompatActivity {
 
@@ -67,13 +68,13 @@ public class ActivityEditarExercicio extends AppCompatActivity {
 
     //Botão "check" para confirmar que o usuário deseja salvar os itens
     public void salvar(View v){
-        Intent intent = new Intent(this, ActivityListaExercicio.class);
+        Intent intent = new Intent(this, ExercicioFragment.class);
         startActivity(intent);
     }
 
     //Botão "voltar" para caso o usuário desista e volte para a tela anterior
     public void voltar(View v){
-        Intent intent = new Intent(this, ActivityListaExercicio.class);
+        Intent intent = new Intent(this, ExercicioFragment.class);
         startActivity(intent);
     }
 

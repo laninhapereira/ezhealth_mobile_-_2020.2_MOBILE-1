@@ -40,7 +40,7 @@ public class ActivityVisualizarRefeicao extends AppCompatActivity {
 
         // Classe para configuração do conteúdo do primeiro painel
         new ContentFirstPainelInformacoes(
-                this,
+                getWindow().getDecorView(),
                 ActivityEditarAlimento.class,
                 false
         );

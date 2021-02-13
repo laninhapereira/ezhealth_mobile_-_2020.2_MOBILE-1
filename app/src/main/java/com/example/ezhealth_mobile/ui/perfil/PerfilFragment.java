@@ -18,18 +18,26 @@ public class PerfilFragment extends Fragment {
 
     private PerfilViewModel perfilViewModel;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-            ViewGroup container, Bundle savedInstanceState) {
-        perfilViewModel =
-                new ViewModelProvider(this).get(PerfilViewModel.class);
+    public View onCreateView(
+            @NonNull LayoutInflater inflater,
+            ViewGroup container,
+            Bundle savedInstanceState
+    ){
+        perfilViewModel = new ViewModelProvider(this).get(PerfilViewModel.class);
         View root = inflater.inflate(R.layout.fragment_perfil, container, false);
+
         final TextView textView = root.findViewById(R.id.text_perfil);
-        perfilViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
+
+        perfilViewModel.getText().observe(
+            getViewLifecycleOwner(),
+            new Observer<String>(){
+                @Override
+                public void onChanged(@Nullable String s) {
                 textView.setText(s);
             }
-        });
+            }
+        );
+
         return root;
     }
 }

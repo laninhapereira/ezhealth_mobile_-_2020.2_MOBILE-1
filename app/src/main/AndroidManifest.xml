@@ -17,7 +17,7 @@
             android:label="@string/title_activity_add__alimento__refeicao"
             android:theme="@style/Theme.Ezhealth_mobile.NoActionBar" />
         <activity android:name=".activity.ActivityEditarExercicio" />
-        <activity android:name=".activity.ActivityListaExercicio" />
+        <activity android:name=".ui.exercicio.ExercicioFragment" />
         <activity android:name=".activity.ActivityVisualizarRefeicao" />
         <activity android:name=".activity.ActivityEditarAlimento" />
         <activity android:name=".activity.ActivityEditarRefeicao" />
