@@ -58,7 +58,7 @@ public class ActivityAdicionarExercicio extends AppCompatActivity {
     }
 
     public void adicionarExercicio(View v){
-        Intent intent = new Intent(this, ExercicioFragment.class);
+        Intent intent = new Intent(this, ActivityHome.class);
         startActivity(intent);
     }
 
@@ -67,7 +67,7 @@ public class ActivityAdicionarExercicio extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void check_Exercicios(View v){
+    public void checkExercicios(View v){
         Intent intent = new Intent(this, ActivityMain.class);
         startActivity(intent);
     }

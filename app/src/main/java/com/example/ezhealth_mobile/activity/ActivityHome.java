@@ -2,6 +2,7 @@ package com.example.ezhealth_mobile.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,14 +22,16 @@ public class ActivityHome extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
+
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.navigation_diario, R.id.navigation_refeicoes, R.id.navigation_exercicios, R.id.navigation_perfil).build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
 
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupWithNavController(navView, navController);
 
+        this.escolheFragmentInicial(navView);
 
         ////////////////////////////TESTE ////////////////////////
         /*Teste
@@ -57,6 +60,27 @@ public class ActivityHome extends AppCompatActivity {
         */
         ////////////////////////////TESTE ////////////////////////
 
+    }
+
+    private void escolheFragmentInicial(BottomNavigationView navView){
+        if(getIntent().getStringExtra("fragment") == null)
+            return;
+        switch ( getIntent().getStringExtra("fragment") ){
+            case "diario":
+                navView.setSelectedItemId(R.id.navigation_diario);
+                break;
+            case "refeicao":
+                navView.setSelectedItemId(R.id.navigation_refeicoes);
+                break;
+            case "exercicio":
+                navView.setSelectedItemId(R.id.navigation_exercicios);
+                break;
+            case "perfil":
+                navView.setSelectedItemId(R.id.navigation_perfil);
+                break;
+            default:
+                navView.setSelectedItemId(R.id.navigation_diario);
+        }
     }
 
     public void irEditarRefeicao(View view){

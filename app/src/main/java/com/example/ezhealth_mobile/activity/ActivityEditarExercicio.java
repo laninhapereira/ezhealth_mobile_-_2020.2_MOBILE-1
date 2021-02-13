@@ -1,5 +1,6 @@
 package com.example.ezhealth_mobile.activity;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +10,9 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.ezhealth_mobile.R;
 import com.example.ezhealth_mobile.content.ContentFirstPainelQuantidades;
@@ -68,13 +72,16 @@ public class ActivityEditarExercicio extends AppCompatActivity {
 
     //Botão "check" para confirmar que o usuário deseja salvar os itens
     public void salvar(View v){
-        Intent intent = new Intent(this, ExercicioFragment.class);
+        Intent intent = new Intent(this, ActivityHome.class);
+        intent.putExtra("fragment", "exercicio");
         startActivity(intent);
     }
 
     //Botão "voltar" para caso o usuário desista e volte para a tela anterior
+    @SuppressLint("ResourceType")
     public void voltar(View v){
-        Intent intent = new Intent(this, ExercicioFragment.class);
+        Intent intent = new Intent(this, ActivityHome.class);
+        intent.putExtra("fragment", "exercicio");
         startActivity(intent);
     }
 
