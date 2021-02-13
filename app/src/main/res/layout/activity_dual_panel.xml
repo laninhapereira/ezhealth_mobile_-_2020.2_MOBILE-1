@@ -269,4 +269,5 @@
         app:layout_constraintBottom_toBottomOf="@+id/textViewPanel2"
         app:layout_constraintStart_toEndOf="@+id/textViewTotal" />
 
+
 </androidx.constraintlayout.widget.ConstraintLayout>

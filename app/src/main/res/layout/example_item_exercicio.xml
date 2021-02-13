@@ -30,7 +30,8 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.55" />
+            app:layout_constraintVertical_bias="0.55"
+            android:onClick="adicionarExercicio"/>
 
         <Button
             android:id="@+id/buttonEDIT"
@@ -45,7 +46,8 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.55" />
+            app:layout_constraintVertical_bias="0.55"
+            android:onClick="editarExercicio"/>
 
         <TextView
             android:id="@+id/TextViewExercicio"
