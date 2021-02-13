@@ -13,17 +13,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ezhealth_mobile.R;
 import com.example.ezhealth_mobile.util.ExampleAdapter;
-import com.example.ezhealth_mobile.entity.Example_Item_Alimento;
+import com.example.ezhealth_mobile.entity.ExampleItemAlimento;
 
 import java.util.ArrayList;
 
-public class TabAlimento_Fragment extends Fragment {
+public class TabFragmentAlimento extends Fragment {
 
     View v;
     private RecyclerView mRecyclerView;
     private ExampleAdapter mAdapter;
     //private LinearLayoutManager mLayoutManager;
-    ArrayList<Example_Item_Alimento> listaAlimentos = new ArrayList<>();
+    ArrayList<ExampleItemAlimento> listaAlimentos = new ArrayList<>();
 
 
     @Nullable
@@ -47,16 +47,16 @@ public class TabAlimento_Fragment extends Fragment {
 
         //Array de Alimentos
 
-        listaAlimentos.add(new Example_Item_Alimento("Banana", "100", "320"));
-        listaAlimentos.add(new Example_Item_Alimento("Caju", "100", "320"));
-        listaAlimentos.add(new Example_Item_Alimento("Mamão", "100", "320"));
-        listaAlimentos.add(new Example_Item_Alimento("Pera", "100", "320"));
-        listaAlimentos.add(new Example_Item_Alimento("Morango", "100", "320"));
-        listaAlimentos.add(new Example_Item_Alimento("Banana", "100", "320"));
-        listaAlimentos.add(new Example_Item_Alimento("Caju", "100", "320"));
-        listaAlimentos.add(new Example_Item_Alimento("Mamão", "100", "320"));
-        listaAlimentos.add(new Example_Item_Alimento("Pera", "100", "320"));
-        listaAlimentos.add(new Example_Item_Alimento("Morango", "100", "320"));
+        listaAlimentos.add(new ExampleItemAlimento("Banana", "100", "320"));
+        listaAlimentos.add(new ExampleItemAlimento("Caju", "100", "320"));
+        listaAlimentos.add(new ExampleItemAlimento("Mamão", "100", "320"));
+        listaAlimentos.add(new ExampleItemAlimento("Pera", "100", "320"));
+        listaAlimentos.add(new ExampleItemAlimento("Morango", "100", "320"));
+        listaAlimentos.add(new ExampleItemAlimento("Banana", "100", "320"));
+        listaAlimentos.add(new ExampleItemAlimento("Caju", "100", "320"));
+        listaAlimentos.add(new ExampleItemAlimento("Mamão", "100", "320"));
+        listaAlimentos.add(new ExampleItemAlimento("Pera", "100", "320"));
+        listaAlimentos.add(new ExampleItemAlimento("Morango", "100", "320"));
 
         //mRecyclerView.setHasFixedSize(true);
         //mLayoutManager = new LinearLayoutManager(this);

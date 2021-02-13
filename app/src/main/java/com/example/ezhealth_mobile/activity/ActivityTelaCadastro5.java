@@ -8,16 +8,16 @@ import android.view.View;
 
 import com.example.ezhealth_mobile.R;
 
-public class TelaCadastro6Activity extends AppCompatActivity {
+public class ActivityTelaCadastro5 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tela_cadastro6);
+        setContentView(R.layout.activity_tela_cadastro5);
     }
 
-    public void irTela7(View v){
-        Intent intent = new Intent(this, TelaCadastro7Activity.class);
+    public void irTela4(View v){
+        Intent intent = new Intent(this, ActivityTelaCadastro6.class);
         startActivity(intent);
     }
 

@@ -46,7 +46,7 @@ public class PlaceholderFragment extends Fragment {
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_add__alimento__refeicao, container, false);
+        View root = inflater.inflate(R.layout.fragment_adicionar_alimento_refeicao, container, false);
         final TextView textView = root.findViewById(R.id.textViewTituloPrimeiroPainel);
         pageViewModel.getText().observe(this, new Observer<String>() {
             @Override

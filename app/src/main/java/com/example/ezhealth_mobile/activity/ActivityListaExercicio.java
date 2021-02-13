@@ -3,7 +3,6 @@ package com.example.ezhealth_mobile.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
@@ -12,11 +11,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.ezhealth_mobile.R;
-import com.example.ezhealth_mobile.content.ContentFirstPanelInformation;
+import com.example.ezhealth_mobile.content.ContentFirstPainelInformacoes;
 import com.example.ezhealth_mobile.entity.ObjectDefault;
 import com.example.ezhealth_mobile.entity.RepositoryObjectDefault;
 
-public class ListaExercicioActivity extends AppCompatActivity {
+public class ActivityListaExercicio extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,9 +38,9 @@ public class ListaExercicioActivity extends AppCompatActivity {
         ((TextView) findViewById(R.id.textViewTituloPrimeiroPainel)).setText("Lista de Exercícios");
 
         // Classe para configuração do conteúdo do primeiro painel
-        new ContentFirstPanelInformation(
+        new ContentFirstPainelInformacoes(
                 this,
-                EditarAlimentoActivity.class,
+                ActivityEditarAlimento.class,
                 true
         );
     }
@@ -67,19 +66,19 @@ public class ListaExercicioActivity extends AppCompatActivity {
 
     //Botão "check" para confirmar que o usuário deseja salvar os itens
     public void salvar(View v){
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, ActivityMain.class);
         startActivity(intent);
     }
 
     //Botão "voltar" para caso o usuário desista e volte para a tela anterior
     public void voltar(View v){
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, ActivityMain.class);
         startActivity(intent);
     }
 
     //Botão "add" para caso o usuário queria adicionar um novo item
     public void adicionar(View view){
-        Intent intent = new Intent(this, EditarExercicioActivity.class);
+        Intent intent = new Intent(this, ActivityEditarExercicio.class);
         startActivity(intent);
     }
 

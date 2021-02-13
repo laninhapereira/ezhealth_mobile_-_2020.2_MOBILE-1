@@ -11,21 +11,20 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ezhealth_mobile.R;
-import com.example.ezhealth_mobile.entity.Example_Item_Refeicao;
+import com.example.ezhealth_mobile.entity.ExampleItemRefeicao;
 
 import java.util.ArrayList;
 
 public class ExampleAdapterRefeicao extends RecyclerView.Adapter<ExampleAdapterRefeicao.ExampleViewHolder> {
 
     //Array auxiliar
-    private ArrayList<Example_Item_Refeicao> mListaRefeicoes;
+    private ArrayList<ExampleItemRefeicao> mListaRefeicoes;
     Context mContext;
 
-    public ExampleAdapterRefeicao(Context context, ArrayList<Example_Item_Refeicao> array){
+    public ExampleAdapterRefeicao(Context context, ArrayList<ExampleItemRefeicao> array){
         this.mContext = context;
         this.mListaRefeicoes = array;
     }
-
 
 
     public static class ExampleViewHolder extends RecyclerView.ViewHolder {
@@ -65,7 +64,7 @@ public class ExampleAdapterRefeicao extends RecyclerView.Adapter<ExampleAdapterR
 
     @Override
     public void onBindViewHolder(@NonNull ExampleViewHolder holder, int position) {
-        Example_Item_Refeicao itemAtual = mListaRefeicoes.get(position);
+        ExampleItemRefeicao itemAtual = mListaRefeicoes.get(position);
 
         holder.textRefeicao.setText(itemAtual.getTextRefeicao());
         holder.textMassa.setText(itemAtual.getTextMassa());

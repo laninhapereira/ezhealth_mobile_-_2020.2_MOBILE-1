@@ -11,22 +11,22 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ezhealth_mobile.R;
-import com.example.ezhealth_mobile.entity.Example_Item_Exercicio;
+import com.example.ezhealth_mobile.entity.ExampleItemExercicio;
 
 import java.util.ArrayList;
 
 public class ExampleAdapterExercicio extends RecyclerView.Adapter<ExampleAdapterExercicio.ExampleViewHolder> {
 
     //Array auxiliar
-    private ArrayList<Example_Item_Exercicio> mListaExercicios;
+    private ArrayList<ExampleItemExercicio> mListaExercicios;
     Context mContext;
 
-    public ExampleAdapterExercicio(Context context, ArrayList<Example_Item_Exercicio> array){
+    public ExampleAdapterExercicio(Context context, ArrayList<ExampleItemExercicio> array){
         this.mContext = context;
         this.mListaExercicios = array;
     }
 
-    public ExampleAdapterExercicio(ArrayList<Example_Item_Exercicio> array){
+    public ExampleAdapterExercicio(ArrayList<ExampleItemExercicio> array){
         this.mListaExercicios = array;
     }
 
@@ -67,7 +67,7 @@ public class ExampleAdapterExercicio extends RecyclerView.Adapter<ExampleAdapter
 
     @Override
     public void onBindViewHolder(@NonNull ExampleViewHolder holder, int position) {
-        Example_Item_Exercicio itemAtual = mListaExercicios.get(position);
+        ExampleItemExercicio itemAtual = mListaExercicios.get(position);
 
         holder.textExercicio.setText(itemAtual.getTextExercicio());
         holder.textDuracao.setText(itemAtual.getTextDuracao());

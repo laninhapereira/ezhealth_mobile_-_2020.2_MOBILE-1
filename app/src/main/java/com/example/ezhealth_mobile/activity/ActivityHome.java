@@ -13,7 +13,7 @@ import androidx.navigation.ui.NavigationUI;
 import com.example.ezhealth_mobile.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class HomeActivity extends AppCompatActivity {
+public class ActivityHome extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,12 +60,12 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void irEditarRefeicao(View view){
-        Intent intent = new Intent(this, EditarRefeicaoActivity.class);
+        Intent intent = new Intent(this, ActivityEditarRefeicao.class);
         startActivity(intent);
     }
 
     public void irAdicionarAlimento(View view){
-        Intent intent = new Intent(this, EditarRefeicaoActivity.class);
+        Intent intent = new Intent(this, ActivityEditarRefeicao.class);
         startActivity(intent);
     }
 

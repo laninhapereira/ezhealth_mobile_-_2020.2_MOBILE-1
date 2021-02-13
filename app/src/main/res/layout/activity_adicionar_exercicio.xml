@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#CED6E0"
-    tools:context=".activity.AdicionarExercicioActivity">
+    tools:context=".activity.ActivityAdicionarExercicio">
 
 
     <Button

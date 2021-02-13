@@ -11,10 +11,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.ezhealth_mobile.R;
 import com.example.ezhealth_mobile.util.RecyclerViewAdapter;
 
-public class ContentFirstPanelInformation {
+public class ContentFirstPainelInformacoes {
 
-    public ContentFirstPanelInformation(AppCompatActivity appCompatActivity,
-                                        Class classEdicaoItem, boolean menuOpcoesHabilitado) {
+    public ContentFirstPainelInformacoes(AppCompatActivity appCompatActivity,
+                                         Class classEdicaoItem, boolean menuOpcoesHabilitado) {
         View view = appCompatActivity.getWindow().getDecorView();
 
         if(!menuOpcoesHabilitado)

@@ -3,7 +3,6 @@ package com.example.ezhealth_mobile.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
@@ -12,10 +11,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.ezhealth_mobile.R;
-import com.example.ezhealth_mobile.content.ContentFirstPanelQuantity;
+import com.example.ezhealth_mobile.content.ContentFirstPainelQuantidades;
 import com.example.ezhealth_mobile.entity.ObjectDefault;
 
-public class EditarExercicioActivity extends AppCompatActivity {
+public class ActivityEditarExercicio extends AppCompatActivity {
 
     private ObjectDefault objectDefault;
 
@@ -39,7 +38,7 @@ public class EditarExercicioActivity extends AppCompatActivity {
         includeFirstPanel.addView(view);
 
         // Classe para configuração do conteúdo do primeiro painel
-        new ContentFirstPanelQuantity(
+        new ContentFirstPainelQuantidades(
                 this,
                 objectDefault.getName(),
                 objectDefault.getQuantity(),
@@ -68,13 +67,13 @@ public class EditarExercicioActivity extends AppCompatActivity {
 
     //Botão "check" para confirmar que o usuário deseja salvar os itens
     public void salvar(View v){
-        Intent intent = new Intent(this, ListaExercicioActivity.class);
+        Intent intent = new Intent(this, ActivityListaExercicio.class);
         startActivity(intent);
     }
 
     //Botão "voltar" para caso o usuário desista e volte para a tela anterior
     public void voltar(View v){
-        Intent intent = new Intent(this, ListaExercicioActivity.class);
+        Intent intent = new Intent(this, ActivityListaExercicio.class);
         startActivity(intent);
     }
 

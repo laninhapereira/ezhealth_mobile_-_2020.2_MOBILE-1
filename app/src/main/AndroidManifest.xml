@@ -9,26 +9,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Ezhealth_mobile" >
-        <activity android:name=".activity.HomeActivity" />
-        <activity android:name=".activity.AdicionarExercicioActivity"
+        <activity android:name=".activity.ActivityHome" />
+        <activity android:name=".activity.ActivityAdicionarExercicio"
             android:theme="@style/Theme.Ezhealth_mobile.NoActionBar"/>
         <activity
-            android:name=".activity.Add_Alimento_Refeicao"
+            android:name=".activity.ActivityAdicionarAlimentoRefeicao"
             android:label="@string/title_activity_add__alimento__refeicao"
             android:theme="@style/Theme.Ezhealth_mobile.NoActionBar" />
-        <activity android:name=".activity.EditarExercicioActivity" />
-        <activity android:name=".activity.ListaExercicioActivity" />
-        <activity android:name=".activity.VisualizarRefeicaoActivity" />
-        <activity android:name=".activity.EditarAlimentoActivity" />
-        <activity android:name=".activity.EditarRefeicaoActivity" />
-        <activity android:name=".activity.TelaCadastro7Activity" />
-        <activity android:name=".activity.TelaCadastro6Activity" />
-        <activity android:name=".activity.TelaCadastro5Activity" />
-        <activity android:name=".activity.TelaCadastro4Activity" />
-        <activity android:name=".activity.TelaCadastro3Activity" />
-        <activity android:name=".activity.TelaCadastro2Activity" />
-        <activity android:name=".activity.TelaCadastro1Activity" />
-        <activity android:name=".activity.MainActivity" >
+        <activity android:name=".activity.ActivityEditarExercicio" />
+        <activity android:name=".activity.ActivityListaExercicio" />
+        <activity android:name=".activity.ActivityVisualizarRefeicao" />
+        <activity android:name=".activity.ActivityEditarAlimento" />
+        <activity android:name=".activity.ActivityEditarRefeicao" />
+        <activity android:name=".activity.ActivityTelaCadastro7" />
+        <activity android:name=".activity.ActivityTelaCadastro6" />
+        <activity android:name=".activity.ActivityTelaCadastro5" />
+        <activity android:name=".activity.ActivityTelaCadastro4" />
+        <activity android:name=".activity.ActivityTelaCadastro3" />
+        <activity android:name=".activity.ActivityTelaCadastro2" />
+        <activity android:name=".activity.ActivityTelaCadastro1" />
+        <activity android:name=".activity.ActivityMain" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

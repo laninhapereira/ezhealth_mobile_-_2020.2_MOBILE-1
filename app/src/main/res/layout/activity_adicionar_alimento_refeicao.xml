@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#CED6E0"
-    tools:context=".activity.Add_Alimento_Refeicao">
+    tools:context=".activity.ActivityAdicionarAlimentoRefeicao">
 
 
     <Button
@@ -57,12 +57,12 @@
 
     <Button
         android:id="@+id/buttonCheck"
-        android:onClick="check_Alimento_refeição"
-        android:layout_marginLeft="350dp"
-        android:layout_marginTop="14dp"
         android:layout_width="30dp"
         android:layout_height="30dp"
+        android:layout_marginLeft="350dp"
+        android:layout_marginTop="14dp"
         android:background="@drawable/ic_check"
+        android:onClick="checkAlimentoRefeição"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.95"
         app:layout_constraintLeft_toLeftOf="parent"

@@ -1,15 +1,16 @@
 package com.example.ezhealth_mobile.entity;
 
-public class Example_Item_Alimento {
+public class ExampleItemRefeicao {
+
     private int mImageResource;
-    private String textAlimento;
+    private String textRefeicao;
     private String textMassa;
     private String textCalorias;
 
 
-    public Example_Item_Alimento(String text1, String text2, String text3){
+    public ExampleItemRefeicao(String text1, String text2, String text3){
         //mImageResource = imageResource;
-        textAlimento = text1;
+        textRefeicao = text1;
         textMassa = text2;
         textCalorias = text3;
     }
@@ -18,8 +19,8 @@ public class Example_Item_Alimento {
         return mImageResource;
     }
 
-    public String getTextAlimento() {
-        return textAlimento;
+    public String getTextRefeicao() {
+        return textRefeicao;
     }
 
     public String getTextMassa() {
@@ -29,4 +30,5 @@ public class Example_Item_Alimento {
     public String getTextCalorias(){
         return textCalorias;
     }
+
 }

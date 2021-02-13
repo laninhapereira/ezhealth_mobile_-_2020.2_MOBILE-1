@@ -12,7 +12,7 @@ import android.widget.EditText;
 
 import com.example.ezhealth_mobile.R;
 
-public class TelaCadastro7Activity extends AppCompatActivity {
+public class ActivityTelaCadastro7 extends AppCompatActivity {
 
     private EditText cadastroEmail, cadastroSenha, getCadastroSenha2;
     private Button buttonProximo7;
@@ -60,7 +60,7 @@ public class TelaCadastro7Activity extends AppCompatActivity {
 
 
     public void voltarTelaLogin(View v){
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, ActivityMain.class);
         startActivity(intent);
     }
 

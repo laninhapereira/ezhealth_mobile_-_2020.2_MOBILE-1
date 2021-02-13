@@ -9,8 +9,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.example.ezhealth_mobile.R;
-import com.example.ezhealth_mobile.activity.TabAlimento_Fragment;
-import com.example.ezhealth_mobile.activity.TabRefeicao_Fragment;
+import com.example.ezhealth_mobile.activity.TabFragmentAlimento;
+import com.example.ezhealth_mobile.activity.TabFragmentRefeicao;
 
 /**
  * A [FragmentPagerAdapter] that returns a fragment corresponding to
@@ -35,10 +35,10 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         Fragment fragment = null;
         switch (position){
             case 0:
-                fragment = new TabAlimento_Fragment();
+                fragment = new TabFragmentAlimento();
                 break;
             case 1:
-                fragment = new TabRefeicao_Fragment();
+                fragment = new TabFragmentRefeicao();
                 break;
         }
         return fragment;

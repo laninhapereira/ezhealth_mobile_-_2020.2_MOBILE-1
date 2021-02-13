@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ezhealth_mobile.R;
 
-public class MainActivity extends AppCompatActivity {
+public class ActivityMain extends AppCompatActivity {
 
     private EditText loginEmail, loginSenha;
     private Button loginButton;
@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         //Testar se email e senha existem e ir para Home //
         //------------------------------------------------//
 
-        Intent intent = new Intent(this, HomeActivity.class);
+        Intent intent = new Intent(this, ActivityHome.class);
         startActivity(intent);
 
         //Intent intent = new Intent(this, AdicionarExercicioActivity.class);
@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void cadastrarUsuario(View v){
-        Intent intent = new Intent(this, TelaCadastro1Activity.class);
+        Intent intent = new Intent(this, ActivityTelaCadastro1.class);
         startActivity(intent);
     }
 }

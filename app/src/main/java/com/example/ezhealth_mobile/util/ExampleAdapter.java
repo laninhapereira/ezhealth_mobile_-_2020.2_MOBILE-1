@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ezhealth_mobile.R;
-import com.example.ezhealth_mobile.entity.Example_Item_Alimento;
+import com.example.ezhealth_mobile.entity.ExampleItemAlimento;
 
 import java.util.ArrayList;
 
@@ -19,10 +19,10 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
 
 
     //Array auxiliar
-    private ArrayList<Example_Item_Alimento> mListaAlimentos;
+    private ArrayList<ExampleItemAlimento> mListaAlimentos;
     Context mContext;
 
-    public ExampleAdapter(Context context, ArrayList<Example_Item_Alimento> array){
+    public ExampleAdapter(Context context, ArrayList<ExampleItemAlimento> array){
         this.mContext = context;
         this.mListaAlimentos = array;
     }
@@ -53,7 +53,7 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
 
     }
 
-    public ExampleAdapter(ArrayList<Example_Item_Alimento> listaAlimentos){
+    public ExampleAdapter(ArrayList<ExampleItemAlimento> listaAlimentos){
         mListaAlimentos = listaAlimentos;
     }
 
@@ -66,7 +66,7 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
 
     @Override
     public void onBindViewHolder(@NonNull ExampleViewHolder holder, int position) {
-        Example_Item_Alimento itemAtual = mListaAlimentos.get(position);
+        ExampleItemAlimento itemAtual = mListaAlimentos.get(position);
 
         holder.textAlimento.setText(itemAtual.getTextAlimento());
         holder.textMassa.setText(itemAtual.getTextMassa());

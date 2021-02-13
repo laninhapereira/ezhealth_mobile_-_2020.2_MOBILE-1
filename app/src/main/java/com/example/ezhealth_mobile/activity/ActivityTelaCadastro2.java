@@ -12,24 +12,25 @@ import android.widget.EditText;
 
 import com.example.ezhealth_mobile.R;
 
-public class TelaCadastro1Activity extends AppCompatActivity {
+public class ActivityTelaCadastro2 extends AppCompatActivity {
 
-
-    private EditText cadastroNome, cadastroSobrenome;
-    private Button buttonProximo1;
+    private EditText cadastroDia, cadastroMes, cadastroAno;
+    private Button buttonProximo2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tela_cadastro1);
+        setContentView(R.layout.activity_tela_cadastro2);
 
         //* Confirmar se todos os campos estão preenchidos //
-        cadastroNome = findViewById(R.id.editTextNome);
-        cadastroSobrenome = findViewById(R.id.editTextSobrenome);
-        buttonProximo1 = findViewById(R.id.buttonProximo1);
+        cadastroDia = findViewById(R.id.editTextDia);
+        cadastroMes = findViewById(R.id.editTextMes);
+        cadastroAno = findViewById(R.id.editTextAno);
+        buttonProximo2 = findViewById(R.id.buttonProximo2);
 
-        cadastroNome.addTextChangedListener(cadastro1Watcher);
-        cadastroSobrenome.addTextChangedListener(cadastro1Watcher);
+        cadastroDia.addTextChangedListener(cadastro1Watcher);
+        cadastroMes.addTextChangedListener(cadastro1Watcher);
+        cadastroAno.addTextChangedListener(cadastro1Watcher);
         // Confirmar se todos os campos estão preenchidos *//
 
     }
@@ -44,10 +45,11 @@ public class TelaCadastro1Activity extends AppCompatActivity {
 
         @Override
         public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-            String nomeInput = cadastroNome.getText().toString().trim();
-            String sobrenomeInput = cadastroSobrenome.getText().toString().trim();
+            String diaInput = cadastroDia.getText().toString().trim();
+            String mesInput = cadastroMes.getText().toString().trim();
+            String anoInput = cadastroAno.getText().toString().trim();
 
-            buttonProximo1.setEnabled(!nomeInput.isEmpty() && !sobrenomeInput.isEmpty());
+            buttonProximo2.setEnabled(!diaInput.isEmpty() && !mesInput.isEmpty() && !anoInput.isEmpty());
         }
 
         @Override
@@ -56,9 +58,9 @@ public class TelaCadastro1Activity extends AppCompatActivity {
         }
     };
 
-    public void irTela2(View v){
-        Intent intent = new Intent(this, TelaCadastro2Activity.class);
+
+    public void irTela3(View v){
+        Intent intent = new Intent(this, ActivityTelaCadastro3.class);
         startActivity(intent);
     }
-
 }
