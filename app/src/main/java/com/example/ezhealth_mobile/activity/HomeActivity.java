@@ -2,10 +2,8 @@ package com.example.ezhealth_mobile.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -32,7 +30,8 @@ public class HomeActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navView, navController);
 
 
-        //TESTE TESTE TESTE
+        ////////////////////////////TESTE ////////////////////////
+        /*Teste
 
         navView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -55,7 +54,8 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        //TESTE TESTE TESTE
+        */
+        ////////////////////////////TESTE ////////////////////////
 
     }
 
