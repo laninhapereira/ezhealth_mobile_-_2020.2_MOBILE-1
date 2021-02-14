@@ -16,12 +16,14 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class ActivityHome extends AppCompatActivity {
 
+    private BottomNavigationView navView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        BottomNavigationView navView = findViewById(R.id.nav_view);
+        navView = findViewById(R.id.nav_view);
 
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
@@ -31,7 +33,7 @@ public class ActivityHome extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupWithNavController(navView, navController);
 
-        this.escolheFragmentInicial(navView);
+        this.escolheFragmentInicial();
 
         ////////////////////////////TESTE ////////////////////////
         /*Teste
@@ -62,7 +64,7 @@ public class ActivityHome extends AppCompatActivity {
 
     }
 
-    private void escolheFragmentInicial(BottomNavigationView navView){
+    private void escolheFragmentInicial(){
         if(getIntent().getStringExtra("fragment") == null)
             return;
         switch ( getIntent().getStringExtra("fragment") ){
@@ -91,6 +93,10 @@ public class ActivityHome extends AppCompatActivity {
     public void irAdicionarAlimento(View view){
         Intent intent = new Intent(this, ActivityEditarRefeicao.class);
         startActivity(intent);
+    }
+
+    public void irPerfil(View view){
+        navView.setSelectedItemId(R.id.navigation_perfil);
     }
 
 }
