@@ -70,7 +70,6 @@ public class ExercicioFragment extends Fragment {
         this.configuraPrimeiroPainel();
         this.configuraSegundoPainel();
         this.setOnClickSalvar();
-        this.setOnClickVoltar();
         this.setOnClickAdicionar();
         return viewFragment;
     }
@@ -117,14 +116,7 @@ public class ExercicioFragment extends Fragment {
     public void setOnClickSalvar(){
         ((Button) viewFragment.findViewById(R.id.buttonCheck)).setOnClickListener(v1 -> {
             Intent intent = new Intent(container.getContext(), ActivityHome.class);
-            startActivity(intent);
-        });
-    }
-
-    //Botão "voltar" para caso o usuário desista e volte para a tela anterior
-    public void setOnClickVoltar(){
-        ((Button) viewFragment.findViewById(R.id.buttonVoltar)).setOnClickListener(v1 -> {
-            Intent intent = new Intent(container.getContext(), ActivityHome.class);
+            intent.putExtra("fragment", "diario");
             startActivity(intent);
         });
     }

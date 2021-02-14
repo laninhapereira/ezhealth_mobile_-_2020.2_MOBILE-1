@@ -1,9 +1,11 @@
 package com.example.ezhealth_mobile.activity;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
@@ -22,6 +24,7 @@ import com.example.ezhealth_mobile.ui.exercicio.ExercicioFragment;
 public class ActivityEditarExercicio extends AppCompatActivity {
 
     private ObjectDefault objectDefault;
+    private String anterior;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +35,10 @@ public class ActivityEditarExercicio extends AppCompatActivity {
         popular();
         this.configuraPrimeiroPainel();
         this.configuraSegundoPainel();
+
+        anterior = getIntent().getStringExtra("anterior");
+        if(anterior!=null)
+            Log.d("aaaaaaaa", "onCreateaaaaaaaaaaaaaaaaaaaaaaaa: ");
     }
 
     private void configuraPrimeiroPainel(){
@@ -72,16 +79,31 @@ public class ActivityEditarExercicio extends AppCompatActivity {
 
     //Botão "check" para confirmar que o usuário deseja salvar os itens
     public void salvar(View v){
-        Intent intent = new Intent(this, ActivityHome.class);
-        intent.putExtra("fragment", "exercicio");
+        Intent intent;
+
+        if(anterior!=null && anterior.equals("adicionarExercicio"))
+            intent = new Intent(this, ActivityAdicionarExercicio.class);
+        else {
+            intent = new Intent(this, ActivityHome.class);
+            intent.putExtra("fragment", "exercicio");
+        }
+
         startActivity(intent);
     }
 
     //Botão "voltar" para caso o usuário desista e volte para a tela anterior
     @SuppressLint("ResourceType")
     public void voltar(View v){
-        Intent intent = new Intent(this, ActivityHome.class);
-        intent.putExtra("fragment", "exercicio");
+
+        Intent intent;
+
+        if(anterior!=null && anterior.equals("adicionarExercicio"))
+            intent = new Intent(this, ActivityAdicionarExercicio.class);
+        else {
+            intent = new Intent(this, ActivityHome.class);
+            intent.putExtra("fragment", "exercicio");
+        }
+
         startActivity(intent);
     }
 

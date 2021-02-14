@@ -54,21 +54,25 @@ public class ActivityAdicionarExercicio extends AppCompatActivity {
 
     public void editarExercicio(View v){
         Intent intent = new Intent(this, ActivityEditarExercicio.class);
+        intent.putExtra("anterior", "adicionarExercicio");
         startActivity(intent);
     }
 
     public void adicionarExercicio(View v){
         Intent intent = new Intent(this, ActivityHome.class);
+        intent.putExtra("fragment", "exercicio");
         startActivity(intent);
     }
 
     public void voltarListaExercicios(View v){
-        Intent intent = new Intent(this, ActivityMain.class);
+        Intent intent = new Intent(this, ActivityHome.class);
+        intent.putExtra("fragment", "exercicio");
         startActivity(intent);
     }
 
     public void checkExercicios(View v){
-        Intent intent = new Intent(this, ActivityMain.class);
+        Intent intent = new Intent(this, ActivityHome.class);
+        intent.putExtra("fragment", "exercicio");
         startActivity(intent);
     }
 
