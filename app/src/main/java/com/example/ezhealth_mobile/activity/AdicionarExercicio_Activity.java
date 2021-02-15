@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ezhealth_mobile.R;
-import com.example.ezhealth_mobile.entity.ItemExercicio_Example;
+import com.example.ezhealth_mobile.entity.Exercicio;
 import com.example.ezhealth_mobile.util.ExampleAdapterExercicio;
 
 import java.util.ArrayList;
@@ -19,25 +19,25 @@ public class AdicionarExercicio_Activity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private ExampleAdapterExercicio mAdapter;
     private LinearLayoutManager mLayoutManager;
-    ArrayList<ItemExercicio_Example> listaExercicios = new ArrayList<>();
+    ArrayList<Exercicio> listaExercicios = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adicionar_exercicio);
 
-        listaExercicios.add(new ItemExercicio_Example("Correr", "30", "200"));
-        listaExercicios.add(new ItemExercicio_Example("Dançar", "30", "200"));
-        listaExercicios.add(new ItemExercicio_Example("Andar de Bicicleta", "30", "200"));
-        listaExercicios.add(new ItemExercicio_Example("Nadar", "30", "200"));
-        listaExercicios.add(new ItemExercicio_Example("Correr", "30", "200"));
-        listaExercicios.add(new ItemExercicio_Example("Dançar", "30", "200"));
-        listaExercicios.add(new ItemExercicio_Example("Andar de Bicicleta", "30", "200"));
-        listaExercicios.add(new ItemExercicio_Example("Nadar", "30", "200"));
-        listaExercicios.add(new ItemExercicio_Example("Correr", "30", "200"));
-        listaExercicios.add(new ItemExercicio_Example("Dançar", "30", "200"));
-        listaExercicios.add(new ItemExercicio_Example("Andar de Bicicleta", "30", "200"));
-        listaExercicios.add(new ItemExercicio_Example("Nadar", "30", "200"));
+        listaExercicios.add(new Exercicio("Correr", "30", "200"));
+        listaExercicios.add(new Exercicio("Dançar", "30", "200"));
+        listaExercicios.add(new Exercicio("Andar de Bicicleta", "30", "200"));
+        listaExercicios.add(new Exercicio("Nadar", "30", "200"));
+        listaExercicios.add(new Exercicio("Correr", "30", "200"));
+        listaExercicios.add(new Exercicio("Dançar", "30", "200"));
+        listaExercicios.add(new Exercicio("Andar de Bicicleta", "30", "200"));
+        listaExercicios.add(new Exercicio("Nadar", "30", "200"));
+        listaExercicios.add(new Exercicio("Correr", "30", "200"));
+        listaExercicios.add(new Exercicio("Dançar", "30", "200"));
+        listaExercicios.add(new Exercicio("Andar de Bicicleta", "30", "200"));
+        listaExercicios.add(new Exercicio("Nadar", "30", "200"));
 
 
         mRecyclerView = findViewById(R.id.recyclerViewExercicios);

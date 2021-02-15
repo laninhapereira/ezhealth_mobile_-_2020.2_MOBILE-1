@@ -13,19 +13,20 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ezhealth_mobile.R;
 import com.example.ezhealth_mobile.activity.EditarRefeicao_Activity;
-import com.example.ezhealth_mobile.entity.ItemRefeicao_Example;
+import com.example.ezhealth_mobile.entity.Refeicao;
+import com.example.ezhealth_mobile.entity.Refeicao_Repositorio;
 
 import java.util.ArrayList;
 
 public class ExampleAdapterRefeicao extends RecyclerView.Adapter<ExampleAdapterRefeicao.ExampleViewHolder> {
 
     //Array auxiliar
-    private ArrayList<ItemRefeicao_Example> mListaRefeicoes;
+    private ArrayList<Refeicao> mListaRefeicoes;
     Context mContext;
 
-    public ExampleAdapterRefeicao(Context context, ArrayList<ItemRefeicao_Example> array){
+    public ExampleAdapterRefeicao(Context context){
         this.mContext = context;
-        this.mListaRefeicoes = array;
+        this.mListaRefeicoes = Refeicao_Repositorio.getList();
     }
 
 
@@ -62,7 +63,7 @@ public class ExampleAdapterRefeicao extends RecyclerView.Adapter<ExampleAdapterR
 
     @Override
     public void onBindViewHolder(@NonNull ExampleViewHolder holder, int position) {
-        ItemRefeicao_Example itemAtual = mListaRefeicoes.get(position);
+        Refeicao itemAtual = mListaRefeicoes.get(position);
 
         holder.textRefeicao.setText(itemAtual.getTextRefeicao());
         holder.textMassa.setText(itemAtual.getTextMassa());

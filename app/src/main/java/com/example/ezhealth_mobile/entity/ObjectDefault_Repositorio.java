@@ -2,7 +2,7 @@ package com.example.ezhealth_mobile.entity;
 
 import java.util.ArrayList;
 
-public class RepositoryObjectDefault {
+public class ObjectDefault_Repositorio {
 
     private static ArrayList<ObjectDefault> listObject = new ArrayList<ObjectDefault>();
     private static String titleListItens = "";

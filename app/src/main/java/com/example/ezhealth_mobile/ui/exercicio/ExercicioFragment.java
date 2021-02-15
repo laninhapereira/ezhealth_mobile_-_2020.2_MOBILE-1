@@ -23,7 +23,7 @@ import com.example.ezhealth_mobile.activity.EditarExercicio_Activity;
 import com.example.ezhealth_mobile.activity.Home_Activity;
 import com.example.ezhealth_mobile.content.PainelInformacoes_Content;
 import com.example.ezhealth_mobile.entity.ObjectDefault;
-import com.example.ezhealth_mobile.entity.RepositoryObjectDefault;
+import com.example.ezhealth_mobile.entity.ObjectDefault_Repositorio;
 
 public class ExercicioFragment extends Fragment {
 
@@ -129,9 +129,9 @@ public class ExercicioFragment extends Fragment {
     }
 
     private void popular(){
-        RepositoryObjectDefault.setTitleListItens("Exercicios da manhã");
-        RepositoryObjectDefault.add(new ObjectDefault("Correr", "4", "Km", "400"));
-        RepositoryObjectDefault.add(new ObjectDefault("Abdominal", "3", "Series", "300"));
+        ObjectDefault_Repositorio.setTitleListItens("Exercicios da manhã");
+        ObjectDefault_Repositorio.add(new ObjectDefault("Correr", "4", "Km", "400"));
+        ObjectDefault_Repositorio.add(new ObjectDefault("Abdominal", "3", "Series", "300"));
     }
 
 

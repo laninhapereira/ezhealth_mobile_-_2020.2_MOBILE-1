@@ -48,205 +48,195 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textViewFragmentResumo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="63dp"
-        android:text="Resumo"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textViewPainelCalorias"
-        android:layout_width="349dp"
-        android:layout_height="199dp"
-        android:layout_marginTop="8dp"
-        android:background="#CED6E0"
-        android:elevation="3dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewFragmentResumo" />
-
-    <TextView
-        android:id="@+id/textViewFragmentCalorias"
-        android:layout_width="wrap_content"
-        android:layout_height="27dp"
-        android:layout_marginStart="140dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="136dp"
-        android:elevation="3dp"
-        android:text="Calorias"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/textViewPainelCalorias"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textViewPainelCalorias"
-        app:layout_constraintTop_toTopOf="@+id/textViewPainelCalorias" />
-
-    <TextView
-        android:id="@+id/textViewGastos"
-        android:layout_width="wrap_content"
-        android:layout_height="22dp"
-        android:layout_marginTop="61dp"
-        android:layout_marginEnd="25dp"
-        android:elevation="3dp"
-        android:text="Gastos"
-        android:textSize="17sp"
-        app:layout_constraintEnd_toEndOf="@+id/textViewPainelCalorias"
-        app:layout_constraintTop_toTopOf="@+id/textViewPainelCalorias" />
-
-    <TextView
-        android:id="@+id/textViewConsumidos"
-        android:layout_width="wrap_content"
-        android:layout_height="22dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="61dp"
-        android:layout_marginEnd="4dp"
-        android:elevation="3dp"
-        android:text="Consumidos"
-        android:textSize="17sp"
-        app:layout_constraintEnd_toStartOf="@+id/textViewElipse"
-        app:layout_constraintStart_toStartOf="@+id/textViewPainelCalorias"
-        app:layout_constraintTop_toTopOf="@+id/textViewPainelCalorias" />
-
-    <TextView
-        android:id="@+id/textViewElipse"
-        android:layout_width="134dp"
-        android:layout_height="121dp"
-        android:layout_marginStart="108dp"
-        android:layout_marginTop="6dp"
-        android:layout_marginEnd="107dp"
-        android:background="@drawable/elipses_diario"
-        android:elevation="3dp"
-        app:layout_constraintEnd_toEndOf="@+id/textViewPainelCalorias"
-        app:layout_constraintStart_toStartOf="@+id/textViewPainelCalorias"
-        app:layout_constraintTop_toBottomOf="@+id/textViewFragmentCalorias" />
-
-    <TextView
-        android:id="@+id/textViewConsumirLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="30dp"
-        android:elevation="3dp"
-        android:text="Consumir"
-        android:textSize="17sp"
-        app:layout_constraintEnd_toEndOf="@+id/textViewElipse"
-        app:layout_constraintStart_toStartOf="@+id/textViewElipse"
-        app:layout_constraintTop_toTopOf="@+id/textViewElipse" />
-
-    <TextView
-        android:id="@+id/textViewFragmentKcalConsumirValor"
-        android:layout_width="63dp"
-        android:layout_height="33dp"
-        android:layout_marginStart="9dp"
-        android:layout_marginTop="6dp"
-        android:elevation="3dp"
-        android:text="2200"
-        android:textAlignment="textEnd"
-        android:textSize="23sp"
-        app:layout_constraintStart_toStartOf="@+id/textViewElipse"
-        app:layout_constraintTop_toBottomOf="@+id/textViewConsumirLabel" />
-
-    <TextView
-        android:id="@+id/textViewFragmentKcalConsumidosValor"
-        android:layout_width="41dp"
-        android:layout_height="27dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="7dp"
-        android:text="0"
-        android:textAlignment="textEnd"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/textViewPainelCalorias"
-        app:layout_constraintTop_toBottomOf="@+id/textViewConsumidos"
-        android:elevation="3dp" />
-
-    <TextView
-        android:id="@+id/textViewKcal"
-        android:layout_width="44dp"
-        android:layout_height="27dp"
-        android:layout_marginTop="7dp"
-        android:layout_marginEnd="4dp"
-        android:elevation="3dp"
-        android:text="kcal"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/textViewPainelCalorias"
-        app:layout_constraintTop_toBottomOf="@+id/textViewGastos" />
-
-    <TextView
-        android:id="@+id/textViewKcal5"
-        android:layout_width="44dp"
-        android:layout_height="27dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="7dp"
-        android:layout_marginEnd="11dp"
-        android:elevation="3dp"
-        android:text="kcal"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/textViewElipse"
-        app:layout_constraintStart_toEndOf="@+id/textViewFragmentKcalConsumidosValor"
-        app:layout_constraintTop_toBottomOf="@+id/textViewConsumidos" />
-
-    <TextView
-        android:id="@+id/textViewFragmentKcalGastosValor"
-        android:layout_width="50dp"
-        android:layout_height="27dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="7dp"
-        android:layout_marginEnd="4dp"
-        android:elevation="3dp"
-        android:text="0"
-        android:textAlignment="textEnd"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/textViewKcal"
-        app:layout_constraintStart_toEndOf="@+id/textViewElipse"
-        app:layout_constraintTop_toBottomOf="@+id/textViewGastos" />
-
-    <TextView
-        android:id="@+id/textViewKcalConsumirLabel"
-        android:layout_width="47dp"
-        android:layout_height="33dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="6dp"
-        android:elevation="3dp"
-        android:text="Kcal"
-        android:textSize="23sp"
-        app:layout_constraintStart_toEndOf="@+id/textViewFragmentKcalConsumirValor"
-        app:layout_constraintTop_toBottomOf="@+id/textViewConsumirLabel" />
-
-    <TextView
-        android:id="@+id/textViewDiarioLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Diário Alimentar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewPainelCalorias" />
-
     <ScrollView
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="60dp"
         android:layout_marginBottom="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewDiarioLabel">
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Space
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="20dp" />
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/textViewFragmentResumo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Resumo"
+                    android:textSize="15sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textViewPainelCalorias"
+                    android:layout_width="349dp"
+                    android:layout_height="199dp"
+                    android:layout_marginTop="7dp"
+                    android:background="#CED6E0"
+                    android:elevation="3dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewFragmentResumo" />
+
+                <TextView
+                    android:id="@+id/textViewElipse"
+                    android:layout_width="134dp"
+                    android:layout_height="121dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/elipses_diario"
+                    android:elevation="3dp"
+                    app:layout_constraintEnd_toEndOf="@+id/textViewPainelCalorias"
+                    app:layout_constraintStart_toStartOf="@+id/textViewPainelCalorias"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewFragmentCalorias" />
+
+                <TextView
+                    android:id="@+id/textViewGastos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="22dp"
+                    android:layout_marginTop="64dp"
+                    android:elevation="3dp"
+                    android:text="Gastos"
+                    android:textSize="17sp"
+                    app:layout_constraintEnd_toEndOf="@+id/textViewPainelCalorias"
+                    app:layout_constraintStart_toEndOf="@+id/textViewElipse"
+                    app:layout_constraintTop_toTopOf="@+id/textViewPainelCalorias" />
+
+                <TextView
+                    android:id="@+id/textViewFragmentKcalGastosValor"
+                    android:layout_width="50dp"
+                    android:layout_height="27dp"
+                    android:layout_marginTop="16dp"
+                    android:elevation="3dp"
+                    android:text="0"
+                    android:textAlignment="textEnd"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toEndOf="@+id/textViewElipse"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewGastos" />
+
+                <TextView
+                    android:id="@+id/textViewKcal"
+                    android:layout_width="44dp"
+                    android:layout_height="27dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="16dp"
+                    android:elevation="3dp"
+                    android:text="kcal"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toEndOf="@+id/textViewFragmentKcalGastosValor"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewGastos" />
+
+                <TextView
+                    android:id="@+id/textViewConsumidos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="22dp"
+                    android:layout_marginTop="64dp"
+                    android:elevation="3dp"
+                    android:text="Consumidos"
+                    android:textSize="17sp"
+                    app:layout_constraintEnd_toStartOf="@+id/textViewElipse"
+                    app:layout_constraintStart_toStartOf="@+id/textViewPainelCalorias"
+                    app:layout_constraintTop_toTopOf="@+id/textViewPainelCalorias" />
+
+                <TextView
+                    android:id="@+id/textViewKcal5"
+                    android:layout_width="44dp"
+                    android:layout_height="27dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="28dp"
+                    android:elevation="3dp"
+                    android:text="kcal"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toEndOf="@+id/textViewFragmentKcalConsumidosValor"
+                    app:layout_constraintTop_toTopOf="@+id/textViewConsumidos" />
+
+                <TextView
+                    android:id="@+id/textViewFragmentKcalConsumidosValor"
+                    android:layout_width="41dp"
+                    android:layout_height="27dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="28dp"
+                    android:elevation="3dp"
+                    android:text="0"
+                    android:textAlignment="textEnd"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="@+id/textViewPainelCalorias"
+                    app:layout_constraintTop_toTopOf="@+id/textViewConsumidos" />
+
+                <TextView
+                    android:id="@+id/textViewConsumirLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="29dp"
+                    android:elevation="3dp"
+                    android:text="Consumir"
+                    android:textSize="17sp"
+                    app:layout_constraintEnd_toEndOf="@+id/textViewElipse"
+                    app:layout_constraintTop_toTopOf="@+id/textViewElipse" />
+
+                <TextView
+                    android:id="@+id/textViewFragmentKcalConsumirValor"
+                    android:layout_width="63dp"
+                    android:layout_height="33dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="7dp"
+                    android:elevation="3dp"
+                    android:text="2200"
+                    android:textAlignment="textEnd"
+                    android:textSize="23sp"
+                    app:layout_constraintStart_toStartOf="@+id/textViewElipse"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewConsumirLabel" />
+
+                <TextView
+                    android:id="@+id/textViewKcalConsumirLabel"
+                    android:layout_width="47dp"
+                    android:layout_height="33dp"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginEnd="10dp"
+                    android:elevation="3dp"
+                    android:text="Kcal"
+                    android:textSize="23sp"
+                    app:layout_constraintEnd_toEndOf="@+id/textViewElipse"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewConsumirLabel" />
+
+                <TextView
+                    android:id="@+id/textViewFragmentCalorias"
+                    android:layout_width="wrap_content"
+                    android:layout_height="27dp"
+                    android:layout_marginTop="12dp"
+                    android:elevation="3dp"
+                    android:text="Calorias"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="@+id/textViewPainelCalorias"
+                    app:layout_constraintStart_toStartOf="@+id/textViewPainelCalorias"
+                    app:layout_constraintTop_toTopOf="@+id/textViewPainelCalorias" />
+
+                <TextView
+                    android:id="@+id/textViewDiarioLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:text="Diário Alimentar"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewPainelCalorias" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
@@ -256,7 +246,6 @@
                     android:background="#CED6E0"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="1.0" />
@@ -324,7 +313,7 @@
                 android:layout_height="20dp" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
@@ -392,6 +381,82 @@
                     android:src="@drawable/ic_baseline_add_24"
                     app:layout_constraintEnd_toEndOf="@+id/textViewItemPanelLancheManha"
                     app:layout_constraintTop_toTopOf="@+id/textViewItemPanelLancheManha" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textViewItemPanelAlmoco"
+                    android:layout_width="380dp"
+                    android:layout_height="69dp"
+                    android:background="#CED6E0"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textViewItemPainelValorKcalAlmoco"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="88dp"
+                    android:layout_marginBottom="2dp"
+                    android:text="0"
+                    android:textColor="#999A9C"
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/textViewItemPanelAlmoco"
+                    app:layout_constraintStart_toStartOf="@+id/textViewItemPanelAlmoco" />
+
+                <TextView
+                    android:id="@+id/textViewItemPanelKcal11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginBottom="2dp"
+                    android:text="kcal"
+                    android:textColor="#999A9C"
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/textViewItemPanelAlmoco"
+                    app:layout_constraintStart_toEndOf="@+id/textViewItemPainelValorKcalAlmoco" />
+
+                <ImageView
+                    android:id="@+id/imageView9"
+                    android:layout_width="29dp"
+                    android:layout_height="29dp"
+                    android:layout_marginStart="88dp"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/ic_almoco"
+                    app:layout_constraintStart_toStartOf="@+id/textViewItemPanelAlmoco"
+                    app:layout_constraintTop_toTopOf="@+id/textViewItemPanelAlmoco" />
+
+                <TextView
+                    android:id="@+id/textViewAlmocoLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="13dp"
+                    android:layout_marginTop="15dp"
+                    android:text="Almoço"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toEndOf="@+id/imageView9"
+                    app:layout_constraintTop_toTopOf="@+id/textViewItemPanelAlmoco" />
+
+                <ImageView
+                    android:id="@+id/imageViewItemPanelAddAlmoco"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="23dp"
+                    android:layout_marginEnd="28dp"
+                    android:onClick="irEditarRefeicao"
+                    android:src="@drawable/ic_baseline_add_24"
+                    app:layout_constraintEnd_toEndOf="@+id/textViewItemPanelAlmoco"
+                    app:layout_constraintTop_toTopOf="@+id/textViewItemPanelAlmoco" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -544,82 +609,6 @@
                     android:src="@drawable/ic_baseline_add_24"
                     app:layout_constraintEnd_toEndOf="@+id/textViewItemPanelJantar"
                     app:layout_constraintTop_toTopOf="@+id/textViewItemPanelJantar" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="20dp" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/textViewItemPanelAlmoco"
-                    android:layout_width="380dp"
-                    android:layout_height="69dp"
-                    android:background="#CED6E0"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/textViewItemPainelValorKcalAlmoco"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="88dp"
-                    android:layout_marginBottom="2dp"
-                    android:text="0"
-                    android:textColor="#999A9C"
-                    android:textSize="15sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/textViewItemPanelAlmoco"
-                    app:layout_constraintStart_toStartOf="@+id/textViewItemPanelAlmoco" />
-
-                <TextView
-                    android:id="@+id/textViewItemPanelKcal11"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="2dp"
-                    android:layout_marginBottom="2dp"
-                    android:text="kcal"
-                    android:textColor="#999A9C"
-                    android:textSize="15sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/textViewItemPanelAlmoco"
-                    app:layout_constraintStart_toEndOf="@+id/textViewItemPainelValorKcalAlmoco" />
-
-                <ImageView
-                    android:id="@+id/imageView9"
-                    android:layout_width="29dp"
-                    android:layout_height="29dp"
-                    android:layout_marginStart="88dp"
-                    android:layout_marginTop="8dp"
-                    android:src="@drawable/ic_almoco"
-                    app:layout_constraintStart_toStartOf="@+id/textViewItemPanelAlmoco"
-                    app:layout_constraintTop_toTopOf="@+id/textViewItemPanelAlmoco" />
-
-                <TextView
-                    android:id="@+id/textViewAlmocoLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="13dp"
-                    android:layout_marginTop="15dp"
-                    android:text="Almoço"
-                    android:textSize="20sp"
-                    app:layout_constraintStart_toEndOf="@+id/imageView9"
-                    app:layout_constraintTop_toTopOf="@+id/textViewItemPanelAlmoco" />
-
-                <ImageView
-                    android:id="@+id/imageViewItemPanelAddAlmoco"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="23dp"
-                    android:layout_marginEnd="28dp"
-                    android:onClick="irEditarRefeicao"
-                    android:src="@drawable/ic_baseline_add_24"
-                    app:layout_constraintEnd_toEndOf="@+id/textViewItemPanelAlmoco"
-                    app:layout_constraintTop_toTopOf="@+id/textViewItemPanelAlmoco" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

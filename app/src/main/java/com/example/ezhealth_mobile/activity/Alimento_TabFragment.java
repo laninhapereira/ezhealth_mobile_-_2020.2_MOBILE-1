@@ -13,31 +13,26 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ezhealth_mobile.R;
 import com.example.ezhealth_mobile.util.ExampleAdapterAlimento;
-import com.example.ezhealth_mobile.entity.ItemAlimento_Example;
+import com.example.ezhealth_mobile.entity.Alimento;
 
 import java.util.ArrayList;
 
 public class Alimento_TabFragment extends Fragment {
 
-    View v;
-    private RecyclerView mRecyclerView;
-    private ExampleAdapterAlimento mAdapter;
-    //private LinearLayoutManager mLayoutManager;
-    ArrayList<ItemAlimento_Example> listaAlimentos = new ArrayList<>();
-
+    private ArrayList<Alimento> listaAlimentos = new ArrayList<>();
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        v = inflater.inflate(R.layout.tab_alimento_fragment, container, false);
-        mRecyclerView = v.findViewById(R.id.recyclerViewAlimentos);
-        mAdapter = new ExampleAdapterAlimento(getContext(), listaAlimentos);
+        View view = inflater.inflate(R.layout.tab_alimento_fragment, container, false);
+
+        ExampleAdapterAlimento mAdapter = new ExampleAdapterAlimento(getContext(), listaAlimentos);
+
+        RecyclerView mRecyclerView = view.findViewById(R.id.recyclerViewAlimentos);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        //mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
 
-        return v;
-
+        return view;
     }
 
 
@@ -47,23 +42,16 @@ public class Alimento_TabFragment extends Fragment {
 
         //Array de Alimentos
 
-        listaAlimentos.add(new ItemAlimento_Example("Banana", "100", "320"));
-        listaAlimentos.add(new ItemAlimento_Example("Caju", "100", "320"));
-        listaAlimentos.add(new ItemAlimento_Example("Mamão", "100", "320"));
-        listaAlimentos.add(new ItemAlimento_Example("Pera", "100", "320"));
-        listaAlimentos.add(new ItemAlimento_Example("Morango", "100", "320"));
-        listaAlimentos.add(new ItemAlimento_Example("Banana", "100", "320"));
-        listaAlimentos.add(new ItemAlimento_Example("Caju", "100", "320"));
-        listaAlimentos.add(new ItemAlimento_Example("Mamão", "100", "320"));
-        listaAlimentos.add(new ItemAlimento_Example("Pera", "100", "320"));
-        listaAlimentos.add(new ItemAlimento_Example("Morango", "100", "320"));
-
-        //mRecyclerView.setHasFixedSize(true);
-        //mLayoutManager = new LinearLayoutManager(this);
-        //mAdapter = new ExampleAdapter(listaAlimentos);
-
-
-        //mRecyclerView.setAdapter(mAdapter);
+        listaAlimentos.add(new Alimento("Banana", "100", "320"));
+        listaAlimentos.add(new Alimento("Caju", "100", "320"));
+        listaAlimentos.add(new Alimento("Mamão", "100", "320"));
+        listaAlimentos.add(new Alimento("Pera", "100", "320"));
+        listaAlimentos.add(new Alimento("Morango", "100", "320"));
+        listaAlimentos.add(new Alimento("Banana", "100", "320"));
+        listaAlimentos.add(new Alimento("Caju", "100", "320"));
+        listaAlimentos.add(new Alimento("Mamão", "100", "320"));
+        listaAlimentos.add(new Alimento("Pera", "100", "320"));
+        listaAlimentos.add(new Alimento("Morango", "100", "320"));
 
     }
 }

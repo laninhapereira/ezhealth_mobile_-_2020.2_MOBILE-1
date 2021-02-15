@@ -5,8 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -18,9 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ezhealth_mobile.R;
 import com.example.ezhealth_mobile.entity.ObjectDefault;
-import com.example.ezhealth_mobile.entity.RepositoryObjectDefault;
-
-import java.util.ArrayList;
+import com.example.ezhealth_mobile.entity.ObjectDefault_Repositorio;
 
 import static androidx.core.app.ActivityCompat.startActivityForResult;
 
@@ -94,7 +90,7 @@ public class ExampleAdapterObjectDefault extends RecyclerView.Adapter<ExampleAda
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        ObjectDefault obj = RepositoryObjectDefault.getItemList(position);
+        ObjectDefault obj = ObjectDefault_Repositorio.getItemList(position);
 
         holder.position = position;
         holder.title.setText(obj.getName());
@@ -105,7 +101,7 @@ public class ExampleAdapterObjectDefault extends RecyclerView.Adapter<ExampleAda
 
     @Override
     public int getItemCount() {
-        return RepositoryObjectDefault.getList().size();
+        return ObjectDefault_Repositorio.getList().size();
     }
 
 }

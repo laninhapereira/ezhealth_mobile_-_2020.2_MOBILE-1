@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.ezhealth_mobile.R;
-import com.example.ezhealth_mobile.content.FirstPainelQuantidades_Content;
+import com.example.ezhealth_mobile.content.PainelQuantidades_Content;
 import com.example.ezhealth_mobile.entity.ObjectDefault;
 
 public class EditarAlimento_Activity extends AppCompatActivity {
@@ -38,7 +38,7 @@ public class EditarAlimento_Activity extends AppCompatActivity {
         includeFirstPanel.addView(view);
 
         // Classe para configuração do conteúdo do primeiro painel
-        new FirstPainelQuantidades_Content(
+        new PainelQuantidades_Content(
                 this,
                 objectDefault.getName(),
                 objectDefault.getQuantity(),

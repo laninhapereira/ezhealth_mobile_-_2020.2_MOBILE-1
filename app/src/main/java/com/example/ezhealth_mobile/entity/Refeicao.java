@@ -1,6 +1,6 @@
 package com.example.ezhealth_mobile.entity;
 
-public class ItemRefeicao_Example {
+public class Refeicao {
 
     private int mImageResource;
     private String textRefeicao;
@@ -8,7 +8,7 @@ public class ItemRefeicao_Example {
     private String textCalorias;
 
 
-    public ItemRefeicao_Example(String text1, String text2, String text3){
+    public Refeicao(String text1, String text2, String text3){
         //mImageResource = imageResource;
         textRefeicao = text1;
         textMassa = text2;

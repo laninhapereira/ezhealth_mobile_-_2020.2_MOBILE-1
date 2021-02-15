@@ -17,12 +17,12 @@ public class PainelInformacoes_Content {
         if(!menuOpcoesHabilitado)
             ((ImageView)viewOrigin.findViewById(R.id.imageViewButtonAdd)).setVisibility(View.INVISIBLE);
 
-        ExampleAdapterObjectDefault recyclerViewAdapter = new ExampleAdapterObjectDefault(viewOrigin.getContext(),
-                classEdicaoItem, menuOpcoesHabilitado);
+        ExampleAdapterObjectDefault adapter = new ExampleAdapterObjectDefault(
+                viewOrigin.getContext(), classEdicaoItem, menuOpcoesHabilitado);
 
         RecyclerView recyclerView = viewOrigin.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(viewOrigin.getContext()));
-        recyclerView.setAdapter(recyclerViewAdapter);
+        recyclerView.setAdapter(adapter);
     }
 
 }

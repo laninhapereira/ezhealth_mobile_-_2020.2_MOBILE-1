@@ -13,7 +13,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import com.example.ezhealth_mobile.R;
 import com.example.ezhealth_mobile.content.PainelInformacoes_Content;
 import com.example.ezhealth_mobile.entity.ObjectDefault;
-import com.example.ezhealth_mobile.entity.RepositoryObjectDefault;
+import com.example.ezhealth_mobile.entity.ObjectDefault_Repositorio;
 
 public class EditarRefeicao_Activity extends AppCompatActivity {
 
@@ -22,7 +22,7 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dual_panel);
         popular();
-        ((TextView) findViewById(R.id.textViewTitelDualPanel)).setText(RepositoryObjectDefault.getTitleListItens());
+        ((TextView) findViewById(R.id.textViewTitelDualPanel)).setText(ObjectDefault_Repositorio.getTitleListItens());
         this.configuraPrimeiroPainel();
     }
 
@@ -68,11 +68,11 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
     }
 
     private void popular(){
-        RepositoryObjectDefault.setTitleListItens("Café da manhã");
-        RepositoryObjectDefault.add(new ObjectDefault("Maçã", "4", null, "100"));
-        RepositoryObjectDefault.add(new ObjectDefault("Uva", "3", null, "80"));
-        RepositoryObjectDefault.add(new ObjectDefault("Coca-Cola", "500", "ml", "120"));
-        RepositoryObjectDefault.add(new ObjectDefault("Pedaço de Pizza", "2", null, "500"));
+        ObjectDefault_Repositorio.setTitleListItens("Café da manhã");
+        ObjectDefault_Repositorio.add(new ObjectDefault("Maçã", "4", null, "100"));
+        ObjectDefault_Repositorio.add(new ObjectDefault("Uva", "3", null, "80"));
+        ObjectDefault_Repositorio.add(new ObjectDefault("Coca-Cola", "500", "ml", "120"));
+        ObjectDefault_Repositorio.add(new ObjectDefault("Pedaço de Pizza", "2", null, "500"));
     }
 
 }

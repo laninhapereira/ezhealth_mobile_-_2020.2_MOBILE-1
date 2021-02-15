@@ -13,7 +13,6 @@ import com.google.android.material.tabs.TabLayout;
 
 public class AdicionarAlimentoRefeicao_Activity extends AppCompatActivity {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,7 +23,6 @@ public class AdicionarAlimentoRefeicao_Activity extends AppCompatActivity {
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
 
-        // tabs.getTabAt(0).setIcon(R.drawable.check);
     }
 
     //Botão "check" para confirmar que o usuário já adicionou os alimentos/refeições desejados
