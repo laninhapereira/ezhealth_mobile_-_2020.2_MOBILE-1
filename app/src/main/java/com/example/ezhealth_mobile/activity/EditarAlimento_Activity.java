@@ -1,6 +1,5 @@
 package com.example.ezhealth_mobile.activity;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,10 +11,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.ezhealth_mobile.R;
-import com.example.ezhealth_mobile.content.ContentFirstPainelQuantidades;
+import com.example.ezhealth_mobile.content.FirstPainelQuantidades_Content;
 import com.example.ezhealth_mobile.entity.ObjectDefault;
 
-public class ActivityEditarAlimento extends AppCompatActivity {
+public class EditarAlimento_Activity extends AppCompatActivity {
 
     private ObjectDefault objectDefault;
 
@@ -39,7 +38,7 @@ public class ActivityEditarAlimento extends AppCompatActivity {
         includeFirstPanel.addView(view);
 
         // Classe para configuração do conteúdo do primeiro painel
-        new ContentFirstPainelQuantidades(
+        new FirstPainelQuantidades_Content(
                 this,
                 objectDefault.getName(),
                 objectDefault.getQuantity(),
@@ -51,13 +50,17 @@ public class ActivityEditarAlimento extends AppCompatActivity {
     public void salvar(View v){
         Intent intent = getIntent();
 
-        String telaAnterior = (intent != null)? intent.getStringExtra("telaAnterior") : null;
+        String telaAnterior = (intent != null)? intent.getStringExtra("TELA_ANTERIOR") : null;
 
-        if( telaAnterior != null && telaAnterior.equals("adicionarRefeicao"))
-            intent = new Intent(this, ActivityAdicionarAlimentoRefeicao.class);
-        else {
-            intent = new Intent(this, ActivityEditarRefeicao.class);
-            intent.putExtra("atualizar", true);
+        telaAnterior = (telaAnterior!=null)? telaAnterior :"default";
+
+        switch(telaAnterior){
+            case "adicionarRefeicao":
+                intent = new Intent(this, AdicionarAlimentoRefeicao_Activity.class);
+                break;
+            default:
+                intent = new Intent(this, EditarRefeicao_Activity.class);
+                intent.putExtra("ATUALIZAR", true);
         }
 
         startActivity(intent);
@@ -67,13 +70,17 @@ public class ActivityEditarAlimento extends AppCompatActivity {
     public void voltar(View v){
         Intent intent = getIntent();
 
-        String telaAnterior = (intent != null)? intent.getStringExtra("telaAnterior") : null;
+        String telaAnterior = (intent != null)? intent.getStringExtra("TELA_ANTERIOR") : "default";
 
-        if( telaAnterior != null && telaAnterior.equals("adicionarRefeicao"))
-            intent = new Intent(this, ActivityAdicionarAlimentoRefeicao.class);
-        else{
-            intent = new Intent(this, ActivityEditarRefeicao.class);
-            intent.putExtra("atualizar", false);
+        telaAnterior = (telaAnterior!=null)? telaAnterior :"default";
+
+        switch(telaAnterior){
+            case "adicionarRefeicao":
+                intent = new Intent(this, AdicionarAlimentoRefeicao_Activity.class);
+                break;
+            default:
+                intent = new Intent(this, EditarRefeicao_Activity.class);
+                intent.putExtra("ATUALIZAR", false);
         }
 
         startActivity(intent);

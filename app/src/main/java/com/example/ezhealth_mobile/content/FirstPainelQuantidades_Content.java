@@ -7,9 +7,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ezhealth_mobile.R;
 
-public class ContentFirstPainelQuantidades {
+public class FirstPainelQuantidades_Content {
 
-    public ContentFirstPainelQuantidades(AppCompatActivity appCompatActivity, String titlePanel, String quantity, String quantityMeasure) {
+    public FirstPainelQuantidades_Content(AppCompatActivity appCompatActivity, String titlePanel, String quantity, String quantityMeasure) {
         View view = appCompatActivity.getWindow().getDecorView();
         ((TextView)view.findViewById(R.id.textViewTituloPrimeiroPainel)).setText(titlePanel);
         ((TextView)view.findViewById(R.id.editTextQtd)).setText(quantity);

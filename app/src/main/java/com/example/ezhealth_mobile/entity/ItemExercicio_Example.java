@@ -1,13 +1,13 @@
 package com.example.ezhealth_mobile.entity;
 
-public class ExampleItemExercicio {
+public class ItemExercicio_Example {
     private int mImageResource;
     private String textExercicio;
     private String textDuracao;
     private String textCalorias;
 
 
-    public ExampleItemExercicio(String text1, String text2, String text3){
+    public ItemExercicio_Example(String text1, String text2, String text3){
         //mImageResource = imageResource;
         textExercicio = text1;
         textDuracao = text2;

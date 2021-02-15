@@ -1,27 +1,21 @@
 package com.example.ezhealth_mobile.activity;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.example.ezhealth_mobile.R;
-import com.example.ezhealth_mobile.content.ContentFirstPainelQuantidades;
+import com.example.ezhealth_mobile.content.FirstPainelQuantidades_Content;
 import com.example.ezhealth_mobile.entity.ObjectDefault;
-import com.example.ezhealth_mobile.ui.exercicio.ExercicioFragment;
 
-public class ActivityEditarExercicio extends AppCompatActivity {
+public class EditarExercicio_Activity extends AppCompatActivity {
 
     private ObjectDefault objectDefault;
     private String anterior;
@@ -32,13 +26,13 @@ public class ActivityEditarExercicio extends AppCompatActivity {
         setContentView(R.layout.activity_dual_panel);
 
         ((TextView) findViewById(R.id.textViewTitelDualPanel)).setText("Editar Exercício");
+
         popular();
+
         this.configuraPrimeiroPainel();
         this.configuraSegundoPainel();
 
-        anterior = getIntent().getStringExtra("anterior");
-        if(anterior!=null)
-            Log.d("aaaaaaaa", "onCreateaaaaaaaaaaaaaaaaaaaaaaaa: ");
+        anterior = getIntent().getStringExtra("ANTERIOR");
     }
 
     private void configuraPrimeiroPainel(){
@@ -50,7 +44,7 @@ public class ActivityEditarExercicio extends AppCompatActivity {
         includeFirstPanel.addView(view);
 
         // Classe para configuração do conteúdo do primeiro painel
-        new ContentFirstPainelQuantidades(
+        new FirstPainelQuantidades_Content(
                 this,
                 objectDefault.getName(),
                 objectDefault.getQuantity(),
@@ -82,10 +76,10 @@ public class ActivityEditarExercicio extends AppCompatActivity {
         Intent intent;
 
         if(anterior!=null && anterior.equals("adicionarExercicio"))
-            intent = new Intent(this, ActivityAdicionarExercicio.class);
+            intent = new Intent(this, AdicionarExercicio_Activity.class);
         else {
-            intent = new Intent(this, ActivityHome.class);
-            intent.putExtra("fragment", "exercicio");
+            intent = new Intent(this, Home_Activity.class);
+            intent.putExtra("FRAGMENT", "exercicio");
         }
 
         startActivity(intent);
@@ -98,10 +92,10 @@ public class ActivityEditarExercicio extends AppCompatActivity {
         Intent intent;
 
         if(anterior!=null && anterior.equals("adicionarExercicio"))
-            intent = new Intent(this, ActivityAdicionarExercicio.class);
+            intent = new Intent(this, AdicionarExercicio_Activity.class);
         else {
-            intent = new Intent(this, ActivityHome.class);
-            intent.putExtra("fragment", "exercicio");
+            intent = new Intent(this, Home_Activity.class);
+            intent.putExtra("FRAGMENT", "exercicio");
         }
 
         startActivity(intent);

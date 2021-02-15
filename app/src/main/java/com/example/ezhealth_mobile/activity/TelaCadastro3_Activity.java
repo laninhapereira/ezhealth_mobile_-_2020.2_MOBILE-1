@@ -8,7 +8,7 @@ import android.view.View;
 
 import com.example.ezhealth_mobile.R;
 
-public class ActivityTelaCadastro3 extends AppCompatActivity {
+public class TelaCadastro3_Activity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,7 +17,7 @@ public class ActivityTelaCadastro3 extends AppCompatActivity {
     }
 
     public void irTela4(View v){
-        Intent intent = new Intent(this, ActivityTelaCadastro4.class);
+        Intent intent = new Intent(this, TelaCadastro4_Activity.class);
         startActivity(intent);
     }
 

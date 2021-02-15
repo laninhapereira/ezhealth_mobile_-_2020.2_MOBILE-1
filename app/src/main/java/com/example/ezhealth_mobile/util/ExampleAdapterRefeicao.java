@@ -12,19 +12,18 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ezhealth_mobile.R;
-import com.example.ezhealth_mobile.activity.ActivityEditarAlimento;
-import com.example.ezhealth_mobile.activity.ActivityEditarRefeicao;
-import com.example.ezhealth_mobile.entity.ExampleItemRefeicao;
+import com.example.ezhealth_mobile.activity.EditarRefeicao_Activity;
+import com.example.ezhealth_mobile.entity.ItemRefeicao_Example;
 
 import java.util.ArrayList;
 
 public class ExampleAdapterRefeicao extends RecyclerView.Adapter<ExampleAdapterRefeicao.ExampleViewHolder> {
 
     //Array auxiliar
-    private ArrayList<ExampleItemRefeicao> mListaRefeicoes;
+    private ArrayList<ItemRefeicao_Example> mListaRefeicoes;
     Context mContext;
 
-    public ExampleAdapterRefeicao(Context context, ArrayList<ExampleItemRefeicao> array){
+    public ExampleAdapterRefeicao(Context context, ArrayList<ItemRefeicao_Example> array){
         this.mContext = context;
         this.mListaRefeicoes = array;
     }
@@ -44,8 +43,8 @@ public class ExampleAdapterRefeicao extends RecyclerView.Adapter<ExampleAdapterR
             textCalorias = itemView.findViewById(R.id.TextViewCaloriasRefeicao);
 
             itemView.findViewById(R.id.buttonItemRefeicaoAdicionar).setOnClickListener(v -> {
-                Intent intent = new Intent(itemView.getContext(), ActivityEditarRefeicao.class);
-                intent.putExtra("refeicao", textRefeicao.getText());
+                Intent intent = new Intent(itemView.getContext(), EditarRefeicao_Activity.class);
+                intent.putExtra("REFEICAO", textRefeicao.getText());
                 itemView.getContext().startActivity(intent);
             });
 
@@ -58,13 +57,12 @@ public class ExampleAdapterRefeicao extends RecyclerView.Adapter<ExampleAdapterR
     @Override
     public ExampleAdapterRefeicao.ExampleViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.example_item_refeicao, parent, false);
-        ExampleAdapterRefeicao.ExampleViewHolder example = new ExampleAdapterRefeicao.ExampleViewHolder(v);
-        return example;
+        return new ExampleAdapterRefeicao.ExampleViewHolder(v);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ExampleViewHolder holder, int position) {
-        ExampleItemRefeicao itemAtual = mListaRefeicoes.get(position);
+        ItemRefeicao_Example itemAtual = mListaRefeicoes.get(position);
 
         holder.textRefeicao.setText(itemAtual.getTextRefeicao());
         holder.textMassa.setText(itemAtual.getTextMassa());

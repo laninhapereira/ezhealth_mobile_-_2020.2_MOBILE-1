@@ -11,11 +11,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.ezhealth_mobile.R;
-import com.example.ezhealth_mobile.content.ContentFirstPainelInformacoes;
+import com.example.ezhealth_mobile.content.PainelInformacoes_Content;
 import com.example.ezhealth_mobile.entity.ObjectDefault;
 import com.example.ezhealth_mobile.entity.RepositoryObjectDefault;
 
-public class ActivityEditarRefeicao extends AppCompatActivity {
+public class EditarRefeicao_Activity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,28 +37,28 @@ public class ActivityEditarRefeicao extends AppCompatActivity {
         ((TextView) findViewById(R.id.textViewTituloPrimeiroPainel)).setText("Lista de alimentos");
 
         // Classe para configuração do conteúdo do painel
-        new ContentFirstPainelInformacoes(
+        new PainelInformacoes_Content(
                 getWindow().getDecorView(),
-                ActivityEditarAlimento.class,
+                EditarAlimento_Activity.class,
                 true
         );
     }
 
     //Botão "check" para confirmar que o usuário deseja salvar os itens
     public void salvar(View v){
-        Intent intent = new Intent(this, ActivityHome.class);
+        Intent intent = new Intent(this, Home_Activity.class);
         startActivity(intent);
     }
 
     //Botão "voltar" para caso o usuário desista e volte para a tela anterior
     public void voltar(View v){
-        Intent intent = new Intent(this, ActivityHome.class);
+        Intent intent = new Intent(this, Home_Activity.class);
         startActivity(intent);
     }
 
     //Botão "add" para caso o usuário queria adicionar um novo item
     public void adicionar(View view){
-        Intent intent = new Intent(this, ActivityAdicionarAlimentoRefeicao.class);
+        Intent intent = new Intent(this, AdicionarAlimentoRefeicao_Activity.class);
         startActivity(intent);
     }
 

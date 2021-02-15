@@ -12,7 +12,7 @@ import android.widget.EditText;
 
 import com.example.ezhealth_mobile.R;
 
-public class ActivityTelaCadastro4 extends AppCompatActivity {
+public class TelaCadastro4_Activity extends AppCompatActivity {
 
     private EditText cadastroPeso, cadastroAltura;
     private Button buttonProximo4;
@@ -56,7 +56,7 @@ public class ActivityTelaCadastro4 extends AppCompatActivity {
     };
 
     public void irTela5(View v){
-        Intent intent = new Intent(this, ActivityTelaCadastro5.class);
+        Intent intent = new Intent(this, TelaCadastro5_Activity.class);
         startActivity(intent);
     }
 }

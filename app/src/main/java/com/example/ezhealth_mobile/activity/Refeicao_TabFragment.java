@@ -12,18 +12,18 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ezhealth_mobile.R;
-import com.example.ezhealth_mobile.entity.ExampleItemRefeicao;
+import com.example.ezhealth_mobile.entity.ItemRefeicao_Example;
 import com.example.ezhealth_mobile.util.ExampleAdapterRefeicao;
 
 import java.util.ArrayList;
 
-public class TabFragmentRefeicao extends Fragment {
+public class Refeicao_TabFragment extends Fragment {
 
     View v;
     private RecyclerView mRecyclerView;
     private ExampleAdapterRefeicao mAdapter;
     //private LinearLayoutManager mLayoutManager;
-    ArrayList<ExampleItemRefeicao> listaRefeicoes = new ArrayList<>();
+    ArrayList<ItemRefeicao_Example> listaRefeicoes = new ArrayList<>();
 
 
     @Nullable
@@ -47,18 +47,18 @@ public class TabFragmentRefeicao extends Fragment {
 
         //Array de Alimentos
 
-        listaRefeicoes.add(new ExampleItemRefeicao("Meu café da manhã 1", "100", "320"));
-        listaRefeicoes.add(new ExampleItemRefeicao("Meu almoço 1", "100", "320"));
-        listaRefeicoes.add(new ExampleItemRefeicao("Meu jantar 1", "100", "320"));
-        listaRefeicoes.add(new ExampleItemRefeicao("Meu lanche da tarde 1", "100", "320"));
-        listaRefeicoes.add(new ExampleItemRefeicao("Meu café da manhã 1", "100", "320"));
-        listaRefeicoes.add(new ExampleItemRefeicao("Meu almoço 1", "100", "320"));
-        listaRefeicoes.add(new ExampleItemRefeicao("Meu jantar 1", "100", "320"));
-        listaRefeicoes.add(new ExampleItemRefeicao("Meu lanche da tarde 1", "100", "320"));
-        listaRefeicoes.add(new ExampleItemRefeicao("Meu café da manhã 1", "100", "320"));
-        listaRefeicoes.add(new ExampleItemRefeicao("Meu almoço 1", "100", "320"));
-        listaRefeicoes.add(new ExampleItemRefeicao("Meu jantar 1", "100", "320"));
-        listaRefeicoes.add(new ExampleItemRefeicao("Meu lanche da tarde 1", "100", "320"));
+        listaRefeicoes.add(new ItemRefeicao_Example("Meu café da manhã 1", "100", "320"));
+        listaRefeicoes.add(new ItemRefeicao_Example("Meu almoço 1", "100", "320"));
+        listaRefeicoes.add(new ItemRefeicao_Example("Meu jantar 1", "100", "320"));
+        listaRefeicoes.add(new ItemRefeicao_Example("Meu lanche da tarde 1", "100", "320"));
+        listaRefeicoes.add(new ItemRefeicao_Example("Meu café da manhã 1", "100", "320"));
+        listaRefeicoes.add(new ItemRefeicao_Example("Meu almoço 1", "100", "320"));
+        listaRefeicoes.add(new ItemRefeicao_Example("Meu jantar 1", "100", "320"));
+        listaRefeicoes.add(new ItemRefeicao_Example("Meu lanche da tarde 1", "100", "320"));
+        listaRefeicoes.add(new ItemRefeicao_Example("Meu café da manhã 1", "100", "320"));
+        listaRefeicoes.add(new ItemRefeicao_Example("Meu almoço 1", "100", "320"));
+        listaRefeicoes.add(new ItemRefeicao_Example("Meu jantar 1", "100", "320"));
+        listaRefeicoes.add(new ItemRefeicao_Example("Meu lanche da tarde 1", "100", "320"));
 
         //mRecyclerView.setHasFixedSize(true);
         //mLayoutManager = new LinearLayoutManager(this);

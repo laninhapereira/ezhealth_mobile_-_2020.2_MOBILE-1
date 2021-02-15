@@ -2,24 +2,22 @@ package com.example.ezhealth_mobile.content;
 
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ezhealth_mobile.R;
-import com.example.ezhealth_mobile.util.RecyclerViewAdapter;
+import com.example.ezhealth_mobile.util.ExampleAdapterObjectDefault;
 
-public class ContentFirstPainelInformacoes {
+public class PainelInformacoes_Content {
 
-    public ContentFirstPainelInformacoes(View viewOrigin,
-                                         Class classEdicaoItem, boolean menuOpcoesHabilitado) {
+    public PainelInformacoes_Content(View viewOrigin,
+                                     Class classEdicaoItem, boolean menuOpcoesHabilitado) {
 
         if(!menuOpcoesHabilitado)
             ((ImageView)viewOrigin.findViewById(R.id.imageViewButtonAdd)).setVisibility(View.INVISIBLE);
 
-        RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(viewOrigin.getContext(),
+        ExampleAdapterObjectDefault recyclerViewAdapter = new ExampleAdapterObjectDefault(viewOrigin.getContext(),
                 classEdicaoItem, menuOpcoesHabilitado);
 
         RecyclerView recyclerView = viewOrigin.findViewById(R.id.recyclerView);

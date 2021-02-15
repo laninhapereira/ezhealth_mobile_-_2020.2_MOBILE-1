@@ -2,7 +2,6 @@ package com.example.ezhealth_mobile.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,7 +13,7 @@ import androidx.navigation.ui.NavigationUI;
 import com.example.ezhealth_mobile.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class ActivityHome extends AppCompatActivity {
+public class Home_Activity extends AppCompatActivity {
 
     private BottomNavigationView navView;
 
@@ -65,9 +64,9 @@ public class ActivityHome extends AppCompatActivity {
     }
 
     private void escolheFragmentInicial(){
-        if(getIntent().getStringExtra("fragment") == null)
+        if(getIntent().getStringExtra("FRAGMENT") == null)
             return;
-        switch ( getIntent().getStringExtra("fragment") ){
+        switch ( getIntent().getStringExtra("FRAGMENT") ){
             case "diario":
                 navView.setSelectedItemId(R.id.navigation_diario);
                 break;
@@ -86,12 +85,12 @@ public class ActivityHome extends AppCompatActivity {
     }
 
     public void irEditarRefeicao(View view){
-        Intent intent = new Intent(this, ActivityEditarRefeicao.class);
+        Intent intent = new Intent(this, EditarRefeicao_Activity.class);
         startActivity(intent);
     }
 
     public void irAdicionarAlimento(View view){
-        Intent intent = new Intent(this, ActivityEditarRefeicao.class);
+        Intent intent = new Intent(this, EditarRefeicao_Activity.class);
         startActivity(intent);
     }
 

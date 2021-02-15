@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import com.example.ezhealth_mobile.R;
-import com.example.ezhealth_mobile.activity.ActivityEditarRefeicao;
+import com.example.ezhealth_mobile.activity.EditarRefeicao_Activity;
 
 public class RefeicaoFragment extends Fragment {
 
@@ -41,7 +41,7 @@ public class RefeicaoFragment extends Fragment {
 
     public void irAdicionarAlimento(View view){
         View root = inflater.inflate(R.layout.activity_home, container, false);
-        Intent intent = new Intent(root.getContext(), ActivityEditarRefeicao.class);
+        Intent intent = new Intent(root.getContext(), EditarRefeicao_Activity.class);
         startActivity(intent);
     }
 }
