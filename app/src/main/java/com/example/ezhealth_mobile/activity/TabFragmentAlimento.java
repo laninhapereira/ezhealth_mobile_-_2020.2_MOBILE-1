@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ezhealth_mobile.R;
-import com.example.ezhealth_mobile.util.ExampleAdapter;
+import com.example.ezhealth_mobile.util.ExampleAdapterAlimento;
 import com.example.ezhealth_mobile.entity.ExampleItemAlimento;
 
 import java.util.ArrayList;
@@ -21,7 +21,7 @@ public class TabFragmentAlimento extends Fragment {
 
     View v;
     private RecyclerView mRecyclerView;
-    private ExampleAdapter mAdapter;
+    private ExampleAdapterAlimento mAdapter;
     //private LinearLayoutManager mLayoutManager;
     ArrayList<ExampleItemAlimento> listaAlimentos = new ArrayList<>();
 
@@ -31,7 +31,7 @@ public class TabFragmentAlimento extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         v = inflater.inflate(R.layout.tab_alimento_fragment, container, false);
         mRecyclerView = v.findViewById(R.id.recyclerViewAlimentos);
-        mAdapter = new ExampleAdapter(getContext(), listaAlimentos);
+        mAdapter = new ExampleAdapterAlimento(getContext(), listaAlimentos);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         //mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);

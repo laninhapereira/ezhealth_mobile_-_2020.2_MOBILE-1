@@ -1,5 +1,6 @@
 package com.example.ezhealth_mobile.activity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -25,6 +26,7 @@ public class ActivityEditarAlimento extends AppCompatActivity {
 
         ((TextView) findViewById(R.id.textViewTitelDualPanel)).setText("Editar Alimento");
         popular();
+
         this.configuraPrimeiroPainel();
     }
 
@@ -47,13 +49,33 @@ public class ActivityEditarAlimento extends AppCompatActivity {
 
     //Botão "check" para confirmar que o usuário deseja salvar os itens
     public void salvar(View v){
-        Intent intent = new Intent(this, ActivityEditarRefeicao.class);
+        Intent intent = getIntent();
+
+        String telaAnterior = (intent != null)? intent.getStringExtra("telaAnterior") : null;
+
+        if( telaAnterior != null && telaAnterior.equals("adicionarRefeicao"))
+            intent = new Intent(this, ActivityAdicionarAlimentoRefeicao.class);
+        else {
+            intent = new Intent(this, ActivityEditarRefeicao.class);
+            intent.putExtra("atualizar", true);
+        }
+
         startActivity(intent);
     }
 
     //Botão "voltar" para caso o usuário desista e volte para a tela anterior
     public void voltar(View v){
-        Intent intent = new Intent(this, ActivityEditarRefeicao.class);
+        Intent intent = getIntent();
+
+        String telaAnterior = (intent != null)? intent.getStringExtra("telaAnterior") : null;
+
+        if( telaAnterior != null && telaAnterior.equals("adicionarRefeicao"))
+            intent = new Intent(this, ActivityAdicionarAlimentoRefeicao.class);
+        else{
+            intent = new Intent(this, ActivityEditarRefeicao.class);
+            intent.putExtra("atualizar", false);
+        }
+
         startActivity(intent);
     }
 

@@ -1,6 +1,7 @@
 package com.example.ezhealth_mobile.util;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ezhealth_mobile.R;
+import com.example.ezhealth_mobile.activity.ActivityEditarAlimento;
+import com.example.ezhealth_mobile.activity.ActivityEditarRefeicao;
 import com.example.ezhealth_mobile.entity.ExampleItemRefeicao;
 
 import java.util.ArrayList;
@@ -40,14 +43,11 @@ public class ExampleAdapterRefeicao extends RecyclerView.Adapter<ExampleAdapterR
             textMassa = itemView.findViewById(R.id.TextViewMassaRefeicao);
             textCalorias = itemView.findViewById(R.id.TextViewCaloriasRefeicao);
 
-            /*itemView.findViewById(R.id.buttonTESTE).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(this, HomeActivity.class);
-                    startActivity(intent);
-                    //Log.d("demo", "TESTE");
-                }
-            });*/
+            itemView.findViewById(R.id.buttonItemRefeicaoAdicionar).setOnClickListener(v -> {
+                Intent intent = new Intent(itemView.getContext(), ActivityEditarRefeicao.class);
+                intent.putExtra("refeicao", textRefeicao.getText());
+                itemView.getContext().startActivity(intent);
+            });
 
         }
 

@@ -1,9 +1,11 @@
 package com.example.ezhealth_mobile.util;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -11,18 +13,22 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ezhealth_mobile.R;
+import com.example.ezhealth_mobile.activity.ActivityEditarAlimento;
+import com.example.ezhealth_mobile.activity.ActivityEditarRefeicao;
 import com.example.ezhealth_mobile.entity.ExampleItemAlimento;
 
 import java.util.ArrayList;
 
-public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleViewHolder>{
+import static androidx.core.app.ActivityCompat.startActivityForResult;
+
+public class ExampleAdapterAlimento extends RecyclerView.Adapter<ExampleAdapterAlimento.ExampleViewHolder>{
 
 
     //Array auxiliar
     private ArrayList<ExampleItemAlimento> mListaAlimentos;
-    Context mContext;
+    public Context mContext;
 
-    public ExampleAdapter(Context context, ArrayList<ExampleItemAlimento> array){
+    public ExampleAdapterAlimento(Context context, ArrayList<ExampleItemAlimento> array){
         this.mContext = context;
         this.mListaAlimentos = array;
     }
@@ -40,20 +46,24 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
             textMassa = itemView.findViewById(R.id.TextViewMassaAlimento);
             textCalorias = itemView.findViewById(R.id.TextViewCaloriasAlimento);
 
-            /*itemView.findViewById(R.id.buttonTESTE).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(this, HomeActivity.class);
-                    startActivity(intent);
-                    //Log.d("demo", "TESTE");
-                }
-            });*/
+            itemView.findViewById(R.id.buttonItemAlimentoEditar).setOnClickListener(v -> {
+                Intent intent = new Intent(itemView.getContext(), ActivityEditarAlimento.class);
+                intent.putExtra("alimento", textAlimento.getText());
+                intent.putExtra("telaAnterior", "adicionarRefeicao");
+                itemView.getContext().startActivity(intent);
+            });
+
+            itemView.findViewById(R.id.buttonItemAlimentoAdicionar).setOnClickListener(v -> {
+                Intent intent = new Intent(itemView.getContext(), ActivityEditarRefeicao.class);
+                intent.putExtra("alimento", textAlimento.getText());
+                itemView.getContext().startActivity(intent);
+            });
 
         }
 
     }
 
-    public ExampleAdapter(ArrayList<ExampleItemAlimento> listaAlimentos){
+    public ExampleAdapterAlimento(ArrayList<ExampleItemAlimento> listaAlimentos){
         mListaAlimentos = listaAlimentos;
     }
 
@@ -71,6 +81,7 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
         holder.textAlimento.setText(itemAtual.getTextAlimento());
         holder.textMassa.setText(itemAtual.getTextMassa());
         holder.textCalorias.setText(itemAtual.getTextCalorias());
+
     }
 
     @Override
