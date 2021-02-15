@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ezhealth_mobile.R;
 import com.example.ezhealth_mobile.activity.EditarRefeicao_Activity;
+import com.example.ezhealth_mobile.activity.VisualizarRefeicao_Activity;
 import com.example.ezhealth_mobile.entity.Refeicao;
 import com.example.ezhealth_mobile.entity.Refeicao_Repositorio;
 
@@ -45,6 +46,12 @@ public class ExampleAdapterRefeicao extends RecyclerView.Adapter<ExampleAdapterR
 
             itemView.findViewById(R.id.buttonItemRefeicaoAdicionar).setOnClickListener(v -> {
                 Intent intent = new Intent(itemView.getContext(), EditarRefeicao_Activity.class);
+                intent.putExtra("REFEICAO", textRefeicao.getText());
+                itemView.getContext().startActivity(intent);
+            });
+
+            itemView.findViewById(R.id.buttonItemRefeicaoVisualizar).setOnClickListener(v -> {
+                Intent intent = new Intent(itemView.getContext(), VisualizarRefeicao_Activity.class);
                 intent.putExtra("REFEICAO", textRefeicao.getText());
                 itemView.getContext().startActivity(intent);
             });
