@@ -21,16 +21,15 @@ import com.example.ezhealth_mobile.entity.Refeicao_Repositorio;
 import java.util.ArrayList;
 
 import static androidx.core.app.ActivityCompat.startActivityForResult;
+import static androidx.core.content.ContextCompat.startActivity;
 
 public class ExampleAdapterRefeicaoPersonalizada extends RecyclerView.Adapter<ExampleAdapterRefeicaoPersonalizada.ExampleViewHolder> {
 
     private static final int ATUALIZAR = 1;
-    private static Class classEdicaoItem;
-    private static Context contextOrigin;
+    private static Intent intent;
 
-    public ExampleAdapterRefeicaoPersonalizada(Context contextOrigin, Class classEdicaoItem){
-        this.classEdicaoItem = classEdicaoItem;
-        this.contextOrigin = contextOrigin;
+    public ExampleAdapterRefeicaoPersonalizada(Intent intent){
+        this.intent = intent;
     }
 
 
@@ -62,9 +61,8 @@ public class ExampleAdapterRefeicaoPersonalizada extends RecyclerView.Adapter<Ex
             popup.setOnMenuItemClickListener(item -> {
                 switch (item.getTitle().toString()){
                     case "Editar":
-                        Intent intent = new Intent(contextOrigin, classEdicaoItem);
                         intent.putExtra("POSITION", position);
-                        startActivityForResult((Activity) contextOrigin, intent, ATUALIZAR, null);
+                        itemView.getContext().startActivity(intent);
                         break;
                     case "Excluir":
                         break;

@@ -1,5 +1,6 @@
 package com.example.ezhealth_mobile.ui.refeicao;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -25,12 +26,16 @@ public class RefeicaoFragment extends Fragment {
     {
         View root = inflater.inflate(R.layout.fragment_refeicao, container, false);
 
-        ExampleAdapterRefeicaoPersonalizada adapter = new ExampleAdapterRefeicaoPersonalizada(
-                getContext(), EditarRefeicao_Activity.class);
+        Intent intent = new Intent(root.getRootView().getContext(), EditarRefeicao_Activity.class);
+        intent.putExtra("TELA_ANTERIOR", "homeRefeicao");
+
+        root.findViewById(R.id.fab).setOnClickListener(v -> {
+            startActivity(intent);
+        });
 
         RecyclerView recyclerView = root.findViewById(R.id.recyclerViewRefeicaoPersonalizada);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.setAdapter(adapter);
+        recyclerView.setAdapter(new ExampleAdapterRefeicaoPersonalizada(intent));
 
         return root;
     }
