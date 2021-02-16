@@ -3,6 +3,7 @@ package com.example.ezhealth_mobile.ui.exercicio;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,17 +55,16 @@ public class ExercicioFragment extends Fragment {
         // Classe para configuração do conteúdo do primeiro painel
         new PainelInformacoes_Content(
             "Exercicio 1",
-            this.getActivity(),
+                viewFragment,
             true,
             new ExampleAdapterObjectDefault(
                     true,
                     nome -> { // Construção do botão de EDITAR de cada item da lista
-                        Intent intent = new Intent(this.getActivity(), EditarExercicio_Activity.class);
+                        Intent intent = new Intent(this.getContext(), EditarExercicio_Activity.class);
                         intent.putExtra("EXERCICIO", nome);
                         startActivity(intent);
                     },
                     nome -> { // Construção do botão de EXCLUIR de cada item da lista
-
                     }
             )
         );

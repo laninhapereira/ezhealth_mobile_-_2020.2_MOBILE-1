@@ -3,6 +3,7 @@ package com.example.ezhealth_mobile.content;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -28,24 +29,26 @@ import static androidx.core.content.ContextCompat.startActivity;
 
 public class PainelInformacoes_Content {
 
-    public PainelInformacoes_Content(String titulo, Activity activity, boolean menuOpcoesHabilitado,
+    public PainelInformacoes_Content(String titulo, View view, boolean menuOpcoesHabilitado,
                  ExampleAdapterObjectDefault exampleAdapterObjectDefault) {
 
-        // Classe para configuração do conteúdo do painel
-        LayoutInflater inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        Context context = view.getContext();
 
-        ConstraintLayout includeFirstPanel = (ConstraintLayout) activity.findViewById(R.id.include);
+        // Classe para configuração do conteúdo do painel
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+        ConstraintLayout includeFirstPanel = (ConstraintLayout) view.findViewById(R.id.include);
         includeFirstPanel.removeAllViews();
         includeFirstPanel.addView(inflater.inflate(R.layout.content_panel_first_info, null));
 
-        ((TextView) activity.findViewById(R.id.textViewTituloPrimeiroPainel)).setText(titulo);
+        ((TextView) view.findViewById(R.id.textViewTituloPrimeiroPainel)).setText(titulo);
 
         // Configura itens do menu de opções do adapter
         if(!menuOpcoesHabilitado)
-            ((ImageView) activity.findViewById(R.id.imageViewButtonAdd)).setVisibility(View.INVISIBLE);
+            ((ImageView) view.findViewById(R.id.imageViewButtonAdd)).setVisibility(View.INVISIBLE);
 
-        RecyclerView recyclerView = activity.findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(activity));
+        RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(context));
         recyclerView.setAdapter(exampleAdapterObjectDefault);
 
     }

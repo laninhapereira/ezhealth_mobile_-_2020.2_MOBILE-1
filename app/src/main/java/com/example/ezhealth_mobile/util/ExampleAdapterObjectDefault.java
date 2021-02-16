@@ -3,6 +3,7 @@ package com.example.ezhealth_mobile.util;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,7 +30,7 @@ public class ExampleAdapterObjectDefault extends RecyclerView.Adapter<ExampleAda
     private static OnClickListenerAdapter botaoEditar;
     private static OnClickListenerAdapter botaoExcluir;
 
-    public ExampleAdapterObjectDefault(boolean menuOpcoesHabilitado, OnClickListenerAdapter botaoExcluir, OnClickListenerAdapter botaoEditar){
+    public ExampleAdapterObjectDefault(boolean menuOpcoesHabilitado, OnClickListenerAdapter botaoEditar, OnClickListenerAdapter botaoExcluir){
         this.menuOpcoesHabilitado = menuOpcoesHabilitado;
         this.botaoExcluir = botaoExcluir;
         this.botaoEditar = botaoEditar;

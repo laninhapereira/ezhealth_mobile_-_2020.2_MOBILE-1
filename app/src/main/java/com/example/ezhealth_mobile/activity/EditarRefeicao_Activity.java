@@ -43,7 +43,7 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
 
         new PainelInformacoes_Content(
             Refeicao_Repositorio.getInstance().getTitleListItens(),
-            this,
+            getWindow().getDecorView(),
             true,
             new ExampleAdapterObjectDefault(
                 true,

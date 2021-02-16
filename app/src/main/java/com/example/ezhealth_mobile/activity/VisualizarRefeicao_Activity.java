@@ -30,7 +30,7 @@ public class VisualizarRefeicao_Activity extends AppCompatActivity {
         // Classe para configuração do conteúdo do primeiro painel
         new PainelInformacoes_Content(
                 Refeicao_Repositorio.getInstance().getItemList(0).getNome(),
-                this,
+                getWindow().getDecorView(),
                 false,
                 new ExampleAdapterObjectDefault(
                     false,
