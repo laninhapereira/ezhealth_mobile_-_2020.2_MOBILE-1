@@ -7,8 +7,22 @@
     android:layout_height="match_parent"
     tools:context=".ui.diario.DiarioFragment" >
 
+    <Button
+        android:id="@+id/buttonRelatorio"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginRight="25dp"
+        android:background="@drawable/ic_calendar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.01"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
     <TextView
-        android:id="@+id/textViewTituloHome"
+        android:id="@+id/textViewDataHome"
         android:layout_width="wrap_content"
         android:layout_height="27dp"
         android:layout_marginLeft="20dp"
@@ -16,8 +30,9 @@
         android:text="Quinta-Feira"
         android:textColor="#2F3542"
         android:textSize="20dp"
+        android:onClick="irRelatorio"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.08"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -27,26 +42,46 @@
         android:id="@+id/textViewData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:layout_marginLeft="20dp"
         android:text="10/02"
         android:textColor="#999A9C"
         android:textSize="15dp"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.07"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTituloHome" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewDataHome" />
 
     <Button
         android:id="@+id/buttonPerfil"
         android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="19dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="25dp"
-        android:background="@drawable/ic_account_circle_24px"
-        android:onClick="irPerfil"
+        android:background="@drawable/ic_relatorio"
+        android:onClick="irRelatorio"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.75"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textViewTituloHome"
+        android:layout_width="wrap_content"
+        android:layout_height="27dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="3dp"
+        android:onClick="irRelatorio"
+        android:text="Relatório"
+        android:textColor="#2F3542"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.93"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.00999999" />
 
     <ScrollView
         android:layout_width="0dp"

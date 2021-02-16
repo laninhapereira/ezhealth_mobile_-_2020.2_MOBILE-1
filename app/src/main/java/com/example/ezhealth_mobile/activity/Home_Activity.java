@@ -98,4 +98,9 @@ public class Home_Activity extends AppCompatActivity {
         navView.setSelectedItemId(R.id.navigation_perfil);
     }
 
+    public void irRelatorio(View view){
+        Intent intent = new Intent(this, Main_Activity.class);
+        startActivity(intent);
+    }
+
 }
