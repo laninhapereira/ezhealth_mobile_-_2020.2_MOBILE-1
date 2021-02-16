@@ -25,12 +25,12 @@ import java.util.ArrayList;
 
 public class ExampleAdapterRefeicao extends RecyclerView.Adapter<ExampleAdapterRefeicao.ExampleViewHolder> {
 
-    private static Intent intentAdicionar;
-    private static Intent intentVisualizar;
+    private static OnClickListenerAdapter botaoAdicionar;
+    private static OnClickListenerAdapter botaoVisualizar;
 
-    public ExampleAdapterRefeicao(Intent intentAdicionar, Intent intentVisualizar){
-        this.intentAdicionar = intentAdicionar;
-        this.intentVisualizar = intentVisualizar;
+    public ExampleAdapterRefeicao(OnClickListenerAdapter botaoAdicionar, OnClickListenerAdapter botaoVisualizar){
+        this.botaoAdicionar = botaoAdicionar;
+        this.botaoVisualizar = botaoVisualizar;
     }
 
     public static class ExampleViewHolder extends RecyclerView.ViewHolder {
@@ -46,13 +46,11 @@ public class ExampleAdapterRefeicao extends RecyclerView.Adapter<ExampleAdapterR
             textCalorias = itemView.findViewById(R.id.TextViewCaloriasRefeicao);
 
             itemView.findViewById(R.id.buttonItemRefeicaoAdicionar).setOnClickListener(v -> {
-                intentAdicionar.putExtra("REFEICAO", textRefeicao.getText());
-                itemView.getContext().startActivity(intentAdicionar);
+                botaoAdicionar.OnClick(textRefeicao.getText().toString());
             });
 
             itemView.findViewById(R.id.buttonItemRefeicaoVisualizar).setOnClickListener(v -> {
-                intentVisualizar.putExtra("REFEICAO", textRefeicao.getText());
-                itemView.getContext().startActivity(intentVisualizar);
+                botaoVisualizar.OnClick(textRefeicao.getText().toString());
             });
 
         }

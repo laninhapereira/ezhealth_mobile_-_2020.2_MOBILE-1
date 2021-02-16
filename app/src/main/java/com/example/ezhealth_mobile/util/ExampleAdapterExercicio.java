@@ -18,12 +18,12 @@ import java.util.ArrayList;
 
 public class ExampleAdapterExercicio extends RecyclerView.Adapter<ExampleAdapterExercicio.ExampleViewHolder> {
 
-    private static Intent intentAdicionar;
-    private static Intent intentEditar;
+    private static OnClickListenerAdapter botaoAdicionar;
+    private static OnClickListenerAdapter botaoEditar;
 
-    public ExampleAdapterExercicio(Intent intentAdicionar, Intent intentEditar){
-        this.intentAdicionar = intentAdicionar;
-        this.intentEditar = intentEditar;
+    public ExampleAdapterExercicio(OnClickListenerAdapter botaoAdicionar, OnClickListenerAdapter botaoEditar){
+        this.botaoAdicionar = botaoAdicionar;
+        this.botaoEditar = botaoEditar;
     }
 
     public static class ExampleViewHolder extends RecyclerView.ViewHolder {
@@ -38,15 +38,14 @@ public class ExampleAdapterExercicio extends RecyclerView.Adapter<ExampleAdapter
             textDuracao = itemView.findViewById(R.id.TextViewDuracaoExercicio);
             textCalorias = itemView.findViewById(R.id.TextViewCaloriasExercicio);
 
-            itemView.findViewById(R.id.buttonItemAlimentoAdicionar).setOnClickListener(v -> {
-                intentAdicionar.putExtra("EXERCICIO", textExercicio.getText());
-                itemView.getContext().startActivity(intentAdicionar);
+            itemView.findViewById(R.id.buttonItemExercicioAdicionar).setOnClickListener(v -> {
+                botaoAdicionar.OnClick(textExercicio.getText().toString());
             });
 
-            itemView.findViewById(R.id.buttonItemAlimentoEditar).setOnClickListener(v -> {
-                intentEditar.putExtra("EXERCICIO", textExercicio.getText());
-                itemView.getContext().startActivity(intentEditar);
+            itemView.findViewById(R.id.buttonItemExercicioEditar).setOnClickListener(v -> {
+                botaoEditar.OnClick(textExercicio.getText().toString());
             });
+
         }
 
     }

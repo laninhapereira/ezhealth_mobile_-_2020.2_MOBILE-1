@@ -22,16 +22,24 @@ public class AdicionarExercicio_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adicionar_exercicio);
 
-        Intent adicionar = new Intent(this, Home_Activity.class);
-        adicionar.putExtra("FRAGMENT", "exercicio");
-
-        Intent editar = new Intent(this, EditarExercicio_Activity.class);
-        editar.putExtra("TELA_ANTERIOR", "adicionarExercicio");
-
         RecyclerView mRecyclerView = findViewById(R.id.recyclerViewExercicios);
-        //mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mRecyclerView.setAdapter(new ExampleAdapterExercicio(adicionar, editar));
+
+        mRecyclerView.setAdapter(new ExampleAdapterExercicio(
+            nome -> { // Construção do botão de ADICIONAR de cada item da lista
+                Intent intent = new Intent(this, Home_Activity.class);
+                intent.putExtra("FRAGMENT", "exercicio");
+                intent.putExtra("EXERCICIO", nome);
+                startActivity(intent);
+            }, // Construção do botão de EDITAR de cada item da lista
+            nome -> {
+                Intent intent = new Intent(this, EditarExercicio_Activity.class);
+                intent.putExtra("TELA_ANTERIOR", "adicionarExercicio");
+                intent.putExtra("EXERCICIO", nome);
+                startActivity(intent);
+            })
+        );
 
     }
 

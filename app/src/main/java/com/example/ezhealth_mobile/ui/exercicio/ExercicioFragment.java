@@ -19,44 +19,28 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.ezhealth_mobile.R;
 import com.example.ezhealth_mobile.activity.AdicionarExercicio_Activity;
+import com.example.ezhealth_mobile.activity.EditarAlimento_Activity;
 import com.example.ezhealth_mobile.activity.EditarExercicio_Activity;
 import com.example.ezhealth_mobile.activity.Home_Activity;
 import com.example.ezhealth_mobile.content.PainelInformacoes_Content;
 import com.example.ezhealth_mobile.entity.Exercicio_Repositorio;
+import com.example.ezhealth_mobile.util.ExampleAdapterObjectDefault;
 
 public class ExercicioFragment extends Fragment {
 
     // Esse fragment corresponde a tela Exercícios criada na protótipação
 
-    private ExercicioViewModel exercicioViewModel;
     private View viewFragment;
-    private ViewGroup container;
 
     @Override
-    public View onCreateView(
-        @NonNull LayoutInflater inflater,
-        ViewGroup container,
-        Bundle savedInstanceState
-    ) {
-        exercicioViewModel = new ViewModelProvider(this).get(ExercicioViewModel.class);
+    public View onCreateView(@NonNull LayoutInflater inflater,ViewGroup container,Bundle savedInstanceState) {
+        ExercicioViewModel exercicioViewModel = new ViewModelProvider(this).get(ExercicioViewModel.class);
+
         viewFragment = inflater.inflate(R.layout.activity_dual_panel, container, false);
-
-        exercicioViewModel.getText().observe(
-            getViewLifecycleOwner(),
-            new Observer<String>() {
-                @Override
-                public void onChanged(@Nullable String s) {}
-            }
-        );
-
-        this.container = container;
-
 
         ((TextView) viewFragment.findViewById(R.id.textViewTitelDualPanel)).setText("Lista de Exercícios");
         ((TextView) viewFragment.findViewById(R.id.textViewTitelDualPanel)).setPadding(53,0,0,0);
-
         ((TextView) viewFragment.findViewById(R.id.textViewDataDualPanel)).setPadding(53,0,0,0);
-
         ((Button) viewFragment.findViewById(R.id.buttonVoltar)).setVisibility(View.INVISIBLE);
 
         this.configuraPrimeiroPainel();
@@ -67,22 +51,22 @@ public class ExercicioFragment extends Fragment {
     }
 
     private void configuraPrimeiroPainel(){
-
-        LayoutInflater inflater = (LayoutInflater) container.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.content_panel_first_info, null);
-
-        ConstraintLayout includeFirstPanel = (ConstraintLayout) viewFragment.findViewById(R.id.include);
-        includeFirstPanel.removeAllViews();
-        includeFirstPanel.addView(view);
-
-        ((TextView) view.findViewById(R.id.textViewTituloPrimeiroPainel)).setText("Lista de Exercícios");
-
         // Classe para configuração do conteúdo do primeiro painel
         new PainelInformacoes_Content(
-                Exercicio_Repositorio.getInstance(),
-                viewFragment,
-                EditarExercicio_Activity.class,
-                true
+            "Exercicio 1",
+            this.getActivity(),
+            true,
+            new ExampleAdapterObjectDefault(
+                    true,
+                    nome -> { // Construção do botão de EDITAR de cada item da lista
+                        Intent intent = new Intent(this.getActivity(), EditarExercicio_Activity.class);
+                        intent.putExtra("EXERCICIO", nome);
+                        startActivity(intent);
+                    },
+                    nome -> { // Construção do botão de EXCLUIR de cada item da lista
+
+                    }
+            )
         );
     }
 
@@ -108,7 +92,7 @@ public class ExercicioFragment extends Fragment {
     //Botão "check" para confirmar que o usuário deseja salvar os itens
     public void setOnClickSalvar(){
         ((Button) viewFragment.findViewById(R.id.buttonCheck)).setOnClickListener(v1 -> {
-            Intent intent = new Intent(container.getContext(), Home_Activity.class);
+            Intent intent = new Intent(getContext(), Home_Activity.class);
             intent.putExtra("fragment", "diario");
             startActivity(intent);
         });
@@ -117,15 +101,9 @@ public class ExercicioFragment extends Fragment {
     //Botão "add" para caso o usuário queria adicionar um novo item
     public void setOnClickAdicionar(){
         ((ImageView) viewFragment.findViewById(R.id.imageViewButtonAdd)).setOnClickListener(v1 -> {
-            Intent intent = new Intent(container.getContext(), AdicionarExercicio_Activity.class);
+            Intent intent = new Intent(getContext(), AdicionarExercicio_Activity.class);
             startActivity(intent);
         });
     }
-
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        // Ainda será implementado
-    }
-
 
 }

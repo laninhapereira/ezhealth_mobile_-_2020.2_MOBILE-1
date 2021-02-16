@@ -18,7 +18,7 @@
             android:padding="2dp" />
 
         <Button
-            android:id="@+id/buttonAdicionar"
+            android:id="@+id/buttonItemExercicioAdicionar"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_marginLeft="356dp"
@@ -34,7 +34,7 @@
             app:layout_constraintVertical_bias="0.55" />
 
         <Button
-            android:id="@+id/buttonEditar"
+            android:id="@+id/buttonItemExercicioEditar"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_marginLeft="319dp"
