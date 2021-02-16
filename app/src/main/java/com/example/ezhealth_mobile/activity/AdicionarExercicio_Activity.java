@@ -17,35 +17,22 @@ import java.util.ArrayList;
 
 public class AdicionarExercicio_Activity extends AppCompatActivity {
 
-    private RecyclerView mRecyclerView;
-    private ExampleAdapterExercicio mAdapter;
-    private LinearLayoutManager mLayoutManager;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adicionar_exercicio);
 
-        mRecyclerView = findViewById(R.id.recyclerViewExercicios);
-        mRecyclerView.setHasFixedSize(true);
-        mLayoutManager = new LinearLayoutManager(this);
-        mAdapter = new ExampleAdapterExercicio(Exercicio_Repositorio.getInstance().getList());
+        Intent adicionar = new Intent(this, Home_Activity.class);
+        adicionar.putExtra("FRAGMENT", "exercicio");
 
-        mRecyclerView.setLayoutManager(mLayoutManager);
-        mRecyclerView.setAdapter(mAdapter);
+        Intent editar = new Intent(this, EditarExercicio_Activity.class);
+        editar.putExtra("TELA_ANTERIOR", "adicionarExercicio");
 
-    }
+        RecyclerView mRecyclerView = findViewById(R.id.recyclerViewExercicios);
+        //mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mRecyclerView.setAdapter(new ExampleAdapterExercicio(adicionar, editar));
 
-    public void editarExercicio(View v){
-        Intent intent = new Intent(this, EditarExercicio_Activity.class);
-        intent.putExtra("ANTERIOR", "adicionarExercicio");
-        startActivity(intent);
-    }
-
-    public void adicionarExercicio(View v){
-        Intent intent = new Intent(this, Home_Activity.class);
-        intent.putExtra("FRAGMENT", "exercicio");
-        startActivity(intent);
     }
 
     public void voltarListaExercicios(View v){

@@ -1,5 +1,6 @@
 package com.example.ezhealth_mobile.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,11 +25,14 @@ public class Refeicao_TabFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.tab_refeicao_fragment, container, false);
 
-        ExampleAdapterRefeicao mAdapter = new ExampleAdapterRefeicao(getContext());
+        Intent adicionar = new Intent(getContext(), EditarRefeicao_Activity.class);
+
+        Intent visualizar = new Intent(getContext(), VisualizarRefeicao_Activity.class);
+        visualizar.putExtra("TELA_ANTERIOR", "adicionarRefeicao");
 
         RecyclerView mRecyclerView = view.findViewById(R.id.recyclerViewRefeicoes);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        mRecyclerView.setAdapter(mAdapter);
+        mRecyclerView.setAdapter(new ExampleAdapterRefeicao(adicionar, visualizar));
 
         return view;
     }

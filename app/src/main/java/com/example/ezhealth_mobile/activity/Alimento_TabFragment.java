@@ -1,5 +1,6 @@
 package com.example.ezhealth_mobile.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,11 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ezhealth_mobile.R;
-import com.example.ezhealth_mobile.entity.Alimento_Repositorio;
 import com.example.ezhealth_mobile.util.ExampleAdapterAlimento;
-import com.example.ezhealth_mobile.entity.Alimento;
-
-import java.util.ArrayList;
 
 public class Alimento_TabFragment extends Fragment {
 
@@ -27,7 +24,20 @@ public class Alimento_TabFragment extends Fragment {
 
         RecyclerView mRecyclerView = view.findViewById(R.id.recyclerViewAlimentos);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        mRecyclerView.setAdapter(new ExampleAdapterAlimento());
+
+        mRecyclerView.setAdapter(new ExampleAdapterAlimento(
+            nome -> { // Construção do botão de ADICIONAR de cada item da lista
+                Intent intent = new Intent(getContext(), EditarRefeicao_Activity.class);
+                intent.putExtra("ALIMENTO", nome);
+                startActivity(intent);
+            }, // Construção do botão de EDITAR de cada item da lista
+            nome -> {
+                Intent intent = new Intent(getContext(), EditarAlimento_Activity.class);
+                intent.putExtra("TELA_ANTERIOR", "adicionarAlimento");
+                intent.putExtra("ALIMENTO", nome);
+                startActivity(intent);
+            })
+        );
 
         return view;
     }

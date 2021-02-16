@@ -1,6 +1,7 @@
 package com.example.ezhealth_mobile.util;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,24 +12,19 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ezhealth_mobile.R;
 import com.example.ezhealth_mobile.entity.Exercicio;
+import com.example.ezhealth_mobile.entity.Exercicio_Repositorio;
 
 import java.util.ArrayList;
 
 public class ExampleAdapterExercicio extends RecyclerView.Adapter<ExampleAdapterExercicio.ExampleViewHolder> {
 
-    //Array auxiliar
-    private ArrayList<Exercicio> mListaExercicios;
-    Context mContext;
+    private static Intent intentAdicionar;
+    private static Intent intentEditar;
 
-    public ExampleAdapterExercicio(Context context, ArrayList<Exercicio> array){
-        this.mContext = context;
-        this.mListaExercicios = array;
+    public ExampleAdapterExercicio(Intent intentAdicionar, Intent intentEditar){
+        this.intentAdicionar = intentAdicionar;
+        this.intentEditar = intentEditar;
     }
-
-    public ExampleAdapterExercicio(ArrayList<Exercicio> array){
-        this.mListaExercicios = array;
-    }
-
 
     public static class ExampleViewHolder extends RecyclerView.ViewHolder {
 
@@ -41,6 +37,16 @@ public class ExampleAdapterExercicio extends RecyclerView.Adapter<ExampleAdapter
             textExercicio = itemView.findViewById(R.id.TextViewExercicio);
             textDuracao = itemView.findViewById(R.id.TextViewDuracaoExercicio);
             textCalorias = itemView.findViewById(R.id.TextViewCaloriasExercicio);
+
+            itemView.findViewById(R.id.buttonItemAlimentoAdicionar).setOnClickListener(v -> {
+                intentAdicionar.putExtra("EXERCICIO", textExercicio.getText());
+                itemView.getContext().startActivity(intentAdicionar);
+            });
+
+            itemView.findViewById(R.id.buttonItemAlimentoEditar).setOnClickListener(v -> {
+                intentEditar.putExtra("EXERCICIO", textExercicio.getText());
+                itemView.getContext().startActivity(intentEditar);
+            });
         }
 
     }
@@ -54,7 +60,7 @@ public class ExampleAdapterExercicio extends RecyclerView.Adapter<ExampleAdapter
 
     @Override
     public void onBindViewHolder(@NonNull ExampleViewHolder holder, int position) {
-        Exercicio itemAtual = mListaExercicios.get(position);
+        Exercicio itemAtual = Exercicio_Repositorio.getInstance().getList().get(position);
 
         holder.textExercicio.setText(itemAtual.getNome());
         holder.textDuracao.setText(itemAtual.getQuantidade());
@@ -63,7 +69,7 @@ public class ExampleAdapterExercicio extends RecyclerView.Adapter<ExampleAdapter
 
     @Override
     public int getItemCount() {
-        return mListaExercicios.size();
+        return Exercicio_Repositorio.getInstance().getList().size();
     }
 
 

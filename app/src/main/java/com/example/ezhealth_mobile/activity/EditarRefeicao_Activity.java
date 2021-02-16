@@ -41,24 +41,32 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
         );
     }
 
+    //Botão "add" para caso o usuário queria adicionar um novo item
+    public void adicionar(View view){
+        intent = new Intent(this, AdicionarAlimentoRefeicao_Activity.class);
+        intent.putExtra("TELA_ANTERIOR", "adicionarRefeicao");
+        startActivity(intent);
+    }
+
     //Botão "check" para confirmar que o usuário deseja salvar os itens
     public void salvar(View v){
+        intent.putExtra("ATUALIZAR", true);
         escolheTelaVolta();
     }
 
     //Botão "voltar" para caso o usuário desista e volte para a tela anterior
     public void voltar(View v){
-        escolheTelaVolta();
-    }
-
-    //Botão "add" para caso o usuário queria adicionar um novo item
-    public void adicionar(View view){
+        intent.putExtra("ATUALIZAR", false);
         escolheTelaVolta();
     }
 
     private void escolheTelaVolta(){
         switch(telaAnterior){
-            case "adicionarAlimentosRefeicao":
+            case "adicionarAlimento":
+                intent = new Intent(this, AdicionarAlimentoRefeicao_Activity.class);
+                intent.putExtra("FRAGMENT", "alimento");
+                break;
+            case "adicionarRefeicao":
                 intent = new Intent(this, AdicionarAlimentoRefeicao_Activity.class);
                 intent.putExtra("FRAGMENT", "refeicao");
                 break;

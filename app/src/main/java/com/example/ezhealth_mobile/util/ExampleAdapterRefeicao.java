@@ -25,12 +25,13 @@ import java.util.ArrayList;
 
 public class ExampleAdapterRefeicao extends RecyclerView.Adapter<ExampleAdapterRefeicao.ExampleViewHolder> {
 
-    private static Context mContext;
+    private static Intent intentAdicionar;
+    private static Intent intentVisualizar;
 
-    public ExampleAdapterRefeicao(Context context){
-        this.mContext = context;
+    public ExampleAdapterRefeicao(Intent intentAdicionar, Intent intentVisualizar){
+        this.intentAdicionar = intentAdicionar;
+        this.intentVisualizar = intentVisualizar;
     }
-
 
     public static class ExampleViewHolder extends RecyclerView.ViewHolder {
 
@@ -45,26 +46,18 @@ public class ExampleAdapterRefeicao extends RecyclerView.Adapter<ExampleAdapterR
             textCalorias = itemView.findViewById(R.id.TextViewCaloriasRefeicao);
 
             itemView.findViewById(R.id.buttonItemRefeicaoAdicionar).setOnClickListener(v -> {
-                Intent intent = new Intent(itemView.getContext(), EditarRefeicao_Activity.class);
-
-                if(mContext.getClass().equals(AdicionarAlimentoRefeicao_Activity.class)) {
-                    intent.putExtra("TELA_ANTERIOR", "adicionarAlimentosRefeicao");
-                }
-
-                intent.putExtra("REFEICAO", textRefeicao.getText());
-                itemView.getContext().startActivity(intent);
+                intentAdicionar.putExtra("REFEICAO", textRefeicao.getText());
+                itemView.getContext().startActivity(intentAdicionar);
             });
 
             itemView.findViewById(R.id.buttonItemRefeicaoVisualizar).setOnClickListener(v -> {
-                Intent intent = new Intent(itemView.getContext(), VisualizarRefeicao_Activity.class);
-                intent.putExtra("REFEICAO", textRefeicao.getText());
-                itemView.getContext().startActivity(intent);
+                intentVisualizar.putExtra("REFEICAO", textRefeicao.getText());
+                itemView.getContext().startActivity(intentVisualizar);
             });
 
         }
 
     }
-    
 
     @NonNull
     @Override
@@ -75,13 +68,12 @@ public class ExampleAdapterRefeicao extends RecyclerView.Adapter<ExampleAdapterR
 
     @Override
     public void onBindViewHolder(@NonNull ExampleViewHolder holder, int position) {
-        Refeicao itemAtual = (Refeicao) Refeicao_Repositorio.getInstance().getItemList(position);
+        Refeicao itemAtual = Refeicao_Repositorio.getInstance().getItemList(position);
 
         holder.textRefeicao.setText(itemAtual.getNome());
         holder.textMassa.setText(itemAtual.getQuantidade());
         holder.textCalorias.setText(itemAtual.getCalorias());
     }
-
 
     @Override
     public int getItemCount() {

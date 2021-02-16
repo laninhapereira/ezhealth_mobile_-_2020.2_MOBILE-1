@@ -62,20 +62,18 @@ public class EditarExercicio_Activity extends AppCompatActivity {
 
     //Botão "check" para confirmar que o usuário deseja salvar os itens
     public void salvar(View v){
-        switch(telaAnterior){
-            case "adicionarExercicio":
-                intent = new Intent(this, AdicionarExercicio_Activity.class);
-                break;
-            default:
-                intent = new Intent(this, Home_Activity.class);
-                intent.putExtra("FRAGMENT", "exercicio");
-        }
-        startActivity(intent);
+        intent.putExtra("ATUALIZAR", true);
+        escolheTelaVolta();
     }
 
     //Botão "voltar" para caso o usuário desista e volte para a tela anterior
     @SuppressLint("ResourceType")
     public void voltar(View v){
+        intent.putExtra("ATUALIZAR", false);
+        escolheTelaVolta();
+    }
+
+    private void escolheTelaVolta(){
         switch(telaAnterior){
             case "adicionarExercicio":
                 intent = new Intent(this, AdicionarExercicio_Activity.class);

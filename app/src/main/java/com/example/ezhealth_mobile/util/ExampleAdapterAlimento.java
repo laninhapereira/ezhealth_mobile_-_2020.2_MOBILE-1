@@ -20,6 +20,14 @@ import java.util.ArrayList;
 
 public class ExampleAdapterAlimento extends RecyclerView.Adapter<ExampleAdapterAlimento.ExampleViewHolder>{
 
+    private static OnClickListenerAdapter botaoAdicionar;
+    private static OnClickListenerAdapter botaoEditar;
+
+    public ExampleAdapterAlimento(OnClickListenerAdapter botaoAdicionar, OnClickListenerAdapter botaoEditar){
+        this.botaoAdicionar = botaoAdicionar;
+        this.botaoEditar = botaoEditar;
+    }
+
     public static class ExampleViewHolder extends RecyclerView.ViewHolder {
 
         private TextView textAlimento;
@@ -32,18 +40,14 @@ public class ExampleAdapterAlimento extends RecyclerView.Adapter<ExampleAdapterA
             textMassa = itemView.findViewById(R.id.TextViewMassaAlimento);
             textCalorias = itemView.findViewById(R.id.TextViewCaloriasAlimento);
 
-            itemView.findViewById(R.id.buttonItemAlimentoEditar).setOnClickListener(v -> {
-                Intent intent = new Intent(itemView.getContext(), EditarAlimento_Activity.class);
-                intent.putExtra("ALIMENTO", textAlimento.getText());
-                intent.putExtra("TELA_ANTERIOR", "adicionarRefeicao");
-                itemView.getContext().startActivity(intent);
+            itemView.findViewById(R.id.buttonItemAlimentoAdicionar).setOnClickListener(v -> {
+                botaoAdicionar.OnClick(textAlimento.getText().toString());
             });
 
-            itemView.findViewById(R.id.buttonItemAlimentoAdicionar).setOnClickListener(v -> {
-                Intent intent = new Intent(itemView.getContext(), EditarRefeicao_Activity.class);
-                intent.putExtra("ALIMENTO", textAlimento.getText());
-                itemView.getContext().startActivity(intent);
+            itemView.findViewById(R.id.buttonItemAlimentoEditar).setOnClickListener(v -> {
+                botaoEditar.OnClick(textAlimento.getText().toString());
             });
+
         }
     }
 
@@ -56,7 +60,7 @@ public class ExampleAdapterAlimento extends RecyclerView.Adapter<ExampleAdapterA
 
     @Override
     public void onBindViewHolder(@NonNull ExampleViewHolder holder, int position) {
-        Alimento itemAtual = (Alimento) Alimento_Repositorio.getListaAlimentosGeral().get(position);
+        Alimento itemAtual = Alimento_Repositorio.getListaAlimentosGeral().get(position);
 
         holder.textAlimento.setText(itemAtual.getNome());
         holder.textMassa.setText(itemAtual.getQuantidade());
