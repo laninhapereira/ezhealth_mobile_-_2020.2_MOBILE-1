@@ -56,9 +56,9 @@ public class ExampleAdapterExercicio extends RecyclerView.Adapter<ExampleAdapter
     public void onBindViewHolder(@NonNull ExampleViewHolder holder, int position) {
         Exercicio itemAtual = mListaExercicios.get(position);
 
-        holder.textExercicio.setText(itemAtual.getTextExercicio());
-        holder.textDuracao.setText(itemAtual.getTextDuracao());
-        holder.textCalorias.setText(itemAtual.getTextCalorias());
+        holder.textExercicio.setText(itemAtual.getNome());
+        holder.textDuracao.setText(itemAtual.getQuantidade());
+        holder.textCalorias.setText(itemAtual.getCalorias());
     }
 
     @Override

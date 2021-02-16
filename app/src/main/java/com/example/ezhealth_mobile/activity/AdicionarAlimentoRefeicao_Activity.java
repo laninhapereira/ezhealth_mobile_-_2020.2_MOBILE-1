@@ -13,17 +13,38 @@ import com.google.android.material.tabs.TabLayout;
 
 public class AdicionarAlimentoRefeicao_Activity extends AppCompatActivity {
 
+    private TabLayout tabs;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adicionar_alimento_refeicao);
         SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
+
         ViewPager viewPager = findViewById(R.id.view_pager);
         viewPager.setAdapter(sectionsPagerAdapter);
-        TabLayout tabs = findViewById(R.id.tabs);
+
+        tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
 
+        escolheFragmentInicial();
     }
+
+    private void escolheFragmentInicial(){
+        if(getIntent().getStringExtra("FRAGMENT") == null)
+            return;
+        switch ( getIntent().getStringExtra("FRAGMENT") ){
+            case "alimento":
+                tabs.getTabAt(0).select();
+                break;
+            case "refeicao":
+                tabs.getTabAt(1).select();
+                break;
+            default:
+                tabs.getTabAt(0).select();
+        }
+    }
+
 
     //Botão "check" para confirmar que o usuário já adicionou os alimentos/refeições desejados
     public void checkAlimentoRefeição(View v){

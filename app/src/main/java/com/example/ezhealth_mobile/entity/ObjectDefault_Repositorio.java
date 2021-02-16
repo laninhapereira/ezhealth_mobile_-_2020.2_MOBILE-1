@@ -2,29 +2,30 @@ package com.example.ezhealth_mobile.entity;
 
 import java.util.ArrayList;
 
-public class ObjectDefault_Repositorio {
 
-    private static ArrayList<ObjectDefault> listObject = new ArrayList<ObjectDefault>();
+public abstract class ObjectDefault_Repositorio<T> {
+
+    private ArrayList<T> list;
     private static String titleListItens = "";
 
-    public static void setList(ArrayList<ObjectDefault> list){
-        listObject = list;
+    public void setList(ArrayList<T> list){
+        this.list = list;
     }
 
-    public static ArrayList<ObjectDefault> getList(){
-        return listObject;
+    public ArrayList<T> getList(){
+        return list;
     }
 
-    public static void add(ObjectDefault objectDefault){
-        listObject.add(objectDefault);
+    public void add(T t){
+        list.add(t);
     }
 
-    public static void delItemList(int position){
-        listObject.remove(position);
+    public void delItemList(int position){
+        list.remove(position);
     }
 
-    public static ObjectDefault getItemList(int position){
-        return listObject.get(position);
+    public T getItemList(int position){
+        return list.get(position);
     }
 
     public static String getTitleListItens() {

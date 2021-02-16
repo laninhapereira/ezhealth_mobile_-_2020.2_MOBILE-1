@@ -25,14 +25,12 @@ import static androidx.core.app.ActivityCompat.startActivityForResult;
 public class ExampleAdapterRefeicaoPersonalizada extends RecyclerView.Adapter<ExampleAdapterRefeicaoPersonalizada.ExampleViewHolder> {
 
     private static final int ATUALIZAR = 1;
-    private ArrayList<Refeicao> listaRefeicoesPersonalizada;
     private static Class classEdicaoItem;
     private static Context contextOrigin;
 
     public ExampleAdapterRefeicaoPersonalizada(Context contextOrigin, Class classEdicaoItem){
         this.classEdicaoItem = classEdicaoItem;
         this.contextOrigin = contextOrigin;
-        this.listaRefeicoesPersonalizada = Refeicao_Repositorio.getList();
     }
 
 
@@ -87,16 +85,16 @@ public class ExampleAdapterRefeicaoPersonalizada extends RecyclerView.Adapter<Ex
 
     @Override
     public void onBindViewHolder(@NonNull ExampleViewHolder holder, int position) {
-        Refeicao itemAtual = listaRefeicoesPersonalizada.get(position);
+        Refeicao itemAtual = (Refeicao) Refeicao_Repositorio.getInstance().getItemList(position);
 
         holder.position = position;
-        holder.textRefeicaoPersonalizada.setText(itemAtual.getTextRefeicao());
-        holder.textCaloriasPersonalizada.setText(itemAtual.getTextCalorias());
+        holder.textRefeicaoPersonalizada.setText(itemAtual.getNome());
+        holder.textCaloriasPersonalizada.setText(itemAtual.getCalorias());
     }
 
 
     @Override
     public int getItemCount() {
-        return listaRefeicoesPersonalizada.size();
+        return Refeicao_Repositorio.getInstance().getList().size();
     }
 }

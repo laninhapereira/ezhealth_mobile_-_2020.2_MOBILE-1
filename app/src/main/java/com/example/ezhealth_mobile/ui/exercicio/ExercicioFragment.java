@@ -22,8 +22,7 @@ import com.example.ezhealth_mobile.activity.AdicionarExercicio_Activity;
 import com.example.ezhealth_mobile.activity.EditarExercicio_Activity;
 import com.example.ezhealth_mobile.activity.Home_Activity;
 import com.example.ezhealth_mobile.content.PainelInformacoes_Content;
-import com.example.ezhealth_mobile.entity.ObjectDefault;
-import com.example.ezhealth_mobile.entity.ObjectDefault_Repositorio;
+import com.example.ezhealth_mobile.entity.Exercicio_Repositorio;
 
 public class ExercicioFragment extends Fragment {
 
@@ -52,7 +51,6 @@ public class ExercicioFragment extends Fragment {
 
         this.container = container;
 
-        popular();
 
         ((TextView) viewFragment.findViewById(R.id.textViewTitelDualPanel)).setText("Lista de Exercícios");
         ((TextView) viewFragment.findViewById(R.id.textViewTitelDualPanel)).setPadding(53,0,0,0);
@@ -81,6 +79,7 @@ public class ExercicioFragment extends Fragment {
 
         // Classe para configuração do conteúdo do primeiro painel
         new PainelInformacoes_Content(
+                Exercicio_Repositorio.getInstance(),
                 viewFragment,
                 EditarExercicio_Activity.class,
                 true
@@ -126,12 +125,6 @@ public class ExercicioFragment extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         // Ainda será implementado
-    }
-
-    private void popular(){
-        ObjectDefault_Repositorio.setTitleListItens("Exercicios da manhã");
-        ObjectDefault_Repositorio.add(new ObjectDefault("Correr", "4", "Km", "400"));
-        ObjectDefault_Repositorio.add(new ObjectDefault("Abdominal", "3", "Series", "300"));
     }
 
 

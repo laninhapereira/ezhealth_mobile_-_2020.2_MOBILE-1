@@ -33,7 +33,6 @@ public class Refeicao_TabFragment extends Fragment {
         return view;
     }
 
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

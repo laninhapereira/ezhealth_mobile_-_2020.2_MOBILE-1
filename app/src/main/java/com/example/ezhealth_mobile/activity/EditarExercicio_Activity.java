@@ -13,12 +13,14 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.ezhealth_mobile.R;
 import com.example.ezhealth_mobile.content.PainelQuantidades_Content;
+import com.example.ezhealth_mobile.entity.Alimento_Repositorio;
+import com.example.ezhealth_mobile.entity.Exercicio_Repositorio;
 import com.example.ezhealth_mobile.entity.ObjectDefault;
 
 public class EditarExercicio_Activity extends AppCompatActivity {
 
-    private ObjectDefault objectDefault;
-    private String anterior;
+    private Intent intent;
+    private String telaAnterior;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,29 +29,16 @@ public class EditarExercicio_Activity extends AppCompatActivity {
 
         ((TextView) findViewById(R.id.textViewTitelDualPanel)).setText("Editar Exercício");
 
-        popular();
-
         this.configuraPrimeiroPainel();
         this.configuraSegundoPainel();
 
-        anterior = getIntent().getStringExtra("ANTERIOR");
+        intent = getIntent();
+        telaAnterior = (intent != null)? intent.getStringExtra("TELA_ANTERIOR") : "default";
+        telaAnterior = (telaAnterior!=null)? telaAnterior :"default";
     }
 
     private void configuraPrimeiroPainel(){
-        LayoutInflater inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.content_panel_first_quant, null);
-
-        ConstraintLayout includeFirstPanel = (ConstraintLayout) findViewById(R.id.include);
-        includeFirstPanel.removeAllViews();
-        includeFirstPanel.addView(view);
-
-        // Classe para configuração do conteúdo do primeiro painel
-        new PainelQuantidades_Content(
-                this,
-                objectDefault.getName(),
-                objectDefault.getQuantity(),
-                objectDefault.getQuantityMeasure()
-        );
+        new PainelQuantidades_Content(this, (ObjectDefault) Exercicio_Repositorio.getInstance().getItemList(0));
     }
 
     // Classe para configuração do conteúdo do segundo painel
@@ -73,41 +62,29 @@ public class EditarExercicio_Activity extends AppCompatActivity {
 
     //Botão "check" para confirmar que o usuário deseja salvar os itens
     public void salvar(View v){
-        Intent intent;
-
-        if(anterior!=null && anterior.equals("adicionarExercicio"))
-            intent = new Intent(this, AdicionarExercicio_Activity.class);
-        else {
-            intent = new Intent(this, Home_Activity.class);
-            intent.putExtra("FRAGMENT", "exercicio");
+        switch(telaAnterior){
+            case "adicionarExercicio":
+                intent = new Intent(this, AdicionarExercicio_Activity.class);
+                break;
+            default:
+                intent = new Intent(this, Home_Activity.class);
+                intent.putExtra("FRAGMENT", "exercicio");
         }
-
         startActivity(intent);
     }
 
     //Botão "voltar" para caso o usuário desista e volte para a tela anterior
     @SuppressLint("ResourceType")
     public void voltar(View v){
-
-        Intent intent;
-
-        if(anterior!=null && anterior.equals("adicionarExercicio"))
-            intent = new Intent(this, AdicionarExercicio_Activity.class);
-        else {
-            intent = new Intent(this, Home_Activity.class);
-            intent.putExtra("FRAGMENT", "exercicio");
+        switch(telaAnterior){
+            case "adicionarExercicio":
+                intent = new Intent(this, AdicionarExercicio_Activity.class);
+                break;
+            default:
+                intent = new Intent(this, Home_Activity.class);
+                intent.putExtra("FRAGMENT", "exercicio");
         }
-
         startActivity(intent);
-    }
-
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        // Ainda será implementado
-    }
-
-    private void popular(){
-        objectDefault = new ObjectDefault("Correr", "4", "Km", "400");
     }
 
 }

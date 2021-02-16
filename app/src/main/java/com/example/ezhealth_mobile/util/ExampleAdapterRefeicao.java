@@ -1,7 +1,9 @@
 package com.example.ezhealth_mobile.util;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +14,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ezhealth_mobile.R;
+import com.example.ezhealth_mobile.activity.AdicionarAlimentoRefeicao_Activity;
 import com.example.ezhealth_mobile.activity.EditarRefeicao_Activity;
+import com.example.ezhealth_mobile.activity.Refeicao_TabFragment;
 import com.example.ezhealth_mobile.activity.VisualizarRefeicao_Activity;
 import com.example.ezhealth_mobile.entity.Refeicao;
 import com.example.ezhealth_mobile.entity.Refeicao_Repositorio;
@@ -21,19 +25,15 @@ import java.util.ArrayList;
 
 public class ExampleAdapterRefeicao extends RecyclerView.Adapter<ExampleAdapterRefeicao.ExampleViewHolder> {
 
-    //Array auxiliar
-    private ArrayList<Refeicao> mListaRefeicoes;
-    Context mContext;
+    private static Context mContext;
 
     public ExampleAdapterRefeicao(Context context){
         this.mContext = context;
-        this.mListaRefeicoes = Refeicao_Repositorio.getList();
     }
 
 
     public static class ExampleViewHolder extends RecyclerView.ViewHolder {
 
-        public ImageView mImageResource;
         public TextView textRefeicao;
         public TextView textMassa;
         public TextView textCalorias;
@@ -46,6 +46,11 @@ public class ExampleAdapterRefeicao extends RecyclerView.Adapter<ExampleAdapterR
 
             itemView.findViewById(R.id.buttonItemRefeicaoAdicionar).setOnClickListener(v -> {
                 Intent intent = new Intent(itemView.getContext(), EditarRefeicao_Activity.class);
+
+                if(mContext.getClass().equals(AdicionarAlimentoRefeicao_Activity.class)) {
+                    intent.putExtra("TELA_ANTERIOR", "adicionarAlimentosRefeicao");
+                }
+
                 intent.putExtra("REFEICAO", textRefeicao.getText());
                 itemView.getContext().startActivity(intent);
             });
@@ -70,16 +75,16 @@ public class ExampleAdapterRefeicao extends RecyclerView.Adapter<ExampleAdapterR
 
     @Override
     public void onBindViewHolder(@NonNull ExampleViewHolder holder, int position) {
-        Refeicao itemAtual = mListaRefeicoes.get(position);
+        Refeicao itemAtual = (Refeicao) Refeicao_Repositorio.getInstance().getItemList(position);
 
-        holder.textRefeicao.setText(itemAtual.getTextRefeicao());
-        holder.textMassa.setText(itemAtual.getTextMassa());
-        holder.textCalorias.setText(itemAtual.getTextCalorias());
+        holder.textRefeicao.setText(itemAtual.getNome());
+        holder.textMassa.setText(itemAtual.getQuantidade());
+        holder.textCalorias.setText(itemAtual.getCalorias());
     }
 
 
     @Override
     public int getItemCount() {
-        return mListaRefeicoes.size();
+        return Refeicao_Repositorio.getInstance().getList().size();
     }
 }

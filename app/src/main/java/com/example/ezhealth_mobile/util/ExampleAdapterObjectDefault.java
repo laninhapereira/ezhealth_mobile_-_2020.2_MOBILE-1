@@ -15,8 +15,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ezhealth_mobile.R;
+import com.example.ezhealth_mobile.entity.Alimento_Repositorio;
 import com.example.ezhealth_mobile.entity.ObjectDefault;
-import com.example.ezhealth_mobile.entity.ObjectDefault_Repositorio;
+
+import java.util.ArrayList;
 
 import static androidx.core.app.ActivityCompat.startActivityForResult;
 
@@ -26,6 +28,7 @@ public class ExampleAdapterObjectDefault extends RecyclerView.Adapter<ExampleAda
     private Context contextOrigin;
     private Class classEdicaoItem;
     private boolean menuOpcoesHabilitado;
+    private ArrayList<ObjectDefault> list;
 
     public ExampleAdapterObjectDefault(Context contextOrigin, Class classEdicaoItem, boolean menuOpcoesHabilitado) {
         this.contextOrigin = contextOrigin;
@@ -90,18 +93,18 @@ public class ExampleAdapterObjectDefault extends RecyclerView.Adapter<ExampleAda
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        ObjectDefault obj = ObjectDefault_Repositorio.getItemList(position);
+        ObjectDefault obj = (ObjectDefault) Alimento_Repositorio.getInstance().getItemList(position);
 
         holder.position = position;
-        holder.title.setText(obj.getName());
-        holder.quantity.setText(obj.getQuantity());
-        holder.quantityMeasure.setText(obj.getQuantityMeasure());
-        holder.kcal.setText(obj.getKcal());
+        holder.title.setText(obj.getNome());
+        holder.quantity.setText(obj.getQuantidade());
+        holder.quantityMeasure.setText(obj.getUnidadeMedida());
+        holder.kcal.setText(obj.getCalorias());
     }
 
     @Override
     public int getItemCount() {
-        return ObjectDefault_Repositorio.getList().size();
+        return Alimento_Repositorio.getInstance().getList().size();
     }
 
 }

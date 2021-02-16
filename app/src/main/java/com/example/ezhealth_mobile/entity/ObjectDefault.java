@@ -1,48 +1,48 @@
 package com.example.ezhealth_mobile.entity;
 
-public class ObjectDefault {
+public abstract class ObjectDefault {
 
-    private String name;
-    private String quantity;
-    private String quantityMeasure;
-    private String kcal;
+    private String nome;
+    private String quantidade;
+    private String unidadeMedida;
+    private String calorias;
 
-    public ObjectDefault(String name, String quantity, String quantityMeasure, String kcal) {
-        this.name = (name != null)? name : "Not named";
-        this.quantity = (quantity != null && Integer.parseInt(quantity) >= 0)? quantity : "0";
-        this.quantityMeasure = (quantityMeasure != null)? quantityMeasure : "qtd";
-        this.kcal = (kcal != null && Integer.parseInt(kcal) >= 0)? kcal : "0";
+    public ObjectDefault(String nome, String quantidade, String unidadeMedida, String calorias) {
+        this.nome = (nome != null)? nome : "Not named";
+        this.quantidade = (quantidade != null && Integer.parseInt(quantidade) >= 0)? quantidade : "0";
+        this.unidadeMedida = (unidadeMedida != null)? unidadeMedida : "qtd";
+        this.calorias = (calorias != null && Integer.parseInt(calorias) >= 0)? calorias : "0";
     }
 
-    public String getName() {
-        return name;
+    public String getNome() {
+        return nome;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public String getQuantity() {
-        return quantity;
+    public String getQuantidade() {
+        return quantidade;
     }
 
-    public void setQuantity(String quantity) {
-        this.quantity = quantity;
+    public void setQuantidade(String quantidade) {
+        this.quantidade = quantidade;
     }
 
-    public String getQuantityMeasure() {
-        return quantityMeasure;
+    public String getUnidadeMedida() {
+        return unidadeMedida;
     }
 
-    public void setQuantityMeasure(String quantityMeasure) {
-        this.quantityMeasure = quantityMeasure;
+    public void setUnidadeMedida(String unidadeMedida) {
+        this.unidadeMedida = unidadeMedida;
     }
 
-    public String getKcal() {
-        return kcal;
+    public String getCalorias() {
+        return calorias;
     }
 
-    public void setKcal(String kcal) {
-        this.kcal = kcal;
+    public void setCalorias(String calorias) {
+        this.calorias = calorias;
     }
 }

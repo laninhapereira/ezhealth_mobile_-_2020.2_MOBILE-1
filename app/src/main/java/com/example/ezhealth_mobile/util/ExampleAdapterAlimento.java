@@ -14,20 +14,11 @@ import com.example.ezhealth_mobile.R;
 import com.example.ezhealth_mobile.activity.EditarAlimento_Activity;
 import com.example.ezhealth_mobile.activity.EditarRefeicao_Activity;
 import com.example.ezhealth_mobile.entity.Alimento;
+import com.example.ezhealth_mobile.entity.Alimento_Repositorio;
 
 import java.util.ArrayList;
 
 public class ExampleAdapterAlimento extends RecyclerView.Adapter<ExampleAdapterAlimento.ExampleViewHolder>{
-
-
-    //Array auxiliar
-    private ArrayList<Alimento> mListaAlimentos;
-    public Context mContext;
-
-    public ExampleAdapterAlimento(Context context, ArrayList<Alimento> array){
-        this.mContext = context;
-        this.mListaAlimentos = array;
-    }
 
     public static class ExampleViewHolder extends RecyclerView.ViewHolder {
 
@@ -56,9 +47,6 @@ public class ExampleAdapterAlimento extends RecyclerView.Adapter<ExampleAdapterA
         }
     }
 
-    public ExampleAdapterAlimento(ArrayList<Alimento> listaAlimentos){
-        mListaAlimentos = listaAlimentos;
-    }
 
     @Override
     public ExampleViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -68,16 +56,16 @@ public class ExampleAdapterAlimento extends RecyclerView.Adapter<ExampleAdapterA
 
     @Override
     public void onBindViewHolder(@NonNull ExampleViewHolder holder, int position) {
-        Alimento itemAtual = mListaAlimentos.get(position);
+        Alimento itemAtual = (Alimento) Alimento_Repositorio.getInstance().getItemList(position);
 
-        holder.textAlimento.setText(itemAtual.getTextAlimento());
-        holder.textMassa.setText(itemAtual.getTextMassa());
-        holder.textCalorias.setText(itemAtual.getTextCalorias());
+        holder.textAlimento.setText(itemAtual.getNome());
+        holder.textMassa.setText(itemAtual.getQuantidade());
+        holder.textCalorias.setText(itemAtual.getCalorias());
     }
 
     @Override
     public int getItemCount() {
-        return mListaAlimentos.size();
+        return Alimento_Repositorio.getInstance().getList().size();
     }
 
 
