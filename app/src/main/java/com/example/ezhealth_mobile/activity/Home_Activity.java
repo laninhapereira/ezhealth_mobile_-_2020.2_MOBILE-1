@@ -99,7 +99,7 @@ public class Home_Activity extends AppCompatActivity {
     }
 
     public void irRelatorio(View view){
-        Intent intent = new Intent(this, Main_Activity.class);
+        Intent intent = new Intent(this, Relatorio_Activity.class);
         startActivity(intent);
     }
 
