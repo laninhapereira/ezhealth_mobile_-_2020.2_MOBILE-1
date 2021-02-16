@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.ezhealth_mobile.R;
 import com.example.ezhealth_mobile.util.ExampleAdapterAlimento;
 
-public class Alimento_TabFragment extends Fragment {
+public class TabFragment_Alimento extends Fragment {
 
     @Nullable
     @Override

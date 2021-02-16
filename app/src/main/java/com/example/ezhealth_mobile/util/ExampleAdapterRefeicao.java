@@ -1,27 +1,17 @@
 package com.example.ezhealth_mobile.util;
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ezhealth_mobile.R;
-import com.example.ezhealth_mobile.activity.AdicionarAlimentoRefeicao_Activity;
-import com.example.ezhealth_mobile.activity.EditarRefeicao_Activity;
-import com.example.ezhealth_mobile.activity.Refeicao_TabFragment;
-import com.example.ezhealth_mobile.activity.VisualizarRefeicao_Activity;
 import com.example.ezhealth_mobile.entity.Refeicao;
 import com.example.ezhealth_mobile.entity.Refeicao_Repositorio;
-
-import java.util.ArrayList;
 
 public class ExampleAdapterRefeicao extends RecyclerView.Adapter<ExampleAdapterRefeicao.ExampleViewHolder> {
 

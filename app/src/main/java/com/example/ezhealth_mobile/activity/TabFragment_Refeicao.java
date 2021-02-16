@@ -18,7 +18,7 @@ import com.example.ezhealth_mobile.util.ExampleAdapterRefeicao;
 
 import java.util.ArrayList;
 
-public class Refeicao_TabFragment extends Fragment {
+public class TabFragment_Refeicao extends Fragment {
 
     @Nullable
     @Override
