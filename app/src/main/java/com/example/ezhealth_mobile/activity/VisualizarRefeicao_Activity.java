@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.ezhealth_mobile.R;
 import com.example.ezhealth_mobile.content.PainelInformacoes_Content;
 import com.example.ezhealth_mobile.entity.Alimento_Repositorio;
+import com.example.ezhealth_mobile.entity.Refeicao;
 import com.example.ezhealth_mobile.entity.Refeicao_Repositorio;
 
 public class VisualizarRefeicao_Activity extends AppCompatActivity {
@@ -27,7 +28,7 @@ public class VisualizarRefeicao_Activity extends AppCompatActivity {
     private void configuraPrimeiroPainel(){
         // Classe para configuração do conteúdo do primeiro painel
         new PainelInformacoes_Content(
-                Alimento_Repositorio.getInstance(),
+                Refeicao_Repositorio.getInstance(),
                 getWindow().getDecorView(),
                 EditarAlimento_Activity.class,
                 false

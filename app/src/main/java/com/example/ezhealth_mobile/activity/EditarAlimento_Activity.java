@@ -36,7 +36,7 @@ public class EditarAlimento_Activity extends AppCompatActivity {
     }
 
     private void configuraPrimeiroPainel(){
-        new PainelQuantidades_Content(this, (ObjectDefault) Alimento_Repositorio.getInstance().getItemList(0));
+        new PainelQuantidades_Content(this, new Alimento_Repositorio().getListaAlimentosGeral().get(0));
     }
 
     //Botão "check" para confirmar que o usuário deseja salvar os itens

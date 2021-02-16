@@ -3,8 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="96dp"
-    android:background="#DFE4EA"
-    android:backgroundTint="#DFE4EA">
+    android:backgroundTint="#DFE4EA"
+    app:cardElevation="0dp"
+    app:cardMaxElevation="0dp">
 
     <RelativeLayout
         android:layout_width="match_parent"

@@ -34,7 +34,7 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
     private void configuraPrimeiroPainel(){
         // Classe para configuração do conteúdo do painel
         new PainelInformacoes_Content(
-                Alimento_Repositorio.getInstance(),
+                Refeicao_Repositorio.getInstance(),
                 getWindow().getDecorView(),
                 EditarAlimento_Activity.class,
                 true

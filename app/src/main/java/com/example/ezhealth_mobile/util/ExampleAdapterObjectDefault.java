@@ -93,7 +93,7 @@ public class ExampleAdapterObjectDefault extends RecyclerView.Adapter<ExampleAda
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        ObjectDefault obj = (ObjectDefault) Alimento_Repositorio.getInstance().getItemList(position);
+        ObjectDefault obj = Alimento_Repositorio.getListaAlimentosGeral().get(position);
 
         holder.position = position;
         holder.title.setText(obj.getNome());
@@ -104,7 +104,7 @@ public class ExampleAdapterObjectDefault extends RecyclerView.Adapter<ExampleAda
 
     @Override
     public int getItemCount() {
-        return Alimento_Repositorio.getInstance().getList().size();
+        return Alimento_Repositorio.getListaAlimentosGeral().size();
     }
 
 }

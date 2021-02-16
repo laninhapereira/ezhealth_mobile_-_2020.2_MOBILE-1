@@ -18,24 +18,49 @@ public class Refeicao_Repositorio extends ObjectDefault_Repositorio<Refeicao> {
 
     private void popular(){
         ArrayList<Refeicao> list = new ArrayList<Refeicao>();
+        Refeicao refeicao;
 
-        list.add(new Refeicao("Meu café da manhã 1", "100", "g" , "320"));
-        list.add(new Refeicao("Meu almoço 1", "100", "g" , "320"));
-        list.add(new Refeicao("Meu jantar 1", "100", "g" , "320"));
-        list.add(new Refeicao("Meu lanche da tarde 1", "100", "g" , "320"));
-        list.add(new Refeicao("Meu café da manhã 1", "100", "g" , "320"));
-        list.add(new Refeicao("Meu almoço 1", "100", "g" , "320"));
-        list.add(new Refeicao("Meu jantar 1", "100", "g" , "320"));
-        list.add(new Refeicao("Meu lanche da tarde 1", "100", "g" , "320"));
-        list.add(new Refeicao("Meu café da manhã 1", "100", "g" , "320"));
-        list.add(new Refeicao("Meu almoço 1", "100", "g" , "320"));
-        list.add(new Refeicao("Meu jantar 1", "100", "g" , "320"));
-        list.add(new Refeicao("Meu lanche da tarde 1", "100", "g" , "320"));
+        refeicao = new Refeicao("Meu café da manhã 1", "100", "g" , "320");
+        refeicao.getRepAlimentos().setList(popularAlimentos());
+        list.add(refeicao);
+
+        refeicao = new Refeicao("Meu almoço 1", "100", "g" , "320");
+        refeicao.getRepAlimentos().setList(popularAlimentos());
+        list.add(refeicao);
+
+        refeicao = new Refeicao("Meu jantar 1", "100", "g" , "320");
+        refeicao.getRepAlimentos().setList(popularAlimentos());
+        list.add(refeicao);
+
+        refeicao = new Refeicao("Meu lanche da tarde 1", "100", "g" , "320");
+        refeicao.getRepAlimentos().setList(popularAlimentos());
+        list.add(refeicao);
+
+        refeicao = new Refeicao("Meu café da manhã 1", "100", "g" , "320");
+        refeicao.getRepAlimentos().setList(popularAlimentos());
+        list.add(refeicao);
 
         super.setList(list);
 
         super.setTitleListItens("Refeições personalizadas");
     }
 
+
+    public static ArrayList<Alimento> popularAlimentos(){
+        ArrayList<Alimento> list = new ArrayList<Alimento>();
+
+        list.add(new Alimento("Banana", "100", "g" , "320"));
+        list.add(new Alimento("Caju", "100", "g" , "320"));
+        list.add(new Alimento("Mamão", "100", "g" , "320"));
+        list.add(new Alimento("Pera", "100", "g" , "320"));
+        list.add(new Alimento("Morango", "100", "g" , "320"));
+        list.add(new Alimento("Banana", "100", "g" , "320"));
+        list.add(new Alimento("Caju", "100", "g" , "320"));
+        list.add(new Alimento("Mamão", "100", "g" , "320"));
+        list.add(new Alimento("Pera", "100", "g" , "320"));
+        list.add(new Alimento("Morango", "100", "g" , "320"));
+
+        return list;
+    }
 
 }
