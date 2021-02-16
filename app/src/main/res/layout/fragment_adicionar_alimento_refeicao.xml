@@ -5,10 +5,10 @@
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.ui.main.PlaceholderFragment">
+    tools:context=".activity.ui.main.PlaceholderFragmentRelatorio">
 
     <TextView
-        android:id="@+id/textViewTituloPrimeiroPainel"
+        android:id="@+id/textViewTituloTeste"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="70dp"

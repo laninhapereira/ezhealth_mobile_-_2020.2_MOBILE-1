@@ -7,4 +7,6 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="tab_text_11">Últimos 7 dias</string>
+    <string name="tab_text_22">Últimos 30 dias</string>
 </resources>

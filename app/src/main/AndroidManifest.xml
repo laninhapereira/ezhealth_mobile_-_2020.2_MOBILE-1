@@ -16,6 +16,10 @@
             android:name=".activity.AdicionarAlimentoRefeicao_Activity"
             android:label="@string/title_activity_add__alimento__refeicao"
             android:theme="@style/Theme.Ezhealth_mobile.NoActionBar" />
+        <activity
+            android:name=".activity.Relatorio_Activity"
+            android:label="Relatorio"
+            android:theme="@style/Theme.Ezhealth_mobile.NoActionBar" />
         <activity android:name=".activity.EditarExercicio_Activity" />
         <activity android:name=".ui.exercicio.ExercicioFragment" />
         <activity android:name=".activity.VisualizarRefeicao_Activity" />
