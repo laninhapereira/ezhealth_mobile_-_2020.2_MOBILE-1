@@ -33,7 +33,7 @@
         android:ems="10"
         android:paddingLeft="195dp"
         android:paddingTop="5dp"
-        android:text="6/7"
+        android:text="5/7"
         android:textColor="@color/white"
         android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -47,7 +47,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Possui alguma..."
+        android:text="Qual o seu objetivo ?"
         android:textAlignment="center"
         android:textColor="#2F3542"
         android:textSize="30dp"
@@ -58,115 +58,57 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.23000002" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Intolerância ?"
-        android:textAlignment="center"
-        android:textColor="#2F3542"
-        android:textSize="22sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.35000002" />
-
 
     <RadioGroup
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.43">
+        app:layout_constraintTop_toTopOf="parent">
 
-        <CheckBox
-            android:id="@+id/checkedLactose"
+        <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:background="@drawable/radio_seletor"
-            android:button="@drawable/ic_sem_lactose"
+            android:button="@drawable/ic_ganhar_peso"
             android:buttonTint="#2F3542"
             android:padding="16dp"
-            android:text="Lactose"
+            android:text="Ganhar Peso"
             android:textColor="#2F3542" />
 
-
-        <CheckBox
-            android:id="@+id/checkedGluten"
+        <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:background="@drawable/radio_seletor"
-            android:button="@drawable/ic_sem_gluten"
+            android:button="@drawable/ic_perder_peso"
             android:buttonTint="#2F3542"
             android:padding="16dp"
-            android:text="Glúten"
+            android:text="Perder Peso"
             android:textColor="#2F3542" />
 
-    </RadioGroup>
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Doença ?"
-        android:textAlignment="center"
-        android:textColor="#2F3542"
-        android:textSize="22sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.57" />
-
-
-    <RadioGroup
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.66999996">
-
-        <CheckBox
-            android:id="@+id/checkedDiabetes"
+        <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:background="@drawable/radio_seletor"
-            android:button="@drawable/ic_diabetes"
+            android:button="@drawable/ic_manter_peso"
             android:buttonTint="#2F3542"
             android:padding="16dp"
-            android:text="Diabetes"
-            android:textColor="#2F3542" />
-
-
-        <CheckBox
-            android:id="@+id/checkedColesterol"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:background="@drawable/radio_seletor"
-            android:button="@drawable/ic_colesterol"
-            android:buttonTint="#2F3542"
-            android:padding="16dp"
-            android:text="Colesterol"
+            android:text="Manter Peso"
             android:textColor="#2F3542" />
 
     </RadioGroup>
 
     <Button
-        android:id="@+id/buttonProximo6"
+        android:id="@+id/buttonProximo5"
         android:layout_width="180dp"
         android:layout_height="40dp"
         android:background="@drawable/button_login"
-        android:onClick="irTela7"
+        android:onClick="irTela4"
         android:text="Próximo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

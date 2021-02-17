@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#DFE4EA"
-    tools:context=".activity.TelaCadastro1_Activity">
+    tools:context=".activity.TelaCadastro8_Activity">
 
 
     <TextView
@@ -33,7 +33,7 @@
         android:ems="10"
         android:paddingLeft="195dp"
         android:paddingTop="5dp"
-        android:text="1/7"
+        android:text="7/7"
         android:textColor="@color/white"
         android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -47,7 +47,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Dados Pessoais"
+        android:text="Informações de acesso"
         android:textAlignment="center"
         android:textColor="#2F3542"
         android:textSize="30dp"
@@ -60,14 +60,15 @@
 
 
     <EditText
-        android:id="@+id/editTextNome"
+        android:id="@+id/editTextEmailCadastro"
         android:layout_width="230dp"
         android:layout_height="40dp"
         android:background="@drawable/custom_input"
         android:drawablePadding="12dp"
-        android:ems="10"
         android:elevation="4dp"
-        android:hint="Nome"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
         android:padding="10dp"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -75,32 +76,74 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.42000002" />
+        app:layout_constraintVertical_bias="0.35000002" />
 
     <EditText
-        android:id="@+id/editTextSobrenome"
+        android:id="@+id/editTextSenhaCadastro1"
         android:layout_width="230dp"
         android:layout_height="40dp"
         android:background="@drawable/custom_input"
         android:drawablePadding="12dp"
-        android:ems="10"
         android:elevation="4dp"
-        android:hint="Sobrenome"
+        android:ems="10"
+        android:hint="Senha"
+        android:inputType="textPassword"
         android:padding="10dp"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.52" />
+        app:layout_constraintVertical_bias="0.43" />
+
+    <EditText
+        android:id="@+id/editTextSenhaCadastro2"
+        android:layout_width="230dp"
+        android:layout_height="40dp"
+        android:background="@drawable/custom_input"
+        android:drawablePadding="12dp"
+        android:elevation="4dp"
+        android:ems="10"
+        android:hint="Confirme a senha"
+        android:inputType="textPassword"
+        android:padding="10dp"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.51" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ou entre com"
+        android:textColor="#2F3542"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.63" />
+
+    <ImageView
+        android:id="@+id/imageLogin2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.69"
+        app:srcCompat="@drawable/google" />
 
     <Button
-        android:id="@+id/buttonProximo1"
+        android:id="@+id/buttonProximo7"
         android:layout_width="180dp"
         android:layout_height="40dp"
         android:background="@drawable/button_login"
         android:elevation="4dp"
-        android:onClick="irTela2"
+        android:onClick="voltarTelaLogin"
         android:text="Próximo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
