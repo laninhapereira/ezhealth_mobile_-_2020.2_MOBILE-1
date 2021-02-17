@@ -15,7 +15,7 @@ import com.example.ezhealth_mobile.R;
 public class TelaCadastro2_Activity extends AppCompatActivity {
 
 
-    private EditText cadastroNome, cadastroSobrenome;
+    private EditText cadastroNome, cadastroCPF, cadastroCRN;
     private Button buttonProximo1;
 
     @Override
@@ -25,11 +25,13 @@ public class TelaCadastro2_Activity extends AppCompatActivity {
 
         //* Confirmar se todos os campos estão preenchidos //
         cadastroNome = findViewById(R.id.editTextNome);
-        cadastroSobrenome = findViewById(R.id.editTextSobrenome);
+        cadastroCPF = findViewById(R.id.editTextCPF);
+        cadastroCRN = findViewById(R.id.editTextCRN);
         buttonProximo1 = findViewById(R.id.buttonProximo1);
 
         cadastroNome.addTextChangedListener(cadastro1Watcher);
-        cadastroSobrenome.addTextChangedListener(cadastro1Watcher);
+        cadastroCPF.addTextChangedListener(cadastro1Watcher);
+        cadastroCRN.addTextChangedListener(cadastro1Watcher);
         // Confirmar se todos os campos estão preenchidos *//
 
     }
@@ -45,9 +47,10 @@ public class TelaCadastro2_Activity extends AppCompatActivity {
         @Override
         public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
             String nomeInput = cadastroNome.getText().toString().trim();
-            String sobrenomeInput = cadastroSobrenome.getText().toString().trim();
+            String CPFInput = cadastroCPF.getText().toString().trim();
+            String CRNInput = cadastroCRN.getText().toString().trim();
 
-            buttonProximo1.setEnabled(!nomeInput.isEmpty() && !sobrenomeInput.isEmpty());
+            buttonProximo1.setEnabled(!nomeInput.isEmpty() && !CPFInput.isEmpty() && !CRNInput.isEmpty());
         }
 
         @Override

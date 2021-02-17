@@ -67,7 +67,7 @@
         android:drawablePadding="12dp"
         android:ems="10"
         android:elevation="4dp"
-        android:hint="Nome"
+        android:hint="Nome Completo"
         android:padding="10dp"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -78,14 +78,14 @@
         app:layout_constraintVertical_bias="0.42000002" />
 
     <EditText
-        android:id="@+id/editTextSobrenome"
+        android:id="@+id/editTextCPF"
         android:layout_width="230dp"
         android:layout_height="40dp"
         android:background="@drawable/custom_input"
         android:drawablePadding="12dp"
         android:ems="10"
         android:elevation="4dp"
-        android:hint="Sobrenome"
+        android:hint="CRN"
         android:padding="10dp"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -93,6 +93,23 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.52" />
+
+    <EditText
+        android:id="@+id/editTextCRN"
+        android:layout_width="230dp"
+        android:layout_height="40dp"
+        android:background="@drawable/custom_input"
+        android:drawablePadding="12dp"
+        android:elevation="4dp"
+        android:ems="10"
+        android:hint="CPF"
+        android:padding="10dp"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.62" />
 
     <Button
         android:id="@+id/buttonProximo1"
