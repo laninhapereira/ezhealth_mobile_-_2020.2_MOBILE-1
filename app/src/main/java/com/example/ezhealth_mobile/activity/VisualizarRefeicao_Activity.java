@@ -34,6 +34,7 @@ public class VisualizarRefeicao_Activity extends AppCompatActivity {
                 false,
                 new ExampleAdapterObjectDefault(
                     false,
+                    Refeicao_Repositorio.getInstance(),
                     nome -> { // Construção do botão de EDITAR de cada item da lista
 
                     },

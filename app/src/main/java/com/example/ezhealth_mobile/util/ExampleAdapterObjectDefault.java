@@ -1,9 +1,6 @@
 package com.example.ezhealth_mobile.util;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.util.Log;
+
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,22 +13,21 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ezhealth_mobile.R;
-import com.example.ezhealth_mobile.entity.Alimento_Repositorio;
 import com.example.ezhealth_mobile.entity.ObjectDefault;
+import com.example.ezhealth_mobile.entity.ObjectDefault_Repositorio;
 
-import java.util.ArrayList;
-
-import static androidx.core.app.ActivityCompat.startActivityForResult;
 
 public class ExampleAdapterObjectDefault extends RecyclerView.Adapter<ExampleAdapterObjectDefault.ViewHolder>{
 
-    private boolean menuOpcoesHabilitado;
-
     private static OnClickListenerAdapter botaoEditar;
     private static OnClickListenerAdapter botaoExcluir;
+    private boolean menuOpcoesHabilitado;
+    private ObjectDefault_Repositorio repositorio;
 
-    public ExampleAdapterObjectDefault(boolean menuOpcoesHabilitado, OnClickListenerAdapter botaoEditar, OnClickListenerAdapter botaoExcluir){
+    public ExampleAdapterObjectDefault(boolean menuOpcoesHabilitado, ObjectDefault_Repositorio repositorio,
+                                       OnClickListenerAdapter botaoEditar, OnClickListenerAdapter botaoExcluir){
         this.menuOpcoesHabilitado = menuOpcoesHabilitado;
+        this.repositorio = repositorio;
         this.botaoExcluir = botaoExcluir;
         this.botaoEditar = botaoEditar;
     }
@@ -91,7 +87,7 @@ public class ExampleAdapterObjectDefault extends RecyclerView.Adapter<ExampleAda
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        ObjectDefault obj = Alimento_Repositorio.getListaAlimentosGeral().get(position);
+        ObjectDefault obj = (ObjectDefault) repositorio.getList().get(position);
 
         holder.title.setText(obj.getNome());
         holder.quantity.setText(obj.getQuantidade());
@@ -101,7 +97,7 @@ public class ExampleAdapterObjectDefault extends RecyclerView.Adapter<ExampleAda
 
     @Override
     public int getItemCount() {
-        return Alimento_Repositorio.getListaAlimentosGeral().size();
+        return repositorio.getList().size();
     }
 
 }
