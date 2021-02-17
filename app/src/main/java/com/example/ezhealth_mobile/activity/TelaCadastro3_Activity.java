@@ -1,7 +1,5 @@
 package com.example.ezhealth_mobile.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -9,6 +7,8 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ezhealth_mobile.R;
 
@@ -59,7 +59,7 @@ public class TelaCadastro3_Activity extends AppCompatActivity {
     };
 
 
-    public void irTela3(View v){
+    public void irTela4(View v){
         Intent intent = new Intent(this, TelaCadastro4_Activity.class);
         startActivity(intent);
     }

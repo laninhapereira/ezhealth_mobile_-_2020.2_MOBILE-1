@@ -1,10 +1,10 @@
 package com.example.ezhealth_mobile.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ezhealth_mobile.R;
 
@@ -16,7 +16,7 @@ public class TelaCadastro7_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_tela_cadastro7);
     }
 
-    public void irTela7(View v){
+    public void irTela8(View v){
         Intent intent = new Intent(this, TelaCadastro8_Activity.class);
         startActivity(intent);
     }

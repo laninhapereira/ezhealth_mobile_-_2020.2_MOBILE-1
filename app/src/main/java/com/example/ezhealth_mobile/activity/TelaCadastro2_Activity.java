@@ -56,7 +56,7 @@ public class TelaCadastro2_Activity extends AppCompatActivity {
         }
     };
 
-    public void irTela2(View v){
+    public void irTela3(View v){
         Intent intent = new Intent(this, TelaCadastro3_Activity.class);
         startActivity(intent);
     }

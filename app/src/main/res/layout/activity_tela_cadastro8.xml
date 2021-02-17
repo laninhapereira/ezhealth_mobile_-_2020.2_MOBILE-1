@@ -33,7 +33,7 @@
         android:ems="10"
         android:paddingLeft="195dp"
         android:paddingTop="5dp"
-        android:text="7/7"
+        android:text="8/8"
         android:textColor="@color/white"
         android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="parent"
