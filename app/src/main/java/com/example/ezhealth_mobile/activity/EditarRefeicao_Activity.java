@@ -47,6 +47,7 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
             true,
             new ExampleAdapterObjectDefault(
                 true,
+                Refeicao_Repositorio.getInstance(),
                 nome -> { // Construção do botão de EDITAR de cada item da lista
                     Intent intent = new Intent(this, EditarAlimento_Activity.class);
                     intent.putExtra("ALIMENTO", nome);

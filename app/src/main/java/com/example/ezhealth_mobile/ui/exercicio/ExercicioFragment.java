@@ -24,8 +24,11 @@ import com.example.ezhealth_mobile.activity.EditarAlimento_Activity;
 import com.example.ezhealth_mobile.activity.EditarExercicio_Activity;
 import com.example.ezhealth_mobile.activity.Home_Activity;
 import com.example.ezhealth_mobile.content.PainelInformacoes_Content;
+import com.example.ezhealth_mobile.entity.Exercicio;
 import com.example.ezhealth_mobile.entity.Exercicio_Repositorio;
+import com.example.ezhealth_mobile.entity.Refeicao_Repositorio;
 import com.example.ezhealth_mobile.util.ExampleAdapterObjectDefault;
+import com.example.ezhealth_mobile.util.OnClickListenerAdapter;
 
 public class ExercicioFragment extends Fragment {
 
@@ -57,16 +60,17 @@ public class ExercicioFragment extends Fragment {
             "Exercicio 1",
                 viewFragment,
             true,
-            new ExampleAdapterObjectDefault(
-                    true,
-                    nome -> { // Construção do botão de EDITAR de cada item da lista
-                        Intent intent = new Intent(this.getContext(), EditarExercicio_Activity.class);
-                        intent.putExtra("EXERCICIO", nome);
-                        startActivity(intent);
-                    },
-                    nome -> { // Construção do botão de EXCLUIR de cada item da lista
-                    }
-            )
+                new ExampleAdapterObjectDefault(
+                        true,
+                        Exercicio_Repositorio.getInstance(),
+                        (nome) -> { // Construção do botão de EDITAR de cada item da lista
+                            Intent intent = new Intent(this.getContext(), EditarExercicio_Activity.class);
+                            intent.putExtra("EXERCICIO", nome);
+                            startActivity(intent);
+                        },
+                        (nome) -> { // Construção do botão de EXCLUIR de cada item da lista
+                        }
+                )
         );
     }
 
