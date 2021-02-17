@@ -33,7 +33,7 @@
         android:ems="10"
         android:paddingLeft="195dp"
         android:paddingTop="5dp"
-        android:text="7/7"
+        android:text="6/7"
         android:textColor="@color/white"
         android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -47,7 +47,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Informações de acesso"
+        android:text="Possui alguma..."
         android:textAlignment="center"
         android:textColor="#2F3542"
         android:textSize="30dp"
@@ -58,92 +58,115 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.23000002" />
 
-
-    <EditText
-        android:id="@+id/editTextEmailCadastro"
-        android:layout_width="230dp"
-        android:layout_height="40dp"
-        android:background="@drawable/custom_input"
-        android:drawablePadding="12dp"
-        android:elevation="4dp"
-        android:ems="10"
-        android:hint="Email"
-        android:inputType="textEmailAddress"
-        android:padding="10dp"
-        android:textSize="14sp"
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Intolerância ?"
+        android:textAlignment="center"
+        android:textColor="#2F3542"
+        android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.35000002" />
 
-    <EditText
-        android:id="@+id/editTextSenhaCadastro1"
-        android:layout_width="230dp"
-        android:layout_height="40dp"
-        android:background="@drawable/custom_input"
-        android:drawablePadding="12dp"
-        android:elevation="4dp"
-        android:ems="10"
-        android:hint="Senha"
-        android:inputType="textPassword"
-        android:padding="10dp"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.43" />
 
-    <EditText
-        android:id="@+id/editTextSenhaCadastro2"
-        android:layout_width="230dp"
-        android:layout_height="40dp"
-        android:background="@drawable/custom_input"
-        android:drawablePadding="12dp"
-        android:elevation="4dp"
-        android:ems="10"
-        android:hint="Confirme a senha"
-        android:inputType="textPassword"
-        android:padding="10dp"
-        android:textSize="14sp"
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.51" />
+        app:layout_constraintVertical_bias="0.43">
+
+        <CheckBox
+            android:id="@+id/checkedLactose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="@drawable/radio_seletor"
+            android:button="@drawable/ic_sem_lactose"
+            android:buttonTint="#2F3542"
+            android:padding="16dp"
+            android:text="Lactose"
+            android:textColor="#2F3542" />
+
+
+        <CheckBox
+            android:id="@+id/checkedGluten"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="@drawable/radio_seletor"
+            android:button="@drawable/ic_sem_gluten"
+            android:buttonTint="#2F3542"
+            android:padding="16dp"
+            android:text="Glúten"
+            android:textColor="#2F3542" />
+
+    </RadioGroup>
+
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ou entre com"
+        android:text="Doença ?"
+        android:textAlignment="center"
         android:textColor="#2F3542"
-        android:textSize="20dp"
+        android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.63" />
+        app:layout_constraintVertical_bias="0.57" />
 
-    <ImageView
-        android:id="@+id/imageLogin2"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.69"
-        app:srcCompat="@drawable/google" />
+        app:layout_constraintVertical_bias="0.66999996">
+
+        <CheckBox
+            android:id="@+id/checkedDiabetes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="@drawable/radio_seletor"
+            android:button="@drawable/ic_diabetes"
+            android:buttonTint="#2F3542"
+            android:padding="16dp"
+            android:text="Diabetes"
+            android:textColor="#2F3542" />
+
+
+        <CheckBox
+            android:id="@+id/checkedColesterol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="@drawable/radio_seletor"
+            android:button="@drawable/ic_colesterol"
+            android:buttonTint="#2F3542"
+            android:padding="16dp"
+            android:text="Colesterol"
+            android:textColor="#2F3542" />
+
+    </RadioGroup>
 
     <Button
-        android:id="@+id/buttonProximo7"
+        android:id="@+id/buttonProximo6"
         android:layout_width="180dp"
         android:layout_height="40dp"
         android:background="@drawable/button_login"
-        android:elevation="4dp"
-        android:onClick="voltarTelaLogin"
+        android:onClick="irTela7"
         android:text="Próximo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -151,5 +174,6 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.81" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

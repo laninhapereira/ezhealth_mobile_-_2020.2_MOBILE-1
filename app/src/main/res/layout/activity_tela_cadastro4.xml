@@ -33,7 +33,7 @@
         android:ems="10"
         android:paddingLeft="195dp"
         android:paddingTop="5dp"
-        android:text="4/7"
+        android:text="3/7"
         android:textColor="@color/white"
         android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -44,12 +44,10 @@
         app:layout_constraintVertical_bias="0.050000012" />
 
 
-
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Peso"
+        android:text="Qual o seu sexo  ?"
         android:textAlignment="center"
         android:textColor="#2F3542"
         android:textSize="30dp"
@@ -60,118 +58,46 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.23000002" />
 
-    <ImageView
-        android:id="@+id/imageWeight"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.67"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.24000001"
-        app:srcCompat="@drawable/weight" />
 
-
-    <EditText
-        android:id="@+id/editTextPeso"
-        android:layout_width="60dp"
-        android:layout_height="40dp"
-        android:background="@drawable/custom_telas_cadastro_pagina2"
-        android:drawablePadding="12dp"
-        android:elevation="4dp"
-        android:ems="10"
-        android:hint="Peso"
-        android:inputType="number"
-        android:paddingLeft="14dp"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.32999998" />
-
-    <TextView
+    <RadioGroup
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="kg"
-        android:textAlignment="center"
-        android:textColor="#2F3542"
-        android:textSize="18sp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.63"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.33999997" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="@drawable/radio_seletor"
+            android:button="@drawable/ic_man"
+            android:buttonTint="#2F3542"
+            android:padding="16dp"
+            android:text="Masculino"
+            android:textColor="#2F3542" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Altura"
-        android:textAlignment="center"
-        android:textColor="#2F3542"
-        android:textSize="30dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.49" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="@drawable/radio_seletor"
+            android:button="@drawable/ic_woman"
+            android:buttonTint="#2F3542"
+            android:padding="16dp"
+            android:text="Feminino"
+            android:textColor="#2F3542" />
 
-    <ImageView
-        android:id="@+id/imageRule"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.69"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.49"
-        app:srcCompat="@drawable/rule" />
-
-    <EditText
-        android:id="@+id/editTextAltura"
-        android:layout_width="60dp"
-        android:layout_height="40dp"
-        android:background="@drawable/custom_telas_cadastro_pagina2"
-        android:drawablePadding="12dp"
-        android:elevation="4dp"
-        android:ems="10"
-        android:hint="Altura"
-        android:inputType="number"
-        android:paddingLeft="11dp"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.59000003" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="cm"
-        android:textAlignment="center"
-        android:textColor="#2F3542"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.64"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.59000003" />
-
+    </RadioGroup>
 
     <Button
-        android:id="@+id/buttonProximo4"
+        android:id="@+id/buttonProximo3"
         android:layout_width="180dp"
         android:layout_height="40dp"
         android:background="@drawable/button_login"
-        android:elevation="4dp"
-        android:onClick="irTela5"
+        android:onClick="irTela4"
         android:text="Próximo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

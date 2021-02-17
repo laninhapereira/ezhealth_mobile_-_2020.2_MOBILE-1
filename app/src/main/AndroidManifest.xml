@@ -25,13 +25,13 @@
         <activity android:name=".activity.VisualizarRefeicao_Activity" />
         <activity android:name=".activity.EditarAlimento_Activity" />
         <activity android:name=".activity.EditarRefeicao_Activity" />
+        <activity android:name=".activity.TelaCadastro8_Activity" />
         <activity android:name=".activity.TelaCadastro7_Activity" />
         <activity android:name=".activity.TelaCadastro6_Activity" />
         <activity android:name=".activity.TelaCadastro5_Activity" />
         <activity android:name=".activity.TelaCadastro4_Activity" />
         <activity android:name=".activity.TelaCadastro3_Activity" />
         <activity android:name=".activity.TelaCadastro2_Activity" />
-        <activity android:name=".activity.TelaCadastro1_Activity" />
         <activity android:name=".activity.Main_Activity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

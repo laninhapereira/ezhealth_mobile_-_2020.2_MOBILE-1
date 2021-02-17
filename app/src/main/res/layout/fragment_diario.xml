@@ -30,7 +30,6 @@
         android:text="Quinta-Feira"
         android:textColor="#2F3542"
         android:textSize="20dp"
-        android:onClick="irRelatorio"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.08"
         app:layout_constraintLeft_toLeftOf="parent"

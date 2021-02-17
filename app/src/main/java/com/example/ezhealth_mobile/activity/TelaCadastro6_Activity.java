@@ -16,7 +16,7 @@ public class TelaCadastro6_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_tela_cadastro6);
     }
 
-    public void irTela7(View v){
+    public void irTela4(View v){
         Intent intent = new Intent(this, TelaCadastro7_Activity.class);
         startActivity(intent);
     }
