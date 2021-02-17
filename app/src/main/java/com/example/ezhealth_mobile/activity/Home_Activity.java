@@ -34,33 +34,6 @@ public class Home_Activity extends AppCompatActivity {
 
         this.escolheFragmentInicial();
 
-        ////////////////////////////TESTE ////////////////////////
-        /*Teste
-
-        navView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch(item.getItemId()){
-                    case R.id.navigation_diario:
-                        return true;
-                    case R.id.navigation_refeicoes:
-                        startActivity(new Intent(getApplicationContext(), EditarRefeicaoActivity.class));
-                        overridePendingTransition(0,0);
-                        return true;
-                    case R.id.navigation_exercicios:
-                        startActivity(new Intent(getApplicationContext(), ListaExercicioActivity.class));
-                        overridePendingTransition(0,0);
-                        return true;
-                    case R.id.navigation_perfil:
-                        return true;
-                }
-                return false;
-            }
-        });
-
-        */
-        ////////////////////////////TESTE ////////////////////////
-
     }
 
     private void escolheFragmentInicial(){

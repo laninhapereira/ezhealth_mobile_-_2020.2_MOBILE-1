@@ -25,14 +25,22 @@ public class TabFragment_Refeicao extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.tab_refeicao_fragment, container, false);
 
-        Intent adicionar = new Intent(getContext(), EditarRefeicao_Activity.class);
-
-        Intent visualizar = new Intent(getContext(), VisualizarRefeicao_Activity.class);
-        visualizar.putExtra("TELA_ANTERIOR", "adicionarRefeicao");
-
         RecyclerView mRecyclerView = view.findViewById(R.id.recyclerViewRefeicoes);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        mRecyclerView.setAdapter(new ExampleAdapterRefeicao(adicionar, visualizar));
+
+        mRecyclerView.setAdapter(new ExampleAdapterRefeicao(
+            nome -> { // Construção do botão de ADICIONAR de cada item da lista
+                Intent intent = new Intent(getContext(), EditarRefeicao_Activity.class);
+                intent.putExtra("REFEICAO", nome);
+                startActivity(intent);
+            }, // Construção do botão de VISUALIZAR de cada item da lista
+            nome -> {
+                Intent intent = new Intent(getContext(), VisualizarRefeicao_Activity.class);
+                intent.putExtra("TELA_ANTERIOR", "adicionarRefeicao");
+                intent.putExtra("REFEICAO", nome);
+                startActivity(intent);
+            })
+        );
 
         return view;
     }

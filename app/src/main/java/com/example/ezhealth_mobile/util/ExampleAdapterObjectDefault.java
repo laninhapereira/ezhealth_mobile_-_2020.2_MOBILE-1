@@ -3,6 +3,7 @@ package com.example.ezhealth_mobile.util;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,16 +25,15 @@ import static androidx.core.app.ActivityCompat.startActivityForResult;
 
 public class ExampleAdapterObjectDefault extends RecyclerView.Adapter<ExampleAdapterObjectDefault.ViewHolder>{
 
-    private static final int ATUALIZAR = 1;
-    private Context contextOrigin;
-    private Class classEdicaoItem;
     private boolean menuOpcoesHabilitado;
-    private ArrayList<ObjectDefault> list;
 
-    public ExampleAdapterObjectDefault(Context contextOrigin, Class classEdicaoItem, boolean menuOpcoesHabilitado) {
-        this.contextOrigin = contextOrigin;
-        this.classEdicaoItem = classEdicaoItem;
+    private static OnClickListenerAdapter botaoEditar;
+    private static OnClickListenerAdapter botaoExcluir;
+
+    public ExampleAdapterObjectDefault(boolean menuOpcoesHabilitado, OnClickListenerAdapter botaoEditar, OnClickListenerAdapter botaoExcluir){
         this.menuOpcoesHabilitado = menuOpcoesHabilitado;
+        this.botaoExcluir = botaoExcluir;
+        this.botaoEditar = botaoEditar;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -42,7 +42,6 @@ public class ExampleAdapterObjectDefault extends RecyclerView.Adapter<ExampleAda
         private TextView quantity;
         private TextView quantityMeasure;
         private TextView kcal;
-        private Integer position;
 
         private PopupMenu popup;
 
@@ -68,11 +67,10 @@ public class ExampleAdapterObjectDefault extends RecyclerView.Adapter<ExampleAda
             popup.setOnMenuItemClickListener(item -> {
                 switch (item.getTitle().toString()){
                     case "Editar":
-                        Intent intent = new Intent(contextOrigin, classEdicaoItem);
-                        intent.putExtra("POSITION", position);
-                        startActivityForResult((Activity) contextOrigin, intent, ATUALIZAR, null);
+                        botaoEditar.OnClick(title.getText().toString());
                         break;
                     case "Excluir":
+                        botaoExcluir.OnClick(title.getText().toString());
                         break;
                 }
                 return false;
@@ -95,7 +93,6 @@ public class ExampleAdapterObjectDefault extends RecyclerView.Adapter<ExampleAda
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         ObjectDefault obj = Alimento_Repositorio.getListaAlimentosGeral().get(position);
 
-        holder.position = position;
         holder.title.setText(obj.getNome());
         holder.quantity.setText(obj.getQuantidade());
         holder.quantityMeasure.setText(obj.getUnidadeMedida());

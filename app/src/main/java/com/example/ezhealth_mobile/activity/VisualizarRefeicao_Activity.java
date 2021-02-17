@@ -13,6 +13,7 @@ import com.example.ezhealth_mobile.content.PainelInformacoes_Content;
 import com.example.ezhealth_mobile.entity.Alimento_Repositorio;
 import com.example.ezhealth_mobile.entity.Refeicao;
 import com.example.ezhealth_mobile.entity.Refeicao_Repositorio;
+import com.example.ezhealth_mobile.util.ExampleAdapterObjectDefault;
 
 public class VisualizarRefeicao_Activity extends AppCompatActivity {
 
@@ -28,10 +29,18 @@ public class VisualizarRefeicao_Activity extends AppCompatActivity {
     private void configuraPrimeiroPainel(){
         // Classe para configuração do conteúdo do primeiro painel
         new PainelInformacoes_Content(
-                Refeicao_Repositorio.getInstance(),
+                Refeicao_Repositorio.getInstance().getItemList(0).getNome(),
                 getWindow().getDecorView(),
-                EditarAlimento_Activity.class,
-                false
+                false,
+                new ExampleAdapterObjectDefault(
+                    false,
+                    nome -> { // Construção do botão de EDITAR de cada item da lista
+
+                    },
+                    nome -> { // Construção do botão de EXCLUIR de cada item da lista
+
+                    }
+                )
         );
     }
 

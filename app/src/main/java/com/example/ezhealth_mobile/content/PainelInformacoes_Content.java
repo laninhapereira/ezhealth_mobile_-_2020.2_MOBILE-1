@@ -2,6 +2,8 @@ package com.example.ezhealth_mobile.content;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -13,36 +15,42 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ezhealth_mobile.R;
+import com.example.ezhealth_mobile.activity.EditarAlimento_Activity;
 import com.example.ezhealth_mobile.entity.ObjectDefault;
 import com.example.ezhealth_mobile.entity.ObjectDefault_Repositorio;
+import com.example.ezhealth_mobile.entity.Refeicao_Repositorio;
 import com.example.ezhealth_mobile.util.ExampleAdapterObjectDefault;
+import com.example.ezhealth_mobile.util.OnClickListenerAdapter;
 
 import java.util.ArrayList;
 
+import static androidx.core.app.ActivityCompat.startActivityForResult;
+import static androidx.core.content.ContextCompat.startActivity;
+
 public class PainelInformacoes_Content {
 
-    public PainelInformacoes_Content(ObjectDefault_Repositorio rep, View viewroot,
-                                     Class classEdicaoItem, boolean menuOpcoesHabilitado) {
+    public PainelInformacoes_Content(String titulo, View view, boolean menuOpcoesHabilitado,
+                 ExampleAdapterObjectDefault exampleAdapterObjectDefault) {
 
+        Context context = view.getContext();
 
-        LayoutInflater inflater = (LayoutInflater)viewroot.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.content_panel_first_info, null);
+        // Classe para configuração do conteúdo do painel
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        ConstraintLayout includeFirstPanel = (ConstraintLayout) viewroot.findViewById(R.id.include);
+        ConstraintLayout includeFirstPanel = (ConstraintLayout) view.findViewById(R.id.include);
         includeFirstPanel.removeAllViews();
-        includeFirstPanel.addView(view);
+        includeFirstPanel.addView(inflater.inflate(R.layout.content_panel_first_info, null));
 
-        ((TextView) viewroot.findViewById(R.id.textViewTituloPrimeiroPainel)).setText(rep.getTitleListItens());
+        ((TextView) view.findViewById(R.id.textViewTituloPrimeiroPainel)).setText(titulo);
 
+        // Configura itens do menu de opções do adapter
         if(!menuOpcoesHabilitado)
-            ((ImageView)viewroot.findViewById(R.id.imageViewButtonAdd)).setVisibility(View.INVISIBLE);
+            ((ImageView) view.findViewById(R.id.imageViewButtonAdd)).setVisibility(View.INVISIBLE);
 
-        ExampleAdapterObjectDefault adapter = new ExampleAdapterObjectDefault(
-                viewroot.getContext(), classEdicaoItem, menuOpcoesHabilitado);
+        RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(context));
+        recyclerView.setAdapter(exampleAdapterObjectDefault);
 
-        RecyclerView recyclerView = viewroot.findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(viewroot.getContext()));
-        recyclerView.setAdapter(adapter);
     }
 
 }
