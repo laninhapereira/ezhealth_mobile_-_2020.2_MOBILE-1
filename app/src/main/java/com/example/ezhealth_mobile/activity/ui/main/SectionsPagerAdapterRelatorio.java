@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.example.ezhealth_mobile.R;
+import com.example.ezhealth_mobile.activity.TabFragment_7diasRelatorio;
 
 public class SectionsPagerAdapterRelatorio extends FragmentPagerAdapter {
 
@@ -23,7 +24,16 @@ public class SectionsPagerAdapterRelatorio extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return PlaceholderFragmentRelatorio.newInstance(position + 1);
+        Fragment fragment = null;
+        switch (position){
+            case 0:
+                fragment = new TabFragment_7diasRelatorio();
+                break;
+            case 1:
+                fragment = new TabFragment_7diasRelatorio();
+                break;
+        }
+        return fragment;
     }
 
     @Nullable
