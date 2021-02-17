@@ -16,6 +16,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.ezhealth_mobile.R;
 import com.example.ezhealth_mobile.content.PainelInformacoes_Content;
 import com.example.ezhealth_mobile.entity.Alimento_Repositorio;
+import com.example.ezhealth_mobile.entity.ObjectDefault;
+import com.example.ezhealth_mobile.entity.Refeicao;
 import com.example.ezhealth_mobile.entity.Refeicao_Repositorio;
 import com.example.ezhealth_mobile.util.ExampleAdapterObjectDefault;
 
@@ -25,29 +27,44 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
 
     private Intent intent;
     private String telaAnterior;
+    private Refeicao refeicao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dual_panel);
 
-        ((TextView) findViewById(R.id.textViewTitelDualPanel)).setText(Refeicao_Repositorio.getTitleListItens());
+        procurarRefeicao();
+        ((TextView) findViewById(R.id.textViewTitelDualPanel)).setText(refeicao.getNome());
 
         this.configuraPrimeiroPainel();
 
         escolheTelaVolta();
     }
 
+    private void procurarRefeicao(){
+        String nome = getIntent().getStringExtra("REFEICAO");
+        if(nome==null) return;
+        for(ObjectDefault obj : Refeicao_Repositorio.getInstance().getRefeicoesDiarias())
+            if(obj.getNome().equals(nome))
+                refeicao = (Refeicao) obj;
+        for(ObjectDefault obj : Refeicao_Repositorio.getInstance().getRefeicoesPersonalizadas())
+            if(obj.getNome().equals(nome))
+                refeicao = (Refeicao) obj;
+        if(refeicao==null)
+            refeicao = new Refeicao("","0","g","0");
+    }
+
     private void configuraPrimeiroPainel(){
         // Classe para configuração do conteúdo do painel
 
         new PainelInformacoes_Content(
-            Refeicao_Repositorio.getInstance().getTitleListItens(),
+            "Alimentos",
             getWindow().getDecorView(),
             true,
             new ExampleAdapterObjectDefault(
                 true,
-                Refeicao_Repositorio.getInstance(),
+                refeicao.getRepAlimentos().getList(),
                 nome -> { // Construção do botão de EDITAR de cada item da lista
                     Intent intent = new Intent(this, EditarAlimento_Activity.class);
                     intent.putExtra("ALIMENTO", nome);
@@ -100,4 +117,5 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
                 intent = new Intent(this, Home_Activity.class);
         }
     }
+
 }

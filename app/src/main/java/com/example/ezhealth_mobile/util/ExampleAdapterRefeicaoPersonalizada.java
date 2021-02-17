@@ -25,11 +25,12 @@ import static androidx.core.content.ContextCompat.startActivity;
 
 public class ExampleAdapterRefeicaoPersonalizada extends RecyclerView.Adapter<ExampleAdapterRefeicaoPersonalizada.ExampleViewHolder> {
 
-    private static final int ATUALIZAR = 1;
-    private static Intent intent;
+    private static OnClickListenerAdapter botaoEditar;
+    private static OnClickListenerAdapter botaoExcluir;
 
-    public ExampleAdapterRefeicaoPersonalizada(Intent intent){
-        this.intent = intent;
+    public ExampleAdapterRefeicaoPersonalizada(OnClickListenerAdapter botaoEditar, OnClickListenerAdapter botaoExcluir){
+        this.botaoEditar = botaoEditar;
+        this.botaoExcluir = botaoExcluir;
     }
 
 
@@ -37,7 +38,6 @@ public class ExampleAdapterRefeicaoPersonalizada extends RecyclerView.Adapter<Ex
 
         private TextView textRefeicaoPersonalizada;
         private TextView textCaloriasPersonalizada;
-        private int position;
 
         private PopupMenu popup;
 
@@ -61,10 +61,10 @@ public class ExampleAdapterRefeicaoPersonalizada extends RecyclerView.Adapter<Ex
             popup.setOnMenuItemClickListener(item -> {
                 switch (item.getTitle().toString()){
                     case "Editar":
-                        intent.putExtra("POSITION", position);
-                        itemView.getContext().startActivity(intent);
+                        botaoEditar.OnClick(textRefeicaoPersonalizada.getText().toString());
                         break;
                     case "Excluir":
+                        botaoExcluir.OnClick(textRefeicaoPersonalizada.getText().toString());
                         break;
                 }
                 return false;
@@ -83,9 +83,8 @@ public class ExampleAdapterRefeicaoPersonalizada extends RecyclerView.Adapter<Ex
 
     @Override
     public void onBindViewHolder(@NonNull ExampleViewHolder holder, int position) {
-        Refeicao itemAtual = (Refeicao) Refeicao_Repositorio.getInstance().getItemList(position);
+        Refeicao itemAtual = (Refeicao) Refeicao_Repositorio.getInstance().getRefeicoesPersonalizadas().get(position);
 
-        holder.position = position;
         holder.textRefeicaoPersonalizada.setText(itemAtual.getNome());
         holder.textCaloriasPersonalizada.setText(itemAtual.getCalorias());
     }
@@ -93,6 +92,6 @@ public class ExampleAdapterRefeicaoPersonalizada extends RecyclerView.Adapter<Ex
 
     @Override
     public int getItemCount() {
-        return Refeicao_Repositorio.getInstance().getList().size();
+        return Refeicao_Repositorio.getInstance().getRefeicoesPersonalizadas().size();
     }
 }

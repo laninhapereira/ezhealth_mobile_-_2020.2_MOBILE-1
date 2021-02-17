@@ -11,19 +11,33 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.ezhealth_mobile.R;
 import com.example.ezhealth_mobile.content.PainelInformacoes_Content;
 import com.example.ezhealth_mobile.entity.Alimento_Repositorio;
+import com.example.ezhealth_mobile.entity.ObjectDefault;
 import com.example.ezhealth_mobile.entity.Refeicao;
 import com.example.ezhealth_mobile.entity.Refeicao_Repositorio;
 import com.example.ezhealth_mobile.util.ExampleAdapterObjectDefault;
 
 public class VisualizarRefeicao_Activity extends AppCompatActivity {
 
+    private Refeicao refeicao = (Refeicao) Refeicao_Repositorio.getInstance().getItemList(0);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dual_panel);
         ((Button) findViewById(R.id.buttonCheck)).setVisibility(View.INVISIBLE);
-        ((TextView) findViewById(R.id.textViewTitelDualPanel)).setText(Refeicao_Repositorio.getTitleListItens());
+
+        procurarRefeicao();
+        ((TextView) findViewById(R.id.textViewTitelDualPanel)).setText(refeicao.getNome());
+
         this.configuraPrimeiroPainel();
+    }
+
+    private void procurarRefeicao(){
+        String nome = getIntent().getStringExtra("REFEICAO");
+        if(nome==null) return;
+        for(ObjectDefault obj : Refeicao_Repositorio.getInstance().getRefeicoesDiarias())
+            if(obj.getNome().equals(nome))
+                refeicao = (Refeicao) obj;
     }
 
     private void configuraPrimeiroPainel(){
@@ -34,7 +48,7 @@ public class VisualizarRefeicao_Activity extends AppCompatActivity {
                 false,
                 new ExampleAdapterObjectDefault(
                     false,
-                    Refeicao_Repositorio.getInstance(),
+                    refeicao.getRepAlimentos().getList(),
                     nome -> { // Construção do botão de EDITAR de cada item da lista
 
                     },
@@ -64,11 +78,6 @@ public class VisualizarRefeicao_Activity extends AppCompatActivity {
         Intent intent = new Intent(this, AdicionarAlimentoRefeicao_Activity.class);
         intent.putExtra("FRAGMENT","refeicao");
         startActivity(intent);
-    }
-
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        // Ainda será implementado
     }
 
 }

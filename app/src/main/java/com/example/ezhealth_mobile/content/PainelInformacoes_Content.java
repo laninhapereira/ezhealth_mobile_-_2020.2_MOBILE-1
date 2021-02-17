@@ -41,7 +41,7 @@ public class PainelInformacoes_Content {
         includeFirstPanel.removeAllViews();
         includeFirstPanel.addView(inflater.inflate(R.layout.content_panel_first_info, null));
 
-        ((TextView) view.findViewById(R.id.textViewTituloPrimeiroPainel)).setText(titulo);
+        ((TextView) view.findViewById(R.id.textViewTituloPrimeiroPainel)).setText("Lista de "+titulo);
 
         // Configura itens do menu de opções do adapter
         if(!menuOpcoesHabilitado)

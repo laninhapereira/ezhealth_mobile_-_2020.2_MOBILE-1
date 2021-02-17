@@ -72,5 +72,4 @@ public class ExampleAdapterAlimento extends RecyclerView.Adapter<ExampleAdapterA
         return Alimento_Repositorio.getListaAlimentosGeral().size();
     }
 
-
 }

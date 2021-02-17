@@ -14,7 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ezhealth_mobile.R;
 import com.example.ezhealth_mobile.entity.ObjectDefault;
-import com.example.ezhealth_mobile.entity.ObjectDefault_Repositorio;
+
+import java.util.ArrayList;
 
 
 public class ExampleAdapterObjectDefault extends RecyclerView.Adapter<ExampleAdapterObjectDefault.ViewHolder>{
@@ -22,32 +23,33 @@ public class ExampleAdapterObjectDefault extends RecyclerView.Adapter<ExampleAda
     private static OnClickListenerAdapter botaoEditar;
     private static OnClickListenerAdapter botaoExcluir;
     private boolean menuOpcoesHabilitado;
-    private ObjectDefault_Repositorio repositorio;
+    private ArrayList<ObjectDefault> list;
 
-    public ExampleAdapterObjectDefault(boolean menuOpcoesHabilitado, ObjectDefault_Repositorio repositorio,
+
+    public ExampleAdapterObjectDefault(boolean menuOpcoesHabilitado, ArrayList<ObjectDefault> list,
                                        OnClickListenerAdapter botaoEditar, OnClickListenerAdapter botaoExcluir){
         this.menuOpcoesHabilitado = menuOpcoesHabilitado;
-        this.repositorio = repositorio;
+        this.list = list;
         this.botaoExcluir = botaoExcluir;
         this.botaoEditar = botaoEditar;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView title;
-        private TextView quantity;
-        private TextView quantityMeasure;
-        private TextView kcal;
+        private TextView titulo;
+        private TextView quantidade;
+        private TextView unidadeMedida;
+        private TextView calorias;
 
         private PopupMenu popup;
 
         public ViewHolder(@NonNull View itemView){
             super(itemView);
 
-            title = itemView.findViewById(R.id.textViewItemTitle);
-            quantity = itemView.findViewById(R.id.textViewItemQuant);
-            quantityMeasure = itemView.findViewById(R.id.textViewItemQuantMeasure);
-            kcal = itemView.findViewById(R.id.textViewItemKcal);
+            titulo = itemView.findViewById(R.id.textViewItemTitle);
+            quantidade = itemView.findViewById(R.id.textViewItemQuant);
+            unidadeMedida = itemView.findViewById(R.id.textViewItemQuantMeasure);
+            calorias = itemView.findViewById(R.id.textViewItemKcal);
 
             configurePopupMenu();
 
@@ -63,10 +65,10 @@ public class ExampleAdapterObjectDefault extends RecyclerView.Adapter<ExampleAda
             popup.setOnMenuItemClickListener(item -> {
                 switch (item.getTitle().toString()){
                     case "Editar":
-                        botaoEditar.OnClick(title.getText().toString());
+                        botaoEditar.OnClick(titulo.getText().toString());
                         break;
                     case "Excluir":
-                        botaoExcluir.OnClick(title.getText().toString());
+                        botaoExcluir.OnClick(titulo.getText().toString());
                         break;
                 }
                 return false;
@@ -87,17 +89,18 @@ public class ExampleAdapterObjectDefault extends RecyclerView.Adapter<ExampleAda
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        ObjectDefault obj = (ObjectDefault) repositorio.getList().get(position);
 
-        holder.title.setText(obj.getNome());
-        holder.quantity.setText(obj.getQuantidade());
-        holder.quantityMeasure.setText(obj.getUnidadeMedida());
-        holder.kcal.setText(obj.getCalorias());
+        ObjectDefault obj = list.get(position);
+
+        holder.titulo.setText(obj.getNome());
+        holder.quantidade.setText(obj.getQuantidade());
+        holder.unidadeMedida.setText(obj.getUnidadeMedida());
+        holder.calorias.setText(obj.getCalorias());
     }
 
     @Override
     public int getItemCount() {
-        return repositorio.getList().size();
+        return list.size();
     }
 
 }

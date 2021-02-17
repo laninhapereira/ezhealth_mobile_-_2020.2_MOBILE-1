@@ -3,20 +3,20 @@ package com.example.ezhealth_mobile.entity;
 import java.util.ArrayList;
 
 
-public abstract class ObjectDefault_Repositorio<T> {
+public abstract class ObjectDefault_Repositorio {
 
-    private ArrayList<T> list;
+    private ArrayList<ObjectDefault> list;
     private static String titleListItens = "";
 
-    public void setList(ArrayList<T> list){
+    public void setList(ArrayList<ObjectDefault> list){
         this.list = list;
     }
 
-    public ArrayList<T> getList(){
+    public ArrayList<ObjectDefault> getList(){
         return list;
     }
 
-    public void add(T t){
+    public void add(ObjectDefault t){
         list.add(t);
     }
 
@@ -24,7 +24,7 @@ public abstract class ObjectDefault_Repositorio<T> {
         list.remove(position);
     }
 
-    public T getItemList(int position){
+    public ObjectDefault getItemList(int position){
         return list.get(position);
     }
 
@@ -34,5 +34,19 @@ public abstract class ObjectDefault_Repositorio<T> {
 
     public static void setTitleListItens(String title) {
         titleListItens = title;
+    }
+
+    public String getCaloriasTotais(){
+        Integer total = 0;
+        for (ObjectDefault t: list)
+            total += Integer.parseInt(t.getCalorias());
+        return total.toString();
+    }
+
+    public String getQuantidadeTotais(){
+        Integer total = 0;
+        for (ObjectDefault t: list)
+            total += Integer.parseInt(t.getQuantidade());
+        return total.toString();
     }
 }

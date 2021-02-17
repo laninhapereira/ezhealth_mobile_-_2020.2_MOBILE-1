@@ -59,7 +59,7 @@ public class ExampleAdapterExercicio extends RecyclerView.Adapter<ExampleAdapter
 
     @Override
     public void onBindViewHolder(@NonNull ExampleViewHolder holder, int position) {
-        Exercicio itemAtual = Exercicio_Repositorio.getInstance().getList().get(position);
+        Exercicio itemAtual = (Exercicio) Exercicio_Repositorio.getInstance().getList().get(position);
 
         holder.textExercicio.setText(itemAtual.getNome());
         holder.textDuracao.setText(itemAtual.getQuantidade());

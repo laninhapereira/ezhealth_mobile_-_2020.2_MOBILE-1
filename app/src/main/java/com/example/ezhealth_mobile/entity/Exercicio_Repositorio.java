@@ -2,7 +2,7 @@ package com.example.ezhealth_mobile.entity;
 
 import java.util.ArrayList;
 
-public class Exercicio_Repositorio extends ObjectDefault_Repositorio<Exercicio> {
+public class Exercicio_Repositorio extends ObjectDefault_Repositorio {
 
     private static Exercicio_Repositorio instance;
 
@@ -17,7 +17,7 @@ public class Exercicio_Repositorio extends ObjectDefault_Repositorio<Exercicio> 
     }
 
     private void popular(){
-        ArrayList<Exercicio> list = new ArrayList<>();
+        ArrayList<ObjectDefault> list = new ArrayList<>();
 
         list.add(new Exercicio("Correr", "30", "km" ,"200"));
         list.add(new Exercicio("Dançar", "30", "km" ,"200"));

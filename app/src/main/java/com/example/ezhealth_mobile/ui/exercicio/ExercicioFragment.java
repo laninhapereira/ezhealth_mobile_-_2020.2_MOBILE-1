@@ -26,6 +26,8 @@ import com.example.ezhealth_mobile.activity.Home_Activity;
 import com.example.ezhealth_mobile.content.PainelInformacoes_Content;
 import com.example.ezhealth_mobile.entity.Exercicio;
 import com.example.ezhealth_mobile.entity.Exercicio_Repositorio;
+import com.example.ezhealth_mobile.entity.ObjectDefault;
+import com.example.ezhealth_mobile.entity.Refeicao;
 import com.example.ezhealth_mobile.entity.Refeicao_Repositorio;
 import com.example.ezhealth_mobile.util.ExampleAdapterObjectDefault;
 import com.example.ezhealth_mobile.util.OnClickListenerAdapter;
@@ -37,7 +39,7 @@ public class ExercicioFragment extends Fragment {
     private View viewFragment;
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater,ViewGroup container,Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
         ExercicioViewModel exercicioViewModel = new ViewModelProvider(this).get(ExercicioViewModel.class);
 
         viewFragment = inflater.inflate(R.layout.activity_dual_panel, container, false);
@@ -46,6 +48,7 @@ public class ExercicioFragment extends Fragment {
         ((TextView) viewFragment.findViewById(R.id.textViewTitelDualPanel)).setPadding(53,0,0,0);
         ((TextView) viewFragment.findViewById(R.id.textViewDataDualPanel)).setPadding(53,0,0,0);
         ((Button) viewFragment.findViewById(R.id.buttonVoltar)).setVisibility(View.INVISIBLE);
+
 
         this.configuraPrimeiroPainel();
         this.configuraSegundoPainel();
@@ -57,12 +60,12 @@ public class ExercicioFragment extends Fragment {
     private void configuraPrimeiroPainel(){
         // Classe para configuração do conteúdo do primeiro painel
         new PainelInformacoes_Content(
-            "Exercicio 1",
+            "Exercícios",
                 viewFragment,
             true,
                 new ExampleAdapterObjectDefault(
                         true,
-                        Exercicio_Repositorio.getInstance(),
+                        Exercicio_Repositorio.getInstance().getList(),
                         (nome) -> { // Construção do botão de EDITAR de cada item da lista
                             Intent intent = new Intent(this.getContext(), EditarExercicio_Activity.class);
                             intent.putExtra("EXERCICIO", nome);
@@ -79,8 +82,8 @@ public class ExercicioFragment extends Fragment {
         ((TextView) viewFragment.findViewById(R.id.textViewTituloSegundoPainel)).setText("Informações gerais");
 
         ((TextView) viewFragment.findViewById(R.id.textViewPrimeiroItem)).setText("Tempo");
-        ((TextView) viewFragment.findViewById(R.id.textViewPrimeiroValor)).setText("5");
-        ((TextView) viewFragment.findViewById(R.id.textViewPrimeiraMedida)).setText("h");
+        ((TextView) viewFragment.findViewById(R.id.textViewPrimeiroValor)).setText(Exercicio_Repositorio.getInstance().getQuantidadeTotais());
+        ((TextView) viewFragment.findViewById(R.id.textViewPrimeiraMedida)).setText("km");
 
         ((TextView) viewFragment.findViewById(R.id.textViewSegundoItem)).setText("Quantidade");
         ((TextView) viewFragment.findViewById(R.id.textViewSegundoValor)).setText("1");

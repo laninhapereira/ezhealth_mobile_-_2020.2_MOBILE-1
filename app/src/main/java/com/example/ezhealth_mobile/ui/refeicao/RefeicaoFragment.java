@@ -17,10 +17,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ezhealth_mobile.R;
 import com.example.ezhealth_mobile.activity.EditarRefeicao_Activity;
+import com.example.ezhealth_mobile.entity.ObjectDefault;
+import com.example.ezhealth_mobile.entity.Refeicao;
+import com.example.ezhealth_mobile.entity.Refeicao_Repositorio;
 import com.example.ezhealth_mobile.util.ExampleAdapterObjectDefault;
 import com.example.ezhealth_mobile.util.ExampleAdapterRefeicaoPersonalizada;
 
 public class RefeicaoFragment extends Fragment {
+
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
@@ -30,12 +34,21 @@ public class RefeicaoFragment extends Fragment {
         intent.putExtra("TELA_ANTERIOR", "homeRefeicao");
 
         root.findViewById(R.id.fab).setOnClickListener(v -> {
+            intent.putExtra("REFEICAO", "Sem nome");
             startActivity(intent);
         });
 
         RecyclerView recyclerView = root.findViewById(R.id.recyclerViewRefeicaoPersonalizada);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.setAdapter(new ExampleAdapterRefeicaoPersonalizada(intent));
+        recyclerView.setAdapter(new ExampleAdapterRefeicaoPersonalizada(
+            nome -> {
+                intent.putExtra("REFEICAO", nome);
+                startActivity(intent);
+            },
+            nome -> {
+
+            }
+        ));
 
         return root;
     }
