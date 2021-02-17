@@ -13,13 +13,13 @@ import com.example.ezhealth_mobile.R;
 
 import java.util.ArrayList;
 
-public class ExampleAdapterRelatorio7dias extends RecyclerView.Adapter<ExampleAdapterRelatorio7dias.ExampleViewHolder> {
+public class ExampleAdapterRelatorio30dias extends RecyclerView.Adapter<ExampleAdapterRelatorio30dias.ExampleViewHolder> {
 
     //Array auxiliar
     private ArrayList<?> mListaRelatorio;
     Context mContext;
 
-    public ExampleAdapterRelatorio7dias(Context context/*, ArrayList<?> array*/){
+    public ExampleAdapterRelatorio30dias(Context context/*, ArrayList<?> array*/){
         this.mContext = context;
         //this.mListaRelatorio = array;
     }
@@ -38,22 +38,22 @@ public class ExampleAdapterRelatorio7dias extends RecyclerView.Adapter<ExampleAd
 
     @NonNull
     @Override
-    public ExampleAdapterRelatorio7dias.ExampleViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ExampleAdapterRelatorio30dias.ExampleViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.example_item_dias_relatorio, parent, false);
 
-        ExampleAdapterRelatorio7dias.ExampleViewHolder example = new ExampleAdapterRelatorio7dias.ExampleViewHolder(v);
+        ExampleAdapterRelatorio30dias.ExampleViewHolder example = new ExampleAdapterRelatorio30dias.ExampleViewHolder(v);
         return example;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ExampleAdapterRelatorio7dias.ExampleViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ExampleAdapterRelatorio30dias.ExampleViewHolder holder, int position) {
         holder.text1.setText("Segunda");
-        holder.text2.setText("300");
+        holder.text2.setText("600");
     }
 
     @Override
     public int getItemCount() {
-        return 7;
+        return 30;
     }
 
 
