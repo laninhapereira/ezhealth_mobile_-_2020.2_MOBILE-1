@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Ezhealth_mobile">
-        <activity android:name=".activity.TelaChatConversas_Activity"></activity>
+        <activity android:name=".activity.EditarPerfil"></activity>
+        <activity android:name=".activity.TelaChatConversas_Activity" />
         <activity android:name=".activity.TelaChat_Activity" />
         <activity android:name=".activity.TelaCadastro1_Activity" />
         <activity android:name=".activity.Home_Activity" />

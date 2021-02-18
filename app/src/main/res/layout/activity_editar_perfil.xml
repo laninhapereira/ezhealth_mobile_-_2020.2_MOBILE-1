@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#DFE4EA"
+    tools:context=".activity.EditarPerfil">
+
+    <TextView
+        android:id="@+id/editText"
+        android:layout_width="415dp"
+        android:layout_height="70dp"
+        android:background="@drawable/custom_telas_cadastro"
+        android:text="Editar dados"
+        android:paddingLeft="155dp"
+        android:paddingTop="15dp"
+        android:textSize="17sp"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+    <EditText
+        android:id="@+id/editNome"
+        android:layout_width="230dp"
+        android:layout_height="40dp"
+        android:background="@drawable/custom_input"
+        android:drawablePadding="12dp"
+        android:ems="10"
+        android:elevation="4dp"
+        android:hint="Nome Completo"
+        android:padding="10dp"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.15" />
+
+    <EditText
+        android:id="@+id/editData"
+        android:layout_width="230dp"
+        android:layout_height="40dp"
+        android:background="@drawable/custom_input"
+        android:drawablePadding="12dp"
+        android:ems="10"
+        android:elevation="4dp"
+        android:hint="Data de nascimento"
+        android:padding="10dp"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.23" />
+
+    <EditText
+        android:id="@+id/editCPF"
+        android:layout_width="230dp"
+        android:layout_height="40dp"
+        android:background="@drawable/custom_input"
+        android:drawablePadding="12dp"
+        android:elevation="4dp"
+        android:ems="10"
+        android:hint="CPF"
+        android:padding="10dp"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.31" />
+
+    <EditText
+        android:id="@+id/editCRN"
+        android:layout_width="230dp"
+        android:layout_height="40dp"
+        android:background="@drawable/custom_input"
+        android:drawablePadding="12dp"
+        android:elevation="4dp"
+        android:ems="10"
+        android:hint="CRN"
+        android:padding="10dp"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.39" />
+
+    <EditText
+        android:id="@+id/editAltura"
+        android:layout_width="230dp"
+        android:layout_height="40dp"
+        android:background="@drawable/custom_input"
+        android:drawablePadding="12dp"
+        android:elevation="4dp"
+        android:ems="10"
+        android:hint="Altura"
+        android:padding="10dp"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.47" />
+
+    <EditText
+        android:id="@+id/editPeso"
+        android:layout_width="230dp"
+        android:layout_height="40dp"
+        android:background="@drawable/custom_input"
+        android:drawablePadding="12dp"
+        android:elevation="4dp"
+        android:ems="10"
+        android:hint="Peso"
+        android:padding="10dp"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.55" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Qual seu objetivo ?"
+        android:textAlignment="center"
+        android:textColor="#2F3542"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.61" />
+
+    <RadioGroup
+        android:layout_width="429dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.75"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.67">
+
+        <RadioButton
+            android:id="@+id/editGanharPeso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:buttonTint="#2F3542"
+            android:text="Ganhar Peso"
+            android:textColor="#2F3542" />
+
+        <RadioButton
+            android:id="@+id/editPerderPeso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:buttonTint="#2F3542"
+            android:text="Perder Peso"
+            android:textColor="#2F3542" />
+
+        <RadioButton
+            android:id="@+id/editManterPeso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:buttonTint="#2F3542"
+            android:text="Manter Peso"
+            android:textColor="#2F3542" />
+
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Selecione suas intolerâncias (se possuir)"
+        android:textAlignment="center"
+        android:textColor="#2F3542"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.72" />
+
+    <RadioGroup
+        android:layout_width="229dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.78">
+
+        <CheckBox
+            android:id="@+id/EditLactose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:buttonTint="#2F3542"
+            android:text="Lactose"
+            android:textColor="#2F3542" />
+
+        <CheckBox
+            android:id="@+id/editGluten"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:buttonTint="#2F3542"
+            android:text="Glúten"
+            android:textColor="#2F3542" />
+
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Selecione suas doenças (se possuir)"
+        android:textAlignment="center"
+        android:textColor="#2F3542"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.82" />
+
+    <RadioGroup
+        android:layout_width="248dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.89">
+
+        <CheckBox
+            android:id="@+id/EditDiabetes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:buttonTint="#2F3542"
+            android:text="Diabetes"
+            android:textColor="#2F3542" />
+
+        <CheckBox
+            android:id="@+id/editColesterol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:buttonTint="#2F3542"
+            android:text="Colesterol"
+            android:textColor="#2F3542" />
+
+    </RadioGroup>
+
+
+    <Button
+        android:id="@+id/buttonCancelarEditarDados"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:background="@drawable/button_login"
+        android:elevation="4dp"
+        android:text="Cancelar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.24"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.99" />
+
+    <Button
+        android:id="@+id/buttonSalvarEditarDados"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:background="@drawable/button_login"
+        android:elevation="4dp"
+        android:text="Salvar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.75"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.99" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

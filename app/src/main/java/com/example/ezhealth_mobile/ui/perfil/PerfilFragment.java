@@ -34,12 +34,18 @@ public class PerfilFragment extends Fragment {
 
         View root = inflater.inflate(R.layout.fragment_perfil, container, false);
 
+        //Abrir tela de chat
         Intent intent = new Intent(root.getRootView().getContext(), TelaChat_Activity.class);
 
         root.findViewById(R.id.fabAbrirChat).setOnClickListener(v -> {
             startActivity(intent);
         });
 
+        //Abrir tela de edição de dados cadastrais
+
+
+
         return root;
     }
+
 }
