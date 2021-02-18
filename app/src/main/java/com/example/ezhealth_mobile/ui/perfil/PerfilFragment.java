@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.ezhealth_mobile.R;
 import com.example.ezhealth_mobile.activity.EditarPerfil;
+import com.example.ezhealth_mobile.activity.EditarSenha;
 import com.example.ezhealth_mobile.activity.TelaChat_Activity;
 
 public class PerfilFragment extends Fragment {
@@ -47,6 +48,13 @@ public class PerfilFragment extends Fragment {
 
         root.findViewById(R.id.ClicarEditarDados).setOnClickListener(v -> {
             startActivity(intent1);
+        });
+
+        //Abrir tela de edição de senha
+        Intent intent2 = new Intent(root.getRootView().getContext(), EditarSenha.class);
+
+        root.findViewById(R.id.TextEditarSenha).setOnClickListener(v -> {
+            startActivity(intent2);
         });
 
 

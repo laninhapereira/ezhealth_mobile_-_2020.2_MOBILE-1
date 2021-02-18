@@ -296,6 +296,7 @@
         android:background="@drawable/button_login"
         android:elevation="4dp"
         android:text="Salvar"
+        android:onClick="SalvarAlteraçãoDados"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.75"
         app:layout_constraintLeft_toLeftOf="parent"
