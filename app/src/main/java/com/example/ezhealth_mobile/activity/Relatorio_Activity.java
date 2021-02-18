@@ -1,6 +1,8 @@
 package com.example.ezhealth_mobile.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -25,6 +27,11 @@ public class Relatorio_Activity extends AppCompatActivity {
         tabs = findViewById(R.id.tabsRelatorio);
         tabs.setupWithViewPager(viewPager);
 
+    }
+
+    public void VoltarParaHome(View v){
+        Intent intent = new Intent(this, Home_Activity.class);
+        startActivity(intent);
     }
 
 }

@@ -14,6 +14,7 @@
         android:layout_marginLeft="11dp"
         android:layout_marginTop="19dp"
         android:background="@drawable/ic_back"
+        android:onClick="VoltarParaHome"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.04"
         app:layout_constraintLeft_toLeftOf="parent"
