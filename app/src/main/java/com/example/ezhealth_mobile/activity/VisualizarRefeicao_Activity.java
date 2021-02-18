@@ -51,22 +51,17 @@ public class VisualizarRefeicao_Activity extends AppCompatActivity {
     }
 
     private void configuraPrimeiroPainel(){
-        // Classe para configuração do conteúdo do primeiro painel
-        new PainelInformacoes_Content(
-                "Lista de alimentos",
-                getWindow().getDecorView(),
+        ExampleAdapterObjectDefault exampleAdapterObjectDefault = new ExampleAdapterObjectDefault(
                 false,
-                new ExampleAdapterObjectDefault(
-                    false,
-                    refeicao.getRepAlimentos().getList(),
-                    nome -> { // Construção do botão de EDITAR de cada item da lista
-
-                    },
-                    nome -> { // Construção do botão de EXCLUIR de cada item da lista
-
-                    }
-                )
+                refeicao.getRepAlimentos().getList(),
+                nome -> { // Construção do botão de EDITAR de cada item da lista
+                },
+                nome -> { // Construção do botão de EXCLUIR de cada item da lista
+                }
         );
+
+        PainelInformacoes_Content.configura("Lista de alimentos", getWindow().getDecorView(),
+                false, exampleAdapterObjectDefault);
     }
 
     //Botão "check" para confirmar que o usuário deseja salvar os itens

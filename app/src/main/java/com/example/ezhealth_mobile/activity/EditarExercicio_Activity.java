@@ -40,7 +40,7 @@ public class EditarExercicio_Activity extends AppCompatActivity {
         Intent intent = getIntent();
         String nome = (intent == null)? null: intent.getStringExtra("EXERCICIO");;
 
-        new PainelQuantidades_Content(this, (nome==null)?
+        PainelQuantidades_Content.configura(this, (nome==null)?
                 new Alimento(null,null,null,null):
                 new Exercicio_Repositorio().getItemList(nome));
     }

@@ -11,9 +11,9 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import com.example.ezhealth_mobile.R;
 import com.example.ezhealth_mobile.entity.ObjectDefault;
 
-public class PainelQuantidades_Content {
+public interface PainelQuantidades_Content {
 
-    public PainelQuantidades_Content(AppCompatActivity appCompatActivity, ObjectDefault objectDefault) {
+    static void configura(AppCompatActivity appCompatActivity, ObjectDefault objectDefault) {
         LayoutInflater inflater = (LayoutInflater)appCompatActivity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.content_panel_first_quant, null);
 

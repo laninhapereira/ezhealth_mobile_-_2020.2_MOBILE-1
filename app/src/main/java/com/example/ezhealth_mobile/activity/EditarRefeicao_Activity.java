@@ -27,17 +27,23 @@ import static androidx.core.content.ContextCompat.startActivity;
 
 public class EditarRefeicao_Activity extends AppCompatActivity {
 
+    private int EDITAR_ACTIVITY = 0;
     private Refeicao refeicao;
+    public String nome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dual_panel);
+    }
 
+    @Override
+    public void onResume(){ // escreva esse método na act1
+        super.onResume();
         procurarRefeicao();
         ((TextView) findViewById(R.id.textViewTitelDualPanel)).setText(refeicao.getNome());
-
         this.configuraPrimeiroPainel();
+        Toast.makeText(this, "aaeee", Toast.LENGTH_LONG).show();
     }
 
     private void procurarRefeicao(){
@@ -45,14 +51,14 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
         String nome = (intent == null)? null : getIntent().getStringExtra("REFEICAO");
 
         if(nome == null) {
-            Toast.makeText(this, "Refeição não encontrada", Toast.LENGTH_LONG);
+            Toast.makeText(this, "Refeição não encontrada", Toast.LENGTH_LONG).show();
             return;
         }
 
         refeicao = (Refeicao) Refeicao_Repositorio.getInstance().getItemList(nome);
 
         if(refeicao == null) {
-            Toast.makeText(this, "Refeição não encontrada", Toast.LENGTH_LONG);
+            Toast.makeText(this, "Refeição não encontrada", Toast.LENGTH_LONG).show();
             return;
         }
 
@@ -61,25 +67,20 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
     }
 
     private void configuraPrimeiroPainel(){
-        // Classe para configuração do conteúdo do painel
-
-        new PainelInformacoes_Content(
-            "Alimentos",
-            getWindow().getDecorView(),
-            true,
-            new ExampleAdapterObjectDefault(
+        ExampleAdapterObjectDefault exampleAdapterObjectDefault = new ExampleAdapterObjectDefault(
                 true,
                 refeicao.getRepAlimentos().getList(),
                 nome -> { // Construção do botão de EDITAR de cada item da lista
                     Intent intent = new Intent(this, EditarAlimento_Activity.class);
                     intent.putExtra("ALIMENTO", nome);
-                    startActivity(intent);
+                    startActivityForResult(intent, 0);
                 },
                 nome -> { // Construção do botão de EXCLUIR de cada item da lista
 
                 }
-            )
         );
+        PainelInformacoes_Content.configura("Alimentos", getWindow().getDecorView(),
+                true, exampleAdapterObjectDefault);
     }
 
     //Botão "add" para caso o usuário queria adicionar um novo item
@@ -96,6 +97,17 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
     //Botão "voltar" para caso o usuário desista e volte para a tela anterior
     public void voltar(View v){
         finish();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == EDITAR_ACTIVITY) {
+            if (resultCode == RESULT_OK) {
+                String result = data.getStringExtra("result");
+            }
+        }
     }
 
 }

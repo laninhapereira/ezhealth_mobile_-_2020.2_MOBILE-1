@@ -27,10 +27,10 @@ import java.util.ArrayList;
 import static androidx.core.app.ActivityCompat.startActivityForResult;
 import static androidx.core.content.ContextCompat.startActivity;
 
-public class PainelInformacoes_Content {
+public interface PainelInformacoes_Content {
 
-    public PainelInformacoes_Content(String titulo, View view, boolean menuOpcoesHabilitado,
-                 ExampleAdapterObjectDefault exampleAdapterObjectDefault) {
+     static void configura(String titulo, View view, boolean menuOpcoesHabilitado,
+                                     ExampleAdapterObjectDefault exampleAdapterObjectDefault) {
 
         Context context = view.getContext();
 
@@ -50,7 +50,6 @@ public class PainelInformacoes_Content {
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         recyclerView.setAdapter(exampleAdapterObjectDefault);
-
     }
 
 }

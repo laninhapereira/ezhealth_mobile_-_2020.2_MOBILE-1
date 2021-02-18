@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.ezhealth_mobile.R;
+import com.example.ezhealth_mobile.content.PainelInformacoes_Content;
 import com.example.ezhealth_mobile.content.PainelQuantidades_Content;
 import com.example.ezhealth_mobile.entity.Alimento;
 import com.example.ezhealth_mobile.entity.Alimento_Repositorio;
@@ -38,18 +39,20 @@ public class EditarAlimento_Activity extends AppCompatActivity {
                 (Alimento) new Alimento_Repositorio().getItemList(nome);
 
         if(alimento!=null)
-            new PainelQuantidades_Content(this, alimento);
+            PainelQuantidades_Content.configura(this, alimento);
         else
             finish();
     }
 
     //Botão "check" para confirmar que o usuário deseja salvar os itens
     public void salvar(View v){
+        setResult(RESULT_OK, new Intent());
         finish();
     }
 
     //Botão "voltar" para caso o usuário desista e volte para a tela anterior
     public void voltar(View v){
+        setResult(RESULT_CANCELED, new Intent());
         finish();
     }
 }

@@ -59,7 +59,7 @@ public class ExercicioFragment extends Fragment {
 
     private void configuraPrimeiroPainel(){
         // Classe para configuração do conteúdo do primeiro painel
-        new PainelInformacoes_Content(
+        PainelInformacoes_Content.configura(
             "Exercícios",
                 viewFragment,
             true,

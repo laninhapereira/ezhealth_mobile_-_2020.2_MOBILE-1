@@ -147,26 +147,27 @@
 
                 <TextView
                     android:id="@+id/textViewFragmentKcalGastosValor"
-                    android:layout_width="50dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="27dp"
                     android:layout_marginTop="16dp"
+                    android:layout_marginEnd="1dp"
                     android:elevation="3dp"
                     android:text="0"
                     android:textAlignment="textEnd"
                     android:textSize="20sp"
-                    app:layout_constraintStart_toEndOf="@+id/textViewElipse"
+                    app:layout_constraintEnd_toStartOf="@+id/textViewKcal"
                     app:layout_constraintTop_toBottomOf="@+id/textViewGastos" />
 
                 <TextView
                     android:id="@+id/textViewKcal"
-                    android:layout_width="44dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="27dp"
-                    android:layout_marginStart="4dp"
                     android:layout_marginTop="16dp"
+                    android:layout_marginEnd="15dp"
                     android:elevation="3dp"
                     android:text="kcal"
                     android:textSize="20sp"
-                    app:layout_constraintStart_toEndOf="@+id/textViewFragmentKcalGastosValor"
+                    app:layout_constraintEnd_toEndOf="@+id/textViewPainelCalorias"
                     app:layout_constraintTop_toBottomOf="@+id/textViewGastos" />
 
                 <TextView
@@ -183,7 +184,7 @@
 
                 <TextView
                     android:id="@+id/textViewKcal5"
-                    android:layout_width="44dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="27dp"
                     android:layout_marginStart="4dp"
                     android:layout_marginTop="28dp"
@@ -195,7 +196,7 @@
 
                 <TextView
                     android:id="@+id/textViewFragmentKcalConsumidosValor"
-                    android:layout_width="41dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="27dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="28dp"
