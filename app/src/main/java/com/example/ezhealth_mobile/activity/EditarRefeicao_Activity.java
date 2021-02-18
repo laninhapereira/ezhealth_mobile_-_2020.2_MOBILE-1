@@ -19,6 +19,7 @@ import com.example.ezhealth_mobile.R;
 import com.example.ezhealth_mobile.content.PainelInformacoes_Content;
 import com.example.ezhealth_mobile.entity.Alimento_Repositorio;
 import com.example.ezhealth_mobile.entity.ObjectDefault;
+import com.example.ezhealth_mobile.entity.ObjectDefault_Repositorio;
 import com.example.ezhealth_mobile.entity.Refeicao;
 import com.example.ezhealth_mobile.entity.Refeicao_Repositorio;
 import com.example.ezhealth_mobile.util.ExampleAdapterObjectDefault;
@@ -32,7 +33,6 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
 
     private int EDITAR_ACTIVITY = 0;
     private Refeicao refeicao;
-    public String nome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +47,6 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
         ((TextView) findViewById(R.id.textViewTitelDualPanel)).setText(refeicao.getNome());
         this.configuraPrimeiroPainel();
         this.configuraSegundoPainel();
-        Toast.makeText(this, "aaeee", Toast.LENGTH_LONG).show();
     }
 
     private void procurarRefeicao(){
@@ -88,29 +87,28 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
     }
 
     private void configuraSegundoPainel(){
-        Alimento_Repositorio repositorio = this.refeicao.getRepAlimentos();
 
         ((TextView) findViewById(R.id.textViewTituloSegundoPainel)).setText("Informações gerais");
 
         ((TextView) findViewById(R.id.textViewPrimeiroItem)).setText("Carboidratos");
-        ((TextView) findViewById(R.id.textViewPrimeiroValor)).setText(repositorio.getCarboidratosTotais());
+        ((TextView) findViewById(R.id.textViewPrimeiroValor)).setText(refeicao.getCarboidratosTotais());
         ((TextView) findViewById(R.id.textViewPrimeiraMedida)).setText("g");
 
         ((TextView) findViewById(R.id.textViewSegundoItem)).setText("Proteinas");
-        ((TextView) findViewById(R.id.textViewSegundoValor)).setText(repositorio.getProteinasTotais());
+        ((TextView) findViewById(R.id.textViewSegundoValor)).setText(refeicao.getProteinasTotais());
         ((TextView) findViewById(R.id.textViewSegundaMedida)).setText("g");
 
         ((TextView) findViewById(R.id.textViewTerceiroItem)).setText("Gorduras");
-        ((TextView) findViewById(R.id.textViewTerceiroValor)).setText(repositorio.getGordurasTotais());
+        ((TextView) findViewById(R.id.textViewTerceiroValor)).setText(refeicao.getGordurasTotais());
         ((TextView) findViewById(R.id.textViewTerceiraMedida)).setText("g");
 
-        ((TextView) findViewById(R.id.textViewValorTotalKcal)).setText(repositorio.getCaloriasTotais());
+        ((TextView) findViewById(R.id.textViewValorTotalKcal)).setText(refeicao.getCaloriasTotais());
     }
 
     //Botão "add" para caso o usuário queria adicionar um novo item
     public void adicionar(View view){
         Intent intent = new Intent(this, AdicionarAlimentoRefeicao_Activity.class);
-        startActivity(intent);
+        startActivityForResult(intent, EDITAR_ACTIVITY);
     }
 
     //Botão "check" para confirmar que o usuário deseja salvar os itens
@@ -129,7 +127,7 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
 
         if (requestCode == EDITAR_ACTIVITY) {
             if (resultCode == RESULT_OK) {
-                String result = data.getStringExtra("result");
+                Toast.makeText(this, "Salvo", Toast.LENGTH_SHORT).show();
             }
         }
     }

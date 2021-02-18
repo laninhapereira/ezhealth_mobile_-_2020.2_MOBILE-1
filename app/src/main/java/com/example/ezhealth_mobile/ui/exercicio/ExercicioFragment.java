@@ -65,7 +65,7 @@ public class ExercicioFragment extends Fragment {
             true,
                 new ExampleAdapterObjectDefault(
                         true,
-                        new Exercicio_Repositorio().popular(),
+                        Exercicio_Repositorio.getInstance().popular(),
                         (nome) -> { // Construção do botão de EDITAR de cada item da lista
                             Intent intent = new Intent(this.getContext(), EditarExercicio_Activity.class);
                             intent.putExtra("EXERCICIO", nome);
@@ -81,19 +81,21 @@ public class ExercicioFragment extends Fragment {
     private void configuraSegundoPainel(){
         ((TextView) viewFragment.findViewById(R.id.textViewTituloSegundoPainel)).setText("Informações gerais");
 
-        ((TextView) viewFragment.findViewById(R.id.textViewPrimeiroItem)).setText("Tempo");
-        ((TextView) viewFragment.findViewById(R.id.textViewPrimeiroValor)).setText(new Exercicio_Repositorio().getQuantidadeTotais());
-        ((TextView) viewFragment.findViewById(R.id.textViewPrimeiraMedida)).setText("km");
+        ((TextView) viewFragment.findViewById(R.id.textViewPrimeiroItem)).setText("Duração");
+        ((TextView) viewFragment.findViewById(R.id.textViewPrimeiroValor)).setText(Exercicio_Repositorio.getInstance().getQuantidadeTotais());
+        ((TextView) viewFragment.findViewById(R.id.textViewPrimeiraMedida)).setText("min");
 
-        ((TextView) viewFragment.findViewById(R.id.textViewSegundoItem)).setText("Quantidade");
-        ((TextView) viewFragment.findViewById(R.id.textViewSegundoValor)).setText("1");
-        ((TextView) viewFragment.findViewById(R.id.textViewSegundaMedida)).setText("");
+        ((TextView) viewFragment.findViewById(R.id.textViewSegundoItem)).setText("Calorias Perdidas");
+        ((TextView) viewFragment.findViewById(R.id.textViewSegundoValor)).setText(Exercicio_Repositorio.getInstance().getCaloriasTotais());
+        ((TextView) viewFragment.findViewById(R.id.textViewSegundaMedida)).setText("kcal");
 
         ((TextView) viewFragment.findViewById(R.id.textViewTerceiroItem)).setText("");
         ((TextView) viewFragment.findViewById(R.id.textViewTerceiroValor)).setText("");
         ((TextView) viewFragment.findViewById(R.id.textViewTerceiraMedida)).setText("");
 
-        ((TextView) viewFragment.findViewById(R.id.textViewValorTotalKcal)).setText("700");
+        ((TextView) viewFragment.findViewById(R.id.textViewTotal)).setText("");
+        ((TextView) viewFragment.findViewById(R.id.textViewValorTotalKcal)).setText("");
+        ((TextView) viewFragment.findViewById(R.id.textViewKcal4)).setText("");
     }
 
     //Botão "check" para confirmar que o usuário deseja salvar os itens

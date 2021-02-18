@@ -39,7 +39,7 @@ public class EditarAlimento_Activity extends AppCompatActivity {
 
         alimento = (nome==null)?
                 null:
-                (Alimento) new Alimento_Repositorio().getItemList(nome);
+                (Alimento) Alimento_Repositorio.getInstance().getItemList(nome);
 
         if(alimento!=null)
             PainelQuantidades_Content.configura(this, alimento);
@@ -69,6 +69,9 @@ public class EditarAlimento_Activity extends AppCompatActivity {
     //Botão "check" para confirmar que o usuário deseja salvar os itens
     public void salvar(View v){
         setResult(RESULT_OK, new Intent());
+        String result = ((TextView) findViewById(R.id.editTextQtd)).getText().toString();
+        alimento.setQuantidade(result);
+
         finish();
     }
 

@@ -18,13 +18,6 @@ public class Refeicao_Repositorio extends ObjectDefault_Repositorio {
         popular();
     }
 
-    public ObjectDefault getItemList(String nome){
-        Refeicao refeicao = (Refeicao) super.getItemList(nome);
-        for(ObjectDefault objectDefault: refeicao.getRepAlimentos().getList())
-            Log.d("a", "configuraPrimeiroaaaaaaaaaaaaaaaaaaaPainel: "+objectDefault.getNome());
-        return refeicao;
-    }
-
     public ArrayList<ObjectDefault> getListPersonalizada(){
         ArrayList<ObjectDefault> list = new ArrayList<>();
         for(ObjectDefault objectDefault: super.getList())
@@ -42,7 +35,7 @@ public class Refeicao_Repositorio extends ObjectDefault_Repositorio {
     }
 
     private void popular(){
-        Alimento_Repositorio alimento_repositorio = new Alimento_Repositorio();
+        Alimento_Repositorio alimento_repositorio = Alimento_Repositorio.getInstance();
         ArrayList<ObjectDefault> list = new ArrayList<>();
         Refeicao refeicao;
 

@@ -31,6 +31,7 @@ public class VisualizarRefeicao_Activity extends AppCompatActivity {
         ((TextView) findViewById(R.id.textViewTitelDualPanel)).setText(refeicao.getNome());
 
         this.configuraPrimeiroPainel();
+        this.configuraSegundoPainel();
     }
 
     private void procurarRefeicao(){
@@ -60,8 +61,27 @@ public class VisualizarRefeicao_Activity extends AppCompatActivity {
                 }
         );
 
-        PainelInformacoes_Content.configura("Lista de alimentos", getWindow().getDecorView(),
+        PainelInformacoes_Content.configura("Alimentos", getWindow().getDecorView(),
                 false, exampleAdapterObjectDefault);
+    }
+
+    private void configuraSegundoPainel(){
+
+        ((TextView) findViewById(R.id.textViewTituloSegundoPainel)).setText("Informações gerais");
+
+        ((TextView) findViewById(R.id.textViewPrimeiroItem)).setText("Carboidratos");
+        ((TextView) findViewById(R.id.textViewPrimeiroValor)).setText(refeicao.getCarboidratosTotais());
+        ((TextView) findViewById(R.id.textViewPrimeiraMedida)).setText("g");
+
+        ((TextView) findViewById(R.id.textViewSegundoItem)).setText("Proteinas");
+        ((TextView) findViewById(R.id.textViewSegundoValor)).setText(refeicao.getProteinasTotais());
+        ((TextView) findViewById(R.id.textViewSegundaMedida)).setText("g");
+
+        ((TextView) findViewById(R.id.textViewTerceiroItem)).setText("Gorduras");
+        ((TextView) findViewById(R.id.textViewTerceiroValor)).setText(refeicao.getGordurasTotais());
+        ((TextView) findViewById(R.id.textViewTerceiraMedida)).setText("g");
+
+        ((TextView) findViewById(R.id.textViewValorTotalKcal)).setText(refeicao.getCaloriasTotais());
     }
 
     //Botão "check" para confirmar que o usuário deseja salvar os itens

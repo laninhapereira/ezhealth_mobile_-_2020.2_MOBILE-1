@@ -7,7 +7,15 @@ import java.util.Random;
 
 public class Alimento_Repositorio extends ObjectDefault_Repositorio {
 
-    public Alimento_Repositorio(){
+    private static Alimento_Repositorio instance;
+
+    public static Alimento_Repositorio getInstance(){
+        if(instance == null)
+            instance = new Alimento_Repositorio();
+        return instance;
+    }
+
+    private Alimento_Repositorio(){
         getListaAlimentosGeral();
     }
 
