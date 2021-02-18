@@ -3,10 +3,12 @@ package com.example.ezhealth_mobile.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -39,16 +41,23 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
     }
 
     private void procurarRefeicao(){
-        String nome = getIntent().getStringExtra("REFEICAO");
-        if(nome==null) return;
-        for(ObjectDefault obj : Refeicao_Repositorio.getRefeicoesDiarias())
-            if(obj.getNome().equals(nome))
-                refeicao = (Refeicao) obj;
-        for(ObjectDefault obj : Refeicao_Repositorio.getRefeicoesPersonalizadas())
-            if(obj.getNome().equals(nome))
-                refeicao = (Refeicao) obj;
-        if(refeicao==null)
-            refeicao = new Refeicao("","0","g","0");
+        Intent intent = getIntent();
+        String nome = (intent == null)? null : getIntent().getStringExtra("REFEICAO");
+
+        if(nome == null) {
+            Toast.makeText(this, "Refeição não encontrada", Toast.LENGTH_LONG);
+            return;
+        }
+
+        refeicao = (Refeicao) Refeicao_Repositorio.getInstance().getItemList(nome);
+
+        if(refeicao == null) {
+            Toast.makeText(this, "Refeição não encontrada", Toast.LENGTH_LONG);
+            return;
+        }
+
+        Log.d("Refeicao: ", refeicao.getNome());
+
     }
 
     private void configuraPrimeiroPainel(){

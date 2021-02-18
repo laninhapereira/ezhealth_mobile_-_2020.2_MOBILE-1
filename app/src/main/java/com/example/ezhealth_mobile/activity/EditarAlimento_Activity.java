@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -32,9 +33,14 @@ public class EditarAlimento_Activity extends AppCompatActivity {
         Intent intent = getIntent();
         String nome = (intent == null)? null: intent.getStringExtra("ALIMENTO");;
 
-        new PainelQuantidades_Content(this, (nome==null)?
-                new Alimento(null,null,null,null):
-                new Alimento_Repositorio().getItemList(nome));
+        Alimento alimento = (nome==null)?
+                null:
+                (Alimento) new Alimento_Repositorio().getItemList(nome);
+
+        if(alimento!=null)
+            new PainelQuantidades_Content(this, alimento);
+        else
+            finish();
     }
 
     //Botão "check" para confirmar que o usuário deseja salvar os itens

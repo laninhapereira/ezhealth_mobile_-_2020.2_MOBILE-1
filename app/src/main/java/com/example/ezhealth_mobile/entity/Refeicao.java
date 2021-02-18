@@ -5,9 +5,11 @@ import java.util.ArrayList;
 public class Refeicao extends ObjectDefault{
 
     private Alimento_Repositorio repAlimentos;
+    private String tipoRefeicao;
 
-    public Refeicao(String nome, String quantidade, String unidadeMedida, String calorias){
+    public Refeicao(String nome, String quantidade, String unidadeMedida, String calorias, String tipoRefeicao){
         super(nome, quantidade, unidadeMedida, calorias);
+        this.tipoRefeicao = tipoRefeicao;
         repAlimentos = new Alimento_Repositorio();
     }
 
@@ -19,4 +21,11 @@ public class Refeicao extends ObjectDefault{
         return this.repAlimentos;
     }
 
+    public String getTipoRefeicao() {
+        return tipoRefeicao;
+    }
+
+    public void setTipoRefeicao(String tipoRefeicao) {
+        this.tipoRefeicao = tipoRefeicao;
+    }
 }

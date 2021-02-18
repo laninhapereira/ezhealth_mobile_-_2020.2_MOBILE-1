@@ -65,7 +65,7 @@ public class ExercicioFragment extends Fragment {
             true,
                 new ExampleAdapterObjectDefault(
                         true,
-                        new Exercicio_Repositorio().getList(),
+                        new Exercicio_Repositorio().popular(),
                         (nome) -> { // Construção do botão de EDITAR de cada item da lista
                             Intent intent = new Intent(this.getContext(), EditarExercicio_Activity.class);
                             intent.putExtra("EXERCICIO", nome);
@@ -99,8 +99,7 @@ public class ExercicioFragment extends Fragment {
     //Botão "check" para confirmar que o usuário deseja salvar os itens
     public void setOnClickSalvar(){
         ((Button) viewFragment.findViewById(R.id.buttonCheck)).setOnClickListener(v1 -> {
-            Intent intent = new Intent(getContext(), Home_Activity.class);
-            startActivity(intent);
+            getActivity().finish();
         });
     }
 

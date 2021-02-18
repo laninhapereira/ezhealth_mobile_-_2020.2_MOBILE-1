@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -33,14 +34,20 @@ public class VisualizarRefeicao_Activity extends AppCompatActivity {
     }
 
     private void procurarRefeicao(){
-        String nome = getIntent().getStringExtra("REFEICAO");
-        if(nome==null) return;
-        for(ObjectDefault obj : Refeicao_Repositorio.getRefeicoesDiarias())
-            if(obj.getNome().equals(nome))
-                refeicao = (Refeicao) obj;
-        for(ObjectDefault obj : Refeicao_Repositorio.getRefeicoesPersonalizadas())
-            if(obj.getNome().equals(nome))
-                refeicao = (Refeicao) obj;
+        Intent intent = getIntent();
+        String nome = (intent == null)? null : getIntent().getStringExtra("REFEICAO");
+
+        if(nome == null) {
+            Toast.makeText(this, "Refeição não encontrada", Toast.LENGTH_LONG);
+            return;
+        }
+
+        refeicao = (Refeicao) Refeicao_Repositorio.getInstance().getItemList(nome);
+
+        if(refeicao == null) {
+            Toast.makeText(this, "Refeição não encontrada", Toast.LENGTH_LONG);
+            return;
+        }
     }
 
     private void configuraPrimeiroPainel(){

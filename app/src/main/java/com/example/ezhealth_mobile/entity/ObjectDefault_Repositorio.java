@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public abstract class ObjectDefault_Repositorio {
 
     private ArrayList<ObjectDefault> list;
-    private static String titleListItens = "";
+    private String titleListItens = "";
 
     public void setList(ArrayList<ObjectDefault> list){
         this.list = list;
@@ -28,11 +28,11 @@ public abstract class ObjectDefault_Repositorio {
         return list.get(position);
     }
 
-    public static String getTitleListItens() {
+    public String getTitleListItens() {
         return titleListItens;
     }
 
-    public static void setTitleListItens(String title) {
+    public void setTitleListItens(String title) {
         titleListItens = title;
     }
 
