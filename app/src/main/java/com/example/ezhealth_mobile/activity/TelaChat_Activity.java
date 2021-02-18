@@ -28,7 +28,7 @@ public class TelaChat_Activity extends AppCompatActivity {
         mRecyclerView.setAdapter(new ExampleAdapterChat(
                 // Construção do botão de Visualizar de cada item da lista
                 nome -> {
-                    Intent intent = new Intent(this, Main_Activity.class);
+                    Intent intent = new Intent(this, TelaChatConversas_Activity.class);
                     startActivity(intent);
                 })
         );
