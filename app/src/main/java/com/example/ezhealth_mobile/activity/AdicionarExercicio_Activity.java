@@ -9,11 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ezhealth_mobile.R;
-import com.example.ezhealth_mobile.entity.Exercicio;
-import com.example.ezhealth_mobile.entity.Exercicio_Repositorio;
 import com.example.ezhealth_mobile.util.ExampleAdapterExercicio;
-
-import java.util.ArrayList;
 
 public class AdicionarExercicio_Activity extends AppCompatActivity {
 
@@ -27,14 +23,14 @@ public class AdicionarExercicio_Activity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         mRecyclerView.setAdapter(new ExampleAdapterExercicio(
-            nome -> { // Construção do botão de ADICIONAR de cada item da lista
-                finish();
-            }, // Construção do botão de EDITAR de cada item da lista
-            nome -> {
-                Intent intent = new Intent(this, EditarExercicio_Activity.class);
-                intent.putExtra("EXERCICIO", nome);
-                startActivity(intent);
-            })
+                nome -> { // Construção do botão de ADICIONAR de cada item da lista
+                    finish();
+                }, // Construção do botão de Visualizar de cada item da lista
+                nome -> {
+                    Intent intent = new Intent(this, EditarExercicio_Activity.class);
+                    intent.putExtra("EXERCICIO", nome);
+                    startActivity(intent);
+                })
         );
 
     }
