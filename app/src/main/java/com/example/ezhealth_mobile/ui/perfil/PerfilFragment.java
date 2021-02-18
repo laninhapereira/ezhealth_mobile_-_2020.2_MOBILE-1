@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.example.ezhealth_mobile.R;
+import com.example.ezhealth_mobile.activity.EditarPerfil;
 import com.example.ezhealth_mobile.activity.TelaChat_Activity;
 
 public class PerfilFragment extends Fragment {
@@ -42,7 +43,11 @@ public class PerfilFragment extends Fragment {
         });
 
         //Abrir tela de edição de dados cadastrais
+        Intent intent1 = new Intent(root.getRootView().getContext(), EditarPerfil.class);
 
+        root.findViewById(R.id.ClicarEditarDados).setOnClickListener(v -> {
+            startActivity(intent1);
+        });
 
 
         return root;
