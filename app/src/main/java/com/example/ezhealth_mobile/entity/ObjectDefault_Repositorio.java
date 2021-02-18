@@ -49,4 +49,11 @@ public abstract class ObjectDefault_Repositorio {
             total += Integer.parseInt(t.getQuantidade());
         return total.toString();
     }
+
+    public ObjectDefault getItemList(String titulo){
+        for(ObjectDefault obj: list)
+            if(obj.getNome().equals(titulo))
+                return obj;
+        return null;
+    }
 }

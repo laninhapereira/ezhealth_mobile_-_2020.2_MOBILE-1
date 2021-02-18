@@ -4,15 +4,7 @@ import java.util.ArrayList;
 
 public class Exercicio_Repositorio extends ObjectDefault_Repositorio {
 
-    private static Exercicio_Repositorio instance;
-
-    public static Exercicio_Repositorio getInstance(){
-        if(instance == null)
-            instance = new Exercicio_Repositorio();
-        return instance;
-    }
-
-    private Exercicio_Repositorio(){
+    public Exercicio_Repositorio(){
         popular();
     }
 
@@ -33,8 +25,6 @@ public class Exercicio_Repositorio extends ObjectDefault_Repositorio {
         list.add(new Exercicio("Nadar", "30", "km" ,"200"));
 
         super.setList(list);
-
-        super.setTitleListItens("Lista de exercicios");
     }
 
 }

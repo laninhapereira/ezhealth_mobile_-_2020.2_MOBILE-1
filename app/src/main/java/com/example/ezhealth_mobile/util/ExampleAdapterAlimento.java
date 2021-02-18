@@ -60,7 +60,7 @@ public class ExampleAdapterAlimento extends RecyclerView.Adapter<ExampleAdapterA
 
     @Override
     public void onBindViewHolder(@NonNull ExampleViewHolder holder, int position) {
-        Alimento itemAtual = Alimento_Repositorio.getListaAlimentosGeral().get(position);
+        Alimento itemAtual = (Alimento) new Alimento_Repositorio().getItemList(position);
 
         holder.textAlimento.setText(itemAtual.getNome());
         holder.textMassa.setText(itemAtual.getQuantidade());
@@ -69,7 +69,7 @@ public class ExampleAdapterAlimento extends RecyclerView.Adapter<ExampleAdapterA
 
     @Override
     public int getItemCount() {
-        return Alimento_Repositorio.getListaAlimentosGeral().size();
+        return new Alimento_Repositorio().getList().size();
     }
 
 }

@@ -6,27 +6,10 @@ import java.util.Random;
 public class Alimento_Repositorio extends ObjectDefault_Repositorio {
 
     public Alimento_Repositorio(){
-        super.setList(new ArrayList<>());
+        getListaAlimentosGeral();
     }
 
-    public static ArrayList<Alimento> getListaAlimentosGeral(){
-        ArrayList<Alimento> list = new ArrayList<Alimento>();
-
-        list.add(new Alimento("Banana", "100", "g" , "320"));
-        list.add(new Alimento("Caju", "100", "g" , "320"));
-        list.add(new Alimento("Mamão", "100", "g" , "320"));
-        list.add(new Alimento("Pera", "100", "g" , "320"));
-        list.add(new Alimento("Morango", "100", "g" , "320"));
-        list.add(new Alimento("Banana", "100", "g" , "320"));
-        list.add(new Alimento("Caju", "100", "g" , "320"));
-        list.add(new Alimento("Mamão", "100", "g" , "320"));
-        list.add(new Alimento("Pera", "100", "g" , "320"));
-        list.add(new Alimento("Morango", "100", "g" , "320"));
-
-        return list;
-    }
-
-    public static ArrayList<ObjectDefault> popularAlimentos(){
+    public void getListaAlimentosGeral(){
         ArrayList<ObjectDefault> list = new ArrayList<>();
 
         list.add(new Alimento("Banana", "100", "g" , "420"));
@@ -40,12 +23,17 @@ public class Alimento_Repositorio extends ObjectDefault_Repositorio {
         list.add(new Alimento("Feijão", "120", "g" , "510"));
         list.add(new Alimento("Presunto", "110", "g" , "120"));
 
+        super.setList(list);
+    }
+
+    public ArrayList<ObjectDefault> popularAlimentos(){
+
         ArrayList<ObjectDefault> listFinal = new ArrayList<>();
 
         Random random = new Random();
 
         for (int i=0; i < random.nextInt(5)+1; i++) // Esse random decide quantos alimentos a refeição terá
-            listFinal.add(list.get(random.nextInt(10)));  // Esse random decide qual dos 10 alimentos a refeição terá
+            listFinal.add(super.getList().get(random.nextInt(10)));  // Esse random decide qual dos 10 alimentos a refeição terá
 
         return listFinal;
     }

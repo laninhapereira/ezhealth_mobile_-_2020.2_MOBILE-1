@@ -83,7 +83,7 @@ public class ExampleAdapterRefeicaoPersonalizada extends RecyclerView.Adapter<Ex
 
     @Override
     public void onBindViewHolder(@NonNull ExampleViewHolder holder, int position) {
-        Refeicao itemAtual = (Refeicao) Refeicao_Repositorio.getInstance().getRefeicoesPersonalizadas().get(position);
+        Refeicao itemAtual = (Refeicao) Refeicao_Repositorio.getRefeicoesPersonalizadas().get(position);
 
         holder.textRefeicaoPersonalizada.setText(itemAtual.getNome());
         holder.textCaloriasPersonalizada.setText(itemAtual.getCalorias());
@@ -92,6 +92,6 @@ public class ExampleAdapterRefeicaoPersonalizada extends RecyclerView.Adapter<Ex
 
     @Override
     public int getItemCount() {
-        return Refeicao_Repositorio.getInstance().getRefeicoesPersonalizadas().size();
+        return Refeicao_Repositorio.getRefeicoesPersonalizadas().size();
     }
 }

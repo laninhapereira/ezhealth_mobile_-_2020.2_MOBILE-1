@@ -12,13 +12,11 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.ezhealth_mobile.R;
 import com.example.ezhealth_mobile.content.PainelQuantidades_Content;
+import com.example.ezhealth_mobile.entity.Alimento;
 import com.example.ezhealth_mobile.entity.Alimento_Repositorio;
 import com.example.ezhealth_mobile.entity.ObjectDefault;
 
 public class EditarAlimento_Activity extends AppCompatActivity {
-
-    private Intent intent;
-    private String telaAnterior;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,11 +26,15 @@ public class EditarAlimento_Activity extends AppCompatActivity {
         ((TextView) findViewById(R.id.textViewTitelDualPanel)).setText("Editar Alimento");
 
         this.configuraPrimeiroPainel();
-
     }
 
     private void configuraPrimeiroPainel(){
-        new PainelQuantidades_Content(this, new Alimento_Repositorio().getListaAlimentosGeral().get(0));
+        Intent intent = getIntent();
+        String nome = (intent == null)? null: intent.getStringExtra("ALIMENTO");;
+
+        new PainelQuantidades_Content(this, (nome==null)?
+                new Alimento(null,null,null,null):
+                new Alimento_Repositorio().getItemList(nome));
     }
 
     //Botão "check" para confirmar que o usuário deseja salvar os itens

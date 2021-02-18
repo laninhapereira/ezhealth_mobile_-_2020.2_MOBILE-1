@@ -13,6 +13,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.ezhealth_mobile.R;
 import com.example.ezhealth_mobile.content.PainelQuantidades_Content;
+import com.example.ezhealth_mobile.entity.Alimento;
 import com.example.ezhealth_mobile.entity.Alimento_Repositorio;
 import com.example.ezhealth_mobile.entity.Exercicio_Repositorio;
 import com.example.ezhealth_mobile.entity.ObjectDefault;
@@ -32,11 +33,18 @@ public class EditarExercicio_Activity extends AppCompatActivity {
         this.configuraPrimeiroPainel();
         this.configuraSegundoPainel();
 
+        this.configuraPrimeiroPainel();
     }
 
     private void configuraPrimeiroPainel(){
-        new PainelQuantidades_Content(this, (ObjectDefault) Exercicio_Repositorio.getInstance().getItemList(0));
+        Intent intent = getIntent();
+        String nome = (intent == null)? null: intent.getStringExtra("EXERCICIO");;
+
+        new PainelQuantidades_Content(this, (nome==null)?
+                new Alimento(null,null,null,null):
+                new Exercicio_Repositorio().getItemList(nome));
     }
+
 
     // Classe para configuração do conteúdo do segundo painel
     private void configuraSegundoPainel(){

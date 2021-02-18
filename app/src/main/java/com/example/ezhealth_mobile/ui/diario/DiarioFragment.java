@@ -30,6 +30,11 @@ public class DiarioFragment extends Fragment {
             public void onChanged(@Nullable String s) {
             }
         });
+
+        ((TextView)root.findViewById(R.id.textViewFragmentKcalConsumidosValor)).setText("");
+
+        //Refeicao_Repositorio.getInstance().getRefeicoesDiarias().get
+
         configuraBotoes();
         return root;
     }
@@ -37,7 +42,7 @@ public class DiarioFragment extends Fragment {
     private void configuraBotoes(){
         Intent intent = new Intent(this.getContext(), EditarRefeicao_Activity.class);
         ((TextView)root.findViewById(R.id.textViewItemPainelValorKcalCafe)).
-                setText(Refeicao_Repositorio.getInstance().getRefeicoesDiarias().get(0).getCalorias());
+                setText(Refeicao_Repositorio.getRefeicoesDiarias().get(0).getCalorias());
         root.findViewById(R.id.imageViewItemPanelAddCafe).setOnClickListener(
             v -> {
                 intent.putExtra("REFEICAO","Café da manhã");
@@ -45,7 +50,7 @@ public class DiarioFragment extends Fragment {
             }
         );
         ((TextView)root.findViewById(R.id.textViewItemPainelValorKcalLancheManha)).
-                setText(Refeicao_Repositorio.getInstance().getRefeicoesDiarias().get(1).getCalorias());
+                setText(Refeicao_Repositorio.getRefeicoesDiarias().get(1).getCalorias());
         root.findViewById(R.id.imageViewItemPanelAddLancheManha).setOnClickListener(
                 v -> {
                     intent.putExtra("REFEICAO","Lanche da Manhã");
@@ -53,7 +58,7 @@ public class DiarioFragment extends Fragment {
                 }
         );
         ((TextView)root.findViewById(R.id.textViewItemPainelValorKcalAlmoco)).
-                setText(Refeicao_Repositorio.getInstance().getRefeicoesDiarias().get(2).getCalorias());
+                setText(Refeicao_Repositorio.getRefeicoesDiarias().get(2).getCalorias());
         root.findViewById(R.id.imageViewItemPanelAddAlmoco).setOnClickListener(
                 v -> {
                     intent.putExtra("REFEICAO","Almoço");
@@ -61,7 +66,7 @@ public class DiarioFragment extends Fragment {
                 }
         );
         ((TextView)root.findViewById(R.id.textViewItemPainelValorKcalLancheTarde)).
-                setText(Refeicao_Repositorio.getInstance().getRefeicoesDiarias().get(3).getCalorias());
+                setText(Refeicao_Repositorio.getRefeicoesDiarias().get(3).getCalorias());
         root.findViewById(R.id.imageViewItemPanelAddLancheTarde).setOnClickListener(
                 v -> {
                     intent.putExtra("REFEICAO","Lanche da Tarde");
@@ -69,7 +74,7 @@ public class DiarioFragment extends Fragment {
                 }
         );
         ((TextView)root.findViewById(R.id.textViewItemPainelValorKcalJantar)).
-                setText(Refeicao_Repositorio.getInstance().getRefeicoesDiarias().get(4).getCalorias());
+                setText(Refeicao_Repositorio.getRefeicoesDiarias().get(4).getCalorias());
         root.findViewById(R.id.imageViewItemPanelAddJantar).setOnClickListener(
                 v -> {
                     intent.putExtra("REFEICAO","Jantar");

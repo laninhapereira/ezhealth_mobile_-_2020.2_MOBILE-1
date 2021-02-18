@@ -65,7 +65,7 @@ public class ExercicioFragment extends Fragment {
             true,
                 new ExampleAdapterObjectDefault(
                         true,
-                        Exercicio_Repositorio.getInstance().getList(),
+                        new Exercicio_Repositorio().getList(),
                         (nome) -> { // Construção do botão de EDITAR de cada item da lista
                             Intent intent = new Intent(this.getContext(), EditarExercicio_Activity.class);
                             intent.putExtra("EXERCICIO", nome);
@@ -82,7 +82,7 @@ public class ExercicioFragment extends Fragment {
         ((TextView) viewFragment.findViewById(R.id.textViewTituloSegundoPainel)).setText("Informações gerais");
 
         ((TextView) viewFragment.findViewById(R.id.textViewPrimeiroItem)).setText("Tempo");
-        ((TextView) viewFragment.findViewById(R.id.textViewPrimeiroValor)).setText(Exercicio_Repositorio.getInstance().getQuantidadeTotais());
+        ((TextView) viewFragment.findViewById(R.id.textViewPrimeiroValor)).setText(new Exercicio_Repositorio().getQuantidadeTotais());
         ((TextView) viewFragment.findViewById(R.id.textViewPrimeiraMedida)).setText("km");
 
         ((TextView) viewFragment.findViewById(R.id.textViewSegundoItem)).setText("Quantidade");

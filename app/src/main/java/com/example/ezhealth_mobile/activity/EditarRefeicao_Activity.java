@@ -41,10 +41,10 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
     private void procurarRefeicao(){
         String nome = getIntent().getStringExtra("REFEICAO");
         if(nome==null) return;
-        for(ObjectDefault obj : Refeicao_Repositorio.getInstance().getRefeicoesDiarias())
+        for(ObjectDefault obj : Refeicao_Repositorio.getRefeicoesDiarias())
             if(obj.getNome().equals(nome))
                 refeicao = (Refeicao) obj;
-        for(ObjectDefault obj : Refeicao_Repositorio.getInstance().getRefeicoesPersonalizadas())
+        for(ObjectDefault obj : Refeicao_Repositorio.getRefeicoesPersonalizadas())
             if(obj.getNome().equals(nome))
                 refeicao = (Refeicao) obj;
         if(refeicao==null)
