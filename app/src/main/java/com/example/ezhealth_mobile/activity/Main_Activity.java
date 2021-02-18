@@ -61,7 +61,7 @@ public class Main_Activity extends AppCompatActivity {
         //Testar se email e senha existem e ir para Home //
         //------------------------------------------------//
 
-        Intent intent = new Intent(this, TelaChat_Activity.class);
+        Intent intent = new Intent(this, Home_Activity.class);
         startActivity(intent);
 
         //Intent intent = new Intent(this, AdicionarExercicioActivity.class);

@@ -15,13 +15,13 @@ import com.example.ezhealth_mobile.R;
 import com.example.ezhealth_mobile.content.PainelQuantidades_Content;
 import com.example.ezhealth_mobile.entity.Alimento;
 import com.example.ezhealth_mobile.entity.Alimento_Repositorio;
+import com.example.ezhealth_mobile.entity.Exercicio;
 import com.example.ezhealth_mobile.entity.Exercicio_Repositorio;
 import com.example.ezhealth_mobile.entity.ObjectDefault;
 
 public class EditarExercicio_Activity extends AppCompatActivity {
 
-    private Intent intent;
-    private String telaAnterior;
+    private Exercicio exercicio;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,9 +40,10 @@ public class EditarExercicio_Activity extends AppCompatActivity {
         Intent intent = getIntent();
         String nome = (intent == null)? null: intent.getStringExtra("EXERCICIO");;
 
-        PainelQuantidades_Content.configura(this, (nome==null)?
-                new Alimento(null,null,null,null, null, null, null):
-                new Exercicio_Repositorio().getItemList(nome));
+        exercicio = (nome == null)? null:
+                (Exercicio) Exercicio_Repositorio.getInstance().getItemList(nome);
+
+        PainelQuantidades_Content.configura(this, exercicio);
     }
 
 
@@ -50,19 +51,21 @@ public class EditarExercicio_Activity extends AppCompatActivity {
     private void configuraSegundoPainel(){
         ((TextView) findViewById(R.id.textViewTituloSegundoPainel)).setText("Informações gerais");
 
-        ((TextView) findViewById(R.id.textViewPrimeiroItem)).setText("Tempo");
-        ((TextView) findViewById(R.id.textViewPrimeiroValor)).setText("5");
-        ((TextView) findViewById(R.id.textViewPrimeiraMedida)).setText("h");
+        ((TextView) findViewById(R.id.textViewPrimeiroItem)).setText("Duração");
+        ((TextView) findViewById(R.id.textViewPrimeiroValor)).setText(exercicio.getQuantidade());
+        ((TextView) findViewById(R.id.textViewPrimeiraMedida)).setText("min");
 
-        ((TextView) findViewById(R.id.textViewSegundoItem)).setText("Gorduras");
-        ((TextView) findViewById(R.id.textViewSegundoValor)).setText("300");
-        ((TextView) findViewById(R.id.textViewSegundaMedida)).setText("Kcal");
+        ((TextView) findViewById(R.id.textViewSegundoItem)).setText("Calorias Perdidas");
+        ((TextView) findViewById(R.id.textViewSegundoValor)).setText(exercicio.getCalorias());
+        ((TextView) findViewById(R.id.textViewSegundaMedida)).setText("kcal");
 
         ((TextView) findViewById(R.id.textViewTerceiroItem)).setText("");
         ((TextView) findViewById(R.id.textViewTerceiroValor)).setText("");
         ((TextView) findViewById(R.id.textViewTerceiraMedida)).setText("");
 
-        ((TextView) findViewById(R.id.textViewValorTotalKcal)).setText("700");
+        ((TextView) findViewById(R.id.textViewTotal)).setText("");
+        ((TextView) findViewById(R.id.textViewValorTotalKcal)).setText("");
+        ((TextView) findViewById(R.id.textViewKcal4)).setText("");
     }
 
     //Botão "check" para confirmar que o usuário deseja salvar os itens

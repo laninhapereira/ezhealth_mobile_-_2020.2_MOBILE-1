@@ -23,13 +23,9 @@ public class ExampleAdapterAlimento extends RecyclerView.Adapter<ExampleAdapterA
     private static OnClickListenerAdapter botaoAdicionar;
     private static OnClickListenerAdapter botaoEditar;
 
-    private Alimento_Repositorio repositorio;
-
     public ExampleAdapterAlimento(OnClickListenerAdapter botaoAdicionar, OnClickListenerAdapter botaoEditar){
         this.botaoAdicionar = botaoAdicionar;
         this.botaoEditar = botaoEditar;
-        this.repositorio = new Alimento_Repositorio();
-        this.repositorio.setList(repositorio.getListaAlimentosGeral());
     }
 
     public static class ExampleViewHolder extends RecyclerView.ViewHolder {
@@ -64,7 +60,7 @@ public class ExampleAdapterAlimento extends RecyclerView.Adapter<ExampleAdapterA
 
     @Override
     public void onBindViewHolder(@NonNull ExampleViewHolder holder, int position) {
-        Alimento itemAtual = (Alimento) repositorio.getItemList(position);
+        Alimento itemAtual = (Alimento) Alimento_Repositorio.getInstance().getItemList(position);
 
         holder.textAlimento.setText(itemAtual.getNome());
         holder.textMassa.setText(itemAtual.getQuantidade());
@@ -73,7 +69,7 @@ public class ExampleAdapterAlimento extends RecyclerView.Adapter<ExampleAdapterA
 
     @Override
     public int getItemCount() {
-        return repositorio.getList().size();
+        return Alimento_Repositorio.getInstance().getList().size();
     }
 
 }

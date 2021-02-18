@@ -45,4 +45,5 @@ public abstract class ObjectDefault {
     public void setCalorias(String calorias) {
         this.calorias = calorias;
     }
+
 }
