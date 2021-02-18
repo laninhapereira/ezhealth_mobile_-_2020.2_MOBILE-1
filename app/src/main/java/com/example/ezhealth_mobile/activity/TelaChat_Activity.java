@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ezhealth_mobile.R;
+import com.example.ezhealth_mobile.ui.perfil.PerfilFragment;
 import com.example.ezhealth_mobile.util.ExampleAdapterChat;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -49,7 +50,7 @@ public class TelaChat_Activity extends AppCompatActivity {
 
 
     public void voltarPerfil(View v){
-        Intent intent = new Intent(this, Main_Activity.class );
+        Intent intent = new Intent(this, Home_Activity.class );
         startActivity(intent);
     }
 
