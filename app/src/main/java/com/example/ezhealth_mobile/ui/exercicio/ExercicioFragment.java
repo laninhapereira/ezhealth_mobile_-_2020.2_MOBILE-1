@@ -100,7 +100,6 @@ public class ExercicioFragment extends Fragment {
     public void setOnClickSalvar(){
         ((Button) viewFragment.findViewById(R.id.buttonCheck)).setOnClickListener(v1 -> {
             Intent intent = new Intent(getContext(), Home_Activity.class);
-            intent.putExtra("fragment", "diario");
             startActivity(intent);
         });
     }

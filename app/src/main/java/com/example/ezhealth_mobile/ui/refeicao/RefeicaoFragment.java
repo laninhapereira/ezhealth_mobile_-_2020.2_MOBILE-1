@@ -31,7 +31,6 @@ public class RefeicaoFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_refeicao, container, false);
 
         Intent intent = new Intent(root.getRootView().getContext(), EditarRefeicao_Activity.class);
-        intent.putExtra("TELA_ANTERIOR", "homeRefeicao");
 
         root.findViewById(R.id.fab).setOnClickListener(v -> {
             intent.putExtra("REFEICAO", "Sem nome");

@@ -32,29 +32,6 @@ public class Home_Activity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupWithNavController(navView, navController);
 
-        this.escolheFragmentInicial();
-
-    }
-
-    private void escolheFragmentInicial(){
-        if(getIntent().getStringExtra("FRAGMENT") == null)
-            return;
-        switch ( getIntent().getStringExtra("FRAGMENT") ){
-            case "diario":
-                navView.setSelectedItemId(R.id.navigation_diario);
-                break;
-            case "refeicao":
-                navView.setSelectedItemId(R.id.navigation_refeicoes);
-                break;
-            case "exercicio":
-                navView.setSelectedItemId(R.id.navigation_exercicios);
-                break;
-            case "perfil":
-                navView.setSelectedItemId(R.id.navigation_perfil);
-                break;
-            default:
-                navView.setSelectedItemId(R.id.navigation_diario);
-        }
     }
 
     public void irEditarRefeicao(View view){

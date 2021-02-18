@@ -18,7 +18,7 @@ import com.example.ezhealth_mobile.util.ExampleAdapterObjectDefault;
 
 public class VisualizarRefeicao_Activity extends AppCompatActivity {
 
-    private Refeicao refeicao = (Refeicao) Refeicao_Repositorio.getInstance().getItemList(0);
+    private Refeicao refeicao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,12 +38,15 @@ public class VisualizarRefeicao_Activity extends AppCompatActivity {
         for(ObjectDefault obj : Refeicao_Repositorio.getInstance().getRefeicoesDiarias())
             if(obj.getNome().equals(nome))
                 refeicao = (Refeicao) obj;
+        for(ObjectDefault obj : Refeicao_Repositorio.getInstance().getRefeicoesPersonalizadas())
+            if(obj.getNome().equals(nome))
+                refeicao = (Refeicao) obj;
     }
 
     private void configuraPrimeiroPainel(){
         // Classe para configuração do conteúdo do primeiro painel
         new PainelInformacoes_Content(
-                Refeicao_Repositorio.getInstance().getItemList(0).getNome(),
+                "Lista de alimentos",
                 getWindow().getDecorView(),
                 false,
                 new ExampleAdapterObjectDefault(
@@ -61,23 +64,17 @@ public class VisualizarRefeicao_Activity extends AppCompatActivity {
 
     //Botão "check" para confirmar que o usuário deseja salvar os itens
     public void salvar(View v){
-        Intent intent = new Intent(this, AdicionarAlimentoRefeicao_Activity.class);
-        intent.putExtra("FRAGMENT","refeicao");
-        startActivity(intent);
+        finish();
     }
 
     //Botão "voltar" para caso o usuário desista e volte para a tela anterior
     public void voltar(View v){
-        Intent intent = new Intent(this, AdicionarAlimentoRefeicao_Activity.class);
-        intent.putExtra("FRAGMENT","refeicao");
-        startActivity(intent);
+        finish();
     }
 
     //Botão "add" para caso o usuário queria adicionar um novo item
     public void adicionar(View view){
-        Intent intent = new Intent(this, AdicionarAlimentoRefeicao_Activity.class);
-        intent.putExtra("FRAGMENT","refeicao");
-        startActivity(intent);
+        finish();
     }
 
 }

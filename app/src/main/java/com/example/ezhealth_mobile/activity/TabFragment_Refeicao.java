@@ -30,13 +30,11 @@ public class TabFragment_Refeicao extends Fragment {
 
         mRecyclerView.setAdapter(new ExampleAdapterRefeicao(
             nome -> { // Construção do botão de ADICIONAR de cada item da lista
-                Intent intent = new Intent(getContext(), EditarRefeicao_Activity.class);
-                intent.putExtra("REFEICAO", nome);
-                startActivity(intent);
+                getActivity().finish();
+                //intent.putExtra("REFEICAO", nome);
             }, // Construção do botão de VISUALIZAR de cada item da lista
             nome -> {
                 Intent intent = new Intent(getContext(), VisualizarRefeicao_Activity.class);
-                intent.putExtra("TELA_ANTERIOR", "adicionarRefeicao");
                 intent.putExtra("REFEICAO", nome);
                 startActivity(intent);
             })

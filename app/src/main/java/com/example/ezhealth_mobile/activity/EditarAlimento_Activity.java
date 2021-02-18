@@ -29,7 +29,6 @@ public class EditarAlimento_Activity extends AppCompatActivity {
 
         this.configuraPrimeiroPainel();
 
-        escolheTelaVolta();
     }
 
     private void configuraPrimeiroPainel(){
@@ -38,34 +37,11 @@ public class EditarAlimento_Activity extends AppCompatActivity {
 
     //Botão "check" para confirmar que o usuário deseja salvar os itens
     public void salvar(View v){
-        intent.putExtra("ATUALIZAR", true);
-        startActivity(intent);
+        finish();
     }
 
     //Botão "voltar" para caso o usuário desista e volte para a tela anterior
     public void voltar(View v){
-        intent.putExtra("ATUALIZAR", false);
-        startActivity(intent);
-    }
-
-    private void escolheTelaVolta(){
-        intent = getIntent();
-        telaAnterior = (intent != null)? intent.getStringExtra("TELA_ANTERIOR") : "default";
-        telaAnterior = (telaAnterior!=null)? telaAnterior :"default";
-        switch(telaAnterior){
-            case "adicionarAlimento":
-                intent = new Intent(this, AdicionarAlimentoRefeicao_Activity.class);
-                intent.putExtra("FRAGMENT","alimento");
-                break;
-            case "adicionarRefeicao":
-                intent = new Intent(this, AdicionarAlimentoRefeicao_Activity.class);
-                intent.putExtra("FRAGMENT","refeicao");
-                break;
-            case "editarRefeicao":
-                intent = new Intent(this, EditarAlimento_Activity.class);
-                break;
-            default:
-                intent = new Intent(this, EditarRefeicao_Activity.class);
-        }
+        finish();
     }
 }

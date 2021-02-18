@@ -25,8 +25,6 @@ import static androidx.core.content.ContextCompat.startActivity;
 
 public class EditarRefeicao_Activity extends AppCompatActivity {
 
-    private Intent intent;
-    private String telaAnterior;
     private Refeicao refeicao;
 
     @Override
@@ -38,8 +36,6 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
         ((TextView) findViewById(R.id.textViewTitelDualPanel)).setText(refeicao.getNome());
 
         this.configuraPrimeiroPainel();
-
-        escolheTelaVolta();
     }
 
     private void procurarRefeicao(){
@@ -80,42 +76,17 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
     //Botão "add" para caso o usuário queria adicionar um novo item
     public void adicionar(View view){
         Intent intent = new Intent(this, AdicionarAlimentoRefeicao_Activity.class);
-        intent.putExtra("TELA_ANTERIOR", "editarRefeicao");
         startActivity(intent);
     }
 
     //Botão "check" para confirmar que o usuário deseja salvar os itens
     public void salvar(View v){
-        intent.putExtra("ATUALIZAR", true);
-        startActivity(intent);
+        finish();
     }
 
     //Botão "voltar" para caso o usuário desista e volte para a tela anterior
     public void voltar(View v){
-        intent.putExtra("ATUALIZAR", false);
-        startActivity(intent);
-    }
-
-    private void escolheTelaVolta(){
-        intent = getIntent();
-        telaAnterior = (intent != null)? intent.getStringExtra("TELA_ANTERIOR") : "default";
-        telaAnterior = (telaAnterior!=null)? telaAnterior :"default";
-        switch(telaAnterior){
-            case "adicionarAlimento":
-                intent = new Intent(this, AdicionarAlimentoRefeicao_Activity.class);
-                intent.putExtra("FRAGMENT", "alimento");
-                break;
-            case "adicionarRefeicao":
-                intent = new Intent(this, AdicionarAlimentoRefeicao_Activity.class);
-                intent.putExtra("FRAGMENT", "refeicao");
-                break;
-            case "homeRefeicao":
-                intent = new Intent(this, Home_Activity.class);
-                intent.putExtra("FRAGMENT", "refeicao");
-                break;
-            default:
-                intent = new Intent(this, Home_Activity.class);
-        }
+        finish();
     }
 
 }

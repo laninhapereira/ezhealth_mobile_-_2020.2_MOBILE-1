@@ -13,8 +13,6 @@ import com.google.android.material.tabs.TabLayout;
 
 public class AdicionarAlimentoRefeicao_Activity extends AppCompatActivity {
 
-    private TabLayout tabs;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,38 +22,19 @@ public class AdicionarAlimentoRefeicao_Activity extends AppCompatActivity {
         ViewPager viewPager = findViewById(R.id.view_pager);
         viewPager.setAdapter(sectionsPagerAdapter);
 
-        tabs = findViewById(R.id.tabs);
+        TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
-
-        escolheFragmentInicial();
-    }
-
-    private void escolheFragmentInicial(){
-        if(getIntent().getStringExtra("FRAGMENT") == null)
-            return;
-        switch ( getIntent().getStringExtra("FRAGMENT") ){
-            case "alimento":
-                tabs.getTabAt(0).select();
-                break;
-            case "refeicao":
-                tabs.getTabAt(1).select();
-                break;
-            default:
-                tabs.getTabAt(0).select();
-        }
     }
 
 
     //Botão "check" para confirmar que o usuário já adicionou os alimentos/refeições desejados
     public void checkAlimentoRefeição(View v){
-        Intent intent = new Intent(this, EditarRefeicao_Activity.class);
-        startActivity(intent);
+        finish();
     }
 
     //Botão "voltar" para caso o usuário desista e volte para a tela anterior
     public void voltarListaAlimentos(View v){
-        Intent intent = new Intent(this, EditarRefeicao_Activity.class);
-        startActivity(intent);
+        finish();
     }
 
 }
