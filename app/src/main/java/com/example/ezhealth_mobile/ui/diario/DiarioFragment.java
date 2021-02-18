@@ -25,7 +25,7 @@ public class DiarioFragment extends Fragment {
 
     private View root;
     private ArrayList<ObjectDefault> listRefeicoesDiarias;
-    private Integer caloriasTotaisDiarias = 0;
+    private Integer caloriasTotaisDiarias;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         DiarioViewModel diarioViewModel = new ViewModelProvider(this).get(DiarioViewModel.class);
@@ -42,7 +42,7 @@ public class DiarioFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-
+        caloriasTotaisDiarias = 0;
         listRefeicoesDiarias = Refeicao_Repositorio.getInstance().getListDiaria();
 
         configuraBotoes();
