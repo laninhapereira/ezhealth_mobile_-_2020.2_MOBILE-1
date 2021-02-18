@@ -23,6 +23,9 @@ import com.example.ezhealth_mobile.entity.Refeicao;
 import com.example.ezhealth_mobile.entity.Refeicao_Repositorio;
 import com.example.ezhealth_mobile.util.ExampleAdapterObjectDefault;
 
+import java.sql.Ref;
+import java.util.ArrayList;
+
 import static androidx.core.content.ContextCompat.startActivity;
 
 public class EditarRefeicao_Activity extends AppCompatActivity {
@@ -43,6 +46,7 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
         procurarRefeicao();
         ((TextView) findViewById(R.id.textViewTitelDualPanel)).setText(refeicao.getNome());
         this.configuraPrimeiroPainel();
+        this.configuraSegundoPainel();
         Toast.makeText(this, "aaeee", Toast.LENGTH_LONG).show();
     }
 
@@ -81,6 +85,26 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
         );
         PainelInformacoes_Content.configura("Alimentos", getWindow().getDecorView(),
                 true, exampleAdapterObjectDefault);
+    }
+
+    private void configuraSegundoPainel(){
+        Alimento_Repositorio repositorio = this.refeicao.getRepAlimentos();
+
+        ((TextView) findViewById(R.id.textViewTituloSegundoPainel)).setText("Informações gerais");
+
+        ((TextView) findViewById(R.id.textViewPrimeiroItem)).setText("Carboidratos");
+        ((TextView) findViewById(R.id.textViewPrimeiroValor)).setText(repositorio.getCarboidratosTotais());
+        ((TextView) findViewById(R.id.textViewPrimeiraMedida)).setText("g");
+
+        ((TextView) findViewById(R.id.textViewSegundoItem)).setText("Proteinas");
+        ((TextView) findViewById(R.id.textViewSegundoValor)).setText(repositorio.getProteinasTotais());
+        ((TextView) findViewById(R.id.textViewSegundaMedida)).setText("g");
+
+        ((TextView) findViewById(R.id.textViewTerceiroItem)).setText("Gorduras");
+        ((TextView) findViewById(R.id.textViewTerceiroValor)).setText(repositorio.getGordurasTotais());
+        ((TextView) findViewById(R.id.textViewTerceiraMedida)).setText("g");
+
+        ((TextView) findViewById(R.id.textViewValorTotalKcal)).setText(repositorio.getCaloriasTotais());
     }
 
     //Botão "add" para caso o usuário queria adicionar um novo item

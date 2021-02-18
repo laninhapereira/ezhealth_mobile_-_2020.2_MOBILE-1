@@ -20,6 +20,8 @@ import com.example.ezhealth_mobile.entity.ObjectDefault;
 
 public class EditarAlimento_Activity extends AppCompatActivity {
 
+    Alimento alimento;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,13 +30,14 @@ public class EditarAlimento_Activity extends AppCompatActivity {
         ((TextView) findViewById(R.id.textViewTitelDualPanel)).setText("Editar Alimento");
 
         this.configuraPrimeiroPainel();
+        this.configuraSegundoPainel();
     }
 
     private void configuraPrimeiroPainel(){
         Intent intent = getIntent();
         String nome = (intent == null)? null: intent.getStringExtra("ALIMENTO");;
 
-        Alimento alimento = (nome==null)?
+        alimento = (nome==null)?
                 null:
                 (Alimento) new Alimento_Repositorio().getItemList(nome);
 
@@ -42,6 +45,25 @@ public class EditarAlimento_Activity extends AppCompatActivity {
             PainelQuantidades_Content.configura(this, alimento);
         else
             finish();
+    }
+
+    private void configuraSegundoPainel(){
+
+        ((TextView) findViewById(R.id.textViewTituloSegundoPainel)).setText("Informações gerais");
+
+        ((TextView) findViewById(R.id.textViewPrimeiroItem)).setText("Carboidratos");
+        ((TextView) findViewById(R.id.textViewPrimeiroValor)).setText(alimento.getCarboidratos());
+        ((TextView) findViewById(R.id.textViewPrimeiraMedida)).setText("g");
+
+        ((TextView) findViewById(R.id.textViewSegundoItem)).setText("Proteinas");
+        ((TextView) findViewById(R.id.textViewSegundoValor)).setText(alimento.getProteinas());
+        ((TextView) findViewById(R.id.textViewSegundaMedida)).setText("g");
+
+        ((TextView) findViewById(R.id.textViewTerceiroItem)).setText("Gorduras");
+        ((TextView) findViewById(R.id.textViewTerceiroValor)).setText(alimento.getGorduras());
+        ((TextView) findViewById(R.id.textViewTerceiraMedida)).setText("g");
+
+        ((TextView) findViewById(R.id.textViewValorTotalKcal)).setText(alimento.getCalorias());
     }
 
     //Botão "check" para confirmar que o usuário deseja salvar os itens

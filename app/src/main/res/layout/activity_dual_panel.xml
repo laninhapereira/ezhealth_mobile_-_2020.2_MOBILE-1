@@ -216,7 +216,7 @@
 
     <TextView
         android:id="@+id/textViewPrimeiroValor"
-        android:layout_width="31dp"
+        android:layout_width="wrap_content"
         android:layout_height="20dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="55dp"
@@ -230,7 +230,7 @@
 
     <TextView
         android:id="@+id/textViewSegundoValor"
-        android:layout_width="31dp"
+        android:layout_width="wrap_content"
         android:layout_height="20dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="55dp"
@@ -244,7 +244,7 @@
 
     <TextView
         android:id="@+id/textViewTerceiroValor"
-        android:layout_width="31dp"
+        android:layout_width="wrap_content"
         android:layout_height="20dp"
         android:layout_marginTop="13dp"
         android:layout_marginEnd="55dp"
