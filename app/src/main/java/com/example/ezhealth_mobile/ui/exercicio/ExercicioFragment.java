@@ -45,6 +45,7 @@ public class ExercicioFragment extends Fragment {
         viewFragment = inflater.inflate(R.layout.activity_dual_panel, container, false);
 
         ((TextView) viewFragment.findViewById(R.id.textViewTitelDualPanel)).setText("Lista de Exercícios");
+        ((TextView) viewFragment.findViewById(R.id.buttonCheck)).setVisibility(View.INVISIBLE);
         ((TextView) viewFragment.findViewById(R.id.textViewTitelDualPanel)).setPadding(53,0,0,0);
         ((TextView) viewFragment.findViewById(R.id.textViewDataDualPanel)).setPadding(53,0,0,0);
         ((Button) viewFragment.findViewById(R.id.buttonVoltar)).setVisibility(View.INVISIBLE);

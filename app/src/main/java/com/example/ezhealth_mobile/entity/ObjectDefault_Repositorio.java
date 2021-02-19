@@ -47,4 +47,11 @@ public class ObjectDefault_Repositorio{
         return null;
     }
 
+    public ObjectDefault setItemList(String titulo, ObjectDefault objectDefault){
+        for(ObjectDefault obj: list)
+            if(obj.getNome().equals(titulo))
+                return obj = objectDefault;
+        return null;
+    }
+
 }

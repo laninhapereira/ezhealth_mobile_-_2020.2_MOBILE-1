@@ -32,7 +32,7 @@ import static androidx.core.content.ContextCompat.startActivity;
 public class EditarRefeicao_Activity extends AppCompatActivity {
 
     private int EDITAR_ACTIVITY = 0;
-    private Refeicao refeicao;
+    public Refeicao refeicao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,8 +43,10 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
     @Override
     public void onResume(){ // escreva esse método na act1
         super.onResume();
+
         procurarRefeicao();
         ((TextView) findViewById(R.id.textViewTitelDualPanel)).setText(refeicao.getNome());
+
         this.configuraPrimeiroPainel();
         this.configuraSegundoPainel();
     }
@@ -57,14 +59,11 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
             Toast.makeText(this, "Refeição não encontrada", Toast.LENGTH_LONG).show();
             return;
         }
-
         refeicao = (Refeicao) Refeicao_Repositorio.getInstance().getItemList(nome);
-
         if(refeicao == null) {
             Toast.makeText(this, "Refeição não encontrada", Toast.LENGTH_LONG).show();
             return;
         }
-
         Log.d("Refeicao: ", refeicao.getNome());
 
     }
@@ -75,8 +74,9 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
                 refeicao.getRepAlimentos().getList(),
                 nome -> { // Construção do botão de EDITAR de cada item da lista
                     Intent intent = new Intent(this, EditarAlimento_Activity.class);
+                    intent.putExtra("REFEICAO", refeicao.getNome());
                     intent.putExtra("ALIMENTO", nome);
-                    startActivityForResult(intent, 0);
+                    this.startActivityForResult(intent, 0);
                 },
                 nome -> { // Construção do botão de EXCLUIR de cada item da lista
 
@@ -113,6 +113,7 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
 
     //Botão "check" para confirmar que o usuário deseja salvar os itens
     public void salvar(View v){
+        setResult(RESULT_OK);
         finish();
     }
 
@@ -127,6 +128,10 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
 
         if (requestCode == EDITAR_ACTIVITY) {
             if (resultCode == RESULT_OK) {
+                String nome = data.getStringExtra("ALIMENTO");
+                String quantidade = data.getStringExtra("QUANTIDADE");
+
+                refeicao.getRepAlimentos().getItemList(nome).setQuantidade(quantidade);
                 Toast.makeText(this, "Salvo", Toast.LENGTH_SHORT).show();
             }
         }

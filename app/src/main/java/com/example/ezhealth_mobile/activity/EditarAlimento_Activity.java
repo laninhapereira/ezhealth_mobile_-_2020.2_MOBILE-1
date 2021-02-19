@@ -3,6 +3,7 @@ package com.example.ezhealth_mobile.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
@@ -17,10 +18,13 @@ import com.example.ezhealth_mobile.content.PainelQuantidades_Content;
 import com.example.ezhealth_mobile.entity.Alimento;
 import com.example.ezhealth_mobile.entity.Alimento_Repositorio;
 import com.example.ezhealth_mobile.entity.ObjectDefault;
+import com.example.ezhealth_mobile.entity.Refeicao;
+import com.example.ezhealth_mobile.entity.Refeicao_Repositorio;
 
 public class EditarAlimento_Activity extends AppCompatActivity {
 
-    Alimento alimento;
+    private Alimento alimento;
+    private Refeicao refeicao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,22 +33,28 @@ public class EditarAlimento_Activity extends AppCompatActivity {
 
         ((TextView) findViewById(R.id.textViewTitelDualPanel)).setText("Editar Alimento");
 
+        procurar();
         this.configuraPrimeiroPainel();
         this.configuraSegundoPainel();
     }
 
-    private void configuraPrimeiroPainel(){
+    public void procurar(){
         Intent intent = getIntent();
-        String nome = (intent == null)? null: intent.getStringExtra("ALIMENTO");;
 
-        alimento = (nome==null)?
-                null:
-                (Alimento) Alimento_Repositorio.getInstance().getItemList(nome);
+        String nomeRefeicao = (intent == null)? null : getIntent().getStringExtra("REFEICAO");
+        String nomeAlimento = (intent == null)? null : getIntent().getStringExtra("ALIMENTO");
 
-        if(alimento!=null)
-            PainelQuantidades_Content.configura(this, alimento);
-        else
-            finish();
+        if(nomeRefeicao == null){
+            alimento = (Alimento) Alimento_Repositorio.getInstance().getItemList(nomeAlimento);
+        }else{
+            refeicao = (Refeicao) Refeicao_Repositorio.getInstance().getItemList(nomeRefeicao);
+            alimento = (Alimento) refeicao.getRepAlimentos().getItemList(nomeAlimento);
+        }
+
+    }
+
+    private void configuraPrimeiroPainel(){
+        PainelQuantidades_Content.configura(this, alimento);
     }
 
     private void configuraSegundoPainel(){
@@ -68,16 +78,23 @@ public class EditarAlimento_Activity extends AppCompatActivity {
 
     //Botão "check" para confirmar que o usuário deseja salvar os itens
     public void salvar(View v){
-        setResult(RESULT_OK, new Intent());
         String result = ((TextView) findViewById(R.id.editTextQtd)).getText().toString();
         alimento.setQuantidade(result);
 
+        if(refeicao == null)
+            Alimento_Repositorio.getInstance().setItemList(alimento.getNome(), alimento);
+        else
+            refeicao.getRepAlimentos().setItemList(alimento.getNome(), alimento);
+
         finish();
     }
+
+
 
     //Botão "voltar" para caso o usuário desista e volte para a tela anterior
     public void voltar(View v){
         setResult(RESULT_CANCELED, new Intent());
         finish();
     }
+
 }

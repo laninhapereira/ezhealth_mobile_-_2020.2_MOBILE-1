@@ -94,4 +94,5 @@ public class ExampleAdapterRefeicaoPersonalizada extends RecyclerView.Adapter<Ex
     public int getItemCount() {
         return Refeicao_Repositorio.getInstance().getListPersonalizada().size();
     }
+
 }
