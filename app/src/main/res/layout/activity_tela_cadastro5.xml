@@ -74,7 +74,7 @@
 
 
     <EditText
-        android:id="@+id/editTextPeso"
+        android:id="@+id/editTextCadastroPeso"
         android:layout_width="60dp"
         android:layout_height="40dp"
         android:background="@drawable/custom_telas_cadastro_pagina2"
@@ -133,7 +133,7 @@
         app:srcCompat="@drawable/rule" />
 
     <EditText
-        android:id="@+id/editTextAltura"
+        android:id="@+id/editTextCadastroAltura"
         android:layout_width="60dp"
         android:layout_height="40dp"
         android:background="@drawable/custom_telas_cadastro_pagina2"
@@ -166,7 +166,7 @@
 
 
     <Button
-        android:id="@+id/buttonProximo4"
+        android:id="@+id/buttonCadastroProximo5"
         android:layout_width="180dp"
         android:layout_height="40dp"
         android:background="@drawable/button_login"

@@ -16,7 +16,7 @@ public class TelaCadastro2_Activity extends AppCompatActivity {
 
 
     private EditText cadastroNome, cadastroCPF, cadastroCRN;
-    private Button buttonProximo1;
+    private Button buttonProximo2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,10 +24,10 @@ public class TelaCadastro2_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_tela_cadastro2);
 
         //* Confirmar se todos os campos estão preenchidos //
-        cadastroNome = findViewById(R.id.editTextNome);
-        cadastroCPF = findViewById(R.id.editTextCPF);
-        cadastroCRN = findViewById(R.id.editTextCRN);
-        buttonProximo1 = findViewById(R.id.buttonProximo1);
+        cadastroNome = findViewById(R.id.editTextCadastroNomeCompleto);
+        cadastroCPF = findViewById(R.id.editTextCadastroCPF);
+        cadastroCRN = findViewById(R.id.editTextCadastroCRN);
+        buttonProximo2 = findViewById(R.id.buttonCadastroProximo2);
 
         cadastroNome.addTextChangedListener(cadastro1Watcher);
         cadastroCPF.addTextChangedListener(cadastro1Watcher);
@@ -50,7 +50,7 @@ public class TelaCadastro2_Activity extends AppCompatActivity {
             String CPFInput = cadastroCPF.getText().toString().trim();
             String CRNInput = cadastroCRN.getText().toString().trim();
 
-            buttonProximo1.setEnabled(!nomeInput.isEmpty() && !CPFInput.isEmpty() && !CRNInput.isEmpty());
+            buttonProximo2.setEnabled(!nomeInput.isEmpty() && !CPFInput.isEmpty() && !CRNInput.isEmpty());
         }
 
         @Override

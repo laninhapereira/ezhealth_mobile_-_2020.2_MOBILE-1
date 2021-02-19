@@ -83,7 +83,7 @@
         app:layout_constraintVertical_bias="0.43">
 
         <CheckBox
-            android:id="@+id/checkedLactose"
+            android:id="@+id/escolhaIntoleranciaLactose"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
@@ -96,7 +96,7 @@
 
 
         <CheckBox
-            android:id="@+id/checkedGluten"
+            android:id="@+id/escolhaIntoleranciaGluten"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
@@ -135,7 +135,7 @@
         app:layout_constraintVertical_bias="0.66999996">
 
         <CheckBox
-            android:id="@+id/checkedDiabetes"
+            android:id="@+id/escolhaDoencaDiabetes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
@@ -148,7 +148,7 @@
 
 
         <CheckBox
-            android:id="@+id/checkedColesterol"
+            android:id="@+id/escolhaDoencaColesterol"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
@@ -162,7 +162,7 @@
     </RadioGroup>
 
     <Button
-        android:id="@+id/buttonProximo6"
+        android:id="@+id/buttonCadastroProximo7"
         android:layout_width="180dp"
         android:layout_height="40dp"
         android:background="@drawable/button_login"

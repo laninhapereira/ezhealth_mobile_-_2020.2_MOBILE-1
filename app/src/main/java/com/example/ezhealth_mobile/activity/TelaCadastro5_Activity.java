@@ -15,7 +15,7 @@ import com.example.ezhealth_mobile.R;
 public class TelaCadastro5_Activity extends AppCompatActivity {
 
     private EditText cadastroPeso, cadastroAltura;
-    private Button buttonProximo4;
+    private Button buttonProximo5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,9 +23,9 @@ public class TelaCadastro5_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_tela_cadastro5);
 
         //* Confirmar se todos os campos estão preenchidos //
-        cadastroPeso = findViewById(R.id.editTextPeso);
-        cadastroAltura = findViewById(R.id.editTextAltura);
-        buttonProximo4 = findViewById(R.id.buttonProximo4);
+        cadastroPeso = findViewById(R.id.editTextCadastroPeso);
+        cadastroAltura = findViewById(R.id.editTextCadastroAltura);
+        buttonProximo5 = findViewById(R.id.buttonCadastroProximo5);
 
         cadastroPeso.addTextChangedListener(cadastro4Watcher);
         cadastroAltura.addTextChangedListener(cadastro4Watcher);
@@ -46,7 +46,7 @@ public class TelaCadastro5_Activity extends AppCompatActivity {
             String nomeInput = cadastroPeso.getText().toString().trim();
             String sobrenomeInput = cadastroAltura.getText().toString().trim();
 
-            buttonProximo4.setEnabled(!nomeInput.isEmpty() && !sobrenomeInput.isEmpty());
+            buttonProximo5.setEnabled(!nomeInput.isEmpty() && !sobrenomeInput.isEmpty());
         }
 
         @Override

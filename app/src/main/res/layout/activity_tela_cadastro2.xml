@@ -60,7 +60,7 @@
 
 
     <EditText
-        android:id="@+id/editTextNome"
+        android:id="@+id/editTextCadastroNomeCompleto"
         android:layout_width="230dp"
         android:layout_height="40dp"
         android:background="@drawable/custom_input"
@@ -78,7 +78,7 @@
         app:layout_constraintVertical_bias="0.42000002" />
 
     <EditText
-        android:id="@+id/editTextCPF"
+        android:id="@+id/editTextCadastroCPF"
         android:layout_width="230dp"
         android:layout_height="40dp"
         android:background="@drawable/custom_input"
@@ -95,7 +95,7 @@
         app:layout_constraintVertical_bias="0.52" />
 
     <EditText
-        android:id="@+id/editTextCRN"
+        android:id="@+id/editTextCadastroCRN"
         android:layout_width="230dp"
         android:layout_height="40dp"
         android:background="@drawable/custom_input"
@@ -112,7 +112,7 @@
         app:layout_constraintVertical_bias="0.62" />
 
     <Button
-        android:id="@+id/buttonProximo1"
+        android:id="@+id/buttonCadastroProximo2"
         android:layout_width="180dp"
         android:layout_height="40dp"
         android:background="@drawable/button_login"

@@ -15,7 +15,7 @@ import com.example.ezhealth_mobile.R;
 public class TelaCadastro8_Activity extends AppCompatActivity {
 
     private EditText cadastroEmail, cadastroSenha, getCadastroSenha2;
-    private Button buttonProximo7;
+    private Button buttonProximo8;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,10 +23,10 @@ public class TelaCadastro8_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_tela_cadastro8);
 
         //* Confirmar se todos os campos estão preenchidos //
-        cadastroEmail = findViewById(R.id.editTextEmailCadastro);
-        cadastroSenha = findViewById(R.id.editTextSenhaCadastro1);
-        getCadastroSenha2 = findViewById(R.id.editTextSenhaCadastro2);
-        buttonProximo7 = findViewById(R.id.buttonProximo7);
+        cadastroEmail = findViewById(R.id.editTextCadastroEmail);
+        cadastroSenha = findViewById(R.id.editTextCadastroSenha1);
+        getCadastroSenha2 = findViewById(R.id.editTextCadastroSenha2);
+        buttonProximo8 = findViewById(R.id.buttonCadastroProximo8);
 
         cadastroEmail.addTextChangedListener(cadastro7Watcher);
         cadastroSenha.addTextChangedListener(cadastro7Watcher);
@@ -45,11 +45,11 @@ public class TelaCadastro8_Activity extends AppCompatActivity {
 
         @Override
         public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-            String emailInput = cadastroEmail.getText().toString().trim();
-            String senha1Input = cadastroSenha.getText().toString().trim();
-            String senha2Input = getCadastroSenha2.getText().toString().trim();
+            String email = cadastroEmail.getText().toString().trim();
+            String senha1 = cadastroSenha.getText().toString().trim();
+            String senha2 = getCadastroSenha2.getText().toString().trim();
 
-            buttonProximo7.setEnabled(!emailInput.isEmpty() && !senha1Input.isEmpty() && !senha2Input.isEmpty());
+            buttonProximo8.setEnabled(!email.isEmpty() && !senha1.isEmpty() && !senha2.isEmpty());
         }
 
         @Override

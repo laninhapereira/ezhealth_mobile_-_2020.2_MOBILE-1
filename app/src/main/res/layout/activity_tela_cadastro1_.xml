@@ -68,6 +68,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <RadioButton
+                android:id="@+id/escolhaCadastroUsario"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
@@ -79,6 +80,7 @@
                 android:textColor="#2F3542" />
 
             <RadioButton
+                android:id="@+id/escolhaCadastroNutricionista"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
@@ -92,7 +94,7 @@
         </RadioGroup>
 
         <Button
-            android:id="@+id/buttonProximo3"
+            android:id="@+id/buttonCadastroProximo1"
             android:layout_width="180dp"
             android:layout_height="40dp"
             android:background="@drawable/button_login"
