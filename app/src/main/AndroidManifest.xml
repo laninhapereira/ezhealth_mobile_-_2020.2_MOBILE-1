@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Ezhealth_mobile">
         <activity android:name=".activity.EditarSenha"></activity>
+        <activity android:name=".activity.PopupNome" />
         <activity android:name=".activity.EditarPerfil" />
         <activity android:name=".activity.TelaChatConversas_Activity" />
         <activity android:name=".activity.TelaChat_Activity" />

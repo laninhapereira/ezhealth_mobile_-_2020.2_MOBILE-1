@@ -1,9 +1,12 @@
 package com.example.ezhealth_mobile.activity;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -55,6 +58,7 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
 
     }
 
+    @SuppressLint("WrongViewCast")
     private void configuraPrimeiroPainel(){
         ExampleAdapterObjectDefault exampleAdapterObjectDefault = new ExampleAdapterObjectDefault(
                 true,
@@ -98,7 +102,6 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
 
         ((TextView) findViewById(R.id.textViewValorTotalKcal)).setText(refeicao.getCaloriasTotais());
     }
-
 
     //Botão "check" para confirmar que o usuário deseja salvar os itens
     public void salvar(View v){

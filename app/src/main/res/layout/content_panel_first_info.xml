@@ -1,20 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#CED6E0"
+    android:elevation="0dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/textViewPanel1"
-        android:layout_width="379dp"
-        android:layout_height="197dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+    <ImageView
+        android:id="@+id/imageViewButtonAdd"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="14dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:background="#CED6E0"
-        android:elevation="3dp"
+        android:background="@drawable/ic_baseline_add_24"
+        android:elevation="0dp"
+        android:onClick="adicionar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
+        android:elevation="0dp"
+        android:scrollbars="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,36 +41,14 @@
         android:id="@+id/textViewTituloPrimeiroPainel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
-        android:elevation="3dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="14dp"
+        android:elevation="0dp"
         android:text="Titulo"
         android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="@+id/textViewPanel1"
-        app:layout_constraintTop_toTopOf="@+id/textViewPanel1" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageViewButtonAdd"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="13dp"
-        android:elevation="3dp"
-        app:layout_constraintEnd_toEndOf="@+id/textViewPanel1"
-        app:layout_constraintTop_toTopOf="@+id/textViewPanel1"
-        app:srcCompat="@drawable/ic_baseline_add_24" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="372dp"
-        android:layout_height="144dp"
-        android:layout_marginBottom="8dp"
-        android:elevation="3dp"
-        android:padding="4dp"
-        android:scrollbars="vertical"
-        app:layout_constraintBottom_toBottomOf="@+id/textViewPanel1"
-        app:layout_constraintEnd_toEndOf="@+id/textViewPanel1"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/textViewPanel1" />
-
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,17 +2,217 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#CED6E0">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="231dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        android:background="#CED6E0"
+        android:elevation="3dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewResumoCalorico">
+
+        <TextView
+            android:id="@+id/textViewTituloSegundoPainel"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            android:elevation="3dp"
+            android:text="Informações Nutricionais"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textViewSegundoItem"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            android:elevation="3dp"
+            android:text="Proteínas"
+            android:textColor="#999A9C"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewPrimeiroItem" />
+
+        <TextView
+            android:id="@+id/textViewPrimeiroItem"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            android:elevation="3dp"
+            android:text="Carboidratos"
+            android:textColor="#999A9C"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTituloSegundoPainel" />
+
+        <TextView
+            android:id="@+id/textViewTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="136dp"
+            android:layout_marginBottom="16dp"
+            android:elevation="3dp"
+            android:text="Total"
+            android:textColor="#999A9C"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textViewTerceiraMedida"
+            android:layout_width="45dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="6dp"
+            android:elevation="3dp"
+            android:text="kcal"
+            android:textAlignment="viewStart"
+            android:textColor="#999A9C"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toStartOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/textViewSegundaMedida" />
+
+        <TextView
+            android:id="@+id/textViewKcal4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginBottom="16dp"
+            android:elevation="3dp"
+            android:text="kcal"
+            android:textColor="#999A9C"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textViewValorTotalKcal" />
+
+        <TextView
+            android:id="@+id/textViewSegundaMedida"
+            android:layout_width="45dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="6dp"
+            android:elevation="3dp"
+            android:text="kcal"
+            android:textAlignment="viewStart"
+            android:textColor="#999A9C"
+            app:layout_constraintEnd_toStartOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/textViewPrimeiraMedida" />
+
+        <TextView
+            android:id="@+id/textViewSegundoValor"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="5dp"
+            android:elevation="3dp"
+            android:text="0"
+            android:textAlignment="textEnd"
+            android:textColor="#999A9C"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toStartOf="@+id/textViewSegundaMedida"
+            app:layout_constraintTop_toBottomOf="@+id/textViewPrimeiroValor" />
+
+        <TextView
+            android:id="@+id/textViewPrimeiraMedida"
+            android:layout_width="45dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="6dp"
+            android:elevation="3dp"
+            android:text="kcal"
+            android:textAlignment="viewStart"
+            android:textColor="#999A9C"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toStartOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTituloSegundoPainel" />
+
+        <TextView
+            android:id="@+id/textViewTerceiroItem"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            android:elevation="3dp"
+            android:text="Gorduras"
+            android:textColor="#999A9C"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewSegundoItem" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="94dp"
+            android:layout_height="93dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="8dp"
+            android:elevation="3dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTituloSegundoPainel"
+            app:srcCompat="@drawable/ic_insert_chart_outlined_24px" />
+
+        <TextView
+            android:id="@+id/textViewValorTotalKcal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginBottom="16dp"
+            android:elevation="3dp"
+            android:text="0"
+            android:textColor="#999A9C"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textViewTotal" />
+
+        <TextView
+            android:id="@+id/textViewTerceiroValor"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="5dp"
+            android:elevation="3dp"
+            android:text="0"
+            android:textAlignment="textEnd"
+            android:textColor="#999A9C"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toStartOf="@+id/textViewTerceiraMedida"
+            app:layout_constraintTop_toBottomOf="@+id/textViewSegundoValor" />
+
+        <TextView
+            android:id="@+id/textViewPrimeiroValor"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="5dp"
+            android:elevation="3dp"
+            android:text="0"
+            android:textAlignment="textEnd"
+            android:textColor="#999A9C"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toStartOf="@+id/textViewPrimeiraMedida"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTituloSegundoPainel" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <TextView
         android:id="@+id/textViewResumoCalorico"
-        android:layout_width="379dp"
+        android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="12dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="12dp"
         android:layout_marginBottom="16dp"
         android:background="#CED6E0"
         android:elevation="3dp"
@@ -38,215 +238,15 @@
         android:id="@+id/recyclerViewRelatorio7dias"
         android:layout_width="372dp"
         android:layout_height="270dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginStart="5dp"
         android:elevation="3dp"
         android:padding="4dp"
         android:scrollbars="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewResumoCalorico"
+        app:layout_constraintEnd_toEndOf="@+id/textViewResumoCalorico"
+        app:layout_constraintStart_toStartOf="@+id/textViewResumoCalorico"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.13" />
+        app:layout_constraintVertical_bias="1.0" />
 
-
-    <TextView
-        android:id="@+id/textViewPanel2"
-        android:layout_width="379dp"
-        android:layout_height="200dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:background="#CED6E0"
-        android:elevation="3dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.89" />
-
-    <TextView
-        android:id="@+id/textViewTotal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="156dp"
-        android:layout_marginBottom="13dp"
-        android:elevation="3dp"
-        android:text="Total"
-        android:textColor="#999A9C"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textViewPanel2"
-        app:layout_constraintStart_toStartOf="@+id/textViewPanel2" />
-
-    <TextView
-        android:id="@+id/textViewTituloSegundoPainel"
-        android:layout_width="wrap_content"
-        android:layout_height="20dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
-        android:elevation="3dp"
-        android:text="Informações Nutricionais"
-        android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="@+id/textViewPanel2"
-        app:layout_constraintTop_toTopOf="@+id/textViewPanel2" />
-
-    <TextView
-        android:id="@+id/textViewRelatorioPrimeiroItem"
-        android:layout_width="wrap_content"
-        android:layout_height="20dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
-        android:elevation="3dp"
-        android:text="Carboidratos"
-        android:textColor="#999A9C"
-        android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="@+id/textViewPanel2"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTituloSegundoPainel" />
-
-    <TextView
-        android:id="@+id/textViewRelatorioSegundoItem"
-        android:layout_width="wrap_content"
-        android:layout_height="20dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
-        android:elevation="3dp"
-        android:text="Proteínas"
-        android:textColor="#999A9C"
-        android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="@+id/textViewPanel2"
-        app:layout_constraintTop_toBottomOf="@+id/textViewPrimeiroItem" />
-
-    <TextView
-        android:id="@+id/textViewRelatorioTerceiroItem"
-        android:layout_width="wrap_content"
-        android:layout_height="20dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
-        android:elevation="3dp"
-        android:text="Gorduras"
-        android:textColor="#999A9C"
-        android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="@+id/textViewPanel2"
-        app:layout_constraintTop_toBottomOf="@+id/textViewSegundoItem" />
-
-    <TextView
-        android:id="@+id/textViewRelatorioPrimeiraMedida"
-        android:layout_width="45dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="7dp"
-        android:elevation="3dp"
-        android:text="kcal"
-        android:textAlignment="viewStart"
-        android:textColor="#999A9C"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTituloSegundoPainel" />
-
-    <TextView
-        android:id="@+id/textViewRelatorioSegundaMedida"
-        android:layout_width="45dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="13dp"
-        android:layout_marginEnd="7dp"
-        android:elevation="3dp"
-        android:text="kcal"
-        android:textAlignment="viewStart"
-        android:textColor="#999A9C"
-        app:layout_constraintEnd_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/textViewPrimeiraMedida" />
-
-    <TextView
-        android:id="@+id/textViewRelatorioTerceiraMedida"
-        android:layout_width="45dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="13dp"
-        android:layout_marginEnd="7dp"
-        android:elevation="3dp"
-        android:text="kcal"
-        android:textAlignment="viewStart"
-        android:textColor="#999A9C"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/textViewSegundaMedida" />
-
-    <TextView
-        android:id="@+id/textViewRelatorioKcal4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="7dp"
-        android:layout_marginBottom="13dp"
-        android:elevation="3dp"
-        android:text="kcal"
-        android:textColor="#999A9C"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textViewPanel2"
-        app:layout_constraintStart_toEndOf="@+id/textViewValorTotalKcal" />
-
-    <TextView
-        android:id="@+id/textViewRelatorioPrimeiroValor"
-        android:layout_width="31dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="55dp"
-        android:elevation="3dp"
-        android:text="0"
-        android:textAlignment="textEnd"
-        android:textColor="#999A9C"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTituloSegundoPainel" />
-
-    <TextView
-        android:id="@+id/textViewRelatorioSegundoValor"
-        android:layout_width="31dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="55dp"
-        android:elevation="3dp"
-        android:text="0"
-        android:textAlignment="textEnd"
-        android:textColor="#999A9C"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/textViewPrimeiroValor" />
-
-    <TextView
-        android:id="@+id/textViewRelatorioTerceiroValor"
-        android:layout_width="31dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="13dp"
-        android:layout_marginEnd="55dp"
-        android:elevation="3dp"
-        android:text="0"
-        android:textAlignment="textEnd"
-        android:textColor="#999A9C"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/textViewSegundoValor" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="94dp"
-        android:layout_height="93dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="16dp"
-        android:elevation="3dp"
-        app:layout_constraintEnd_toEndOf="@+id/textViewPanel2"
-        app:layout_constraintTop_toTopOf="@+id/textViewPanel2"
-        app:srcCompat="@drawable/ic_insert_chart_outlined_24px" />
-
-    <TextView
-        android:id="@+id/textViewRelatorioValorTotalKcal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="7dp"
-        android:layout_marginBottom="13dp"
-        android:elevation="3dp"
-        android:text="0"
-        android:textColor="#999A9C"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textViewPanel2"
-        app:layout_constraintStart_toEndOf="@+id/textViewTotal" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

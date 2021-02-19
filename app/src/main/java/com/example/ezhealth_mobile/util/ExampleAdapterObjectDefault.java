@@ -1,6 +1,7 @@
 package com.example.ezhealth_mobile.util;
 
 
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -54,6 +55,7 @@ public class ExampleAdapterObjectDefault extends RecyclerView.Adapter<ExampleAda
             configurePopupMenu();
 
             itemView.findViewById(R.id.imageViewButtonMore).setOnClickListener(v->{
+                Log.d("a", "testeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
                 popup.show();
             });
         }
