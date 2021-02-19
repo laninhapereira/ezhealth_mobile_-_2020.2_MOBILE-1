@@ -91,7 +91,7 @@
         app:layout_constraintTop_toTopOf="@+id/textViewPanel2" />
 
     <TextView
-        android:id="@+id/textViewPrimeiroItem"
+        android:id="@+id/textViewRelatorio2PrimeiroItem"
         android:layout_width="wrap_content"
         android:layout_height="20dp"
         android:layout_marginStart="8dp"
@@ -104,7 +104,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewTituloSegundoPainel" />
 
     <TextView
-        android:id="@+id/textViewSegundoItem"
+        android:id="@+id/textViewRelatorio2SegundoItem"
         android:layout_width="wrap_content"
         android:layout_height="20dp"
         android:layout_marginStart="8dp"
@@ -117,7 +117,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewPrimeiroItem" />
 
     <TextView
-        android:id="@+id/textViewTerceiroItem"
+        android:id="@+id/textViewRelatorio2TerceiroItem"
         android:layout_width="wrap_content"
         android:layout_height="20dp"
         android:layout_marginStart="8dp"
@@ -130,7 +130,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewSegundoItem" />
 
     <TextView
-        android:id="@+id/textViewPrimeiraMedida"
+        android:id="@+id/textViewRelatorio2PrimeiraMedida"
         android:layout_width="45dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -144,7 +144,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewTituloSegundoPainel" />
 
     <TextView
-        android:id="@+id/textViewSegundaMedida"
+        android:id="@+id/textViewRelatorio2SegundaMedida"
         android:layout_width="45dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="13dp"
@@ -157,7 +157,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewPrimeiraMedida" />
 
     <TextView
-        android:id="@+id/textViewTerceiraMedida"
+        android:id="@+id/textViewRelatorio2TerceiraMedida"
         android:layout_width="45dp"
         android:layout_height="20dp"
         android:layout_marginTop="13dp"
@@ -171,7 +171,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewSegundaMedida" />
 
     <TextView
-        android:id="@+id/textViewKcal4"
+        android:id="@+id/textViewRelatorio2Kcal4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="7dp"
@@ -184,7 +184,7 @@
         app:layout_constraintStart_toEndOf="@+id/textViewValorTotalKcal" />
 
     <TextView
-        android:id="@+id/textViewPrimeiroValor"
+        android:id="@+id/textViewRelatorio2PrimeiroValor"
         android:layout_width="31dp"
         android:layout_height="20dp"
         android:layout_marginTop="12dp"
@@ -198,7 +198,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewTituloSegundoPainel" />
 
     <TextView
-        android:id="@+id/textViewSegundoValor"
+        android:id="@+id/textViewRelatorio2SegundoValor"
         android:layout_width="31dp"
         android:layout_height="20dp"
         android:layout_marginTop="12dp"
@@ -212,7 +212,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewPrimeiroValor" />
 
     <TextView
-        android:id="@+id/textViewTerceiroValor"
+        android:id="@+id/textViewRelatorio2TerceiroValor"
         android:layout_width="31dp"
         android:layout_height="20dp"
         android:layout_marginTop="13dp"
@@ -237,7 +237,7 @@
         app:srcCompat="@drawable/ic_insert_chart_outlined_24px" />
 
     <TextView
-        android:id="@+id/textViewValorTotalKcal"
+        android:id="@+id/textViewRelatorio2ValorTotalKcal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="7dp"
