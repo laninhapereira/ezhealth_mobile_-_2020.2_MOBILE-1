@@ -1,33 +1,20 @@
 package com.example.ezhealth_mobile.activity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ezhealth_mobile.R;
 import com.example.ezhealth_mobile.content.PainelInformacoes_Content;
-import com.example.ezhealth_mobile.entity.Alimento_Repositorio;
-import com.example.ezhealth_mobile.entity.ObjectDefault;
-import com.example.ezhealth_mobile.entity.ObjectDefault_Repositorio;
 import com.example.ezhealth_mobile.entity.Refeicao;
 import com.example.ezhealth_mobile.entity.Refeicao_Repositorio;
 import com.example.ezhealth_mobile.util.ExampleAdapterObjectDefault;
-
-import java.sql.Ref;
-import java.util.ArrayList;
-
-import static androidx.core.content.ContextCompat.startActivity;
 
 public class EditarRefeicao_Activity extends AppCompatActivity {
 
@@ -84,6 +71,13 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
         );
         PainelInformacoes_Content.configura("Alimentos", getWindow().getDecorView(),
                 true, exampleAdapterObjectDefault);
+
+        ((ImageView) findViewById(R.id.imageViewButtonAdd)).setOnClickListener(
+                v -> {
+                    Intent intent = new Intent(this, AdicionarAlimentoRefeicao_Activity.class);
+                    startActivityForResult(intent, EDITAR_ACTIVITY);
+                }
+        );
     }
 
     private void configuraSegundoPainel(){
@@ -105,11 +99,6 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
         ((TextView) findViewById(R.id.textViewValorTotalKcal)).setText(refeicao.getCaloriasTotais());
     }
 
-    //Botão "add" para caso o usuário queria adicionar um novo item
-    public void adicionar(View view){
-        Intent intent = new Intent(this, AdicionarAlimentoRefeicao_Activity.class);
-        startActivityForResult(intent, EDITAR_ACTIVITY);
-    }
 
     //Botão "check" para confirmar que o usuário deseja salvar os itens
     public void salvar(View v){
