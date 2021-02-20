@@ -33,7 +33,7 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dual_panel);
 
-        dialogEditarNome = configuraPopupEditarNome();
+        configuraPopup();
     }
 
     @Override
@@ -47,9 +47,14 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
         this.configuraSegundoPainel();
     }
 
+    private void configuraPopup(){
+        dialogEditarNome = PopupNome.configuraPopup(this, "alimento", nome -> {
+            salvarNomeEditado(nome);
+        });;
+    }
+
     private void procurarRefeicao(){
         Intent intent = getIntent();
-
 
         Boolean novo = (intent == null)? false : getIntent().getBooleanExtra("REFEICAO_NOVA", false);
 
@@ -71,7 +76,6 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
             return;
         }
         Log.d("Refeicao: ", refeicao.getNome());
-
     }
 
     @SuppressLint("WrongViewCast")
@@ -102,32 +106,6 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
                     startActivityForResult(intent, EDITAR_ACTIVITY);
                 }
         );
-    }
-
-    public Dialog configuraPopupEditarNome(){
-        TextView textView;
-        Dialog dialog;
-
-        dialog = new Dialog(this, R.style.PopupDialog );
-        dialog.setContentView(R.layout.popup_nome);
-
-        dialog.findViewById(R.id.button_popup_voltar).setOnClickListener( v -> {
-            dialog.dismiss();
-        });
-
-        textView = ((EditText)dialog.findViewById(R.id.editTextPopupNome));
-        textView.setHint("Digite o nome do alimento");
-
-        dialog.findViewById(R.id.button_popup_continuar).setOnClickListener(v -> {
-            if(textView.getText().toString().equals("")) {
-                Toast.makeText(this, "Digite o nome do alimento", Toast.LENGTH_SHORT).show();
-                return;
-            }
-            dialog.dismiss();
-            salvarNomeEditado(textView.getText().toString());
-        });
-
-        return dialog;
     }
 
     private void salvarNomeEditado(String nome){

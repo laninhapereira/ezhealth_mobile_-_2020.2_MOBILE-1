@@ -2,38 +2,38 @@ package com.example.ezhealth_mobile.activity;
 
 import android.app.Activity;
 import android.app.Dialog;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.Gravity;
-import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.ezhealth_mobile.R;
+import com.example.ezhealth_mobile.util.OnClickListenerAdapter;
 
 public class PopupNome {
-/*
-     public static Dialog configuraPopup(Activity activity, String gatilho, String idTextoRecebido){
+
+    public static Dialog configuraPopup(Activity activity, String tipo, OnClickListenerAdapter onclick){
+        TextView textView;
         Dialog dialog;
+
         dialog = new Dialog(activity, R.style.PopupDialog );
         dialog.setContentView(R.layout.popup_nome);
-
         dialog.findViewById(R.id.button_popup_voltar).setOnClickListener( v -> {
             dialog.dismiss();
         });
 
+        textView = ((EditText)dialog.findViewById(R.id.editTextPopupNome));
+        textView.setHint("Digite o nome do "+tipo);
+
         dialog.findViewById(R.id.button_popup_continuar).setOnClickListener(v -> {
+            if(textView.getText().toString().equals("")) {
+                Toast.makeText(activity, "Digite o nome do "+tipo, Toast.LENGTH_SHORT).show();
+                return;
+            }
             dialog.dismiss();
-            Intent intent = new Intent(activity, EditarAlimento_Activity.class);
-            intent.putExtra(gatilho, true);
-            String nome = ((EditText)dialog.findViewById(R.id.editTextPopupNome)).getText().toString();
-            intent.putExtra(idTextoRecebido, nome);
-            activity.startActivity(intent);
+            onclick.OnClick(textView.getText().toString());
         });
+
         return dialog;
-    }*/
+    }
 
 }

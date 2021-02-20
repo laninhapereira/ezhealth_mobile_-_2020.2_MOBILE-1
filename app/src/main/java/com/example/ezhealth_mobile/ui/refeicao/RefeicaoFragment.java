@@ -32,91 +32,54 @@ public class RefeicaoFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_refeicao, container, false);
 
-        dialogAdicionar = configuraPopupAdicionar();
-        dialogEditarNome = configuraPopupEditarNome();
-
         root.findViewById(R.id.fab).setOnClickListener(v -> {
             ((EditText)dialogAdicionar.findViewById(R.id.editTextPopupNome)).setText("");
             dialogAdicionar.show();
         });
 
-        RecyclerView recyclerView = root.findViewById(R.id.recyclerViewRefeicaoPersonalizada);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.setAdapter(new ExampleAdapterRefeicaoPersonalizada(
-            nome -> {
-                Intent intent = new Intent(root.getRootView().getContext(), EditarRefeicao_Activity.class);
-                intent.putExtra("REFEICAO", nome);
-                startActivity(intent);
-            },
-            nome -> {
-                ((EditText)dialogEditarNome.findViewById(R.id.editTextPopupNome)).setText("");
-                dialogEditarNome.show();
-            },
-            nome -> {
-
-            }
-        ));
+        configuraPopup();
+        configuraRecycle(root);
 
         return root;
     }
 
-    public Dialog configuraPopupAdicionar(){
-        TextView textView;
-        Dialog dialog;
-
-        dialog = new Dialog(getActivity(), R.style.PopupDialog );
-        dialog.setContentView(R.layout.popup_nome);
-        dialog.findViewById(R.id.button_popup_voltar).setOnClickListener( v -> {
-            dialog.dismiss();
-        });
-
-        textView = ((EditText)dialog.findViewById(R.id.editTextPopupNome));
-        textView.setHint("Digite o nome da nova refeição");
-
-        dialog.findViewById(R.id.button_popup_continuar).setOnClickListener(v -> {
-            if(textView.getText().toString().equals("")) {
-                Toast.makeText(getActivity(), "Digite o nome da refeção", Toast.LENGTH_SHORT).show();
-                return;
-            }
-            dialog.dismiss();
+    private void configuraPopup(){
+        dialogAdicionar = PopupNome.configuraPopup(getActivity(), "refeição", nome -> {
             Intent intent = new Intent(getActivity(), EditarRefeicao_Activity.class);
             intent.putExtra("REFEICAO_NOVA", true);
-            intent.putExtra("REFEICAO_NOVA_NOME", textView.getText().toString());
+            intent.putExtra("REFEICAO_NOVA_NOME", nome);
             getActivity().startActivity(intent);
         });
 
-        return dialog;
+        dialogEditarNome = PopupNome.configuraPopup(getActivity(), "refeição", nome -> {
+            Intent intent = new Intent(getActivity(), getActivity().getClass());
+            getActivity().finish();
+            salvarNomeEditado(nome);
+            getActivity().startActivity(intent);
+        });;
+    }
+
+    private void configuraRecycle(View root){
+        RecyclerView recyclerView = root.findViewById(R.id.recyclerViewRefeicaoPersonalizada);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.setAdapter(new ExampleAdapterRefeicaoPersonalizada(
+                nome -> {
+                    Intent intent = new Intent(root.getRootView().getContext(), EditarRefeicao_Activity.class);
+                    intent.putExtra("REFEICAO", nome);
+                    startActivity(intent);
+                },
+                nome -> {
+                    ((EditText)dialogEditarNome.findViewById(R.id.editTextPopupNome)).setText("");
+                    dialogEditarNome.show();
+                },
+                nome -> {
+
+                }
+        ));
     }
 
     private void salvarNomeEditado(String nome){
         // Ainda deverá ser contruida
-    }
-
-    public Dialog configuraPopupEditarNome(){
-        TextView textView;
-        Dialog dialog;
-        dialog = new Dialog(getActivity(), R.style.PopupDialog );
-        dialog.setContentView(R.layout.popup_nome);
-
-        dialog.findViewById(R.id.button_popup_voltar).setOnClickListener( v -> {
-            dialog.dismiss();
-        });
-
-        textView = ((EditText)dialog.findViewById(R.id.editTextPopupNome));
-        textView.setHint("Digite o nome da refeição");
-
-        dialog.findViewById(R.id.button_popup_continuar).setOnClickListener(v -> {
-            if(textView.getText().toString().equals("")) {
-                Toast.makeText(getActivity(), "Digite o nome da refeção", Toast.LENGTH_SHORT).show();
-                return;
-            }
-            dialog.dismiss();
-            Intent intent = new Intent(getActivity(), getActivity().getClass());
-            getActivity().finish();
-            salvarNomeEditado(textView.getText().toString());
-            getActivity().startActivity(intent);
-        });
-        return dialog;
     }
 
 

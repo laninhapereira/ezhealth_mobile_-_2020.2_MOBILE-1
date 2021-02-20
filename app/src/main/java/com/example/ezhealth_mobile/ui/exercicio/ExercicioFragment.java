@@ -49,20 +49,31 @@ public class ExercicioFragment extends Fragment {
 
         viewFragment = inflater.inflate(R.layout.activity_dual_panel, container, false);
 
-        dialogEditarNome = configuraPopupEditarNome();
+        this.configuraPopup();
+        this.configuraFragment();
+        this.configuraPrimeiroPainel();
+        this.configuraSegundoPainel();
+        this.configuraBotoes();
 
+        return viewFragment;
+    }
+
+    private void configuraPopup(){
+        dialogEditarNome = PopupNome.configuraPopup(getActivity(), "exercício", nome -> {
+            salvarNomeEditado(nome);
+        });;
+    }
+
+    private void salvarNomeEditado(String nome){
+        // Ainda deverá ser contruida
+    }
+
+    private void configuraFragment(){
         ((TextView) viewFragment.findViewById(R.id.textViewTitelDualPanel)).setText("Lista de Exercícios");
         ((TextView) viewFragment.findViewById(R.id.buttonCheck)).setVisibility(View.INVISIBLE);
         ((TextView) viewFragment.findViewById(R.id.textViewTitelDualPanel)).setPadding(53,0,0,0);
         ((TextView) viewFragment.findViewById(R.id.textViewDataDualPanel)).setPadding(53,0,0,0);
         ((Button) viewFragment.findViewById(R.id.buttonVoltar)).setVisibility(View.INVISIBLE);
-
-
-        this.configuraPrimeiroPainel();
-        this.configuraSegundoPainel();
-        this.setOnClickSalvar();
-        this.setOnClickAdicionar();
-        return viewFragment;
     }
 
     private void configuraPrimeiroPainel(){
@@ -89,34 +100,6 @@ public class ExercicioFragment extends Fragment {
         );
     }
 
-    public Dialog configuraPopupEditarNome(){
-        TextView textView;
-        Dialog dialog;
-
-        dialog = new Dialog(getActivity(), R.style.PopupDialog );
-        dialog.setContentView(R.layout.popup_nome);
-        dialog.findViewById(R.id.button_popup_voltar).setOnClickListener( v -> {
-            dialog.dismiss();
-        });
-
-        textView = ((EditText)dialog.findViewById(R.id.editTextPopupNome));
-        textView.setHint("Digite o nome da exercício");
-
-        dialog.findViewById(R.id.button_popup_continuar).setOnClickListener(v -> {
-            if(textView.getText().toString().equals("")) {
-                Toast.makeText(getActivity(), "Digite o nome do exercício", Toast.LENGTH_SHORT).show();
-                return;
-            }
-            dialog.dismiss();
-            salvarNomeEditado(textView.getText().toString());
-        });
-
-        return dialog;
-    }
-
-    private void salvarNomeEditado(String nome){
-        // Ainda deverá ser contruida
-    }
 
     // Classe para configuração do conteúdo do segundo painel
     private void configuraSegundoPainel(){
@@ -139,15 +122,11 @@ public class ExercicioFragment extends Fragment {
         ((TextView) viewFragment.findViewById(R.id.textViewKcal4)).setText("");
     }
 
-    //Botão "check" para confirmar que o usuário deseja salvar os itens
-    public void setOnClickSalvar(){
+    public void configuraBotoes(){
         ((Button) viewFragment.findViewById(R.id.buttonCheck)).setOnClickListener(v1 -> {
             getActivity().finish();
         });
-    }
 
-    //Botão "add" para caso o usuário queria adicionar um novo item
-    public void setOnClickAdicionar(){
         ((ImageView) viewFragment.findViewById(R.id.imageViewButtonAdd)).setOnClickListener(v1 -> {
             Intent intent = new Intent(getContext(), AdicionarExercicio_Activity.class);
             startActivity(intent);
