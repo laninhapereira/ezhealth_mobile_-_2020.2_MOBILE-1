@@ -74,9 +74,9 @@ public class RefeicaoFragment extends Fragment {
 
         dialog.findViewById(R.id.button_popup_continuar).setOnClickListener(v -> {
             dialog.dismiss();
-            Intent intent = new Intent(getActivity(), EditarAlimento_Activity.class);
-            intent.putExtra("ALIMENTO_NOVO", true);
-            intent.putExtra("ALIMENTO_NOVO_NOME", textView.getText().toString());
+            Intent intent = new Intent(getActivity(), EditarRefeicao_Activity.class);
+            intent.putExtra("REFEICAO_NOVA", true);
+            intent.putExtra("REFEICAO_NOVA_NOME", textView.getText().toString());
             getActivity().startActivity(intent);
         });
 

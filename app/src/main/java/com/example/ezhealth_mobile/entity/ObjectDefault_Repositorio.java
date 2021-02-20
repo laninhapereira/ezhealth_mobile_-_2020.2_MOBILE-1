@@ -6,6 +6,10 @@ public class ObjectDefault_Repositorio{
 
     private ArrayList<ObjectDefault> list;
 
+    public ObjectDefault_Repositorio() {
+        this.list = new ArrayList<>();
+    }
+
     public void setList(ArrayList<ObjectDefault> list){
         this.list = list;
     }

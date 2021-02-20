@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     android:background="#CED6E0"
     android:elevation="0dp"
+    android:minWidth="370dp"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
@@ -31,6 +32,8 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="40dp"
         android:elevation="0dp"
+        android:foregroundGravity="right"
+        android:minWidth="370dp"
         android:scrollbars="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -49,6 +52,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

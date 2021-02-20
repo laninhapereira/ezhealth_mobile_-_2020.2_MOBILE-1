@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ezhealth_mobile.R;
 import com.example.ezhealth_mobile.content.PainelInformacoes_Content;
+import com.example.ezhealth_mobile.entity.Alimento;
 import com.example.ezhealth_mobile.entity.Refeicao;
 import com.example.ezhealth_mobile.entity.Refeicao_Repositorio;
 import com.example.ezhealth_mobile.util.ExampleAdapterObjectDefault;
@@ -48,6 +49,16 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
 
     private void procurarRefeicao(){
         Intent intent = getIntent();
+
+
+        Boolean novo = (intent == null)? false : getIntent().getBooleanExtra("REFEICAO_NOVA", false);
+
+        if(novo){
+            String nome = getIntent().getStringExtra("REFEICAO_NOVA_NOME");
+            refeicao = new Refeicao( nome, "0", "g", "0", "0");
+            return;
+        }
+
         String nome = (intent == null)? null : getIntent().getStringExtra("REFEICAO");
 
         if(nome == null) {
