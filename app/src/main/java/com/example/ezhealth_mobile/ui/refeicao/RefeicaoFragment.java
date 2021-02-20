@@ -35,6 +35,7 @@ public class RefeicaoFragment extends Fragment {
         dialogEditarNome = configuraPopupEditarNome();
 
         root.findViewById(R.id.fab).setOnClickListener(v -> {
+            ((EditText)dialogAdicionar.findViewById(R.id.editTextPopupNome)).setText("");
             dialogAdicionar.show();
         });
 
@@ -47,6 +48,7 @@ public class RefeicaoFragment extends Fragment {
                 startActivity(intent);
             },
             nome -> {
+                ((EditText)dialogEditarNome.findViewById(R.id.editTextPopupNome)).setText("");
                 dialogEditarNome.show();
             },
             nome -> {

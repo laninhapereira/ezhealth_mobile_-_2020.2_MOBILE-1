@@ -75,6 +75,7 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
                     this.startActivityForResult(intent, 0);
                 },
                 nome -> { // Construção do botão de EDITAR NOME de cada item da lista
+                    ((EditText)dialogEditarNome.findViewById(R.id.editTextPopupNome)).setText("");
                     dialogEditarNome.show();
                 },
                 nome -> { // Construção do botão de EXCLUIR de cada item da lista
@@ -110,6 +111,7 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
             dialog.dismiss();
             salvarNomeEditado(textView.getText().toString());
         });
+
         return dialog;
     }
 

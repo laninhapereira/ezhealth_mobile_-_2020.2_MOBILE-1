@@ -79,6 +79,7 @@ public class ExercicioFragment extends Fragment {
                             startActivity(intent);
                         },
                         (nome) -> {
+                            ((EditText)dialogEditarNome.findViewById(R.id.editTextPopupNome)).setText("");
                             dialogEditarNome.show();
                         },
                         nome -> { // Construção do botão de EXCLUIR de cada item da lista
