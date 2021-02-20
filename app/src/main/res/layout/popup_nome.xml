@@ -7,38 +7,47 @@
     android:background="#DFE4EA"
     android:orientation="vertical">
 
-    <Button
-        android:id="@+id/button_popup_continuar"
-        android:layout_width="140dp"
-        android:layout_height="48dp"
-        android:background="#CED6E0"
-        android:text="Continuar"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button_popup_voltar"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
-    <Button
-        android:id="@+id/button_popup_voltar"
-        android:layout_width="140dp"
-        android:layout_height="48dp"
-        android:background="#CED6E0"
-        android:text="Voltar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints" />
+        <Button
+            android:id="@+id/button_popup_voltar"
+            android:layout_width="155dp"
+            android:layout_height="match_parent"
+            android:background="#CED6E0"
+            android:text="Voltar"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/button_popup_continuar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#CED6E0"
+            android:text="Continuar"
+            tools:ignore="MissingConstraints" />
+    </LinearLayout>
 
     <EditText
         android:id="@+id/editTextPopupNome"
-        android:layout_width="259dp"
-        android:layout_height="45dp"
+        android:layout_width="281dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="12dp"
         android:ems="10"
         android:hint="Digite o nome do alimento"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/button_popup_voltar"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.523"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.477" />
+        app:layout_constraintVertical_bias="0.116" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

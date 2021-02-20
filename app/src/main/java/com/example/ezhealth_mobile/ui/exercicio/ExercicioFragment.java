@@ -88,19 +88,23 @@ public class ExercicioFragment extends Fragment {
     }
 
     public Dialog configuraPopupEditarNome(){
+        TextView textView;
         Dialog dialog;
+
         dialog = new Dialog(getActivity(), R.style.PopupDialog );
         dialog.setContentView(R.layout.popup_nome);
-
         dialog.findViewById(R.id.button_popup_voltar).setOnClickListener( v -> {
             dialog.dismiss();
         });
 
+        textView = ((EditText)dialog.findViewById(R.id.editTextPopupNome));
+        textView.setHint("Digite o nome da exercício");
+
         dialog.findViewById(R.id.button_popup_continuar).setOnClickListener(v -> {
             dialog.dismiss();
-            String nome = ((EditText)dialog.findViewById(R.id.editTextPopupNome)).getText().toString();
-            salvarNomeEditado(nome);
+            salvarNomeEditado(textView.getText().toString());
         });
+
         return dialog;
     }
 

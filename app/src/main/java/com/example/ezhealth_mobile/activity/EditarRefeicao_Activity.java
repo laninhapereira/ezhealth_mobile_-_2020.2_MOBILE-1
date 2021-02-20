@@ -93,7 +93,9 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
     }
 
     public Dialog configuraPopupEditarNome(){
+        TextView textView;
         Dialog dialog;
+
         dialog = new Dialog(this, R.style.PopupDialog );
         dialog.setContentView(R.layout.popup_nome);
 
@@ -101,12 +103,12 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
             dialog.dismiss();
         });
 
-
+        textView = ((EditText)dialog.findViewById(R.id.editTextPopupNome));
+        textView.setHint("Digite o nome do alimento");
 
         dialog.findViewById(R.id.button_popup_continuar).setOnClickListener(v -> {
             dialog.dismiss();
-            String nome = ((EditText)dialog.findViewById(R.id.editTextPopupNome)).getText().toString();
-            salvarNomeEditado(nome);
+            salvarNomeEditado(textView.getText().toString());
         });
         return dialog;
     }

@@ -58,22 +58,26 @@ public class RefeicaoFragment extends Fragment {
     }
 
     public Dialog configuraPopupAdicionar(){
+        TextView textView;
         Dialog dialog;
+
         dialog = new Dialog(getActivity(), R.style.PopupDialog );
         dialog.setContentView(R.layout.popup_nome);
-
         dialog.findViewById(R.id.button_popup_voltar).setOnClickListener( v -> {
             dialog.dismiss();
         });
+
+        textView = ((EditText)dialog.findViewById(R.id.editTextPopupNome));
+        textView.setHint("Digite o nome da nova refeição");
 
         dialog.findViewById(R.id.button_popup_continuar).setOnClickListener(v -> {
             dialog.dismiss();
             Intent intent = new Intent(getActivity(), EditarAlimento_Activity.class);
             intent.putExtra("ALIMENTO_NOVO", true);
-            String nome = ((EditText)dialog.findViewById(R.id.editTextPopupNome)).getText().toString();
-            intent.putExtra("ALIMENTO_NOVO_NOME", nome);
+            intent.putExtra("ALIMENTO_NOVO_NOME", textView.getText().toString());
             getActivity().startActivity(intent);
         });
+
         return dialog;
     }
 
@@ -82,6 +86,7 @@ public class RefeicaoFragment extends Fragment {
     }
 
     public Dialog configuraPopupEditarNome(){
+        TextView textView;
         Dialog dialog;
         dialog = new Dialog(getActivity(), R.style.PopupDialog );
         dialog.setContentView(R.layout.popup_nome);
@@ -90,12 +95,14 @@ public class RefeicaoFragment extends Fragment {
             dialog.dismiss();
         });
 
+        textView = ((EditText)dialog.findViewById(R.id.editTextPopupNome));
+        textView.setHint("Digite o nome da refeição");
+
         dialog.findViewById(R.id.button_popup_continuar).setOnClickListener(v -> {
             dialog.dismiss();
             Intent intent = new Intent(getActivity(), getActivity().getClass());
             getActivity().finish();
-            String nome = ((EditText)dialog.findViewById(R.id.editTextPopupNome)).getText().toString();
-            salvarNomeEditado(nome);
+            salvarNomeEditado(textView.getText().toString());
             getActivity().startActivity(intent);
         });
         return dialog;
