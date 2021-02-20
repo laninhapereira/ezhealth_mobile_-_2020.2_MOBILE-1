@@ -1,5 +1,6 @@
 package com.example.ezhealth_mobile.ui.refeicao;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -24,15 +25,17 @@ import com.example.ezhealth_mobile.util.ExampleAdapterRefeicaoPersonalizada;
 
 public class RefeicaoFragment extends Fragment {
 
-    private Dialog dialog;
+    private Dialog dialogAdicionar;
+    private Dialog dialogEditarNome;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_refeicao, container, false);
 
-        configuraPopup();
+        dialogAdicionar = configuraPopupAdicionar();
+        dialogEditarNome = configuraPopupEditarNome();
 
         root.findViewById(R.id.fab).setOnClickListener(v -> {
-            dialog.show();
+            dialogAdicionar.show();
         });
 
         RecyclerView recyclerView = root.findViewById(R.id.recyclerViewRefeicaoPersonalizada);
@@ -44,6 +47,9 @@ public class RefeicaoFragment extends Fragment {
                 startActivity(intent);
             },
             nome -> {
+                dialogEditarNome.show();
+            },
+            nome -> {
 
             }
         ));
@@ -51,10 +57,10 @@ public class RefeicaoFragment extends Fragment {
         return root;
     }
 
-    private void configuraPopup(){
+    public Dialog configuraPopupAdicionar(){
+        Dialog dialog;
         dialog = new Dialog(getActivity(), R.style.PopupDialog );
         dialog.setContentView(R.layout.popup_nome);
-
 
         dialog.findViewById(R.id.button_popup_voltar).setOnClickListener( v -> {
             dialog.dismiss();
@@ -66,9 +72,34 @@ public class RefeicaoFragment extends Fragment {
             intent.putExtra("ALIMENTO_NOVO", true);
             String nome = ((EditText)dialog.findViewById(R.id.editTextPopupNome)).getText().toString();
             intent.putExtra("ALIMENTO_NOVO_NOME", nome);
-            startActivity(intent);
+            getActivity().startActivity(intent);
+        });
+        return dialog;
+    }
+
+    private void salvarNomeEditado(String nome){
+        // Ainda deverá ser contruida
+    }
+
+    public Dialog configuraPopupEditarNome(){
+        Dialog dialog;
+        dialog = new Dialog(getActivity(), R.style.PopupDialog );
+        dialog.setContentView(R.layout.popup_nome);
+
+        dialog.findViewById(R.id.button_popup_voltar).setOnClickListener( v -> {
+            dialog.dismiss();
         });
 
+        dialog.findViewById(R.id.button_popup_continuar).setOnClickListener(v -> {
+            dialog.dismiss();
+            Intent intent = new Intent(getActivity(), getActivity().getClass());
+            getActivity().finish();
+            String nome = ((EditText)dialog.findViewById(R.id.editTextPopupNome)).getText().toString();
+            salvarNomeEditado(nome);
+            getActivity().startActivity(intent);
+        });
+        return dialog;
     }
+
 
 }

@@ -3,6 +3,11 @@
     <item
         android:icon="@drawable/ic_baseline_arrow_back_ios_24"
         android:title="Voltar" />
+
+    <item
+        android:id="@+id/menuItemEditarNome"
+        android:title="Editar Nome" />
+
     <item
         android:id="@+id/menuItemEditar"
         android:title="Editar" />

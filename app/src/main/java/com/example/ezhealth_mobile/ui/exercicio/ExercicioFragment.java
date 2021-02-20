@@ -1,5 +1,6 @@
 package com.example.ezhealth_mobile.ui.exercicio;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -23,6 +25,7 @@ import com.example.ezhealth_mobile.activity.AdicionarExercicio_Activity;
 import com.example.ezhealth_mobile.activity.EditarAlimento_Activity;
 import com.example.ezhealth_mobile.activity.EditarExercicio_Activity;
 import com.example.ezhealth_mobile.activity.Home_Activity;
+import com.example.ezhealth_mobile.activity.PopupNome;
 import com.example.ezhealth_mobile.content.PainelInformacoes_Content;
 import com.example.ezhealth_mobile.entity.Exercicio;
 import com.example.ezhealth_mobile.entity.Exercicio_Repositorio;
@@ -36,6 +39,7 @@ public class ExercicioFragment extends Fragment {
 
     // Esse fragment corresponde a tela Exercícios criada na protótipação
 
+    private Dialog dialogEditarNome;
     private View viewFragment;
 
     @Override
@@ -43,6 +47,8 @@ public class ExercicioFragment extends Fragment {
         ExercicioViewModel exercicioViewModel = new ViewModelProvider(this).get(ExercicioViewModel.class);
 
         viewFragment = inflater.inflate(R.layout.activity_dual_panel, container, false);
+
+        dialogEditarNome = configuraPopupEditarNome();
 
         ((TextView) viewFragment.findViewById(R.id.textViewTitelDualPanel)).setText("Lista de Exercícios");
         ((TextView) viewFragment.findViewById(R.id.buttonCheck)).setVisibility(View.INVISIBLE);
@@ -72,10 +78,34 @@ public class ExercicioFragment extends Fragment {
                             intent.putExtra("EXERCICIO", nome);
                             startActivity(intent);
                         },
-                        (nome) -> { // Construção do botão de EXCLUIR de cada item da lista
+                        (nome) -> {
+                            dialogEditarNome.show();
+                        },
+                        nome -> { // Construção do botão de EXCLUIR de cada item da lista
                         }
                 )
         );
+    }
+
+    public Dialog configuraPopupEditarNome(){
+        Dialog dialog;
+        dialog = new Dialog(getActivity(), R.style.PopupDialog );
+        dialog.setContentView(R.layout.popup_nome);
+
+        dialog.findViewById(R.id.button_popup_voltar).setOnClickListener( v -> {
+            dialog.dismiss();
+        });
+
+        dialog.findViewById(R.id.button_popup_continuar).setOnClickListener(v -> {
+            dialog.dismiss();
+            String nome = ((EditText)dialog.findViewById(R.id.editTextPopupNome)).getText().toString();
+            salvarNomeEditado(nome);
+        });
+        return dialog;
+    }
+
+    private void salvarNomeEditado(String nome){
+        // Ainda deverá ser contruida
     }
 
     // Classe para configuração do conteúdo do segundo painel

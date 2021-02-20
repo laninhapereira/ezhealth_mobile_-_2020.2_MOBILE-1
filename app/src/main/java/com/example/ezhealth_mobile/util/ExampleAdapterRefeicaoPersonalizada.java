@@ -27,10 +27,12 @@ public class ExampleAdapterRefeicaoPersonalizada extends RecyclerView.Adapter<Ex
 
     private static OnClickListenerAdapter botaoEditar;
     private static OnClickListenerAdapter botaoExcluir;
+    private static OnClickListenerAdapter botaoEditarNome;
 
-    public ExampleAdapterRefeicaoPersonalizada(OnClickListenerAdapter botaoEditar, OnClickListenerAdapter botaoExcluir){
+    public ExampleAdapterRefeicaoPersonalizada(OnClickListenerAdapter botaoEditar, OnClickListenerAdapter botaoEditarNome, OnClickListenerAdapter botaoExcluir){
         this.botaoEditar = botaoEditar;
         this.botaoExcluir = botaoExcluir;
+        this.botaoEditarNome = botaoEditarNome;
     }
 
 
@@ -62,6 +64,9 @@ public class ExampleAdapterRefeicaoPersonalizada extends RecyclerView.Adapter<Ex
                 switch (item.getTitle().toString()){
                     case "Editar":
                         botaoEditar.OnClick(textRefeicaoPersonalizada.getText().toString());
+                        break;
+                    case "Editar Nome":
+                        botaoEditarNome.OnClick(textRefeicaoPersonalizada.getText().toString());
                         break;
                     case "Excluir":
                         botaoExcluir.OnClick(textRefeicaoPersonalizada.getText().toString());

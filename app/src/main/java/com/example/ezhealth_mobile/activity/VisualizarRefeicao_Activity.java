@@ -1,5 +1,6 @@
 package com.example.ezhealth_mobile.activity;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -56,6 +57,9 @@ public class VisualizarRefeicao_Activity extends AppCompatActivity {
                 false,
                 refeicao.getRepAlimentos().getList(),
                 nome -> { // Construção do botão de EDITAR de cada item da lista
+                },
+                nome -> { // Construção do botão de EDITAR NOME de cada item da lista
+
                 },
                 nome -> { // Construção do botão de EXCLUIR de cada item da lista
                 }

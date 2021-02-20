@@ -1,12 +1,14 @@
 package com.example.ezhealth_mobile.activity;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,11 +25,14 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
 
     private int EDITAR_ACTIVITY = 0;
     public Refeicao refeicao;
+    private Dialog dialogEditarNome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dual_panel);
+
+        dialogEditarNome = configuraPopupEditarNome();
     }
 
     @Override
@@ -69,6 +74,9 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
                     intent.putExtra("ALIMENTO", nome);
                     this.startActivityForResult(intent, 0);
                 },
+                nome -> { // Construção do botão de EDITAR NOME de cada item da lista
+                    dialogEditarNome.show();
+                },
                 nome -> { // Construção do botão de EXCLUIR de cada item da lista
 
                 }
@@ -82,6 +90,29 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
                     startActivityForResult(intent, EDITAR_ACTIVITY);
                 }
         );
+    }
+
+    public Dialog configuraPopupEditarNome(){
+        Dialog dialog;
+        dialog = new Dialog(this, R.style.PopupDialog );
+        dialog.setContentView(R.layout.popup_nome);
+
+        dialog.findViewById(R.id.button_popup_voltar).setOnClickListener( v -> {
+            dialog.dismiss();
+        });
+
+
+
+        dialog.findViewById(R.id.button_popup_continuar).setOnClickListener(v -> {
+            dialog.dismiss();
+            String nome = ((EditText)dialog.findViewById(R.id.editTextPopupNome)).getText().toString();
+            salvarNomeEditado(nome);
+        });
+        return dialog;
+    }
+
+    private void salvarNomeEditado(String nome){
+        // Ainda deverá ser contruida
     }
 
     private void configuraSegundoPainel(){

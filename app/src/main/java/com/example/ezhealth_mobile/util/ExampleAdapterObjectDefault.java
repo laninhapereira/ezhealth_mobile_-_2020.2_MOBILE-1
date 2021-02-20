@@ -23,16 +23,18 @@ public class ExampleAdapterObjectDefault extends RecyclerView.Adapter<ExampleAda
 
     private static OnClickListenerAdapter botaoEditar;
     private static OnClickListenerAdapter botaoExcluir;
+    private static OnClickListenerAdapter botaoEditarNome;
     private boolean menuOpcoesHabilitado;
     private ArrayList<ObjectDefault> list;
 
 
     public ExampleAdapterObjectDefault(boolean menuOpcoesHabilitado, ArrayList<ObjectDefault> list,
-                                       OnClickListenerAdapter botaoEditar, OnClickListenerAdapter botaoExcluir){
+                                       OnClickListenerAdapter botaoEditar, OnClickListenerAdapter botaoEditarNome, OnClickListenerAdapter botaoExcluir){
         this.menuOpcoesHabilitado = menuOpcoesHabilitado;
         this.list = list;
         this.botaoExcluir = botaoExcluir;
         this.botaoEditar = botaoEditar;
+        this.botaoEditarNome = botaoEditarNome;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -68,6 +70,9 @@ public class ExampleAdapterObjectDefault extends RecyclerView.Adapter<ExampleAda
                 switch (item.getTitle().toString()){
                     case "Editar":
                         botaoEditar.OnClick(titulo.getText().toString());
+                        break;
+                    case "Editar Nome":
+                        botaoEditarNome.OnClick(titulo.getText().toString());
                         break;
                     case "Excluir":
                         botaoExcluir.OnClick(titulo.getText().toString());

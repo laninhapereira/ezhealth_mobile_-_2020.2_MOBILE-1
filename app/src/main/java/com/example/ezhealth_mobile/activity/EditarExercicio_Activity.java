@@ -1,11 +1,13 @@
 package com.example.ezhealth_mobile.activity;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,6 +30,7 @@ public class EditarExercicio_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dual_panel);
 
+
         ((TextView) findViewById(R.id.textViewTitelDualPanel)).setText("Editar Exercício");
 
         this.configuraPrimeiroPainel();
@@ -45,6 +48,8 @@ public class EditarExercicio_Activity extends AppCompatActivity {
 
         PainelQuantidades_Content.configura(this, exercicio);
     }
+
+
 
 
     // Classe para configuração do conteúdo do segundo painel
