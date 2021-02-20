@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.PopupMenu;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -73,6 +74,10 @@ public class RefeicaoFragment extends Fragment {
         textView.setHint("Digite o nome da nova refeição");
 
         dialog.findViewById(R.id.button_popup_continuar).setOnClickListener(v -> {
+            if(textView.getText().toString().equals("")) {
+                Toast.makeText(getActivity(), "Digite o nome da refeção", Toast.LENGTH_SHORT).show();
+                return;
+            }
             dialog.dismiss();
             Intent intent = new Intent(getActivity(), EditarRefeicao_Activity.class);
             intent.putExtra("REFEICAO_NOVA", true);
@@ -101,6 +106,10 @@ public class RefeicaoFragment extends Fragment {
         textView.setHint("Digite o nome da refeição");
 
         dialog.findViewById(R.id.button_popup_continuar).setOnClickListener(v -> {
+            if(textView.getText().toString().equals("")) {
+                Toast.makeText(getActivity(), "Digite o nome da refeção", Toast.LENGTH_SHORT).show();
+                return;
+            }
             dialog.dismiss();
             Intent intent = new Intent(getActivity(), getActivity().getClass());
             getActivity().finish();

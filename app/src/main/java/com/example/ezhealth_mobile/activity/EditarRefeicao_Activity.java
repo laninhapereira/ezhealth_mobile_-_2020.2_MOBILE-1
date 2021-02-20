@@ -119,6 +119,10 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
         textView.setHint("Digite o nome do alimento");
 
         dialog.findViewById(R.id.button_popup_continuar).setOnClickListener(v -> {
+            if(textView.getText().toString().equals("")) {
+                Toast.makeText(this, "Digite o nome do alimento", Toast.LENGTH_SHORT).show();
+                return;
+            }
             dialog.dismiss();
             salvarNomeEditado(textView.getText().toString());
         });

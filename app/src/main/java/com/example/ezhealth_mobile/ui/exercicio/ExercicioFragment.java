@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -102,6 +103,10 @@ public class ExercicioFragment extends Fragment {
         textView.setHint("Digite o nome da exercício");
 
         dialog.findViewById(R.id.button_popup_continuar).setOnClickListener(v -> {
+            if(textView.getText().toString().equals("")) {
+                Toast.makeText(getActivity(), "Digite o nome do exercício", Toast.LENGTH_SHORT).show();
+                return;
+            }
             dialog.dismiss();
             salvarNomeEditado(textView.getText().toString());
         });
