@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:background="#FFFFFF"
+    android:layout_height="180dp"
+    android:background="#DFE4EA"
     android:orientation="vertical">
 
     <Button
@@ -23,16 +23,16 @@
         android:layout_height="48dp"
         android:background="#CED6E0"
         android:text="Voltar"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="135dp" />
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/editTextPopupNome"
         android:layout_width="259dp"
         android:layout_height="45dp"
         android:ems="10"
-        android:hint="Digite o nome da refeição"
+        android:hint="Digite o nome do alimento"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/button_popup_voltar"
         app:layout_constraintEnd_toEndOf="parent"

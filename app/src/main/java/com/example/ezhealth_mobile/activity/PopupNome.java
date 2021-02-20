@@ -12,8 +12,8 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 
 public class PopupNome extends Activity {
-/*
 
+/*
     @Override
     public void onCreate(Bundle savedInstanceState) {
         Dialog dialog = new Dialog(this, R.style.PopupDialog );
@@ -33,6 +33,6 @@ public class PopupNome extends Activity {
             intent.putExtra( position, paciente.getId());
             startActivityForResult(intent, ATUALIZAR);
         });
-    }
-*/
+    }*/
+
 }

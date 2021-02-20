@@ -3,6 +3,7 @@ package com.example.ezhealth_mobile.ui.refeicao;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,14 +24,15 @@ import com.example.ezhealth_mobile.util.ExampleAdapterRefeicaoPersonalizada;
 
 public class RefeicaoFragment extends Fragment {
 
+    private Dialog dialog;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_refeicao, container, false);
 
+        configuraPopup();
+
         root.findViewById(R.id.fab).setOnClickListener(v -> {
-            Intent intent = new Intent(getActivity(), PopupNome.class);
-            intent.putExtra("REFEICAO", "Sem nome");
-            startActivity(intent);
+            dialog.show();
         });
 
         RecyclerView recyclerView = root.findViewById(R.id.recyclerViewRefeicaoPersonalizada);
@@ -48,13 +50,11 @@ public class RefeicaoFragment extends Fragment {
 
         return root;
     }
-/*
-    private void openPopUp(){
-        Dialog dialog = new Dialog(this, R.style.PopupDialog );
-        dialog.setContentView(R.layout.popup_nome);
-        dialog.show();
 
-        String nome = ((EditText)dialog.findViewById(R.id.editTextPopupNome)).getText().toString();
+    private void configuraPopup(){
+        dialog = new Dialog(getActivity(), R.style.PopupDialog );
+        dialog.setContentView(R.layout.popup_nome);
+
 
         dialog.findViewById(R.id.button_popup_voltar).setOnClickListener( v -> {
             dialog.dismiss();
@@ -63,8 +63,12 @@ public class RefeicaoFragment extends Fragment {
         dialog.findViewById(R.id.button_popup_continuar).setOnClickListener(v -> {
             dialog.dismiss();
             Intent intent = new Intent(getActivity(), EditarAlimento_Activity.class);
+            intent.putExtra("ALIMENTO_NOVO", true);
+            String nome = ((EditText)dialog.findViewById(R.id.editTextPopupNome)).getText().toString();
+            intent.putExtra("ALIMENTO_NOVO_NOME", nome);
             startActivity(intent);
         });
-    }*/
+
+    }
 
 }

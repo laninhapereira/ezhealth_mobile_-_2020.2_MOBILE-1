@@ -41,15 +41,24 @@ public class EditarAlimento_Activity extends AppCompatActivity {
     public void procurar(){
         Intent intent = getIntent();
 
+        Boolean novo = (intent == null)? false : getIntent().getBooleanExtra("ALIMENTO_NOVO", false);
+
+        if(novo){
+            String nome = getIntent().getStringExtra("ALIMENTO_NOVO_NOME");
+            alimento = new Alimento( nome, "0", "g", "0", "0", "0", "0");
+            return;
+        }
+
         String nomeRefeicao = (intent == null)? null : getIntent().getStringExtra("REFEICAO");
         String nomeAlimento = (intent == null)? null : getIntent().getStringExtra("ALIMENTO");
 
         if(nomeRefeicao == null){
             alimento = (Alimento) Alimento_Repositorio.getInstance().getItemList(nomeAlimento);
-        }else{
-            refeicao = (Refeicao) Refeicao_Repositorio.getInstance().getItemList(nomeRefeicao);
-            alimento = (Alimento) refeicao.getRepAlimentos().getItemList(nomeAlimento);
+            return;
         }
+
+        refeicao = (Refeicao) Refeicao_Repositorio.getInstance().getItemList(nomeRefeicao);
+        alimento = (Alimento) refeicao.getRepAlimentos().getItemList(nomeAlimento);
 
     }
 
