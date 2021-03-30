@@ -53,7 +53,7 @@ public class TelaChatConversas_Activity extends AppCompatActivity {
         user = getIntent().getExtras().getParcelable("user");
         //Setar nome do usuário do chat
         nomeDestinarário = findViewById(R.id.textViewDestinatário);
-        nomeDestinarário.setText(user.getTeste());
+        nomeDestinarário.setText(user.getNomeCompleto());
 
         RecyclerView recyclerView = findViewById(R.id.recyclerChat);
         adapter = new GroupAdapter();
@@ -129,7 +129,7 @@ public class TelaChatConversas_Activity extends AppCompatActivity {
                             Log.d("TesteMensagem", documentReference.getId());
 
                             // Criação de novo documento de quem está enviando nos contatos, para receber últimas mensagens de alguns de contatos
-                            Contato contato = new Contato(idRecebimento, user.getTeste(), mensagem.getTexto(), mensagem.getMomentoMsg());
+                            Contato contato = new Contato(idRecebimento, user.getNomeCompleto(), mensagem.getTexto(), mensagem.getMomentoMsg());
 
                             FirebaseFirestore.getInstance().collection("/ultimas-mensagens")
                                     .document(idEnvio)
@@ -157,7 +157,7 @@ public class TelaChatConversas_Activity extends AppCompatActivity {
                             Log.d("TesteMensagem", documentReference.getId());
 
                             // Criação de novo documento de quem está enviando nos contatos, para receber últimas mensagens de alguns de contatos
-                            Contato contato = new Contato(idRecebimento, user.getTeste(), mensagem.getTexto(), mensagem.getMomentoMsg());
+                            Contato contato = new Contato(idRecebimento, user.getNomeCompleto(), mensagem.getTexto(), mensagem.getMomentoMsg());
 
                             FirebaseFirestore.getInstance().collection("/ultimas-mensagens")
                                     .document(idRecebimento)

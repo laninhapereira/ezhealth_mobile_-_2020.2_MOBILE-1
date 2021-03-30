@@ -26,16 +26,20 @@ public class TelaCadastro8_Activity extends AppCompatActivity {
 
     private EditText cadastroEmail, cadastroSenha, cadastroSenha2, teste;
     private Button buttonProximo8;
+    private Usuario user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_cadastro8);
 
+        // Receber objeto(usuário que irá receber mensagem) de outra activity
+        user = getIntent().getExtras().getParcelable("user");
+
         //* Confirmar se todos os campos estão preenchidos //
         cadastroEmail = findViewById(R.id.editTextCadastroEmail);
         cadastroSenha = findViewById(R.id.editTextCadastroSenha1);
-        teste = findViewById(R.id.editTextCadastroSenha2);
+        cadastroSenha2 = findViewById(R.id.editTextCadastroSenha2);
         buttonProximo8 = findViewById(R.id.buttonCadastroProximo8);
 
         //cadastroEmail.addTextChangedListener(cadastro7Watcher);
@@ -46,7 +50,6 @@ public class TelaCadastro8_Activity extends AppCompatActivity {
     }
 
     // Confirmar se todos os campos estão preenchidos
-
     private TextWatcher cadastro7Watcher = new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -86,7 +89,7 @@ public class TelaCadastro8_Activity extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful()) Log.i("TesteCadastro", task.getResult().getUser().getUid());
 
-                    salvarNoFirebase(teste.getText().toString());
+                    salvarNoFirebase(/*teste.getText().toString()*/);
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
@@ -101,11 +104,12 @@ public class TelaCadastro8_Activity extends AppCompatActivity {
     }
 
     //Salvar usuário no firestore
-    public void salvarNoFirebase(String teste){
+    public void salvarNoFirebase(/*String teste*/){
         String id = FirebaseAuth.getInstance().getUid();
-        String testee = teste;
+        //String testee = teste;
 
-        Usuario user = new Usuario(id, testee);
+        user.setId(id);
+        //user.setTeste(testee);
 
         //Salvar usuário no firebase com id como chave primária
         FirebaseFirestore.getInstance().collection("usuarios")

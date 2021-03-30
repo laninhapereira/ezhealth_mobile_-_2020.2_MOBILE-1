@@ -79,7 +79,7 @@ public class Main_Activity extends AppCompatActivity {
     }
 
     public void cadastrarUsuario(View v){
-        Intent intent = new Intent(this, TelaCadastro8_Activity.class);
+        Intent intent = new Intent(this, TelaCadastro2_Activity.class);
         startActivity(intent);
     }
 

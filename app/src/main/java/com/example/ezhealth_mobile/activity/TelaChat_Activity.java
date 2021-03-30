@@ -99,7 +99,7 @@ public class TelaChat_Activity extends AppCompatActivity {
                         List<DocumentSnapshot> docs =  value.getDocuments();
                         for (DocumentSnapshot doc : docs){
                             Usuario user = doc.toObject(Usuario.class);
-                            Log.i("TesteBusca", user.getTeste());
+                            Log.i("TesteBusca", user.getNomeCompleto());
 
                             adapter.add(new UserItem(user));
                         }
@@ -124,7 +124,7 @@ public class TelaChat_Activity extends AppCompatActivity {
             TextView txtNomeUser = viewHolder.itemView.findViewById(R.id.textViewChat);
             //ImageView imgChat = viewHolder.itemView.findViewById(R.id.imageViewButtonChat);
 
-            txtNomeUser.setText(user.getTeste());
+            txtNomeUser.setText(user.getNomeCompleto());
 
         }
 
