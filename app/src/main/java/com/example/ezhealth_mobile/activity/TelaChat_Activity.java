@@ -53,7 +53,7 @@ public class TelaChat_Activity extends AppCompatActivity {
             public void onItemClick(@NonNull Item item, @NonNull View view) {
                 Intent intent = new Intent(TelaChat_Activity.this, TelaChatConversas_Activity.class);
 
-                //Enviar objeto para outra activity (ChatActivity)
+                //Enviar objeto para outra activity (Tela de conversa)
                 UserItem userItem = (UserItem) item;
                 intent.putExtra("user", userItem.user);
 
@@ -100,7 +100,7 @@ public class TelaChat_Activity extends AppCompatActivity {
                         for (DocumentSnapshot doc : docs){
                             Usuario user = doc.toObject(Usuario.class);
                             Log.i("TesteBusca", user.getTeste());
-                            
+
                             adapter.add(new UserItem(user));
                         }
 
