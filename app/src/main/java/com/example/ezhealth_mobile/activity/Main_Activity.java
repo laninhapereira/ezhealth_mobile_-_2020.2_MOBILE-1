@@ -67,7 +67,7 @@ public class Main_Activity extends AppCompatActivity {
         //------------------------------------------------//
         //Testar se email e senha existem e ir para Home //
         //------------------------------------------------//
-        
+
         autenticarUsuario(loginEmail.getText().toString() , loginSenha.getText().toString());
 
         //Intent intent = new Intent(this, Home_Activity.class);
