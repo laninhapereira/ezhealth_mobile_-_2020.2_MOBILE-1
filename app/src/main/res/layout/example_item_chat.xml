@@ -23,7 +23,7 @@
             app:srcCompat="@drawable/ic_visualizar" />
 
         <TextView
-            android:id="@+id/TextViewChat"
+            android:id="@+id/textViewChat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="33dp"

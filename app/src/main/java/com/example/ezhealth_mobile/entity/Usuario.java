@@ -1,6 +1,9 @@
 package com.example.ezhealth_mobile.entity;
 
-public class Usuario {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Usuario implements Parcelable {
 
     private String id;
     private String teste;
@@ -12,6 +15,24 @@ public class Usuario {
 
     public Usuario() {
     }
+
+    //Construtor protegido, para mapear todos os atributos para conseguir pegar de volta o seu estado
+    protected Usuario(Parcel in) {
+        id = in.readString();
+        teste = in.readString();
+    }
+
+    public static final Creator<Usuario> CREATOR = new Creator<Usuario>() {
+        @Override
+        public Usuario createFromParcel(Parcel in) {
+            return new Usuario(in);
+        }
+
+        @Override
+        public Usuario[] newArray(int size) {
+            return new Usuario[size];
+        }
+    };
 
     public String getId() {
         return id;
@@ -30,4 +51,14 @@ public class Usuario {
     }
 
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(id);
+        parcel.writeString(teste);
+    }
 }

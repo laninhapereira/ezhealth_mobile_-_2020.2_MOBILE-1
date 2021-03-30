@@ -26,7 +26,7 @@ public class ExampleAdapterChat extends RecyclerView.Adapter<ExampleAdapterChat.
 
         public ExampleViewHolder(@NonNull View itemView) {
             super(itemView);
-            textUser = itemView.findViewById(R.id.TextViewChat);
+            textUser = itemView.findViewById(R.id.textViewChat);
 
             itemView.findViewById(R.id.imageViewButtonChat).setOnClickListener(v -> {
                 botaoVisualizar.OnClick(textUser.getText().toString());
