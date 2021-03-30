@@ -116,7 +116,7 @@ public class TelaCadastro8_Activity extends AppCompatActivity {
                     public void onSuccess(Void aVoid) {
                         //Log.i("testeCadastro", documentReference.getId());
 
-                        Intent intent = new Intent(TelaCadastro8_Activity.this, Main_Activity.class);
+                        Intent intent = new Intent(TelaCadastro8_Activity.this, Home_Activity.class);
                         //Fazer que activity seja a principal
                         //intent.setFlags(intent.FLAG_ACTIVITY_CLEAR_TASK | intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(intent);

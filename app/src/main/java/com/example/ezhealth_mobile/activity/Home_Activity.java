@@ -12,6 +12,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.example.ezhealth_mobile.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class Home_Activity extends AppCompatActivity {
 
@@ -31,7 +32,23 @@ public class Home_Activity extends AppCompatActivity {
 
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupWithNavController(navView, navController);
+
+        verificarAutenticacao();
         
+    }
+
+    private void verificarAutenticacao() {
+        if(FirebaseAuth.getInstance().getUid() == null){
+            Intent intent = new Intent(Home_Activity.this, Main_Activity.class);
+            //Fazer que activity seja a principal
+            intent.setFlags(intent.FLAG_ACTIVITY_CLEAR_TASK | intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        }
+    }
+
+    private void sair(View view){
+        FirebaseAuth.getInstance().signOut();
+        verificarAutenticacao();
     }
 
     public void irEditarRefeicao(View view){
