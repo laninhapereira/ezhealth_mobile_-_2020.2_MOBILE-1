@@ -81,7 +81,7 @@ public class TelaCadastro2_Activity extends AppCompatActivity {
         user.setNomeCompleto(cadastroNome.getText().toString());
         user.setCpf(cadastroCPF.getText().toString());
 
-        if(user.getTipoUsuario().equals("Uso Comum")){ user.setCrn(null); }
+        if(user.getTipoUsuario().equals("Uso Comum")){ user.setCrn("Não possui"); }
         else user.setCrn(cadastroCRN.getText().toString());
 
 

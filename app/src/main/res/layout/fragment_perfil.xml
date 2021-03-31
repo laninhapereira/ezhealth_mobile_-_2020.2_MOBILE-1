@@ -139,7 +139,7 @@
         android:background="@drawable/ic_edit"
         android:elevation="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.66"
+        app:layout_constraintHorizontal_bias="0.83"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -147,7 +147,7 @@
 
     <TextView
         android:id="@+id/ClicarEditarDados"
-        android:layout_width="115dp"
+        android:layout_width="180dp"
         android:layout_height="35dp"
         android:elevation="4dp"
         android:text="Editar dados"
@@ -174,7 +174,7 @@
 
     <TextView
         android:id="@+id/perfilNascimento"
-        android:layout_width="115dp"
+        android:layout_width="180dp"
         android:layout_height="35dp"
         android:elevation="4dp"
         android:text="01/01/1998"
@@ -201,7 +201,7 @@
 
     <TextView
         android:id="@+id/perfilSexo"
-        android:layout_width="115dp"
+        android:layout_width="180dp"
         android:layout_height="35dp"
         android:elevation="4dp"
         android:text="Feminino"
@@ -228,7 +228,7 @@
 
     <TextView
         android:id="@+id/perfilCPF"
-        android:layout_width="115dp"
+        android:layout_width="180dp"
         android:layout_height="35dp"
         android:elevation="4dp"
         android:text="xxxxxxxxxxx"
@@ -255,7 +255,7 @@
 
     <TextView
         android:id="@+id/perfilCRN"
-        android:layout_width="115dp"
+        android:layout_width="180dp"
         android:layout_height="35dp"
         android:elevation="4dp"
         android:text="Nao possui"
@@ -282,7 +282,7 @@
 
     <TextView
         android:id="@+id/perfilAltura"
-        android:layout_width="115dp"
+        android:layout_width="180dp"
         android:layout_height="35dp"
         android:elevation="4dp"
         android:text="160 cm"
@@ -309,7 +309,7 @@
 
     <TextView
         android:id="@+id/perfilPeso"
-        android:layout_width="115dp"
+        android:layout_width="180dp"
         android:layout_height="35dp"
         android:elevation="4dp"
         android:text="48kg"
@@ -336,7 +336,7 @@
 
     <TextView
         android:id="@+id/perfilObjetivo"
-        android:layout_width="115dp"
+        android:layout_width="180dp"
         android:layout_height="35dp"
         android:elevation="4dp"
         android:text="Manter peso"
@@ -363,7 +363,7 @@
 
     <TextView
         android:id="@+id/perfilIntolerancia"
-        android:layout_width="115dp"
+        android:layout_width="180dp"
         android:layout_height="35dp"
         android:elevation="4dp"
         android:text="Lactose"
@@ -390,7 +390,7 @@
 
     <TextView
         android:id="@+id/perfilDoencas"
-        android:layout_width="115dp"
+        android:layout_width="180dp"
         android:layout_height="35dp"
         android:elevation="4dp"
         android:text="Diabetes"
@@ -442,6 +442,21 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabAbrirChat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:layout_marginEnd="16dp"
+        app:backgroundTint="#CED6E0"
+        app:elevation="6dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.92"
+        app:srcCompat="@drawable/ic_chat" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAbrirChatt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
