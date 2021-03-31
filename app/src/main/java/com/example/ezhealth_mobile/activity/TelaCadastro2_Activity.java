@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,22 +19,32 @@ public class TelaCadastro2_Activity extends AppCompatActivity {
 
     private EditText cadastroNome, cadastroCPF, cadastroCRN;
     private Button buttonProximo2;
+    private Usuario user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_cadastro2);
 
+        // Receber objeto(usuário que irá receber mensagem) de outra activity
+        user = getIntent().getExtras().getParcelable("user");
+        Log.i("testeIntent", user.getTipoUsuario());
+
+
         //* Confirmar se todos os campos estão preenchidos //
         cadastroNome = findViewById(R.id.editTextCadastroNomeCompleto);
         cadastroCPF = findViewById(R.id.editTextCadastroCPF);
+
+        //Se usuário for comum, esconder CRN
         cadastroCRN = findViewById(R.id.editTextCadastroCRN);
-        //cadastroCRN.setVisibility(View.INVISIBLE);
+        if(user.getTipoUsuario().equals("Uso Comum")){ cadastroCRN.setVisibility(View.INVISIBLE); }
+        else  cadastroCRN.addTextChangedListener(cadastro1Watcher);
+
         buttonProximo2 = findViewById(R.id.buttonCadastroProximo2);
 
         cadastroNome.addTextChangedListener(cadastro1Watcher);
         cadastroCPF.addTextChangedListener(cadastro1Watcher);
-        cadastroCRN.addTextChangedListener(cadastro1Watcher);
+
         // Confirmar se todos os campos estão preenchidos *//
 
     }
@@ -48,11 +59,14 @@ public class TelaCadastro2_Activity extends AppCompatActivity {
 
         @Override
         public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            buttonProximo2.setEnabled(true);
+
             String nomeInput = cadastroNome.getText().toString().trim();
             String CPFInput = cadastroCPF.getText().toString().trim();
             String CRNInput = cadastroCRN.getText().toString().trim();
 
-            buttonProximo2.setEnabled(!nomeInput.isEmpty() && !CPFInput.isEmpty() && !CRNInput.isEmpty());
+            if(user.getTipoUsuario().equals("Uso Comum")){ buttonProximo2.setEnabled(!nomeInput.isEmpty() && !CPFInput.isEmpty()); }
+            else buttonProximo2.setEnabled(!nomeInput.isEmpty() && !CPFInput.isEmpty() && !CRNInput.isEmpty());
         }
 
         @Override
@@ -62,7 +76,7 @@ public class TelaCadastro2_Activity extends AppCompatActivity {
     };
 
     public void irTela3(View v){
-        Intent intent = new Intent(this, TelaCadastro8_Activity.class);
+        Intent intent = new Intent(this, TelaCadastro3_Activity.class);
 
         Usuario user = new Usuario();
         user.setNomeCompleto(cadastroNome.getText().toString());
