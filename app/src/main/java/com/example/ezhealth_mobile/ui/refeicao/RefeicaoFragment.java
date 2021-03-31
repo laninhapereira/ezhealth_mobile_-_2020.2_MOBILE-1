@@ -22,6 +22,7 @@ import com.example.ezhealth_mobile.R;
 import com.example.ezhealth_mobile.activity.EditarAlimento_Activity;
 import com.example.ezhealth_mobile.activity.EditarRefeicao_Activity;
 import com.example.ezhealth_mobile.activity.PopupNome;
+import com.example.ezhealth_mobile.entity.Refeicao;
 import com.example.ezhealth_mobile.util.ExampleAdapterRefeicaoPersonalizada;
 
 public class RefeicaoFragment extends Fragment {
@@ -47,14 +48,14 @@ public class RefeicaoFragment extends Fragment {
         dialogAdicionar = PopupNome.configuraPopup(getActivity(), "refeição", nome -> {
             Intent intent = new Intent(getActivity(), EditarRefeicao_Activity.class);
             intent.putExtra("REFEICAO_NOVA", true);
-            intent.putExtra("REFEICAO_NOVA_NOME", nome);
+            intent.putExtra("REFEICAO_NOVA_NOME", (Refeicao) nome);
             getActivity().startActivity(intent);
         });
 
         dialogEditarNome = PopupNome.configuraPopup(getActivity(), "refeição", nome -> {
             Intent intent = new Intent(getActivity(), getActivity().getClass());
             getActivity().finish();
-            salvarNomeEditado(nome);
+//            salvarNomeEditado(nome);
             getActivity().startActivity(intent);
         });;
     }
@@ -65,7 +66,7 @@ public class RefeicaoFragment extends Fragment {
         recyclerView.setAdapter(new ExampleAdapterRefeicaoPersonalizada(
                 nome -> {
                     Intent intent = new Intent(root.getRootView().getContext(), EditarRefeicao_Activity.class);
-                    intent.putExtra("REFEICAO", nome);
+                    intent.putExtra("REFEICAO", (Refeicao) nome);
                     startActivity(intent);
                 },
                 nome -> {

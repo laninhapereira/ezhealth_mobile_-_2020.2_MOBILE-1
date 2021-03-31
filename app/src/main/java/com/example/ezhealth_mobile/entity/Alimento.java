@@ -1,6 +1,9 @@
 package com.example.ezhealth_mobile.entity;
 
-public class Alimento extends ObjectDefault{
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Alimento extends ObjectDefault implements Parcelable {
 
     private int carboidratos;
     private int proteinas;
@@ -17,6 +20,13 @@ public class Alimento extends ObjectDefault{
     public Alimento() {
         super();
     }
+
+    protected Alimento(Parcel in) {
+        carboidratos = in.readInt();
+        proteinas = in.readInt();
+        gorduras = in.readInt();
+    }
+
 
     public int getCarboidratos() {
         return carboidratos;
@@ -40,5 +50,29 @@ public class Alimento extends ObjectDefault{
 
     public void setGorduras(int gorduras) {
         this.gorduras = gorduras;
+    }
+
+    public static final Creator<Alimento> CREATOR = new Creator<Alimento>() {
+        @Override
+        public Alimento createFromParcel(Parcel in) {
+            return new Alimento(in);
+        }
+
+        @Override
+        public Alimento[] newArray(int size) {
+            return new Alimento[size];
+        }
+    };
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(carboidratos);
+        dest.writeInt(proteinas);
+        dest.writeInt(gorduras);
     }
 }

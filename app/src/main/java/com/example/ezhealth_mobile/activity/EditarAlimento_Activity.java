@@ -24,7 +24,21 @@ import com.example.ezhealth_mobile.entity.Refeicao_Repositorio;
 public class EditarAlimento_Activity extends AppCompatActivity {
 
     private Alimento alimento;
-    private Refeicao refeicao;
+
+    private TextView textViewTituloSegundoPainel;
+    private TextView textViewPrimeiroItem;
+    private TextView textViewPrimeiroValor;
+    private TextView textViewPrimeiraMedida;
+    private TextView textViewSegundoItem;
+    private TextView textViewSegundoValor;
+    private TextView textViewSegundaMedida;
+    private TextView textViewTerceiroItem;
+    private TextView textViewTerceiroValor;
+    private TextView textViewTerceiraMedida;
+    private TextView textViewValorTotalKcal;
+    private PainelQuantidades_Content painelQuantidades_content;
+
+    private TextView textViewEditTextQtd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,76 +47,67 @@ public class EditarAlimento_Activity extends AppCompatActivity {
 
         ((TextView) findViewById(R.id.textViewTitelDualPanel)).setText("Editar Alimento");
 
-        procurar();
+        textViewTituloSegundoPainel = findViewById(R.id.textViewTituloSegundoPainel);
+        textViewPrimeiroItem = findViewById(R.id.textViewPrimeiroItem);
+        textViewPrimeiroValor = findViewById(R.id.textViewPrimeiroValor);
+        textViewPrimeiraMedida = findViewById(R.id.textViewPrimeiraMedida);
+        textViewSegundoItem = findViewById(R.id.textViewSegundoItem);
+        textViewSegundoValor = findViewById(R.id.textViewSegundoValor);
+        textViewSegundaMedida = findViewById(R.id.textViewSegundaMedida);
+        textViewTerceiroItem = findViewById(R.id.textViewTerceiroItem);
+        textViewTerceiroValor = findViewById(R.id.textViewTerceiroValor);
+        textViewTerceiraMedida = findViewById(R.id.textViewTerceiraMedida);
+        textViewValorTotalKcal = findViewById(R.id.textViewValorTotalKcal);
+        textViewEditTextQtd = findViewById(R.id.editTextQtd);
+
+        this.procurar();
         this.configuraPrimeiroPainel();
         this.configuraSegundoPainel();
     }
 
-    public void procurar(){
-        Intent intent = getIntent();
-
-        Boolean novo = (intent == null)? false : getIntent().getBooleanExtra("ALIMENTO_NOVO", false);
-
-        if(novo){
-            String nome = getIntent().getStringExtra("ALIMENTO_NOVO_NOME");
-            alimento = new Alimento( nome, 0, "g", 0, 0, 0, 0);
-            return;
-        }
-
-        String nomeRefeicao = (intent == null)? null : getIntent().getStringExtra("REFEICAO");
-        String nomeAlimento = (intent == null)? null : getIntent().getStringExtra("ALIMENTO");
-
-        if(nomeRefeicao == null){
-            alimento = (Alimento) Alimento_Repositorio.getInstance().getItemList(nomeAlimento);
-            return;
-        }
-
-        refeicao = (Refeicao) Refeicao_Repositorio.getInstance().getItemList(nomeRefeicao);
-        alimento = (Alimento) refeicao.getRepAlimentos().getItemList(nomeAlimento);
-
-    }
-
     private void configuraPrimeiroPainel(){
-        PainelQuantidades_Content.configura(this, alimento);
+        painelQuantidades_content = new PainelQuantidades_Content(this);
+        painelQuantidades_content.configurarPainel(alimento);
     }
 
     private void configuraSegundoPainel(){
+        textViewTituloSegundoPainel.setText("Informações gerais");
 
-        ((TextView) findViewById(R.id.textViewTituloSegundoPainel)).setText("Informações gerais");
+        textViewPrimeiroItem.setText("Carboidratos");
+        textViewPrimeiroValor.setText(String.valueOf(alimento.getCarboidratos()));
+        textViewPrimeiraMedida.setText("g");
 
-        ((TextView) findViewById(R.id.textViewPrimeiroItem)).setText("Carboidratos");
-        ((TextView) findViewById(R.id.textViewPrimeiroValor)).setText(alimento.getCarboidratos());
-        ((TextView) findViewById(R.id.textViewPrimeiraMedida)).setText("g");
+        textViewSegundoItem.setText("Proteinas");
+        textViewSegundoValor.setText(String.valueOf(alimento.getProteinas()));
+        textViewSegundaMedida.setText("g");
 
-        ((TextView) findViewById(R.id.textViewSegundoItem)).setText("Proteinas");
-        ((TextView) findViewById(R.id.textViewSegundoValor)).setText(alimento.getProteinas());
-        ((TextView) findViewById(R.id.textViewSegundaMedida)).setText("g");
+        textViewTerceiroItem.setText("Gorduras");
+        textViewTerceiroValor.setText(String.valueOf(alimento.getGorduras()));
+        textViewTerceiraMedida.setText("g");
 
-        ((TextView) findViewById(R.id.textViewTerceiroItem)).setText("Gorduras");
-        ((TextView) findViewById(R.id.textViewTerceiroValor)).setText(alimento.getGorduras());
-        ((TextView) findViewById(R.id.textViewTerceiraMedida)).setText("g");
+        textViewValorTotalKcal.setText(String.valueOf(alimento.getCalorias()));
+    }
 
-        ((TextView) findViewById(R.id.textViewValorTotalKcal)).setText(alimento.getCalorias());
+    public void procurar(){
+        alimento = getIntent().getExtras().getParcelable("ALIMENTO");
+        if(alimento == null) alimento = new Alimento();
     }
 
     //Botão "check" para confirmar que o usuário deseja salvar os itens
     public void salvar(View v){
-        String result = ((TextView) findViewById(R.id.editTextQtd)).getText().toString();
-        alimento.setQuantidade(Integer.parseInt(result));
+        String quantidade = painelQuantidades_content.getQuantidade();
+        alimento.setQuantidade(Integer.parseInt(quantidade));
 
-        if(refeicao == null)
-            Alimento_Repositorio.getInstance().setItemList(alimento.getNome(), alimento);
-        else
-            refeicao.getRepAlimentos().setItemList(alimento.getNome(), alimento);
-
+        Intent intent = new Intent();
+        intent.putExtra("SALVO", alimento);
+        setResult(RESULT_OK, intent);
         finish();
     }
 
 
-
     //Botão "voltar" para caso o usuário desista e volte para a tela anterior
     public void voltar(View v){
-        setResult(RESULT_CANCELED, new Intent());
+        setResult(RESULT_CANCELED, null);
         finish();
     }
 

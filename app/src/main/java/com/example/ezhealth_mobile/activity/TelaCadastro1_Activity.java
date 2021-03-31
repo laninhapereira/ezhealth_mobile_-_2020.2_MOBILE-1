@@ -27,7 +27,6 @@ public class TelaCadastro1_Activity extends AppCompatActivity {
         String radiovalue =((RadioButton)findViewById(radioGroup.getCheckedRadioButtonId())).getText().toString();
         Log.i("TesteRadio", radiovalue);
 
-
         Intent intent = new Intent(this, TelaCadastro2_Activity.class);
 
         user = new Usuario();

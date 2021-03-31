@@ -35,7 +35,7 @@ public class TabFragment_Refeicao extends Fragment {
             }, // Construção do botão de VISUALIZAR de cada item da lista
             nome -> {
                 Intent intent = new Intent(getContext(), VisualizarRefeicao_Activity.class);
-                intent.putExtra("REFEICAO", nome);
+                intent.putExtra("REFEICAO", (Refeicao) nome);
                 startActivity(intent);
             })
         );

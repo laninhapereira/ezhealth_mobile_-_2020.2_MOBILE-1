@@ -74,18 +74,18 @@ public class VisualizarRefeicao_Activity extends AppCompatActivity {
         ((TextView) findViewById(R.id.textViewTituloSegundoPainel)).setText("Informações gerais");
 
         ((TextView) findViewById(R.id.textViewPrimeiroItem)).setText("Carboidratos");
-        ((TextView) findViewById(R.id.textViewPrimeiroValor)).setText(refeicao.getCarboidratosTotais());
+        ((TextView) findViewById(R.id.textViewPrimeiroValor)).setText(refeicao.getCarboidratos());
         ((TextView) findViewById(R.id.textViewPrimeiraMedida)).setText("g");
 
         ((TextView) findViewById(R.id.textViewSegundoItem)).setText("Proteinas");
-        ((TextView) findViewById(R.id.textViewSegundoValor)).setText(refeicao.getProteinasTotais());
+        ((TextView) findViewById(R.id.textViewSegundoValor)).setText(refeicao.getProteinas());
         ((TextView) findViewById(R.id.textViewSegundaMedida)).setText("g");
 
         ((TextView) findViewById(R.id.textViewTerceiroItem)).setText("Gorduras");
-        ((TextView) findViewById(R.id.textViewTerceiroValor)).setText(refeicao.getGordurasTotais());
+        ((TextView) findViewById(R.id.textViewTerceiroValor)).setText(refeicao.getGorduras());
         ((TextView) findViewById(R.id.textViewTerceiraMedida)).setText("g");
 
-        ((TextView) findViewById(R.id.textViewValorTotalKcal)).setText(refeicao.getCaloriasTotais());
+        ((TextView) findViewById(R.id.textViewValorTotalKcal)).setText(refeicao.getCalorias());
     }
 
     //Botão "check" para confirmar que o usuário deseja salvar os itens

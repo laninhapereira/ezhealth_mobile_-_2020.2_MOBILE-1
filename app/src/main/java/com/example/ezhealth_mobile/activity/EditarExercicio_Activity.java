@@ -25,13 +25,44 @@ public class EditarExercicio_Activity extends AppCompatActivity {
 
     private Exercicio exercicio;
 
+    private TextView textViewTituloSegundoPainel;
+    private TextView textViewPrimeiroItem;
+    private TextView textViewPrimeiroValor;
+    private TextView textViewPrimeiraMedida;
+    private TextView textViewSegundoItem;
+    private TextView textViewSegundoValor;
+    private TextView textViewSegundaMedida;
+    private TextView textViewTerceiroItem;
+    private TextView textViewTerceiroValor;
+    private TextView textViewTerceiraMedida;
+    private TextView textViewTotal;
+    private TextView textViewValorTotalKcal;
+    private TextView textViewKcal4;
+    private PainelQuantidades_Content painelQuantidades_content;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dual_panel);
 
-
         ((TextView) findViewById(R.id.textViewTitelDualPanel)).setText("Editar Exercício");
+
+        textViewTituloSegundoPainel = findViewById(R.id.textViewTituloSegundoPainel);
+        textViewPrimeiroItem = findViewById(R.id.textViewPrimeiroItem);
+        textViewPrimeiroValor = findViewById(R.id.textViewPrimeiroValor);
+        textViewPrimeiraMedida = findViewById(R.id.textViewPrimeiraMedida);
+        textViewSegundoItem = findViewById(R.id.textViewSegundoItem);
+        textViewSegundoValor = findViewById(R.id.textViewSegundoValor);
+        textViewSegundaMedida = findViewById(R.id.textViewSegundaMedida);
+        textViewTerceiroItem = findViewById(R.id.textViewTerceiroItem);
+        textViewTerceiroValor = findViewById(R.id.textViewTerceiroValor);
+        textViewTerceiraMedida = findViewById(R.id.textViewTerceiraMedida);
+        textViewTotal = findViewById(R.id.textViewTotal);
+        textViewValorTotalKcal = findViewById(R.id.textViewValorTotalKcal);
+        textViewKcal4 = findViewById(R.id.textViewKcal4);
+
+        exercicio = getIntent().getExtras().getParcelable("EXERCICIO");
+        if(exercicio == null) exercicio = new Exercicio();
 
         this.configuraPrimeiroPainel();
         this.configuraSegundoPainel();
@@ -40,41 +71,39 @@ public class EditarExercicio_Activity extends AppCompatActivity {
     }
 
     private void configuraPrimeiroPainel(){
-        Intent intent = getIntent();
-        String nome = (intent == null)? null: intent.getStringExtra("EXERCICIO");;
-
-        exercicio = (nome == null)? null:
-                (Exercicio) Exercicio_Repositorio.getInstance().getItemList(nome);
-
-        PainelQuantidades_Content.configura(this, exercicio);
+        painelQuantidades_content = new PainelQuantidades_Content(this);
+        painelQuantidades_content.configurarPainel(exercicio);
     }
-
-
-
 
     // Classe para configuração do conteúdo do segundo painel
     private void configuraSegundoPainel(){
-        ((TextView) findViewById(R.id.textViewTituloSegundoPainel)).setText("Informações gerais");
+        textViewTituloSegundoPainel.setText("Informações gerais");
 
-        ((TextView) findViewById(R.id.textViewPrimeiroItem)).setText("Duração");
-        ((TextView) findViewById(R.id.textViewPrimeiroValor)).setText(exercicio.getQuantidade());
-        ((TextView) findViewById(R.id.textViewPrimeiraMedida)).setText("min");
+        textViewPrimeiroItem.setText("Duração");
+        textViewPrimeiroValor.setText(String.valueOf(exercicio.getQuantidade()));
+        textViewPrimeiraMedida.setText("min");
 
-        ((TextView) findViewById(R.id.textViewSegundoItem)).setText("Calorias Perdidas");
-        ((TextView) findViewById(R.id.textViewSegundoValor)).setText(exercicio.getCalorias());
-        ((TextView) findViewById(R.id.textViewSegundaMedida)).setText("kcal");
+        textViewSegundoItem.setText("Calorias Perdidas");
+        textViewSegundoValor.setText(String.valueOf(exercicio.getCalorias()));
+        textViewSegundaMedida.setText("kcal");
+        textViewTerceiroItem.setText("");
 
-        ((TextView) findViewById(R.id.textViewTerceiroItem)).setText("");
-        ((TextView) findViewById(R.id.textViewTerceiroValor)).setText("");
-        ((TextView) findViewById(R.id.textViewTerceiraMedida)).setText("");
+        textViewTerceiroValor.setText("");
+        textViewTerceiraMedida.setText("");
+        textViewTotal.setText("");
 
-        ((TextView) findViewById(R.id.textViewTotal)).setText("");
-        ((TextView) findViewById(R.id.textViewValorTotalKcal)).setText("");
-        ((TextView) findViewById(R.id.textViewKcal4)).setText("");
+        textViewValorTotalKcal.setText("");
+        textViewKcal4.setText("");
     }
 
     //Botão "check" para confirmar que o usuário deseja salvar os itens
     public void salvar(View v){
+        String quantidade = painelQuantidades_content.getQuantidade();
+        exercicio.setQuantidade(Integer.parseInt(quantidade));
+
+        Intent intent = new Intent();
+        intent.putExtra("SALVO", exercicio);
+        setResult(RESULT_OK, intent);
         finish();
     }
 

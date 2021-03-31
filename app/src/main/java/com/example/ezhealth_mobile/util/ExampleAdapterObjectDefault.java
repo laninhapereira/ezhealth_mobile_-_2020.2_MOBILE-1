@@ -26,6 +26,8 @@ public class ExampleAdapterObjectDefault extends RecyclerView.Adapter<ExampleAda
     private static OnClickListenerAdapter botaoEditarNome;
     private boolean menuOpcoesHabilitado;
     private ArrayList<ObjectDefault> list;
+    private PopupMenu popup;
+    private View view;
 
 
     public ExampleAdapterObjectDefault(boolean menuOpcoesHabilitado, ArrayList<ObjectDefault> list,
@@ -44,8 +46,6 @@ public class ExampleAdapterObjectDefault extends RecyclerView.Adapter<ExampleAda
         private TextView unidadeMedida;
         private TextView calorias;
 
-        private PopupMenu popup;
-
         public ViewHolder(@NonNull View itemView){
             super(itemView);
 
@@ -54,31 +54,9 @@ public class ExampleAdapterObjectDefault extends RecyclerView.Adapter<ExampleAda
             unidadeMedida = itemView.findViewById(R.id.textViewItemQuantMeasure);
             calorias = itemView.findViewById(R.id.textViewItemKcal);
 
-            configurePopupMenu();
-
             itemView.findViewById(R.id.imageViewButtonMore).setOnClickListener(v->{
                 Log.d("a", "testeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
                 popup.show();
-            });
-        }
-
-        private void configurePopupMenu(){
-            popup = new PopupMenu(itemView.getContext(), itemView, Gravity.RIGHT, R.attr.actionOverflowMenuStyle,0);
-            popup.getMenuInflater().inflate(R.menu.overflow_menu, popup.getMenu());
-            // escolhe o que fazer de acordo com o item selecionado no menu de popup
-            popup.setOnMenuItemClickListener(item -> {
-                switch (item.getTitle().toString()){
-                    case "Editar":
-                        botaoEditar.OnClick(titulo.getText().toString());
-                        break;
-                    case "Editar Nome":
-                        botaoEditarNome.OnClick(titulo.getText().toString());
-                        break;
-                    case "Excluir":
-                        botaoExcluir.OnClick(titulo.getText().toString());
-                        break;
-                }
-                return false;
             });
         }
 
@@ -87,7 +65,7 @@ public class ExampleAdapterObjectDefault extends RecyclerView.Adapter<ExampleAda
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.exemple_item, parent, false);
+        view = LayoutInflater.from(parent.getContext()).inflate(R.layout.exemple_item, parent, false);
         if(!menuOpcoesHabilitado)
             ((ImageView) view.findViewById(R.id.imageViewButtonMore)).setVisibility(View.INVISIBLE);
 
@@ -96,8 +74,8 @@ public class ExampleAdapterObjectDefault extends RecyclerView.Adapter<ExampleAda
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-
         ObjectDefault obj = list.get(position);
+        configurePopupMenu(obj);
 
         holder.titulo.setText(obj.getNome());
         holder.quantidade.setText(String.valueOf(obj.getQuantidade()));
@@ -108,6 +86,25 @@ public class ExampleAdapterObjectDefault extends RecyclerView.Adapter<ExampleAda
     @Override
     public int getItemCount() {
         return list.size();
+    }
+
+    private void configurePopupMenu(ObjectDefault objectDefault){
+        popup = new PopupMenu(view.getContext(), view, Gravity.RIGHT, R.attr.actionOverflowMenuStyle,0);
+        popup.getMenuInflater().inflate(R.menu.overflow_menu, popup.getMenu());
+        popup.setOnMenuItemClickListener(item -> {
+            switch (item.getTitle().toString()){
+                case "Editar":
+                    botaoEditar.OnClick(objectDefault);
+                    break;
+                case "Editar Nome":
+                    botaoEditarNome.OnClick(objectDefault);
+                    break;
+                case "Excluir":
+                    botaoExcluir.OnClick(objectDefault);
+                    break;
+            }
+            return false;
+        });
     }
 
 }

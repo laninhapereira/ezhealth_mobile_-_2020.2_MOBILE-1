@@ -1,6 +1,9 @@
 package com.example.ezhealth_mobile.entity;
 
-public abstract class ObjectDefault {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public abstract class ObjectDefault implements Parcelable {
 
     private String nome;
     private int quantidade;
@@ -15,6 +18,9 @@ public abstract class ObjectDefault {
     }
 
     public ObjectDefault() {}
+
+    public ObjectDefault(Parcel in) {
+    }
 
     public String getNome() {
         return nome;
@@ -46,6 +52,20 @@ public abstract class ObjectDefault {
 
     public void setCalorias(int calorias) {
         this.calorias = calorias;
+    }
+
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(nome);
+        dest.writeInt(quantidade);
+        dest.writeString(unidadeMedida);
+        dest.writeInt(calorias);
     }
 
 }

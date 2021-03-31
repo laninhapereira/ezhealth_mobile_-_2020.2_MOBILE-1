@@ -28,6 +28,8 @@ public class ExampleAdapterRefeicaoPersonalizada extends RecyclerView.Adapter<Ex
     private static OnClickListenerAdapter botaoEditar;
     private static OnClickListenerAdapter botaoExcluir;
     private static OnClickListenerAdapter botaoEditarNome;
+    private PopupMenu popup;
+    private View view;
 
     public ExampleAdapterRefeicaoPersonalizada(OnClickListenerAdapter botaoEditar, OnClickListenerAdapter botaoEditarNome, OnClickListenerAdapter botaoExcluir){
         this.botaoEditar = botaoEditar;
@@ -36,12 +38,10 @@ public class ExampleAdapterRefeicaoPersonalizada extends RecyclerView.Adapter<Ex
     }
 
 
-    public static class ExampleViewHolder extends RecyclerView.ViewHolder {
+    public class ExampleViewHolder extends RecyclerView.ViewHolder {
 
         private TextView textRefeicaoPersonalizada;
         private TextView textCaloriasPersonalizada;
-
-        private PopupMenu popup;
 
         public ExampleViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -49,30 +49,8 @@ public class ExampleAdapterRefeicaoPersonalizada extends RecyclerView.Adapter<Ex
             textRefeicaoPersonalizada = itemView.findViewById(R.id.TextViewRefeicaoPersonalizada);
             textCaloriasPersonalizada = itemView.findViewById(R.id.TextViewCaloriasRefeicaoPersonalizada);
 
-            configurePopupMenu();
-
             itemView.findViewById(R.id.imageViewButtonMoreRefeicaoPersonalizada).setOnClickListener(v->{
                 popup.show();
-            });
-        }
-
-        private void configurePopupMenu(){
-            popup = new PopupMenu(itemView.getContext(), itemView, Gravity.RIGHT, R.attr.actionOverflowMenuStyle,0);
-            popup.getMenuInflater().inflate(R.menu.overflow_menu, popup.getMenu());
-            // escolhe o que fazer de acordo com o item selecionado no menu de popup
-            popup.setOnMenuItemClickListener(item -> {
-                switch (item.getTitle().toString()){
-                    case "Editar":
-                        botaoEditar.OnClick(textRefeicaoPersonalizada.getText().toString());
-                        break;
-                    case "Editar Nome":
-                        botaoEditarNome.OnClick(textRefeicaoPersonalizada.getText().toString());
-                        break;
-                    case "Excluir":
-                        botaoExcluir.OnClick(textRefeicaoPersonalizada.getText().toString());
-                        break;
-                }
-                return false;
             });
         }
 
@@ -82,22 +60,42 @@ public class ExampleAdapterRefeicaoPersonalizada extends RecyclerView.Adapter<Ex
     @NonNull
     @Override
     public ExampleAdapterRefeicaoPersonalizada.ExampleViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.example_item_refeicao_personalizada, parent, false);
-        return new ExampleAdapterRefeicaoPersonalizada.ExampleViewHolder(v);
+        view = LayoutInflater.from(parent.getContext()).inflate(R.layout.example_item_refeicao_personalizada, parent, false);
+        return new ExampleAdapterRefeicaoPersonalizada.ExampleViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ExampleViewHolder holder, int position) {
         Refeicao itemAtual = (Refeicao) Refeicao_Repositorio.getInstance().getListPersonalizada().get(position);
+        configurePopupMenu(itemAtual);
 
         holder.textRefeicaoPersonalizada.setText(itemAtual.getNome());
-        holder.textCaloriasPersonalizada.setText(itemAtual.getCalorias());
+        holder.textCaloriasPersonalizada.setText(String.valueOf(itemAtual.getCalorias()));
     }
 
 
     @Override
     public int getItemCount() {
         return Refeicao_Repositorio.getInstance().getListPersonalizada().size();
+    }
+
+    private void configurePopupMenu(Refeicao object){
+        popup = new PopupMenu(view.getContext(), view, Gravity.RIGHT, R.attr.actionOverflowMenuStyle,0);
+        popup.getMenuInflater().inflate(R.menu.overflow_menu, popup.getMenu());
+        popup.setOnMenuItemClickListener(item -> {
+            switch (item.getTitle().toString()){
+                case "Editar":
+                    botaoEditar.OnClick(object);
+                    break;
+                case "Editar Nome":
+                    botaoEditarNome.OnClick(object);
+                    break;
+                case "Excluir":
+                    botaoExcluir.OnClick(object);
+                    break;
+            }
+            return false;
+        });
     }
 
 }

@@ -21,17 +21,42 @@ import com.example.ezhealth_mobile.entity.Alimento;
 import com.example.ezhealth_mobile.entity.Refeicao;
 import com.example.ezhealth_mobile.entity.Refeicao_Repositorio;
 import com.example.ezhealth_mobile.util.ExampleAdapterObjectDefault;
+import com.example.ezhealth_mobile.util.OnClickListenerAdapter;
 
 public class EditarRefeicao_Activity extends AppCompatActivity {
 
     private int EDITAR_ACTIVITY = 0;
-    public Refeicao refeicao;
+    private Refeicao refeicao;
     private Dialog dialogEditarNome;
+
+    private TextView textViewTituloSegundoPainel;
+    private TextView textViewPrimeiroItem;
+    private TextView textViewPrimeiroValor;
+    private TextView textViewPrimeiraMedida;
+    private TextView textViewSegundoItem;
+    private TextView textViewSegundoValor;
+    private TextView textViewSegundaMedida;
+    private TextView textViewTerceiroItem;
+    private TextView textViewTerceiroValor;
+    private TextView textViewTerceiraMedida;
+    private TextView textViewValorTotalKcal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dual_panel);
+
+        textViewTituloSegundoPainel = findViewById(R.id.textViewTituloSegundoPainel);
+        textViewPrimeiroItem = findViewById(R.id.textViewPrimeiroItem);
+        textViewPrimeiroValor = findViewById(R.id.textViewPrimeiroValor);
+        textViewPrimeiraMedida = findViewById(R.id.textViewPrimeiraMedida);
+        textViewSegundoItem = findViewById(R.id.textViewSegundoItem);
+        textViewSegundoValor = findViewById(R.id.textViewSegundoValor);
+        textViewSegundaMedida = findViewById(R.id.textViewSegundaMedida);
+        textViewTerceiroItem = findViewById(R.id.textViewTerceiroItem);
+        textViewTerceiroValor = findViewById(R.id.textViewTerceiroValor);
+        textViewTerceiraMedida = findViewById(R.id.textViewTerceiraMedida);
+        textViewValorTotalKcal = findViewById(R.id.textViewValorTotalKcal);
 
         configuraPopup();
     }
@@ -41,6 +66,8 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
         super.onResume();
 
         procurarRefeicao();
+        if(refeicao==null)
+            Log.e("aaaaaaaaaaaaa_", "onResume: deu errado" );
         ((TextView) findViewById(R.id.textViewTitelDualPanel)).setText(refeicao.getNome());
 
         this.configuraPrimeiroPainel();
@@ -49,7 +76,7 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
 
     private void configuraPopup(){
         dialogEditarNome = PopupNome.configuraPopup(this, "alimento", nome -> {
-            salvarNomeEditado(nome);
+            salvarNomeEditado((String) nome);
         });;
     }
 
@@ -84,17 +111,15 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
         ExampleAdapterObjectDefault exampleAdapterObjectDefault = new ExampleAdapterObjectDefault(
                 true,
                 refeicao.getRepAlimentos().getList(),
-                nome -> { // Construção do botão de EDITAR de cada item da lista
+                alimento -> { // Construção do botão de EDITAR de cada item da lista
                     Intent intent = new Intent(this, EditarAlimento_Activity.class);
-                    intent.putExtra("REFEICAO", refeicao.getNome());
-                    intent.putExtra("ALIMENTO", nome);
+                    intent.putExtra("ALIMENTO", (Alimento) alimento);
                     this.startActivityForResult(intent, 0);
                 },
-                nome -> { // Construção do botão de EDITAR NOME de cada item da lista
-                    ((EditText)dialogEditarNome.findViewById(R.id.editTextPopupNome)).setText("");
+                alimento -> { // Construção do botão de EDITAR NOME de cada item da lista
+                    ((EditText) dialogEditarNome.findViewById(R.id.editTextPopupNome)).setText("");
                     dialogEditarNome.show();
-                },
-                nome -> { // Construção do botão de EXCLUIR de cada item da lista
+                }, alimento -> { // Construção do botão de EXCLUIR de cada item da lista
 
                 }
         );
@@ -114,22 +139,21 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
     }
 
     private void configuraSegundoPainel(){
+        textViewTituloSegundoPainel.setText("Informações gerais");
 
-        ((TextView) findViewById(R.id.textViewTituloSegundoPainel)).setText("Informações gerais");
+        textViewPrimeiroItem.setText("Carboidratos");
+        textViewPrimeiroValor.setText(String.valueOf(refeicao.getCarboidratos()));
+        textViewPrimeiraMedida.setText("g");
 
-        ((TextView) findViewById(R.id.textViewPrimeiroItem)).setText("Carboidratos");
-        ((TextView) findViewById(R.id.textViewPrimeiroValor)).setText(refeicao.getCarboidratosTotais());
-        ((TextView) findViewById(R.id.textViewPrimeiraMedida)).setText("g");
+        textViewSegundoItem.setText("Proteinas");
+        textViewSegundoValor.setText(String.valueOf(refeicao.getProteinas()));
+        textViewSegundaMedida.setText("g");
 
-        ((TextView) findViewById(R.id.textViewSegundoItem)).setText("Proteinas");
-        ((TextView) findViewById(R.id.textViewSegundoValor)).setText(refeicao.getProteinasTotais());
-        ((TextView) findViewById(R.id.textViewSegundaMedida)).setText("g");
+        textViewTerceiroItem.setText("Gorduras");
+        textViewTerceiroValor.setText(String.valueOf(refeicao.getGorduras()));
+        textViewTerceiraMedida.setText("g");
 
-        ((TextView) findViewById(R.id.textViewTerceiroItem)).setText("Gorduras");
-        ((TextView) findViewById(R.id.textViewTerceiroValor)).setText(refeicao.getGordurasTotais());
-        ((TextView) findViewById(R.id.textViewTerceiraMedida)).setText("g");
-
-        ((TextView) findViewById(R.id.textViewValorTotalKcal)).setText(refeicao.getCaloriasTotais());
+        textViewValorTotalKcal.setText(String.valueOf(refeicao.getCalorias()));
     }
 
     //Botão "check" para confirmar que o usuário deseja salvar os itens
@@ -149,10 +173,9 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
 
         if (requestCode == EDITAR_ACTIVITY) {
             if (resultCode == RESULT_OK) {
-                String nome = data.getStringExtra("ALIMENTO");
-                String quantidade = data.getStringExtra("QUANTIDADE");
+                Alimento alimento = getIntent().getExtras().getParcelable("SALVO");
 
-                refeicao.getRepAlimentos().getItemList(nome).setQuantidade(Integer.parseInt(quantidade));
+                refeicao.getRepAlimentos().setItemList(alimento.getNome(), alimento);
                 Toast.makeText(this, "Salvo", Toast.LENGTH_SHORT).show();
             }
         }

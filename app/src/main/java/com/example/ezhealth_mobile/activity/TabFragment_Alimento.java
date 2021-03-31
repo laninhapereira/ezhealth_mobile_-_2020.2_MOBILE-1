@@ -72,13 +72,13 @@ public class TabFragment_Alimento extends Fragment {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecyclerView.setAdapter(new ExampleAdapterAlimento(
                 listAlimento,
-                nome -> { // Construção do botão de ADICIONAR de cada item da lista
+                alimento -> { // Construção do botão de ADICIONAR de cada item da lista
                     getActivity().finish();
                     //intent.putExtra("ALIMENTO", nome);
                 }, // Construção do botão de EDITAR de cada item da lista
-                nome -> {
+                alimento -> {
                     Intent intent = new Intent(getContext(), EditarAlimento_Activity.class);
-                    intent.putExtra("ALIMENTO", nome);
+                    intent.putExtra("ALIMENTO", (Alimento) alimento);
                     startActivity(intent);
                 })
         );
