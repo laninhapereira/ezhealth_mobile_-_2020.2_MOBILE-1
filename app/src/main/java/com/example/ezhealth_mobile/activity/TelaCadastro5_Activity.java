@@ -62,6 +62,12 @@ public class TelaCadastro5_Activity extends AppCompatActivity {
 
     public void irTela6(View v){
         Intent intent = new Intent(this, TelaCadastro6_Activity.class);
+
+        user.setPeso(cadastroPeso.getText().toString());
+        user.setAltura(cadastroAltura.getText().toString());
+
+        intent.putExtra("user", user);
+
         startActivity(intent);
     }
 }
