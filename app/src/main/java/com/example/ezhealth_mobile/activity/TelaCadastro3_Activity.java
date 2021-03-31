@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,16 +12,22 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ezhealth_mobile.R;
+import com.example.ezhealth_mobile.entity.Usuario;
 
 public class TelaCadastro3_Activity extends AppCompatActivity {
 
     private EditText cadastroDia, cadastroMes, cadastroAno;
     private Button buttonProximo3;
+    private Usuario user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_cadastro3);
+
+        // Receber objeto(usuário que irá receber mensagem) de outra activity
+        user = getIntent().getExtras().getParcelable("user");
+        Log.i("testeTela3", user.getNomeCompleto());
 
         //* Confirmar se todos os campos estão preenchidos //
         cadastroDia = findViewById(R.id.editTextNascimentoDia);
@@ -61,6 +68,13 @@ public class TelaCadastro3_Activity extends AppCompatActivity {
 
     public void irTela4(View v){
         Intent intent = new Intent(this, TelaCadastro4_Activity.class);
+
+        user.setDiaNasc(cadastroDia.getText().toString());
+        user.setMesNasc(cadastroMes.getText().toString());
+        user.setAnoNasc(cadastroAno.getText().toString());
+
+        intent.putExtra("user", user);
+
         startActivity(intent);
     }
 }

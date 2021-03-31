@@ -78,7 +78,6 @@ public class TelaCadastro2_Activity extends AppCompatActivity {
     public void irTela3(View v){
         Intent intent = new Intent(this, TelaCadastro3_Activity.class);
 
-        Usuario user = new Usuario();
         user.setNomeCompleto(cadastroNome.getText().toString());
         user.setCpf(cadastroCPF.getText().toString());
         user.setCrn(cadastroCRN.getText().toString());

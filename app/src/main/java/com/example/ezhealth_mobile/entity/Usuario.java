@@ -147,7 +147,7 @@ public class Usuario implements Parcelable {
 
     public void setTipoUsuario(String tipoUsuario) { this.tipoUsuario = tipoUsuario; }
 
-    public String DataNascimento(){
+    public String getDataNascimento(){
         return diaNasc + "/" + mesNasc + "/" + anoNasc;
     }
 
@@ -164,6 +164,9 @@ public class Usuario implements Parcelable {
         parcel.writeString(nomeCompleto);
         parcel.writeString(cpf);
         parcel.writeString(crn);
+        parcel.writeString(diaNasc);
+        parcel.writeString(mesNasc);
+        parcel.writeString(anoNasc);
         parcel.writeString(sexo);
         parcel.writeString(altura);
         parcel.writeString(peso);
