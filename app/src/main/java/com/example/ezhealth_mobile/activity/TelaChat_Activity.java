@@ -125,7 +125,6 @@ public class TelaChat_Activity extends AppCompatActivity {
             //ImageView imgChat = viewHolder.itemView.findViewById(R.id.imageViewButtonChat);
 
             txtNomeUser.setText(user.getNomeCompleto());
-
         }
 
         @Override

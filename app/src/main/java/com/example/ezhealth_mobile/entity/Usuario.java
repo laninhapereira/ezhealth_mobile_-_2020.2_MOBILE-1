@@ -9,6 +9,8 @@ public class Usuario implements Parcelable {
     private String teste;
     private String tipoUsuario;
     private String nomeCompleto;
+    private String email;
+    private String dataNascimento;
     private String cpf;
     private String crn;
     private String diaNasc;
@@ -143,6 +145,18 @@ public class Usuario implements Parcelable {
 
     public void setDoencas(String doencas) { this.doencas = doencas; }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setDataNascimento(String dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
     public String getTipoUsuario() { return tipoUsuario; }
 
     public void setTipoUsuario(String tipoUsuario) { this.tipoUsuario = tipoUsuario; }
@@ -173,5 +187,26 @@ public class Usuario implements Parcelable {
         parcel.writeString(objetivo);
         parcel.writeString(intolerancias);
         parcel.writeString(doencas);
+        parcel.writeString(dataNascimento);
+        parcel.writeString(email);
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "id='" + id + '\'' +
+                ", teste='" + teste + '\'' +
+                ", nomeCompleto='" + nomeCompleto + '\'' +
+                ", email='" + email + '\'' +
+                ", dataNascimento='" + dataNascimento + '\'' +
+                ", cpf='" + cpf + '\'' +
+                ", crn='" + crn + '\'' +
+                ", sexo='" + sexo + '\'' +
+                ", altura='" + altura + '\'' +
+                ", peso='" + peso + '\'' +
+                ", objetivo='" + objetivo + '\'' +
+                ", intolerancias='" + intolerancias + '\'' +
+                ", doencas='" + doencas + '\'' +
+                '}';
     }
 }
