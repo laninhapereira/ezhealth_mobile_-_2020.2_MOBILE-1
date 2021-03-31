@@ -11,16 +11,21 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ezhealth_mobile.R;
+import com.example.ezhealth_mobile.entity.Usuario;
 
 public class TelaCadastro5_Activity extends AppCompatActivity {
 
     private EditText cadastroPeso, cadastroAltura;
     private Button buttonProximo5;
+    private Usuario user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_cadastro5);
+
+        // Receber objeto(usuário que irá receber mensagem) de outra activity
+        user = getIntent().getExtras().getParcelable("user");
 
         //* Confirmar se todos os campos estão preenchidos //
         cadastroPeso = findViewById(R.id.editTextCadastroPeso);
@@ -57,6 +62,12 @@ public class TelaCadastro5_Activity extends AppCompatActivity {
 
     public void irTela6(View v){
         Intent intent = new Intent(this, TelaCadastro6_Activity.class);
+
+        user.setPeso(cadastroPeso.getText().toString());
+        user.setAltura(cadastroAltura.getText().toString());
+
+        intent.putExtra("user", user);
+
         startActivity(intent);
     }
 }

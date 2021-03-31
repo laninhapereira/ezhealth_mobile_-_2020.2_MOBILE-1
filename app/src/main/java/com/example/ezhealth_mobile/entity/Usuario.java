@@ -7,11 +7,15 @@ public class Usuario implements Parcelable {
 
     private String id;
     private String teste;
+    private String tipoUsuario;
     private String nomeCompleto;
     private String email;
     private String dataNascimento;
     private String cpf;
     private String crn;
+    private String diaNasc;
+    private String mesNasc;
+    private String anoNasc;
     private String sexo;
     private String altura;
     private String peso;
@@ -24,12 +28,17 @@ public class Usuario implements Parcelable {
         this.teste = teste;
     }
 
-    public Usuario(String id, String teste, String nomeCompleto, String cpf, String crn, String sexo, String altura, String peso, String objetivo, String intolerancias, String doencas) {
+    public Usuario(String id, String teste, String tipoUsuario, String nomeCompleto, String cpf, String crn, String diaNasc, String mesNasc, String anoNasc,
+                   String sexo, String altura, String peso, String objetivo, String intolerancias, String doencas) {
         this.id = id;
         this.teste = teste;
+        this.tipoUsuario = tipoUsuario;
         this.nomeCompleto = nomeCompleto;
         this.cpf = cpf;
         this.crn = crn;
+        this.diaNasc = diaNasc;
+        this.mesNasc = mesNasc ;
+        this.anoNasc = anoNasc;
         this.sexo = sexo;
         this.altura = altura;
         this.peso = peso;
@@ -45,9 +54,13 @@ public class Usuario implements Parcelable {
     protected Usuario(Parcel in) {
         id = in.readString();
         teste = in.readString();
+        tipoUsuario = in.readString();
         nomeCompleto = in.readString();
         cpf = in.readString();
         crn = in.readString();
+        diaNasc = in.readString();
+        mesNasc = in.readString();
+        anoNasc = in.readString();
         sexo = in.readString();
         altura = in.readString();
         peso = in.readString();
@@ -96,6 +109,18 @@ public class Usuario implements Parcelable {
 
     public void setCrn(String crn) { this.crn = crn; }
 
+    public String getDiaNasc() { return diaNasc; }
+
+    public void setDiaNasc(String diaNasc) { this.diaNasc = diaNasc; }
+
+    public String getMesNasc() { return mesNasc; }
+
+    public void setMesNasc(String mesNasc) { this.mesNasc = mesNasc; }
+
+    public String getAnoNasc() { return anoNasc; }
+
+    public void setAnoNasc(String anoNasc) { this.anoNasc = anoNasc; }
+
     public String getSexo() { return sexo; }
 
     public void setSexo(String sexo) { this.sexo = sexo; }
@@ -128,12 +153,16 @@ public class Usuario implements Parcelable {
         this.email = email;
     }
 
-    public String getDataNascimento() {
-        return dataNascimento;
-    }
-
     public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;
+    }
+
+    public String getTipoUsuario() { return tipoUsuario; }
+
+    public void setTipoUsuario(String tipoUsuario) { this.tipoUsuario = tipoUsuario; }
+
+    public String getDataNascimento(){
+        return diaNasc + "/" + mesNasc + "/" + anoNasc;
     }
 
     @Override
@@ -145,9 +174,13 @@ public class Usuario implements Parcelable {
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(id);
         parcel.writeString(teste);
+        parcel.writeString(tipoUsuario);
         parcel.writeString(nomeCompleto);
         parcel.writeString(cpf);
         parcel.writeString(crn);
+        parcel.writeString(diaNasc);
+        parcel.writeString(mesNasc);
+        parcel.writeString(anoNasc);
         parcel.writeString(sexo);
         parcel.writeString(altura);
         parcel.writeString(peso);
