@@ -60,7 +60,7 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
 
         if(novo){
             String nome = getIntent().getStringExtra("REFEICAO_NOVA_NOME");
-            refeicao = new Refeicao( nome, "0", "g", "0", "0");
+            refeicao = new Refeicao( nome, 0, "g", 0, "0");
             return;
         }
 
@@ -80,6 +80,7 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
 
     @SuppressLint("WrongViewCast")
     private void configuraPrimeiroPainel(){
+
         ExampleAdapterObjectDefault exampleAdapterObjectDefault = new ExampleAdapterObjectDefault(
                 true,
                 refeicao.getRepAlimentos().getList(),
@@ -151,7 +152,7 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
                 String nome = data.getStringExtra("ALIMENTO");
                 String quantidade = data.getStringExtra("QUANTIDADE");
 
-                refeicao.getRepAlimentos().getItemList(nome).setQuantidade(quantidade);
+                refeicao.getRepAlimentos().getItemList(nome).setQuantidade(Integer.parseInt(quantidade));
                 Toast.makeText(this, "Salvo", Toast.LENGTH_SHORT).show();
             }
         }

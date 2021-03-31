@@ -30,18 +30,18 @@ public class ObjectDefault_Repositorio{
         return list.get(position);
     }
 
-    public String getCaloriasTotais(){
+    public int getCaloriasTotais(){
         Integer total = 0;
         for (ObjectDefault t: list)
-            total += Integer.parseInt(t.getCalorias());
-        return total.toString();
+            total += t.getCalorias();
+        return total;
     }
 
-    public String getQuantidadeTotais(){
+    public int getQuantidadeTotais(){
         Integer total = 0;
         for (ObjectDefault t: list)
-            total += Integer.parseInt(t.getQuantidade());
-        return total.toString();
+            total += t.getQuantidade();
+        return total;
     }
 
     public ObjectDefault getItemList(String titulo){

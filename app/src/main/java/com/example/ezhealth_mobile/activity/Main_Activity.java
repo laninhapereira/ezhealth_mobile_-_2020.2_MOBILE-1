@@ -13,7 +13,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ezhealth_mobile.R;
-import com.example.ezhealth_mobile.controller.ControllerUsuario;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
@@ -38,7 +37,6 @@ public class Main_Activity extends AppCompatActivity {
         loginEmail.addTextChangedListener(loginTextWatcher);
         loginSenha.addTextChangedListener(loginTextWatcher);
         // Confirmar se todos os campos estão preenchidos *//
-
     }
 
     // Confirmar se todos os campos estão preenchidos
@@ -66,7 +64,7 @@ public class Main_Activity extends AppCompatActivity {
     public void login(View v){
 
         //------------------------------------------------//
-        //Testar se email e senha existem e ir para Home //
+        //Testar se email e senha existem e ir para Home  //
         //------------------------------------------------//
 
         autenticarUsuario(loginEmail.getText().toString() , loginSenha.getText().toString());
@@ -93,8 +91,6 @@ public class Main_Activity extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     String uuid = task.getResult().getUser().getUid();
                     Log.i("testeAutenticação", uuid);
-
-                    ControllerUsuario.buscarUsuario(uuid);
 
                     Intent intent = new Intent(Main_Activity.this, Home_Activity.class);
                     //Fazer que activity seja a principal

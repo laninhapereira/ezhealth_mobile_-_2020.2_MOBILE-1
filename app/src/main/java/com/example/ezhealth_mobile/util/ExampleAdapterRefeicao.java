@@ -59,8 +59,8 @@ public class ExampleAdapterRefeicao extends RecyclerView.Adapter<ExampleAdapterR
         Refeicao itemAtual = (Refeicao) Refeicao_Repositorio.getInstance().getItemList(position);
 
         holder.textRefeicao.setText(itemAtual.getNome());
-        holder.textMassa.setText(itemAtual.getQuantidade());
-        holder.textCalorias.setText(itemAtual.getCalorias());
+        holder.textMassa.setText(String.valueOf(itemAtual.getQuantidade()));
+        holder.textCalorias.setText(String.valueOf(itemAtual.getCalorias()));
     }
 
     @Override

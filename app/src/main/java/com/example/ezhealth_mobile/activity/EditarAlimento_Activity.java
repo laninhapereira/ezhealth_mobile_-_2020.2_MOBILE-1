@@ -45,7 +45,7 @@ public class EditarAlimento_Activity extends AppCompatActivity {
 
         if(novo){
             String nome = getIntent().getStringExtra("ALIMENTO_NOVO_NOME");
-            alimento = new Alimento( nome, "0", "g", "0", "0", "0", "0");
+            alimento = new Alimento( nome, 0, "g", 0, 0, 0, 0);
             return;
         }
 
@@ -88,7 +88,7 @@ public class EditarAlimento_Activity extends AppCompatActivity {
     //Botão "check" para confirmar que o usuário deseja salvar os itens
     public void salvar(View v){
         String result = ((TextView) findViewById(R.id.editTextQtd)).getText().toString();
-        alimento.setQuantidade(result);
+        alimento.setQuantidade(Integer.parseInt(result));
 
         if(refeicao == null)
             Alimento_Repositorio.getInstance().setItemList(alimento.getNome(), alimento);

@@ -100,9 +100,9 @@ public class ExampleAdapterObjectDefault extends RecyclerView.Adapter<ExampleAda
         ObjectDefault obj = list.get(position);
 
         holder.titulo.setText(obj.getNome());
-        holder.quantidade.setText(obj.getQuantidade());
+        holder.quantidade.setText(String.valueOf(obj.getQuantidade()));
         holder.unidadeMedida.setText(obj.getUnidadeMedida());
-        holder.calorias.setText(obj.getCalorias());
+        holder.calorias.setText(String.valueOf(obj.getCalorias()));
     }
 
     @Override

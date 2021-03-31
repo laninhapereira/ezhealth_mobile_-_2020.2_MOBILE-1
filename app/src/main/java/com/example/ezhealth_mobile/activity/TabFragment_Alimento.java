@@ -2,6 +2,7 @@ package com.example.ezhealth_mobile.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,29 +14,27 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ezhealth_mobile.R;
+import com.example.ezhealth_mobile.entity.Alimento;
 import com.example.ezhealth_mobile.util.ExampleAdapterAlimento;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class TabFragment_Alimento extends Fragment {
+
+    private RecyclerView mRecyclerView;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.tab_alimento_fragment, container, false);
 
-        RecyclerView mRecyclerView = view.findViewById(R.id.recyclerViewAlimentos);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mRecyclerView = view.findViewById(R.id.recyclerViewAlimentos);
 
-        mRecyclerView.setAdapter(new ExampleAdapterAlimento(
-            nome -> { // Construção do botão de ADICIONAR de cada item da lista
-                getActivity().finish();
-                //intent.putExtra("ALIMENTO", nome);
-            }, // Construção do botão de EDITAR de cada item da lista
-            nome -> {
-                Intent intent = new Intent(getContext(), EditarAlimento_Activity.class);
-                intent.putExtra("ALIMENTO", nome);
-                startActivity(intent);
-            })
-        );
+        buscarAlimentos();
 
         return view;
     }
@@ -44,5 +43,44 @@ public class TabFragment_Alimento extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+    }
+
+    private void buscarAlimentos() {
+        ArrayList<Alimento> listAlimento = new ArrayList<>();
+        FirebaseFirestore
+            .getInstance()
+            .collection("/alimentos")
+            .addSnapshotListener((value, error) -> {
+                if(error != null){
+                    Log.i("TesteBusca", error.getMessage(), error);
+                    return;
+                }
+                //Elementos da lista de usuários
+                List<DocumentSnapshot> docs = value.getDocuments();
+
+                for (DocumentSnapshot doc : docs)
+                    listAlimento.add(doc.toObject(Alimento.class));
+
+                for(Alimento a: listAlimento)
+                    Log.d("buscarAlimentos:_", "_"+a.toString());
+
+                configurarRecycleView(listAlimento);
+            });
+    }
+
+    public void configurarRecycleView(ArrayList<Alimento> listAlimento){
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mRecyclerView.setAdapter(new ExampleAdapterAlimento(
+                listAlimento,
+                nome -> { // Construção do botão de ADICIONAR de cada item da lista
+                    getActivity().finish();
+                    //intent.putExtra("ALIMENTO", nome);
+                }, // Construção do botão de EDITAR de cada item da lista
+                nome -> {
+                    Intent intent = new Intent(getContext(), EditarAlimento_Activity.class);
+                    intent.putExtra("ALIMENTO", nome);
+                    startActivity(intent);
+                })
+        );
     }
 }

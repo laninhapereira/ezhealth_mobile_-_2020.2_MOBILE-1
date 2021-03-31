@@ -2,39 +2,43 @@ package com.example.ezhealth_mobile.entity;
 
 public class Alimento extends ObjectDefault{
 
-    private String carboidratos;
-    private String proteinas;
-    private String gorduras;
+    private int carboidratos;
+    private int proteinas;
+    private int gorduras;
 
-    public Alimento(String nome, String quantidade, String unidadeMedida, String calorias,
-                    String carboidratos, String proteinas, String gorduras){
+    public Alimento(String nome, int quantidade, String unidadeMedida, int calorias,
+                    int carboidratos, int proteinas, int gorduras){
         super(nome, quantidade, unidadeMedida, calorias);
         this.carboidratos = carboidratos;
         this.proteinas = proteinas;
         this.gorduras = gorduras;
     }
 
-    public String getCarboidratos() {
+    public Alimento() {
+        super();
+    }
+
+    public int getCarboidratos() {
         return carboidratos;
     }
 
-    public void setCarboidratos(String carboidratos) {
+    public void setCarboidratos(int carboidratos) {
         this.carboidratos = carboidratos;
     }
 
-    public String getProteinas() {
+    public int getProteinas() {
         return proteinas;
     }
 
-    public void setProteinas(String proteinas) {
+    public void setProteinas(int proteinas) {
         this.proteinas = proteinas;
     }
 
-    public String getGorduras() {
+    public int getGorduras() {
         return gorduras;
     }
 
-    public void setGorduras(String gorduras) {
+    public void setGorduras(int gorduras) {
         this.gorduras = gorduras;
     }
 }

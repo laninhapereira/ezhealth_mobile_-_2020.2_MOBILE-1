@@ -54,48 +54,48 @@ public class DiarioFragment extends Fragment {
         Intent intent = new Intent(this.getContext(), EditarRefeicao_Activity.class);
 
         Refeicao refeicao = (Refeicao) listRefeicoesDiarias.get(0);
-        caloriasTotaisDiarias += Integer.parseInt(refeicao.getCalorias());
-        ((TextView)root.findViewById(R.id.textViewItemPainelValorKcalCafe)).setText(refeicao.getCalorias());
+        caloriasTotaisDiarias += refeicao.getCalorias();
+        ((TextView)root.findViewById(R.id.textViewItemPainelValorKcalCafe)).setText(String.valueOf(refeicao.getCalorias()));
         root.findViewById(R.id.imageViewItemPanelAddCafe).setOnClickListener(v -> {
-                intent.putExtra("REFEICAO","Café da manhã");
-                startActivity(intent);
-            }
+                    intent.putExtra("REFEICAO","Café da manhã");
+                    startActivity(intent);
+                }
         );
 
         refeicao = (Refeicao) listRefeicoesDiarias.get(1);
-        caloriasTotaisDiarias += Integer.parseInt(refeicao.getCalorias());
-        ((TextView)root.findViewById(R.id.textViewItemPainelValorKcalLancheManha)).setText(refeicao.getCalorias());
+        caloriasTotaisDiarias += refeicao.getCalorias();
+        ((TextView)root.findViewById(R.id.textViewItemPainelValorKcalLancheManha)).setText(String.valueOf(refeicao.getCalorias()));
         root.findViewById(R.id.imageViewItemPanelAddLancheManha).setOnClickListener(v -> {
-                intent.putExtra("REFEICAO","Lanche da Manhã");
-                startActivity(intent);
-            }
+                    intent.putExtra("REFEICAO","Lanche da Manhã");
+                    startActivity(intent);
+                }
         );
 
         refeicao = (Refeicao) listRefeicoesDiarias.get(2);
-        caloriasTotaisDiarias += Integer.parseInt(refeicao.getCalorias());
-        ((TextView)root.findViewById(R.id.textViewItemPainelValorKcalAlmoco)).setText(refeicao.getCalorias());
+        caloriasTotaisDiarias += refeicao.getCalorias();
+        ((TextView)root.findViewById(R.id.textViewItemPainelValorKcalAlmoco)).setText(String.valueOf(refeicao.getCalorias()));
         root.findViewById(R.id.imageViewItemPanelAddAlmoco).setOnClickListener( v -> {
-                intent.putExtra("REFEICAO","Almoço");
-                startActivity(intent);
-            }
+                    intent.putExtra("REFEICAO","Almoço");
+                    startActivity(intent);
+                }
         );
 
         refeicao = (Refeicao) listRefeicoesDiarias.get(3);
-        caloriasTotaisDiarias += Integer.parseInt(refeicao.getCalorias());
-        ((TextView)root.findViewById(R.id.textViewItemPainelValorKcalLancheTarde)).setText(refeicao.getCalorias());
+        caloriasTotaisDiarias += refeicao.getCalorias();
+        ((TextView)root.findViewById(R.id.textViewItemPainelValorKcalLancheTarde)).setText(String.valueOf(refeicao.getCalorias()));
         root.findViewById(R.id.imageViewItemPanelAddLancheTarde).setOnClickListener(v -> {
-                intent.putExtra("REFEICAO","Lanche da Tarde");
-                startActivity(intent);
-            }
+                    intent.putExtra("REFEICAO","Lanche da Tarde");
+                    startActivity(intent);
+                }
         );
 
         refeicao = (Refeicao) listRefeicoesDiarias.get(4);
-        caloriasTotaisDiarias += Integer.parseInt(refeicao.getCalorias());
-        ((TextView)root.findViewById(R.id.textViewItemPainelValorKcalJantar)).setText(refeicao.getCalorias());
+        caloriasTotaisDiarias += refeicao.getCalorias();
+        ((TextView)root.findViewById(R.id.textViewItemPainelValorKcalJantar)).setText(String.valueOf(refeicao.getCalorias()));
         root.findViewById(R.id.imageViewItemPanelAddJantar).setOnClickListener(v -> {
-                intent.putExtra("REFEICAO","Jantar");
-                startActivity(intent);
-            }
+                    intent.putExtra("REFEICAO","Jantar");
+                    startActivity(intent);
+                }
         );
     }
 

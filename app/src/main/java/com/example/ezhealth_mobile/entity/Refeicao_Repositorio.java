@@ -39,38 +39,38 @@ public class Refeicao_Repositorio extends ObjectDefault_Repositorio {
         ArrayList<ObjectDefault> list = new ArrayList<>();
         Refeicao refeicao;
 
-        refeicao = new Refeicao("Meu café da manhã 1", "100", "g" , "320", "personalizada");
+        refeicao = new Refeicao("Meu café da manhã 1", 100, "g" , 320, "personalizada");
 
         refeicao.getRepAlimentos().setList(alimento_repositorio.popularAlimentos());
         refeicao.setCalorias(refeicao.getRepAlimentos().getCaloriasTotais());
         refeicao.setQuantidade(refeicao.getRepAlimentos().getQuantidadeTotais());
         list.add(refeicao);
 
-        refeicao = new Refeicao("Meu almoço 1", "100", "g" , "320", "personalizada");
+        refeicao = new Refeicao("Meu almoço 1", 100, "g" , 320, "personalizada");
         refeicao.getRepAlimentos().setList(alimento_repositorio.popularAlimentos());
         refeicao.setCalorias(refeicao.getRepAlimentos().getCaloriasTotais());
         refeicao.setQuantidade(refeicao.getRepAlimentos().getQuantidadeTotais());
         list.add(refeicao);
 
-        refeicao = new Refeicao("Meu jantar 1", "100", "g" , "320", "personalizada");
+        refeicao = new Refeicao("Meu jantar 1", 100, "g" , 320, "personalizada");
         refeicao.getRepAlimentos().setList(alimento_repositorio.popularAlimentos());
         refeicao.setCalorias(refeicao.getRepAlimentos().getCaloriasTotais());
         refeicao.setQuantidade(refeicao.getRepAlimentos().getQuantidadeTotais());
         list.add(refeicao);
 
-        refeicao = new Refeicao("Meu lanche da tarde 1", "100", "g" , "320", "personalizada");
+        refeicao = new Refeicao("Meu lanche da tarde 1", 100, "g" , 320, "personalizada");
         refeicao.getRepAlimentos().setList(alimento_repositorio.popularAlimentos());
         refeicao.setCalorias(refeicao.getRepAlimentos().getCaloriasTotais());
         refeicao.setQuantidade(refeicao.getRepAlimentos().getQuantidadeTotais());
         list.add(refeicao);
 
-        refeicao = new Refeicao("Meu café da manhã 1", "100", "g" , "320", "personalizada");
+        refeicao = new Refeicao("Meu café da manhã 1", 100, "g" , 320, "personalizada");
         refeicao.getRepAlimentos().setList(alimento_repositorio.popularAlimentos());
         refeicao.setCalorias(refeicao.getRepAlimentos().getCaloriasTotais());
         refeicao.setQuantidade(refeicao.getRepAlimentos().getQuantidadeTotais());
         list.add(refeicao);
 
-        refeicao = new Refeicao("Lanche pós-treino", "100", "g" , "320", "personalizada");
+        refeicao = new Refeicao("Lanche pós-treino", 100, "g" , 320, "personalizada");
         refeicao.getRepAlimentos().setList(alimento_repositorio.popularAlimentos());
         refeicao.setCalorias(refeicao.getRepAlimentos().getCaloriasTotais());
         refeicao.setQuantidade(refeicao.getRepAlimentos().getQuantidadeTotais());
@@ -79,31 +79,31 @@ public class Refeicao_Repositorio extends ObjectDefault_Repositorio {
         /////////////////////
         // Refeições diarias
         /////////////////////
-        refeicao = new Refeicao("Café da manhã", "100", "g" , "320", "diaria");
+        refeicao = new Refeicao("Café da manhã", 100, "g" , 320, "diaria");
         refeicao.getRepAlimentos().setList(alimento_repositorio.popularAlimentos());
         refeicao.setCalorias(refeicao.getRepAlimentos().getCaloriasTotais());
         refeicao.setQuantidade(refeicao.getRepAlimentos().getQuantidadeTotais());
         list.add(refeicao);
 
-        refeicao = new Refeicao("Lanche da Manhã", "100", "g" , "320", "diaria");
+        refeicao = new Refeicao("Lanche da Manhã", 100, "g" , 320, "diaria");
         refeicao.getRepAlimentos().setList(alimento_repositorio.popularAlimentos());
         refeicao.setCalorias(refeicao.getRepAlimentos().getCaloriasTotais());
         refeicao.setQuantidade(refeicao.getRepAlimentos().getQuantidadeTotais());
         list.add(refeicao);
 
-        refeicao = new Refeicao("Almoço", "100", "g" , "320", "diaria");
+        refeicao = new Refeicao("Almoço", 100, "g" , 320, "diaria");
         refeicao.getRepAlimentos().setList(alimento_repositorio.popularAlimentos());
         refeicao.setCalorias(refeicao.getRepAlimentos().getCaloriasTotais());
         refeicao.setQuantidade(refeicao.getRepAlimentos().getQuantidadeTotais());
         list.add(refeicao);
 
-        refeicao = new Refeicao("Lanche da Tarde", "100", "g" , "320", "diaria");
+        refeicao = new Refeicao("Lanche da Tarde", 100, "g" , 320, "diaria");
         refeicao.getRepAlimentos().setList(alimento_repositorio.popularAlimentos());
         refeicao.setCalorias(refeicao.getRepAlimentos().getCaloriasTotais());
         refeicao.setQuantidade(refeicao.getRepAlimentos().getQuantidadeTotais());
         list.add(refeicao);
 
-        refeicao = new Refeicao("Jantar", "100", "g" , "320", "diaria");
+        refeicao = new Refeicao("Jantar", 100, "g" , 320, "diaria");
         refeicao.getRepAlimentos().setList(alimento_repositorio.popularAlimentos());
         refeicao.setCalorias(refeicao.getRepAlimentos().getCaloriasTotais());
         refeicao.setQuantidade(refeicao.getRepAlimentos().getQuantidadeTotais());

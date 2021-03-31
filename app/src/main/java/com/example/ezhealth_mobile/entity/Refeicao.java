@@ -6,7 +6,7 @@ public class Refeicao extends ObjectDefault{
     private ObjectDefault_Repositorio repAlimentos;
     private String tipoRefeicao;
 
-    public Refeicao(String nome, String quantidade, String unidadeMedida, String calorias, String tipoRefeicao){
+    public Refeicao(String nome, int quantidade, String unidadeMedida, int calorias, String tipoRefeicao){
         super(nome, quantidade, unidadeMedida, calorias);
         this.tipoRefeicao = tipoRefeicao;
         repAlimentos = new ObjectDefault_Repositorio();
@@ -30,29 +30,29 @@ public class Refeicao extends ObjectDefault{
 
     public String getCarboidratosTotais(){
         Integer total = 0;
-        for (ObjectDefault t: repAlimentos.getList())
-            total += Integer.parseInt(((Alimento)t).getCarboidratos());
+        for (ObjectDefault obj: repAlimentos.getList())
+            total += ((Alimento)obj).getCarboidratos();
         return total.toString();
     }
 
     public String getProteinasTotais(){
         Integer total = 0;
-        for (ObjectDefault t: repAlimentos.getList())
-            total += Integer.parseInt(((Alimento)t).getProteinas());
+        for (ObjectDefault obj: repAlimentos.getList())
+            total += ((Alimento)obj).getProteinas();
         return total.toString();
     }
 
     public String getGordurasTotais(){
         Integer total = 0;
-        for (ObjectDefault t: repAlimentos.getList())
-            total += Integer.parseInt(((Alimento)t).getGorduras());
+        for (ObjectDefault obj: repAlimentos.getList())
+            total += ((Alimento)obj).getGorduras();
         return total.toString();
     }
 
     public String getCaloriasTotais(){
         Integer total = 0;
-        for (ObjectDefault t: repAlimentos.getList())
-            total += Integer.parseInt(t.getCalorias());
+        for (ObjectDefault obj: repAlimentos.getList())
+            total += ((Alimento)obj).getCalorias();
         return total.toString();
     }
 

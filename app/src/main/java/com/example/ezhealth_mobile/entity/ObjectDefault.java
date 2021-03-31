@@ -3,16 +3,18 @@ package com.example.ezhealth_mobile.entity;
 public abstract class ObjectDefault {
 
     private String nome;
-    private String quantidade;
+    private int quantidade;
     private String unidadeMedida;
-    private String calorias;
+    private int calorias;
 
-    public ObjectDefault(String nome, String quantidade, String unidadeMedida, String calorias) {
+    public ObjectDefault(String nome, int quantidade, String unidadeMedida, int calorias) {
         this.nome = (nome != null)? nome : "Not named";
-        this.quantidade = (quantidade != null && Integer.parseInt(quantidade) >= 0)? quantidade : "0";
+        this.quantidade = (quantidade <= 0)? quantidade : 0;
         this.unidadeMedida = (unidadeMedida != null)? unidadeMedida : "qtd";
-        this.calorias = (calorias != null && Integer.parseInt(calorias) >= 0)? calorias : "0";
+        this.calorias = (calorias < 0)? calorias : 0;
     }
+
+    public ObjectDefault() {}
 
     public String getNome() {
         return nome;
@@ -22,11 +24,11 @@ public abstract class ObjectDefault {
         this.nome = nome;
     }
 
-    public String getQuantidade() {
+    public int getQuantidade() {
         return quantidade;
     }
 
-    public void setQuantidade(String quantidade) {
+    public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
     }
 
@@ -38,11 +40,11 @@ public abstract class ObjectDefault {
         this.unidadeMedida = unidadeMedida;
     }
 
-    public String getCalorias() {
+    public int getCalorias() {
         return calorias;
     }
 
-    public void setCalorias(String calorias) {
+    public void setCalorias(int calorias) {
         this.calorias = calorias;
     }
 

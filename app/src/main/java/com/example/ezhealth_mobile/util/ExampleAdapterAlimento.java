@@ -22,10 +22,12 @@ public class ExampleAdapterAlimento extends RecyclerView.Adapter<ExampleAdapterA
 
     private static OnClickListenerAdapter botaoAdicionar;
     private static OnClickListenerAdapter botaoEditar;
+    private static ArrayList<Alimento> listAlimento;
 
-    public ExampleAdapterAlimento(OnClickListenerAdapter botaoAdicionar, OnClickListenerAdapter botaoEditar){
+    public ExampleAdapterAlimento(ArrayList<Alimento> listAlimento, OnClickListenerAdapter botaoAdicionar, OnClickListenerAdapter botaoEditar){
         this.botaoAdicionar = botaoAdicionar;
         this.botaoEditar = botaoEditar;
+        this.listAlimento = listAlimento;
     }
 
     public static class ExampleViewHolder extends RecyclerView.ViewHolder {
@@ -60,16 +62,16 @@ public class ExampleAdapterAlimento extends RecyclerView.Adapter<ExampleAdapterA
 
     @Override
     public void onBindViewHolder(@NonNull ExampleViewHolder holder, int position) {
-        Alimento itemAtual = (Alimento) Alimento_Repositorio.getInstance().getItemList(position);
+        Alimento itemAtual = listAlimento.get(position);
 
         holder.textAlimento.setText(itemAtual.getNome());
-        holder.textMassa.setText(itemAtual.getQuantidade());
-        holder.textCalorias.setText(itemAtual.getCalorias());
+        holder.textMassa.setText(String.valueOf(itemAtual.getQuantidade()));
+        holder.textCalorias.setText(String.valueOf(itemAtual.getCalorias()));
     }
 
     @Override
     public int getItemCount() {
-        return Alimento_Repositorio.getInstance().getList().size();
+        return listAlimento.size();
     }
 
 }
