@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ezhealth_mobile.R;
+import com.example.ezhealth_mobile.controller.ControllerUsuario;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
@@ -90,13 +91,14 @@ public class Main_Activity extends AppCompatActivity {
             .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
-                    Log.i("testeAutenticação", task.getResult().getUser().getUid());
+                    String uuid = task.getResult().getUser().getUid();
+                    Log.i("testeAutenticação", uuid);
+
+                    ControllerUsuario.buscarUsuario(uuid);
 
                     Intent intent = new Intent(Main_Activity.this, Home_Activity.class);
                     //Fazer que activity seja a principal
-                    //intent.setFlags(intent.FLAG_ACTIVITY_CLEAR_TASK | intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
-
                 }
             })
             .addOnFailureListener(new OnFailureListener() {

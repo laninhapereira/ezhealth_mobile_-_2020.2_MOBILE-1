@@ -8,6 +8,8 @@ public class Usuario implements Parcelable {
     private String id;
     private String teste;
     private String nomeCompleto;
+    private String email;
+    private String dataNascimento;
     private String cpf;
     private String crn;
     private String sexo;
@@ -118,6 +120,22 @@ public class Usuario implements Parcelable {
 
     public void setDoencas(String doencas) { this.doencas = doencas; }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(String dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -136,5 +154,26 @@ public class Usuario implements Parcelable {
         parcel.writeString(objetivo);
         parcel.writeString(intolerancias);
         parcel.writeString(doencas);
+        parcel.writeString(dataNascimento);
+        parcel.writeString(email);
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "id='" + id + '\'' +
+                ", teste='" + teste + '\'' +
+                ", nomeCompleto='" + nomeCompleto + '\'' +
+                ", email='" + email + '\'' +
+                ", dataNascimento='" + dataNascimento + '\'' +
+                ", cpf='" + cpf + '\'' +
+                ", crn='" + crn + '\'' +
+                ", sexo='" + sexo + '\'' +
+                ", altura='" + altura + '\'' +
+                ", peso='" + peso + '\'' +
+                ", objetivo='" + objetivo + '\'' +
+                ", intolerancias='" + intolerancias + '\'' +
+                ", doencas='" + doencas + '\'' +
+                '}';
     }
 }
