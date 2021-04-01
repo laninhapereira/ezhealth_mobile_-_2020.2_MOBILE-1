@@ -81,7 +81,7 @@ public class PerfilFragment extends Fragment {
             // startActivity(intent3);
         });
 
-        //Abrir maps        ///////////Em desenvolvimento\\\\\\\\\\\\\\\
+        //Abrir maps
         Intent intent4 = new Intent(root.getRootView().getContext(), Maps_Activity.class);
 
         root.findViewById(R.id.fabMaps).setOnClickListener(v -> {

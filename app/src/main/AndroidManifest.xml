@@ -34,7 +34,13 @@
 
         <activity
             android:name=".activity.Maps_Activity"
-            android:label="@string/title_activity_maps_"></activity>
+            android:label="@string/title_activity_maps_">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.Home_Activity" />
+
+        </activity>
         <activity android:name=".activity.EditarSenha" />
         <activity android:name=".activity.PopupNome" />
         <activity android:name=".activity.EditarPerfil" />

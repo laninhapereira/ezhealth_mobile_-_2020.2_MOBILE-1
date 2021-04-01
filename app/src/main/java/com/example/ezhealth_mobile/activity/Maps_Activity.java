@@ -1,6 +1,8 @@
 package com.example.ezhealth_mobile.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.fragment.app.FragmentActivity;
 
@@ -40,8 +42,15 @@ public class Maps_Activity extends FragmentActivity implements OnMapReadyCallbac
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        LatLng ufcQxd = new LatLng(-4.978743772054841, -39.05640211761623);
+        mMap.addMarker(new MarkerOptions().position(ufcQxd).title("UFC Quixadá"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(ufcQxd));
     }
+
+    public void voltar(View v){
+        Intent intent = new Intent(Maps_Activity.this, Home_Activity.class);
+        intent.setFlags(intent.FLAG_ACTIVITY_CLEAR_TASK | intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
+
 }

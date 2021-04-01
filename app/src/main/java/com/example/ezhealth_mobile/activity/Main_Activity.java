@@ -69,7 +69,7 @@ public class Main_Activity extends AppCompatActivity {
 
         autenticarUsuario(loginEmail.getText().toString() , loginSenha.getText().toString());
 
-        //Intent intent = new Intent(this, Home_Activity.class);
+        //Intent intent = new Intent(this, Maps_Activity.class);
         //startActivity(intent);
 
         //Intent intent = new Intent(this, AdicionarExercicioActivity.class);
