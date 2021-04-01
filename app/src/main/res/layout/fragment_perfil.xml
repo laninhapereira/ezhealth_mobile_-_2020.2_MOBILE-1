@@ -446,29 +446,35 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
+        android:layout_marginStart="267dp"
         android:layout_marginEnd="16dp"
         app:backgroundTint="#CED6E0"
         app:elevation="6dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/fabSairApp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.92"
         app:srcCompat="@drawable/ic_chat" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabAbrirChatt"
+        android:id="@+id/fabSairApp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
+        android:layout_marginStart="267dp"
         android:layout_marginEnd="16dp"
         app:backgroundTint="#CED6E0"
         app:elevation="6dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.92"
-        app:srcCompat="@drawable/ic_chat" />
+        app:srcCompat="@drawable/ic_exit" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

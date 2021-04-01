@@ -6,18 +6,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+
 import com.example.ezhealth_mobile.R;
 import com.example.ezhealth_mobile.activity.EditarRefeicao_Activity;
+import com.example.ezhealth_mobile.activity.Main_Activity;
 import com.example.ezhealth_mobile.entity.ObjectDefault;
 import com.example.ezhealth_mobile.entity.Refeicao;
 import com.example.ezhealth_mobile.entity.Refeicao_Repositorio;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 
@@ -36,7 +38,20 @@ public class DiarioFragment extends Fragment {
             public void onChanged(@Nullable String s) {}
         });
 
+        //Verificar se o usuário está logado para continuar no app ou voltar para login
+        Intent intent = new Intent(root.getRootView().getContext(), Main_Activity.class);
+        verificarAutenticacao(intent);
+
+
         return root;
+    }
+
+    private void verificarAutenticacao(Intent intent) {
+        if(FirebaseAuth.getInstance().getUid() == null){
+            //Fazer que activity seja a principal
+            intent.setFlags(intent.FLAG_ACTIVITY_CLEAR_TASK | intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        }
     }
 
     @Override

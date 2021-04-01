@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment;
 import com.example.ezhealth_mobile.R;
 import com.example.ezhealth_mobile.activity.EditarPerfil;
 import com.example.ezhealth_mobile.activity.EditarSenha;
+import com.example.ezhealth_mobile.activity.Main_Activity;
 import com.example.ezhealth_mobile.activity.TelaChat_Activity;
 import com.example.ezhealth_mobile.entity.Usuario;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -43,6 +44,7 @@ public class PerfilFragment extends Fragment {
             }
         );*/
 
+        //Buscar dado usuário e preencher seus dados
         BuscarDadosUsusario();
 
         root = inflater.inflate(R.layout.fragment_perfil, container, false);
@@ -53,6 +55,7 @@ public class PerfilFragment extends Fragment {
         root.findViewById(R.id.fabAbrirChat).setOnClickListener(v -> {
             startActivity(intent);
         });
+
 
         //Abrir tela de edição de dados cadastrais
         Intent intent1 = new Intent(root.getRootView().getContext(), EditarPerfil.class);
@@ -66,6 +69,15 @@ public class PerfilFragment extends Fragment {
 
         root.findViewById(R.id.TextEditarSenha).setOnClickListener(v -> {
             startActivity(intent2);
+        });
+
+        //Sair do app
+        Intent intent3 = new Intent(root.getRootView().getContext(), Main_Activity.class);
+
+        root.findViewById(R.id.fabSairApp).setOnClickListener(v -> {
+            FirebaseAuth.getInstance().signOut();
+            verificarAutenticacao(intent3);
+            // startActivity(intent3);
         });
 
 
@@ -116,6 +128,14 @@ public class PerfilFragment extends Fragment {
 
         TextView txtDoencas = root.findViewById(R.id.perfilDoencas);
         txtDoencas.setText(userLogado.getDoencas());
+    }
+
+    private void verificarAutenticacao(Intent intent) {
+        if(FirebaseAuth.getInstance().getUid() == null){
+            //Fazer que activity seja a principal
+            intent.setFlags(intent.FLAG_ACTIVITY_CLEAR_TASK | intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        }
     }
 
 }

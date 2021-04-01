@@ -94,6 +94,7 @@ public class Main_Activity extends AppCompatActivity {
 
                     Intent intent = new Intent(Main_Activity.this, Home_Activity.class);
                     //Fazer que activity seja a principal
+                    intent.setFlags(intent.FLAG_ACTIVITY_CLEAR_TASK | intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
                 }
             })
