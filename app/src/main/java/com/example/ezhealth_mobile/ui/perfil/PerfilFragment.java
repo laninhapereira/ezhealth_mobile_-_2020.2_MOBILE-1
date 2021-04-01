@@ -80,6 +80,8 @@ public class PerfilFragment extends Fragment {
             // startActivity(intent3);
         });
 
+        //Abrir maps        ///////////Em desenvolvimento\\\\\\\\\\\\\\\
+
 
         return root;
     }

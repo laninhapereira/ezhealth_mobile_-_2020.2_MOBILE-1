@@ -17,6 +17,7 @@ import com.example.ezhealth_mobile.entity.Usuario;
 import com.example.ezhealth_mobile.util.ExampleAdapterChat;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -99,9 +100,11 @@ public class TelaChat_Activity extends AppCompatActivity {
                         List<DocumentSnapshot> docs =  value.getDocuments();
                         for (DocumentSnapshot doc : docs){
                             Usuario user = doc.toObject(Usuario.class);
-                            Log.i("TesteBusca", user.getNomeCompleto());
+                            //Log.i("TesteBusca", user.getNomeCompleto());
 
-                            adapter.add(new UserItem(user));
+                            if(!user.getId().equals(FirebaseAuth.getInstance().getUid())){
+                                adapter.add(new UserItem(user));
+                            }
                         }
 
                     }
