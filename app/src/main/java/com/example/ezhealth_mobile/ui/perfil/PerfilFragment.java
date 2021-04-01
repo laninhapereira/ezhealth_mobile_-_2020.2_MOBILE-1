@@ -14,6 +14,7 @@ import com.example.ezhealth_mobile.R;
 import com.example.ezhealth_mobile.activity.EditarPerfil;
 import com.example.ezhealth_mobile.activity.EditarSenha;
 import com.example.ezhealth_mobile.activity.Main_Activity;
+import com.example.ezhealth_mobile.activity.Maps_Activity;
 import com.example.ezhealth_mobile.activity.TelaChat_Activity;
 import com.example.ezhealth_mobile.entity.Usuario;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -81,6 +82,12 @@ public class PerfilFragment extends Fragment {
         });
 
         //Abrir maps        ///////////Em desenvolvimento\\\\\\\\\\\\\\\
+        Intent intent4 = new Intent(root.getRootView().getContext(), Maps_Activity.class);
+
+        root.findViewById(R.id.fabMaps).setOnClickListener(v -> {
+            FirebaseAuth.getInstance().signOut();
+            verificarAutenticacao(intent4);
+        });
 
 
         return root;
