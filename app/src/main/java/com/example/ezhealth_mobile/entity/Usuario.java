@@ -6,7 +6,7 @@ import android.os.Parcelable;
 public class Usuario implements Parcelable {
 
     private String id;
-    private String teste;
+    private String senha;
     private String tipoUsuario;
     private String nomeCompleto;
     private String email;
@@ -23,15 +23,11 @@ public class Usuario implements Parcelable {
     private String intolerancias;
     private String doencas;
 
-    public Usuario(String id, String teste) {
-        this.id = id;
-        this.teste = teste;
-    }
 
-    public Usuario(String id, String teste, String tipoUsuario, String nomeCompleto, String cpf, String crn, String diaNasc, String mesNasc, String anoNasc,
+    public Usuario(String id, String senha, String tipoUsuario, String nomeCompleto, String cpf, String crn, String diaNasc, String mesNasc, String anoNasc,
                    String sexo, String altura, String peso, String objetivo, String intolerancias, String doencas) {
         this.id = id;
-        this.teste = teste;
+        this.senha = senha;
         this.tipoUsuario = tipoUsuario;
         this.nomeCompleto = nomeCompleto;
         this.cpf = cpf;
@@ -53,7 +49,7 @@ public class Usuario implements Parcelable {
     //Construtor protegido, para mapear todos os atributos para conseguir pegar de volta o seu estado
     protected Usuario(Parcel in) {
         id = in.readString();
-        teste = in.readString();
+        senha = in.readString();
         tipoUsuario = in.readString();
         nomeCompleto = in.readString();
         cpf = in.readString();
@@ -89,12 +85,12 @@ public class Usuario implements Parcelable {
         this.id = id;
     }
 
-    public String getTeste() {
-        return teste;
+    public String getSenha() {
+        return senha;
     }
 
-    public void setTeste(String teste) {
-        this.teste = teste;
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
     public String getNomeCompleto() { return nomeCompleto; }
@@ -173,7 +169,7 @@ public class Usuario implements Parcelable {
     @Override
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(id);
-        parcel.writeString(teste);
+        parcel.writeString(senha);
         parcel.writeString(tipoUsuario);
         parcel.writeString(nomeCompleto);
         parcel.writeString(cpf);
@@ -195,7 +191,7 @@ public class Usuario implements Parcelable {
     public String toString() {
         return "Usuario{" +
                 "id='" + id + '\'' +
-                ", teste='" + teste + '\'' +
+                ", teste='" + senha + '\'' +
                 ", nomeCompleto='" + nomeCompleto + '\'' +
                 ", email='" + email + '\'' +
                 ", dataNascimento='" + dataNascimento + '\'' +

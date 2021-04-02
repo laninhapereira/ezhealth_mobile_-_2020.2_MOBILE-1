@@ -188,6 +188,9 @@ public class EditarPerfil extends AppCompatActivity {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         Log.i("testeEdição", e.getMessage());
+
+
+
                     }
                 });
     }

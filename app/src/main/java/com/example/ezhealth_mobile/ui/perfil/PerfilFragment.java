@@ -70,6 +70,7 @@ public class PerfilFragment extends Fragment {
         Intent intent2 = new Intent(root.getRootView().getContext(), EditarSenha.class);
 
         root.findViewById(R.id.TextEditarSenha).setOnClickListener(v -> {
+            intent2.putExtra("user", userLogado);
             startActivity(intent2);
         });
 
@@ -86,8 +87,7 @@ public class PerfilFragment extends Fragment {
         Intent intent4 = new Intent(root.getRootView().getContext(), Maps_Activity.class);
 
         root.findViewById(R.id.fabMaps).setOnClickListener(v -> {
-            FirebaseAuth.getInstance().signOut();
-            verificarAutenticacao(intent4);
+            startActivity(intent4);
         });
 
 

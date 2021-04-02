@@ -97,8 +97,7 @@ public class Main_Activity extends AppCompatActivity {
                     intent.setFlags(intent.FLAG_ACTIVITY_CLEAR_TASK | intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
                 }
-            })
-            .addOnFailureListener(new OnFailureListener() {
+            }).addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
                     Log.i("testeAutenticação", e.getMessage());

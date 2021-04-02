@@ -109,6 +109,7 @@ public class TelaCadastro8_Activity extends AppCompatActivity {
         //String testee = teste;
 
         user.setId(id);
+        user.setSenha(cadastroSenha.getText().toString());
         //user.setTeste(testee);
 
         //Salvar usuário no firebase com id como chave primária
