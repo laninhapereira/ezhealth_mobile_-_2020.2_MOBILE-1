@@ -14,9 +14,11 @@ import com.example.ezhealth_mobile.R;
 import com.example.ezhealth_mobile.entity.Usuario;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class EditarSenha extends AppCompatActivity {
 
@@ -29,6 +31,9 @@ public class EditarSenha extends AppCompatActivity {
 
         //Buscar dado usuário e preencher seus dados
         userLogado = getIntent().getExtras().getParcelable("user");
+
+        EditText novaSenha2 = findViewById(R.id.editNovaSenha2);
+        novaSenha2.setVisibility(View.INVISIBLE);
     }
 
     public void VoltarPerfil3(View v){
@@ -58,6 +63,10 @@ public class EditarSenha extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 Log.d("TesteUpdateSenha", "User password updated.");
                                 //Log.d("TesteEmail", user.getEmail());
+
+                                salvarNoFirebase(novaSenha);
+
+                                Toast.makeText(EditarSenha.this, "Senha alterada", Toast.LENGTH_LONG).show();
 
                                 Intent intent = new Intent(EditarSenha.this, Home_Activity.class);
                                 intent.setFlags(intent.FLAG_ACTIVITY_CLEAR_TASK | intent.FLAG_ACTIVITY_NEW_TASK);
@@ -91,6 +100,30 @@ public class EditarSenha extends AppCompatActivity {
             intent.setFlags(intent.FLAG_ACTIVITY_CLEAR_TASK | intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
         }
+    }
+
+    //Salvar usuário no firestore
+    public void salvarNoFirebase(String novaSenha){
+        String id = FirebaseAuth.getInstance().getUid();
+        userLogado.setSenha(novaSenha);
+        //user.setId(id);
+
+        //Salvar usuário no firebase com id como chave primária
+        FirebaseFirestore.getInstance().collection("usuarios")
+                .document(id)
+                .set(userLogado)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        //Log.i("testeEdição", documentReference.get());
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.i("testeEdição", e.getMessage());
+                    }
+                });
     }
 
 }

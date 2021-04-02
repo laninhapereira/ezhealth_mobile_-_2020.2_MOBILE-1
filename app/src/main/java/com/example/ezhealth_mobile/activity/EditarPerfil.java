@@ -58,9 +58,9 @@ public class EditarPerfil extends AppCompatActivity {
             //txtCrn.setVisibility(View.INVISIBLE);
             txtCrn.setHint("O usuário não possui CRN");
             txtCrn.setKeyListener(null);
-        }else if(userLogado.getTipoUsuario().equals("Nutricionista")){
+        }else if(userLogado.getTipoUsuario().equals("Sou nutricionista")){
             TextView txtCrn = findViewById(R.id.editCRN);
-            txtCrn.setText(userLogado.getCrn());
+            txtCrn.setHint(userLogado.getCrn());
             txtCrn.setKeyListener(null);
         }
 
@@ -163,10 +163,8 @@ public class EditarPerfil extends AppCompatActivity {
     //Salvar usuário no firestore
     public void salvarNoFirebase(/*String teste*/){
         String id = FirebaseAuth.getInstance().getUid();
-        //String testee = teste;
 
         //user.setId(id);
-        //user.setTeste(testee);
 
         //Salvar usuário no firebase com id como chave primária
         FirebaseFirestore.getInstance().collection("usuarios")
@@ -188,9 +186,6 @@ public class EditarPerfil extends AppCompatActivity {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         Log.i("testeEdição", e.getMessage());
-
-
-
                     }
                 });
     }

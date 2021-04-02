@@ -19,6 +19,7 @@ import com.example.ezhealth_mobile.activity.TelaChat_Activity;
 import com.example.ezhealth_mobile.entity.Usuario;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -109,6 +110,10 @@ public class PerfilFragment extends Fragment {
     }
 
     private void PreencherPerfil() {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        TextView txtEmail = root.findViewById(R.id.TextPerfilEmail);
+        txtEmail.setText(user.getEmail());
+
         TextView txtNome = root.findViewById(R.id.TextPerfilNome);
         txtNome.setText(userLogado.getNomeCompleto());
 
@@ -123,6 +128,12 @@ public class PerfilFragment extends Fragment {
 
         TextView txtCrn = root.findViewById(R.id.perfilCRN);
         txtCrn.setText(userLogado.getCrn());
+        if(userLogado.getCrn().equals("Não possui") || userLogado.getCrn().equals(null) || userLogado.getCrn().equals("")  ){
+            TextView txt1 = root.findViewById(R.id.areaNutricionista); txt1.setVisibility(View.INVISIBLE);
+            TextView txt2 = root.findViewById(R.id.areaNutricionistaTexto1); txt2.setVisibility(View.INVISIBLE);
+            TextView txt3 = root.findViewById(R.id.areaNutricionistaTexto2); txt3.setVisibility(View.INVISIBLE);
+        }
+
 
         TextView txtAltura = root.findViewById(R.id.perfilAltura);
         txtAltura.setText(userLogado.getAltura() + " cm");

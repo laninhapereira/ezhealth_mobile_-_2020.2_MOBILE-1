@@ -39,11 +39,14 @@ public class TelaCadastro8_Activity extends AppCompatActivity {
         //* Confirmar se todos os campos estão preenchidos //
         cadastroEmail = findViewById(R.id.editTextCadastroEmail);
         cadastroSenha = findViewById(R.id.editTextCadastroSenha1);
+
         cadastroSenha2 = findViewById(R.id.editTextCadastroSenha2);
+        cadastroSenha2.setVisibility(View.INVISIBLE);
+
         buttonProximo8 = findViewById(R.id.buttonCadastroProximo8);
 
-        //cadastroEmail.addTextChangedListener(cadastro7Watcher);
-        //cadastroSenha.addTextChangedListener(cadastro7Watcher);
+        cadastroEmail.addTextChangedListener(cadastro7Watcher);
+        cadastroSenha.addTextChangedListener(cadastro7Watcher);
         //cadastroSenha2.addTextChangedListener(cadastro7Watcher);
         // Confirmar se todos os campos estão preenchidos *//
 
@@ -62,7 +65,7 @@ public class TelaCadastro8_Activity extends AppCompatActivity {
             String senha1 = cadastroSenha.getText().toString().trim();
             String senha2 = cadastroSenha2.getText().toString().trim();
 
-            buttonProximo8.setEnabled(!email.isEmpty() && !senha1.isEmpty() && !senha2.isEmpty());
+            buttonProximo8.setEnabled(!email.isEmpty() && !senha1.isEmpty());
         }
 
         @Override
