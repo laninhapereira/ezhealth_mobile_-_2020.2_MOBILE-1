@@ -37,7 +37,7 @@ public class TelaCadastro2_Activity extends AppCompatActivity {
 
         //Se usuário for comum, esconder CRN
         cadastroCRN = findViewById(R.id.editTextCadastroCRN);
-        if(user.getTipoUsuario().equals("Uso Comum")){ cadastroCRN.setVisibility(View.INVISIBLE); }
+        if(user.getTipoUsuario().equals("Uso Comum")){ cadastroCRN.setKeyListener(null); }
         else  cadastroCRN.addTextChangedListener(cadastro1Watcher);
 
         buttonProximo2 = findViewById(R.id.buttonCadastroProximo2);
