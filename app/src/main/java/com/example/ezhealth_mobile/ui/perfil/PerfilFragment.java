@@ -62,6 +62,7 @@ public class PerfilFragment extends Fragment {
         Intent intent1 = new Intent(root.getRootView().getContext(), EditarPerfil.class);
 
         root.findViewById(R.id.ClicarEditarDados).setOnClickListener(v -> {
+            intent1.putExtra("user", userLogado);
             startActivity(intent1);
         });
 
