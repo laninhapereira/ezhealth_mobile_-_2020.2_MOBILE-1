@@ -1,5 +1,5 @@
 # EzHealth
-Sistema mobile para auxíliar em no controle de alimentação, exercícios e doenças. Desenvolvido para a disciplina de Desenvolvimento de Software para Dispositivos Móveis
+Sistema mobile para auxiliar no controle de alimentação, exercícios e doenças. Desenvolvido para a disciplina de Desenvolvimento de Software para Dispositivos Móveis
 
 # Equipe
 - Paulo Ravi Feijão Leal - 485363
