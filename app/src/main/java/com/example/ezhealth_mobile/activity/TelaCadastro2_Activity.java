@@ -37,10 +37,13 @@ public class TelaCadastro2_Activity extends AppCompatActivity {
 
         //Se usuário for comum, esconder CRN
         cadastroCRN = findViewById(R.id.editTextCadastroCRN);
-        if(user.getTipoUsuario().equals("Uso Comum")){ cadastroCRN.setKeyListener(null); }
-        else  cadastroCRN.addTextChangedListener(cadastro1Watcher);
+        if(user.getTipoUsuario().equals("Uso Comum")){
+            //cadastroCRN.setKeyListener(null);
+            cadastroCRN.setVisibility(View.INVISIBLE);
+        } else  cadastroCRN.addTextChangedListener(cadastro1Watcher);
 
         buttonProximo2 = findViewById(R.id.buttonCadastroProximo2);
+        buttonProximo2.setEnabled(false);
 
         cadastroNome.addTextChangedListener(cadastro1Watcher);
         cadastroCPF.addTextChangedListener(cadastro1Watcher);
@@ -54,12 +57,12 @@ public class TelaCadastro2_Activity extends AppCompatActivity {
     private TextWatcher cadastro1Watcher = new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
+            buttonProximo2.setEnabled(false);
         }
 
         @Override
         public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-            buttonProximo2.setEnabled(true);
+            buttonProximo2.setEnabled(false);
 
             String nomeInput = cadastroNome.getText().toString().trim();
             String CPFInput = cadastroCPF.getText().toString().trim();

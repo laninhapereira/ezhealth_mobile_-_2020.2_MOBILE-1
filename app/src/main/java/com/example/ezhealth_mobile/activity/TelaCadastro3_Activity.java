@@ -34,6 +34,7 @@ public class TelaCadastro3_Activity extends AppCompatActivity {
         cadastroMes = findViewById(R.id.editTextNascimentoMes);
         cadastroAno = findViewById(R.id.editTextNascimentoAno);
         buttonProximo3 = findViewById(R.id.buttonCadastroProximo3);
+        buttonProximo3.setEnabled(false);
 
         cadastroDia.addTextChangedListener(cadastro1Watcher);
         cadastroMes.addTextChangedListener(cadastro1Watcher);
