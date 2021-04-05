@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,6 +34,7 @@ public class Main_Activity extends AppCompatActivity {
         loginEmail = findViewById(R.id.editTextEmailLogin);
         loginSenha = findViewById(R.id.editTextSenhaLogin);
         loginButton = findViewById(R.id.buttonLogin);
+        loginButton.setEnabled(false);
 
         loginEmail.addTextChangedListener(loginTextWatcher);
         loginSenha.addTextChangedListener(loginTextWatcher);
@@ -89,8 +91,8 @@ public class Main_Activity extends AppCompatActivity {
             .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
-                    String uuid = task.getResult().getUser().getUid();
-                    Log.i("testeAutenticação", uuid);
+                    //String uuid = task.getResult().getUser().getUid();
+                    //Log.i("testeAutenticação", uuid);
 
                     Intent intent = new Intent(Main_Activity.this, Home_Activity.class);
                     //Fazer que activity seja a principal
@@ -100,6 +102,7 @@ public class Main_Activity extends AppCompatActivity {
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(Main_Activity.this, "Email ou senha inválidos", Toast.LENGTH_SHORT).show();
                     Log.i("testeAutenticação", e.getMessage());
                 }
             });

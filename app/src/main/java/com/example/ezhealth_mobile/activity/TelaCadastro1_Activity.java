@@ -16,8 +16,9 @@ import com.example.ezhealth_mobile.entity.Usuario;
 public class TelaCadastro1_Activity extends AppCompatActivity {
 
     private Usuario user;
-
     private Button button1;
+
+    private RadioGroup radioGroup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,9 +26,26 @@ public class TelaCadastro1_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_tela_cadastro1_);
 
         button1 = findViewById(R.id.buttonCadastroProximo1);
-        button1.setEnabled(true);
+        button1.setEnabled(false);
 
+        checarRadio();
 
+    }
+
+    private void checarRadio() {
+        radioGroup = (RadioGroup)findViewById(R.id.radioTela1);
+
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                //Log.i("teste", String.valueOf(i));
+                if(R.id.escolhaCadastroUsario == i){
+                    button1.setEnabled(true);
+                }else if(R.id.escolhaCadastroNutricionista == i){
+                    button1.setEnabled(true);
+                }
+            }
+        });
     }
 
     public void irTela2(View v){
