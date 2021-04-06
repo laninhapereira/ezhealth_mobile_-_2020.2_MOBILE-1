@@ -2,8 +2,11 @@ package com.example.ezhealth_mobile.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -24,6 +27,12 @@ public class EditarSenha extends AppCompatActivity {
 
     private Usuario userLogado;
 
+    EditText edtSenhaAtual;
+    EditText edtNovaSenha;
+    EditText edtNovaSenha2;
+
+    private Button buttonEditSenha;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,9 +41,45 @@ public class EditarSenha extends AppCompatActivity {
         //Buscar dado usuário e preencher seus dados
         userLogado = getIntent().getExtras().getParcelable("user");
 
-        EditText novaSenha2 = findViewById(R.id.editNovaSenha2);
-        novaSenha2.setVisibility(View.INVISIBLE);
+
+        //* Confirmar se todos os campos estão preenchidos //
+        edtSenhaAtual = findViewById(R.id.editSenhaAtual);
+        edtNovaSenha = findViewById(R.id.editNovaSenha);
+        edtNovaSenha2 = findViewById(R.id.editNovaSenha2);
+
+        buttonEditSenha = findViewById(R.id.buttonEditarSenha);
+        buttonEditSenha.setEnabled(false);
+
+        edtSenhaAtual.addTextChangedListener(editSenhaTextWatcher);
+        edtNovaSenha.addTextChangedListener(editSenhaTextWatcher);
+        edtNovaSenha2.addTextChangedListener(editSenhaTextWatcher);
+        // Confirmar se todos os campos estão preenchidos *//
+
     }
+
+    // Confirmar se todos os campos estão preenchidos
+
+    private TextWatcher editSenhaTextWatcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            String senhaAtual = edtSenhaAtual.getText().toString().trim();
+            String novaSenha = edtNovaSenha.getText().toString().trim();
+            String novaSenha2 = edtNovaSenha2.getText().toString().trim();
+
+            buttonEditSenha.setEnabled( !senhaAtual.isEmpty() && !novaSenha.isEmpty() && !novaSenha2.isEmpty() );
+        }
+
+        @Override
+        public void afterTextChanged(Editable editable) {
+
+        }
+    };
+
 
     public void VoltarPerfil3(View v){
         Intent intent = new Intent(this, Home_Activity.class);
@@ -42,54 +87,62 @@ public class EditarSenha extends AppCompatActivity {
     }
 
     public void SalvarAlteraçãoSenha(View v){
-
         updateSenha();
     }
 
     private void updateSenha() {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-        EditText edtSenhaAtual = findViewById(R.id.editSenhaAtual);
-        EditText edtNovaSenha = findViewById(R.id.editNovaSenha);
+        edtSenhaAtual = findViewById(R.id.editSenhaAtual);
+        edtNovaSenha = findViewById(R.id.editNovaSenha);
+        edtNovaSenha2 = findViewById(R.id.editNovaSenha2);
 
         if(edtSenhaAtual.getText().toString().equals(userLogado.getSenha())) {
 
-            String novaSenha = edtNovaSenha.getText().toString();
+            if(edtNovaSenha.getText().toString().equals(edtNovaSenha2.getText().toString())) {
 
-            user.updatePassword(novaSenha)
-                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            if (task.isSuccessful()) {
-                                Log.d("TesteUpdateSenha", "User password updated.");
-                                //Log.d("TesteEmail", user.getEmail());
+                String novaSenha = edtNovaSenha.getText().toString();
 
-                                salvarNoFirebase(novaSenha);
+                user.updatePassword(novaSenha)
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()) {
+                                    Log.d("TesteUpdateSenha", "User password updated.");
+                                    //Log.d("TesteEmail", user.getEmail());
 
-                                Toast.makeText(EditarSenha.this, "Senha alterada", Toast.LENGTH_LONG).show();
+                                    salvarNoFirebase(novaSenha);
 
-                                Intent intent = new Intent(EditarSenha.this, Home_Activity.class);
-                                intent.setFlags(intent.FLAG_ACTIVITY_CLEAR_TASK | intent.FLAG_ACTIVITY_NEW_TASK);
-                                startActivity(intent);
+                                    Toast.makeText(EditarSenha.this, "Senha alterada", Toast.LENGTH_LONG).show();
 
+                                    Intent intent = new Intent(EditarSenha.this, Home_Activity.class);
+                                    intent.setFlags(intent.FLAG_ACTIVITY_CLEAR_TASK | intent.FLAG_ACTIVITY_NEW_TASK);
+                                    startActivity(intent);
+
+                                }
                             }
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    Log.i("testeUpdateSenha", e.getMessage());
+                        }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.i("testeUpdateSenha", e.getMessage());
 
-                    Intent intent = new Intent(EditarSenha.this, Main_Activity.class);
+                        Intent intent = new Intent(EditarSenha.this, Main_Activity.class);
 
-                    FirebaseAuth.getInstance().signOut();
-                    Toast.makeText(EditarSenha.this, "O usuário está inativo há bastante tempo, realize o login novamente", Toast.LENGTH_LONG).show();
+                        FirebaseAuth.getInstance().signOut();
+                        Toast.makeText(EditarSenha.this, "O usuário está inativo há bastante tempo, realize o login novamente", Toast.LENGTH_LONG).show();
 
-                    verificarAutenticacao(intent);
-                }
-            });
+                        verificarAutenticacao(intent);
+                    }
+                });
+            }else{
+                Log.i("testeEdit 1 : ", edtNovaSenha.getText().toString());
+                Log.i("testeEdit 2 : ", edtNovaSenha2.getText().toString());
+                Toast.makeText(EditarSenha.this, "Os campos de nova senha precisam ser iguais", Toast.LENGTH_LONG).show();
+                return;
+            }
 
         }else{
-            Toast.makeText(EditarSenha.this, "Sua senha atual está errada, insira novamente", Toast.LENGTH_LONG).show();
+            Toast.makeText(EditarSenha.this, "Sua senha atual difere do cadastro, insira novamente", Toast.LENGTH_LONG).show();
             return;
         }
     }
