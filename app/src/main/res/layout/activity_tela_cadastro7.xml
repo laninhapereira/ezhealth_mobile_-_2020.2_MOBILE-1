@@ -10,7 +10,7 @@
 
     <TextView
         android:id="@+id/editText"
-        android:layout_width="415dp"
+        android:layout_width="match_parent"
         android:layout_height="70dp"
         android:background="@drawable/custom_telas_cadastro"
         android:text="Tela Cadastro"

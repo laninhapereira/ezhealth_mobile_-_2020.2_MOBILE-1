@@ -58,7 +58,7 @@
 
     <TextView
         android:id="@+id/textViewLocation"
-        android:layout_width="410dp"
+        android:layout_width="match_parent"
         android:layout_height="55dp"
         android:background="#CED6E0"
         android:elevation="4dp"
