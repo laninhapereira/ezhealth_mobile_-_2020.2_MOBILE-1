@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -39,15 +40,15 @@ public class TelaCadastro8_Activity extends AppCompatActivity {
         //* Confirmar se todos os campos estão preenchidos //
         cadastroEmail = findViewById(R.id.editTextCadastroEmail);
         cadastroSenha = findViewById(R.id.editTextCadastroSenha1);
-
         cadastroSenha2 = findViewById(R.id.editTextCadastroSenha2);
-        cadastroSenha2.setVisibility(View.INVISIBLE);
+        //cadastroSenha2.setVisibility(View.INVISIBLE);
 
         buttonProximo8 = findViewById(R.id.buttonCadastroProximo8);
+        buttonProximo8.setEnabled(false);
 
         cadastroEmail.addTextChangedListener(cadastro7Watcher);
         cadastroSenha.addTextChangedListener(cadastro7Watcher);
-        //cadastroSenha2.addTextChangedListener(cadastro7Watcher);
+        cadastroSenha2.addTextChangedListener(cadastro7Watcher);
         // Confirmar se todos os campos estão preenchidos *//
 
     }
@@ -65,7 +66,7 @@ public class TelaCadastro8_Activity extends AppCompatActivity {
             String senha1 = cadastroSenha.getText().toString().trim();
             String senha2 = cadastroSenha2.getText().toString().trim();
 
-            buttonProximo8.setEnabled(!email.isEmpty() && !senha1.isEmpty());
+            buttonProximo8.setEnabled( !email.isEmpty() && !senha1.isEmpty() && !senha2.isEmpty() );
         }
 
         @Override
@@ -76,35 +77,38 @@ public class TelaCadastro8_Activity extends AppCompatActivity {
 
 
     //Concluir Cadastro
-    public void voltarTelaLogin(View v){
+    public void autenticarUser(View v){
         String email = cadastroEmail.getText().toString();
         String senha = cadastroSenha.getText().toString();
-        /*String senha2 = cadastroSenha2.getText().toString();
+        String senha2 = cadastroSenha2.getText().toString();
 
-        if(email == null || email.isEmpty() || senha == null || senha.isEmpty() || senha2 == null || senha2.isEmpty() ){
-            Toast.makeText(this, "Todos os dados devem ser preenchidos", Toast.LENGTH_SHORT).toString();
-            return;
-        }*/
-
-        FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, senha)
-            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    if(task.isSuccessful()) Log.i("TesteCadastro", task.getResult().getUser().getUid());
-
-                    salvarNoFirebase(/*teste.getText().toString()*/);
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    Log.i("TesteCadastro", e.getMessage());
-                }
-        });
+       if(senha.equals(senha2)) {
+           FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, senha)
+                   .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                       @Override
+                       public void onComplete(@NonNull Task<AuthResult> task) {
+                           if (task.isSuccessful()){
+                               Log.i("TesteCadastro", task.getResult().getUser().getUid());
+                               salvarNoFirebase(/*teste.getText().toString()*/);
+                           }
+                       }
+                   }).addOnFailureListener(new OnFailureListener() {
+                       @Override
+                       public void onFailure(@NonNull Exception e) {
+                           Toast.makeText(TelaCadastro8_Activity.this, "Email ou senha inválidos", Toast.LENGTH_SHORT).show();
+                           Log.i("TesteCadastro", e.getMessage());
+                       }
+                    });
+       }else{
+           Toast.makeText(TelaCadastro8_Activity.this, "Insira senhas iguais", Toast.LENGTH_SHORT).show();
+           return;
+       }
 
 
         //Intent intent = new Intent(this, Main_Activity.class);
         //startActivity(intent);
     }
+
 
     //Salvar usuário no firestore
     public void salvarNoFirebase(/*String teste*/){
