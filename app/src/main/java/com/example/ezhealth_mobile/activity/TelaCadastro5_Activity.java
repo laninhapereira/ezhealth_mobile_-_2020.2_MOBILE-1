@@ -31,6 +31,7 @@ public class TelaCadastro5_Activity extends AppCompatActivity {
         cadastroPeso = findViewById(R.id.editTextCadastroPeso);
         cadastroAltura = findViewById(R.id.editTextCadastroAltura);
         buttonProximo5 = findViewById(R.id.buttonCadastroProximo5);
+        buttonProximo5.setEnabled(false);
 
         cadastroPeso.addTextChangedListener(cadastro4Watcher);
         cadastroAltura.addTextChangedListener(cadastro4Watcher);

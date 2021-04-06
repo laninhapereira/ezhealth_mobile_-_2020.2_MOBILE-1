@@ -17,7 +17,6 @@ public class TelaCadastro1_Activity extends AppCompatActivity {
 
     private Usuario user;
     private Button button1;
-
     private RadioGroup radioGroup;
 
     @Override
