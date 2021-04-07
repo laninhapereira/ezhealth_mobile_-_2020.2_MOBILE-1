@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.example.ezhealth_mobile.R;
+import com.example.ezhealth_mobile.activity.Camera_Activity;
 import com.example.ezhealth_mobile.activity.EditarPerfil;
 import com.example.ezhealth_mobile.activity.EditarSenha;
 import com.example.ezhealth_mobile.activity.Main_Activity;
@@ -89,6 +90,13 @@ public class PerfilFragment extends Fragment {
 
         root.findViewById(R.id.fabMaps).setOnClickListener(v -> {
             startActivity(intent4);
+        });
+
+        //Abrir maps
+        Intent intent5 = new Intent(root.getRootView().getContext(), Camera_Activity.class);
+
+        root.findViewById(R.id.fabCamera).setOnClickListener(v -> {
+            startActivity(intent5);
         });
 
 

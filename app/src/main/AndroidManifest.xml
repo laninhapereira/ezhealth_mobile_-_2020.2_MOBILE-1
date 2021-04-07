@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ezhealth_mobile">
-
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
          location permissions for the "MyLocation" functionality.
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -16,9 +17,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Ezhealth_mobile">
-
-
-
+        <activity android:name=".activity.Camera_Activity"></activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -27,7 +26,6 @@
              sign the APK for publishing.
              You can define the keys for the debug and release targets in src/debug/ and src/release/.
         -->
-
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
@@ -35,11 +33,9 @@
         <activity
             android:name=".activity.Maps_Activity"
             android:label="@string/title_activity_maps_">
-
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activity.Home_Activity" />
-
         </activity>
         <activity android:name=".activity.EditarSenha" />
         <activity android:name=".activity.PopupNome" />
@@ -77,7 +73,7 @@
         <activity android:name=".activity.TelaCadastro4_Activity" />
         <activity android:name=".activity.TelaCadastro3_Activity" />
         <activity android:name=".activity.TelaCadastro2_Activity" />
-        <activity android:name=".activity.Main_Activity"></activity>
+        <activity android:name=".activity.Main_Activity" />
         <activity android:name=".util.ExampleAdapterAlimento" />
     </application>
 
