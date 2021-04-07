@@ -46,12 +46,12 @@ public class Camera_Activity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
         if(requestCode == REQUEST_FOTO && resultCode == RESULT_OK){
             Bundle bundle = data.getExtras();
             Bitmap foto = (Bitmap) bundle.get("data");
             imageFoto.setImageBitmap(foto);
         }
-
-        super.onActivityResult(requestCode, resultCode, data);
     }
 }
