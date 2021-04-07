@@ -62,9 +62,7 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
         imageViewButtonAdd = findViewById(R.id.imageViewButtonAdd);
 
         procurarRefeicao();
-        textViewTitelDualPanel.setText(refeicao.getNome());
-
-        configuraPopup();
+//        configuraPopup();
     }
 
     @Override
@@ -72,18 +70,15 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
         super.onResume();
 
         procurarRefeicao();
-        Toast.makeText(this, refeicao.getNome(), Toast.LENGTH_SHORT).show();
         textViewTitelDualPanel.setText(refeicao.getNome());
 
         this.configuraPrimeiroPainel();
         this.configuraSegundoPainel();
     }
 
-    private void configuraPopup(){
-        dialogEditarNome = PopupNome.configuraPopup(this, "alimento", nome -> {
-            salvarNomeEditado((String) nome);
-        });
-    }
+//    private void configuraPopup(){
+//
+//    }
 
     private void procurarRefeicao(){
         refeicao = (Refeicao) getIntent().getSerializableExtra("REFEICAO");
@@ -98,6 +93,7 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
     private void configuraPrimeiroPainel(){
         OnClickListenerAdapter botaoEditar;
         OnClickListenerAdapter botaoEditarNome;
+        OnClickListenerAdapter botaoExcluir;
         ExampleAdapterObjectDefault exampleAdapterObjectDefault;
         ImageView buttonAdd = (ImageView) findViewById(R.id.imageViewButtonAdd);
 
@@ -115,9 +111,20 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
         };
 
         botaoEditarNome = alimento -> {
+            dialogEditarNome = PopupNome.configuraPopup(this, "alimento", nome -> {
+                ((Alimento) alimento).setNome(nome);
+                onResume();
+            });
+
             EditText textPopupNome = dialogEditarNome.findViewById(R.id.editTextPopupNome);
             textPopupNome.setText("");
+
             dialogEditarNome.show();
+        };
+
+        botaoExcluir = alimento -> {
+            refeicao.getListAlimentos().remove(alimento);
+            onResume();
         };
 
         exampleAdapterObjectDefault = new ExampleAdapterObjectDefault(
@@ -125,7 +132,7 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
                 refeicao.getListAlimentos(),
                 botaoEditar,
                 botaoEditarNome,
-                alimento -> {} // Construção do botão de EXCLUIR de cada item da lista
+                botaoExcluir
         );
 
         PainelInformacoes_Content.configura(
@@ -135,10 +142,6 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
                 exampleAdapterObjectDefault
         );
 
-    }
-
-    private void salvarNomeEditado(String nome){
-        // Ainda deverá ser contruida
     }
 
     private void configuraSegundoPainel(){
@@ -183,9 +186,8 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
         if (requestCode == EDITAR_ACTIVITY) {
             if (resultCode == RESULT_OK) {
                 Alimento alimento = (Alimento) data.getSerializableExtra("ALIMENTO");
-                Toast.makeText(this, alimento.getPosition(), Toast.LENGTH_SHORT).show();
                 refeicao.getListAlimentos().set(alimento.getPosition(), alimento);
-                Toast.makeText(this, "Salvo", Toast.LENGTH_SHORT).show();
+                onResume();
             }
         }
 

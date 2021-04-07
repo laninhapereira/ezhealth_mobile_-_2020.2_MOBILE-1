@@ -12,7 +12,6 @@ public class Refeicao extends ObjectDefault implements Serializable {
 
     private List<Alimento> listAlimento;
     private String tipoRefeicao;
-    private Usuario usuario;
     private Date data;
     private boolean diaria;
 
@@ -48,14 +47,6 @@ public class Refeicao extends ObjectDefault implements Serializable {
 
     public void setTipoRefeicao(String tipoRefeicao) {
         this.tipoRefeicao = tipoRefeicao;
-    }
-
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
     }
 
     public Date getData() {
@@ -139,7 +130,6 @@ public class Refeicao extends ObjectDefault implements Serializable {
                 "Refeicao{" +
                 "listAlimento=" + listAlimento +
                 ", tipoRefeicao='" + tipoRefeicao + '\'' +
-                ", usuario=" + usuario +
                 ", data=" + data +
                 ", diaria=" + diaria +
                 '}';
