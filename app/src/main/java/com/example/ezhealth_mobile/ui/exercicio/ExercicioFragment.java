@@ -1,10 +1,8 @@
 package com.example.ezhealth_mobile.ui.exercicio;
 
 import android.app.Dialog;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,29 +10,18 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.ezhealth_mobile.R;
 import com.example.ezhealth_mobile.activity.AdicionarExercicio_Activity;
-import com.example.ezhealth_mobile.activity.EditarAlimento_Activity;
 import com.example.ezhealth_mobile.activity.EditarExercicio_Activity;
-import com.example.ezhealth_mobile.activity.Home_Activity;
 import com.example.ezhealth_mobile.activity.PopupNome;
 import com.example.ezhealth_mobile.content.PainelInformacoes_Content;
 import com.example.ezhealth_mobile.entity.Exercicio;
-import com.example.ezhealth_mobile.entity.Exercicio_Repositorio;
-import com.example.ezhealth_mobile.entity.ObjectDefault;
-import com.example.ezhealth_mobile.entity.Refeicao;
-import com.example.ezhealth_mobile.entity.Refeicao_Repositorio;
 import com.example.ezhealth_mobile.util.ExampleAdapterObjectDefault;
-import com.example.ezhealth_mobile.util.OnClickListenerAdapter;
 
 public class ExercicioFragment extends Fragment {
 
@@ -92,7 +79,7 @@ public class ExercicioFragment extends Fragment {
 
         this.configuraFragment();
         this.configuraPrimeiroPainel();
-        this.configuraSegundoPainel();
+//        this.configuraSegundoPainel();
         this.configuraBotoes();
 
         return viewFragment;
@@ -108,30 +95,30 @@ public class ExercicioFragment extends Fragment {
 
     private void configuraPrimeiroPainel(){
         // Classe para configuração do conteúdo do primeiro painel
-        PainelInformacoes_Content.configura(
-            "Exercícios",
-                viewFragment,
-            true,
-                new ExampleAdapterObjectDefault(
-                        true,
-                        Exercicio_Repositorio.getInstance().popular(),
-                        (nome) -> { // Construção do botão de EDITAR de cada item da lista
-                            Intent intent = new Intent(this.getContext(), EditarExercicio_Activity.class);
-                            intent.putExtra("EXERCICIO", (Exercicio) nome);
-                            startActivity(intent);
-                        },
-                        (nome) -> {
-                            Dialog dialogEditarNome = PopupNome.configuraPopup(getActivity(), "exercício", nomeAtualizado -> {
-//                                salvarNomeEditado(nomeAtualizado);
-                            });
-                            EditText editText = dialogEditarNome.findViewById(R.id.editTextPopupNome);
-                            editText.setText("");
-                            dialogEditarNome.show();
-                        },
-                        nome -> { // Construção do botão de EXCLUIR de cada item da lista
-                        }
-                )
-        );
+//        PainelInformacoes_Content.configura(
+//            "Exercícios",
+//                viewFragment,
+//            true,
+//                new ExampleAdapterObjectDefault(
+//                        true,
+//                        Exercicio_Repositorio.getInstance().popular(),
+//                        (nome) -> { // Construção do botão de EDITAR de cada item da lista
+//                            Intent intent = new Intent(this.getContext(), EditarExercicio_Activity.class);
+//                            intent.putExtra("EXERCICIO", (Exercicio) nome);
+//                            startActivity(intent);
+//                        },
+//                        (nome) -> {
+//                            Dialog dialogEditarNome = PopupNome.configuraPopup(getActivity(), "exercício", nomeAtualizado -> {
+////                                salvarNomeEditado(nomeAtualizado);
+//                            });
+//                            EditText editText = dialogEditarNome.findViewById(R.id.editTextPopupNome);
+//                            editText.setText("");
+//                            dialogEditarNome.show();
+//                        },
+//                        nome -> { // Construção do botão de EXCLUIR de cada item da lista
+//                        }
+//                )
+//        );
     }
 
     private void salvarNomeEditado(String nome){
@@ -140,24 +127,24 @@ public class ExercicioFragment extends Fragment {
 
 
     // Classe para configuração do conteúdo do segundo painel
-    private void configuraSegundoPainel(){
-        textViewTituloSegundoPainel.setText("Informações gerais");
-        textViewPrimeiroValor.setText(String.valueOf(Exercicio_Repositorio.getInstance().getQuantidadeTotais()));
-        textViewPrimeiroItem.setText("Duração");
-        textViewPrimeiraMedida.setText("min");
-
-        textViewSegundoItem.setText("Calorias Perdidas");
-        textViewSegundoValor.setText(String.valueOf(Exercicio_Repositorio.getInstance().getCaloriasTotais()));
-        textViewSegundaMedida.setText("kcal");
-
-        textViewTerceiroItem.setText("");
-        textViewTerceiroValor.setText("");
-        textViewTerceiraMedida.setText("");
-
-        textViewTotal.setText("");
-        textViewValorTotalKcal.setText("");
-        textViewKcal4.setText("");
-    }
+//    private void configuraSegundoPainel(){
+//        textViewTituloSegundoPainel.setText("Informações gerais");
+//        textViewPrimeiroValor.setText(String.valueOf(Exercicio_Repositorio.getInstance().getQuantidadeTotais()));
+//        textViewPrimeiroItem.setText("Duração");
+//        textViewPrimeiraMedida.setText("min");
+//
+//        textViewSegundoItem.setText("Calorias Perdidas");
+//        textViewSegundoValor.setText(String.valueOf(Exercicio_Repositorio.getInstance().getCaloriasTotais()));
+//        textViewSegundaMedida.setText("kcal");
+//
+//        textViewTerceiroItem.setText("");
+//        textViewTerceiroValor.setText("");
+//        textViewTerceiraMedida.setText("");
+//
+//        textViewTotal.setText("");
+//        textViewValorTotalKcal.setText("");
+//        textViewKcal4.setText("");
+//    }
 
     public void configuraBotoes(){
         textViewbuttonCheck.setOnClickListener(v1 -> getActivity().finish());

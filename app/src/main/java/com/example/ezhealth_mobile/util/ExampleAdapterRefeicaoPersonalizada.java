@@ -1,9 +1,5 @@
 package com.example.ezhealth_mobile.util;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,12 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ezhealth_mobile.R;
 import com.example.ezhealth_mobile.entity.Refeicao;
-import com.example.ezhealth_mobile.entity.Refeicao_Repositorio;
-
-import java.util.ArrayList;
-
-import static androidx.core.app.ActivityCompat.startActivityForResult;
-import static androidx.core.content.ContextCompat.startActivity;
 
 public class ExampleAdapterRefeicaoPersonalizada extends RecyclerView.Adapter<ExampleAdapterRefeicaoPersonalizada.ExampleViewHolder> {
 
@@ -66,17 +56,18 @@ public class ExampleAdapterRefeicaoPersonalizada extends RecyclerView.Adapter<Ex
 
     @Override
     public void onBindViewHolder(@NonNull ExampleViewHolder holder, int position) {
-        Refeicao itemAtual = (Refeicao) Refeicao_Repositorio.getInstance().getListPersonalizada().get(position);
-        configurePopupMenu(itemAtual);
-
-        holder.textRefeicaoPersonalizada.setText(itemAtual.getNome());
-        holder.textCaloriasPersonalizada.setText(String.valueOf(itemAtual.getCalorias()));
+//        Refeicao itemAtual = (Refeicao) Refeicao_Repositorio.getInstance().getListPersonalizada().get(position);
+//        configurePopupMenu(itemAtual);
+//
+//        holder.textRefeicaoPersonalizada.setText(itemAtual.getNome());
+//        holder.textCaloriasPersonalizada.setText(String.valueOf(itemAtual.getCalorias()));
     }
 
 
     @Override
     public int getItemCount() {
-        return Refeicao_Repositorio.getInstance().getListPersonalizada().size();
+        return 0;
+//        return Refeicao_Repositorio.getInstance().getListPersonalizada().size();
     }
 
     private void configurePopupMenu(Refeicao object){

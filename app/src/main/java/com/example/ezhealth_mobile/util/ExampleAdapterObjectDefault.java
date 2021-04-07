@@ -17,6 +17,7 @@ import com.example.ezhealth_mobile.R;
 import com.example.ezhealth_mobile.entity.ObjectDefault;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class ExampleAdapterObjectDefault extends RecyclerView.Adapter<ExampleAdapterObjectDefault.ViewHolder>{
@@ -25,12 +26,12 @@ public class ExampleAdapterObjectDefault extends RecyclerView.Adapter<ExampleAda
     private static OnClickListenerAdapter botaoExcluir;
     private static OnClickListenerAdapter botaoEditarNome;
     private boolean menuOpcoesHabilitado;
-    private ArrayList<ObjectDefault> list;
+    private List list;
     private PopupMenu popup;
     private View view;
 
 
-    public ExampleAdapterObjectDefault(boolean menuOpcoesHabilitado, ArrayList<ObjectDefault> list,
+    public ExampleAdapterObjectDefault(boolean menuOpcoesHabilitado, List list,
                                        OnClickListenerAdapter botaoEditar, OnClickListenerAdapter botaoEditarNome, OnClickListenerAdapter botaoExcluir){
         this.menuOpcoesHabilitado = menuOpcoesHabilitado;
         this.list = list;
@@ -55,7 +56,6 @@ public class ExampleAdapterObjectDefault extends RecyclerView.Adapter<ExampleAda
             calorias = itemView.findViewById(R.id.textViewItemKcal);
 
             itemView.findViewById(R.id.imageViewButtonMore).setOnClickListener(v->{
-                Log.d("a", "testeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
                 popup.show();
             });
         }
@@ -74,7 +74,8 @@ public class ExampleAdapterObjectDefault extends RecyclerView.Adapter<ExampleAda
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        ObjectDefault obj = list.get(position);
+        ObjectDefault obj = (ObjectDefault) list.get(position);
+        obj.setPosition(position);
         configurePopupMenu(obj);
 
         holder.titulo.setText(obj.getNome());
@@ -85,7 +86,7 @@ public class ExampleAdapterObjectDefault extends RecyclerView.Adapter<ExampleAda
 
     @Override
     public int getItemCount() {
-        return list.size();
+        return (list == null)? 0: list.size();
     }
 
     private void configurePopupMenu(ObjectDefault objectDefault){

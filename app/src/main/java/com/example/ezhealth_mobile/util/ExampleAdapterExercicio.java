@@ -1,7 +1,5 @@
 package com.example.ezhealth_mobile.util;
 
-import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,9 +10,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ezhealth_mobile.R;
 import com.example.ezhealth_mobile.entity.Exercicio;
-import com.example.ezhealth_mobile.entity.Exercicio_Repositorio;
-
-import java.util.ArrayList;
 
 public class ExampleAdapterExercicio extends RecyclerView.Adapter<ExampleAdapterExercicio.ExampleViewHolder> {
 
@@ -59,16 +54,17 @@ public class ExampleAdapterExercicio extends RecyclerView.Adapter<ExampleAdapter
 
     @Override
     public void onBindViewHolder(@NonNull ExampleViewHolder holder, int position) {
-        Exercicio itemAtual = (Exercicio) Exercicio_Repositorio.getInstance().getItemList(position);
-
-        holder.textExercicio.setText(itemAtual.getNome());
-        holder.textDuracao.setText(itemAtual.getQuantidade());
-        holder.textCalorias.setText(itemAtual.getCalorias());
+//        Exercicio itemAtual = (Exercicio) Exercicio_Repositorio.getInstance().getItemList(position);
+//
+//        holder.textExercicio.setText(itemAtual.getNome());
+//        holder.textDuracao.setText(itemAtual.getQuantidade());
+//        holder.textCalorias.setText(itemAtual.getCalorias());
     }
 
     @Override
     public int getItemCount() {
-        return Exercicio_Repositorio.getInstance().getList().size();
+        return 0;
+//        return Exercicio_Repositorio.getInstance().getList().size();
     }
 
 }

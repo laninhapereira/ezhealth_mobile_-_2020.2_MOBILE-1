@@ -1,23 +1,15 @@
 package com.example.ezhealth_mobile.util;
 
-import android.content.Context;
-import android.content.Intent;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ezhealth_mobile.R;
-import com.example.ezhealth_mobile.activity.EditarAlimento_Activity;
-import com.example.ezhealth_mobile.activity.EditarRefeicao_Activity;
 import com.example.ezhealth_mobile.entity.Alimento;
-import com.example.ezhealth_mobile.entity.Alimento_Repositorio;
-import com.example.ezhealth_mobile.entity.ObjectDefault;
 
 import java.util.ArrayList;
 

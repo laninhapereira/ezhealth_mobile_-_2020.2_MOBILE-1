@@ -11,7 +11,7 @@ import com.example.ezhealth_mobile.util.OnClickListenerAdapter;
 
 public class PopupNome {
 
-    public static Dialog configuraPopup(Activity activity, String tipo, OnClickListenerAdapter onclick){
+    public static Dialog configuraPopup(Activity activity, String tipo, OnClickListenerAdapter<String> onclick){
         TextView textView;
         Dialog dialog;
 

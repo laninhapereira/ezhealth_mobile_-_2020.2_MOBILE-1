@@ -1,6 +1,5 @@
 package com.example.ezhealth_mobile.activity;
 
-import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,10 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ezhealth_mobile.R;
 import com.example.ezhealth_mobile.content.PainelInformacoes_Content;
-import com.example.ezhealth_mobile.entity.Alimento_Repositorio;
-import com.example.ezhealth_mobile.entity.ObjectDefault;
 import com.example.ezhealth_mobile.entity.Refeicao;
-import com.example.ezhealth_mobile.entity.Refeicao_Repositorio;
 import com.example.ezhealth_mobile.util.ExampleAdapterObjectDefault;
 
 public class VisualizarRefeicao_Activity extends AppCompatActivity {
@@ -36,26 +32,13 @@ public class VisualizarRefeicao_Activity extends AppCompatActivity {
     }
 
     private void procurarRefeicao(){
-        Intent intent = getIntent();
-        String nome = (intent == null)? null : getIntent().getStringExtra("REFEICAO");
-
-        if(nome == null) {
-            Toast.makeText(this, "Refeição não encontrada", Toast.LENGTH_LONG);
-            return;
-        }
-
-        refeicao = (Refeicao) Refeicao_Repositorio.getInstance().getItemList(nome);
-
-        if(refeicao == null) {
-            Toast.makeText(this, "Refeição não encontrada", Toast.LENGTH_LONG);
-            return;
-        }
+        refeicao = getIntent().getExtras().getParcelable("REFEICAO");
     }
 
     private void configuraPrimeiroPainel(){
         ExampleAdapterObjectDefault exampleAdapterObjectDefault = new ExampleAdapterObjectDefault(
                 false,
-                refeicao.getRepAlimentos().getList(),
+                refeicao.getListAlimentos(),
                 nome -> { // Construção do botão de EDITAR de cada item da lista
                 },
                 nome -> { // Construção do botão de EDITAR NOME de cada item da lista

@@ -20,6 +20,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
+import com.example.ezhealth_mobile.entity_dao.RefeicaoDB;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
@@ -28,6 +29,9 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.List;
 
 public class Main_Activity extends AppCompatActivity {
 
@@ -77,9 +81,7 @@ public class Main_Activity extends AppCompatActivity {
     // Confirmar se todos os campos estão preenchidos
     private TextWatcher loginTextWatcher = new TextWatcher() {
         @Override
-        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-        }
+        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
 
         @Override
         public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -90,9 +92,7 @@ public class Main_Activity extends AppCompatActivity {
         }
 
         @Override
-        public void afterTextChanged(Editable editable) {
-
-        }
+        public void afterTextChanged(Editable editable) {}
     };
 
     public void login(View v){
@@ -118,31 +118,19 @@ public class Main_Activity extends AppCompatActivity {
 
 
     //Autenticar usuário no firestore
-    public void autenticarUsuario(String email , String senha){
+    public void autenticarUsuario(String email, String senha){
         FirebaseAuth.getInstance().signInWithEmailAndPassword(email, senha)
-            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    //String uuid = task.getResult().getUser().getUid();
-                    //Log.i("testeAutenticação", uuid);
-
-                    Intent intent = new Intent(Main_Activity.this, Home_Activity.class);
-                    //Fazer que activity seja a principal
-                    intent.setFlags(intent.FLAG_ACTIVITY_CLEAR_TASK | intent.FLAG_ACTIVITY_NEW_TASK);
-                    startActivity(intent);
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    Toast.makeText(Main_Activity.this, "Email ou senha inválidos", Toast.LENGTH_SHORT).show();
-                    Log.i("testeAutenticação", e.getMessage());
-                }
+            .addOnCompleteListener(task -> {
+                Intent intent = new Intent(Main_Activity.this, Home_Activity.class);
+                //Fazer que activity seja a principal
+                intent.setFlags(intent.FLAG_ACTIVITY_CLEAR_TASK | intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }).addOnFailureListener(e -> {
+                Toast.makeText(Main_Activity.this, "Email ou senha inválidos", Toast.LENGTH_SHORT).show();
+                Log.i("testeAutenticação", e.getMessage());
             });
     }
 
-    ///////////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////////
-    ///////////// Criar conta com GOOGLE
 
     public void loginGoogle(View v){
         Intent intent = mGoogleSignInClient.getSignInIntent();

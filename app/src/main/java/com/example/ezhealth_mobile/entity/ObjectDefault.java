@@ -3,8 +3,11 @@ package com.example.ezhealth_mobile.entity;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public abstract class ObjectDefault implements Parcelable {
+import java.io.Serializable;
 
+public abstract class ObjectDefault implements Serializable {
+
+    private int position;
     private String nome;
     private int quantidade;
     private String unidadeMedida;
@@ -18,9 +21,6 @@ public abstract class ObjectDefault implements Parcelable {
     }
 
     public ObjectDefault() {}
-
-    public ObjectDefault(Parcel in) {
-    }
 
     public String getNome() {
         return nome;
@@ -54,18 +54,24 @@ public abstract class ObjectDefault implements Parcelable {
         this.calorias = calorias;
     }
 
-
-    @Override
-    public int describeContents() {
-        return 0;
+    public int getPosition() {
+        return position;
     }
 
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(nome);
-        dest.writeInt(quantidade);
-        dest.writeString(unidadeMedida);
-        dest.writeInt(calorias);
+    public void setPosition(int position) {
+        this.position = position;
+    }
+
+
+    public String toString() {
+        return super.toString() +
+                "ObjectDefault{" +
+                "id='" + position + '\'' +
+                ", nome='" + nome + '\'' +
+                ", quantidade=" + quantidade +
+                ", unidadeMedida='" + unidadeMedida + '\'' +
+                ", calorias=" + calorias +
+                '}';
     }
 
 }

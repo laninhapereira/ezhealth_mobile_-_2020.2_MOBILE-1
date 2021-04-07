@@ -1,25 +1,15 @@
 package com.example.ezhealth_mobile.activity;
 
-import android.annotation.SuppressLint;
-import android.app.Dialog;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.ezhealth_mobile.R;
 import com.example.ezhealth_mobile.content.PainelQuantidades_Content;
-import com.example.ezhealth_mobile.entity.Alimento;
-import com.example.ezhealth_mobile.entity.Alimento_Repositorio;
 import com.example.ezhealth_mobile.entity.Exercicio;
-import com.example.ezhealth_mobile.entity.Exercicio_Repositorio;
-import com.example.ezhealth_mobile.entity.ObjectDefault;
 
 public class EditarExercicio_Activity extends AppCompatActivity {
 
@@ -109,6 +99,7 @@ public class EditarExercicio_Activity extends AppCompatActivity {
 
     //Botão "voltar" para caso o usuário desista e volte para a tela anterior
     public void voltar(View v){
+        setResult(RESULT_CANCELED, null);
         finish();
     }
 

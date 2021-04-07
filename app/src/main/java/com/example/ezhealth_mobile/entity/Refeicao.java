@@ -1,31 +1,45 @@
 package com.example.ezhealth_mobile.entity;
 
 
-import android.os.Parcel;
-import android.os.Parcelable;
 
-public class Refeicao extends ObjectDefault implements Parcelable {
+import com.example.ezhealth_mobile.entity_dao.RefeicaoDB;
 
-    private ObjectDefault_Repositorio repAlimentos;
+import java.io.Serializable;
+import java.util.Date;
+import java.util.List;
+
+public class Refeicao extends ObjectDefault implements Serializable {
+
+    private List<Alimento> listAlimento;
     private String tipoRefeicao;
+    private Usuario usuario;
+    private Date data;
+    private boolean diaria;
 
     public Refeicao(String nome, int quantidade, String unidadeMedida, int calorias, String tipoRefeicao){
         super(nome, quantidade, unidadeMedida, calorias);
         this.tipoRefeicao = tipoRefeicao;
-        repAlimentos = new ObjectDefault_Repositorio();
     }
 
-    protected Refeicao(Parcel in) {
-        super(in);
-        tipoRefeicao = in.readString();
+    public Refeicao(RefeicaoDB ref){
+        setPosition(ref.getPosition());
+        setNome(ref.getNome());
+        setCalorias(ref.getCalorias());
+        setData(ref.getData());
+        setDiaria(ref.isDiaria());
+        setTipoRefeicao(ref.getTipoRefeicao());
     }
 
-    public void setRepAlimentos(Alimento_Repositorio repAlimentos){
-        this.repAlimentos = repAlimentos;
+    public Refeicao() {
+        super();
     }
 
-    public ObjectDefault_Repositorio getRepAlimentos(){
-        return this.repAlimentos;
+    public void setListAlimentos(List listAlimentos){
+        listAlimento = listAlimentos;
+    }
+
+    public List<Alimento> getListAlimentos(){
+        return listAlimento;
     }
 
     public String getTipoRefeicao() {
@@ -36,55 +50,99 @@ public class Refeicao extends ObjectDefault implements Parcelable {
         this.tipoRefeicao = tipoRefeicao;
     }
 
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public Date getData() {
+        return data;
+    }
+
+    public void setData(Date data) {
+        this.data = data;
+    }
+
+    public boolean isDiaria() {
+        return diaria;
+    }
+
+    public void setDiaria(boolean diaria) {
+        this.diaria = diaria;
+    }
+
     public int getCarboidratos(){
         Integer total = 0;
-        for (ObjectDefault obj: repAlimentos.getList())
-            total += ((Alimento)obj).getCarboidratos();
+
+        if(listAlimento == null || listAlimento.size() == 0)
+            return total;
+
+        for (Alimento obj: listAlimento)
+            total += obj.getCarboidratos();
         return total;
     }
 
     public int getProteinas(){
         Integer total = 0;
-        for (ObjectDefault obj: repAlimentos.getList())
-            total += ((Alimento)obj).getProteinas();
+
+        if(listAlimento == null || listAlimento.size() == 0)
+            return total;
+
+        for (Alimento obj: listAlimento)
+            total += obj.getProteinas();
         return total;
     }
 
     public int getGorduras(){
         Integer total = 0;
-        for (ObjectDefault obj: repAlimentos.getList())
-            total += ((Alimento)obj).getGorduras();
+
+        if(listAlimento == null || listAlimento.size() == 0)
+            return total;
+
+        for (Alimento obj: listAlimento)
+            total += obj.getGorduras();
         return total;
     }
 
     public int getCalorias(){
         Integer total = 0;
-        for (ObjectDefault obj: repAlimentos.getList())
-            total += ((Alimento)obj).getCalorias();
+
+        if(listAlimento == null || listAlimento.size() == 0)
+            return total;
+
+        for (Alimento obj: listAlimento)
+            total += obj.getCalorias();
         return total;
     }
 
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        super.writeToParcel(dest, flags);
-        dest.writeString(tipoRefeicao);
+
+
+    public RefeicaoDB toRefeicaoDB(){
+        RefeicaoDB ref = new RefeicaoDB();
+
+        ref.setPosition(getPosition());
+        ref.setNome(getNome());
+        ref.setCalorias(getCalorias());
+        ref.setData(getData());
+        ref.setDiaria(isDiaria());
+        ref.setTipoRefeicao(getTipoRefeicao());
+
+        return ref;
     }
 
     @Override
-    public int describeContents() {
-        return 0;
+    public String toString() {
+        return super.toString() +
+                "Refeicao{" +
+                "listAlimento=" + listAlimento +
+                ", tipoRefeicao='" + tipoRefeicao + '\'' +
+                ", usuario=" + usuario +
+                ", data=" + data +
+                ", diaria=" + diaria +
+                '}';
     }
-
-    public static final Creator<Refeicao> CREATOR = new Creator<Refeicao>() {
-        @Override
-        public Refeicao createFromParcel(Parcel in) {
-            return new Refeicao(in);
-        }
-
-        @Override
-        public Refeicao[] newArray(int size) {
-            return new Refeicao[size];
-        }
-    };
 
 }

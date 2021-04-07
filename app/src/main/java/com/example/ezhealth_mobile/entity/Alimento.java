@@ -3,7 +3,11 @@ package com.example.ezhealth_mobile.entity;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class Alimento extends ObjectDefault implements Parcelable {
+import com.example.ezhealth_mobile.entity_dao.AlimentoDB;
+
+import java.io.Serializable;
+
+public class Alimento extends ObjectDefault implements Serializable {
 
     private int carboidratos;
     private int proteinas;
@@ -20,13 +24,6 @@ public class Alimento extends ObjectDefault implements Parcelable {
     public Alimento() {
         super();
     }
-
-    protected Alimento(Parcel in) {
-        carboidratos = in.readInt();
-        proteinas = in.readInt();
-        gorduras = in.readInt();
-    }
-
 
     public int getCarboidratos() {
         return carboidratos;
@@ -52,27 +49,19 @@ public class Alimento extends ObjectDefault implements Parcelable {
         this.gorduras = gorduras;
     }
 
-    public static final Creator<Alimento> CREATOR = new Creator<Alimento>() {
-        @Override
-        public Alimento createFromParcel(Parcel in) {
-            return new Alimento(in);
-        }
 
-        @Override
-        public Alimento[] newArray(int size) {
-            return new Alimento[size];
-        }
-    };
+    public AlimentoDB toAlimentoDB(){
+        AlimentoDB ref = new AlimentoDB();
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
+        ref.setPosition(getPosition());
+        ref.setNome(getNome());
+        ref.setCalorias(getCalorias());
+        ref.setCarboidratos(getCarboidratos());
+        ref.setGorduras(getGorduras());
+        ref.setProteinas(getGorduras());
+        ref.setQuantidade(getQuantidade());
+        ref.setUnidadeMedida(getUnidadeMedida());
 
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(carboidratos);
-        dest.writeInt(proteinas);
-        dest.writeInt(gorduras);
+        return ref;
     }
 }

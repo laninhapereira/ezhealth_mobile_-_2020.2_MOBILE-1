@@ -1,6 +1,5 @@
 package com.example.ezhealth_mobile.util;
 
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ezhealth_mobile.R;
 import com.example.ezhealth_mobile.entity.Refeicao;
-import com.example.ezhealth_mobile.entity.Refeicao_Repositorio;
 
 public class ExampleAdapterRefeicao extends RecyclerView.Adapter<ExampleAdapterRefeicao.ExampleViewHolder> {
 
@@ -56,15 +54,16 @@ public class ExampleAdapterRefeicao extends RecyclerView.Adapter<ExampleAdapterR
 
     @Override
     public void onBindViewHolder(@NonNull ExampleViewHolder holder, int position) {
-        Refeicao itemAtual = (Refeicao) Refeicao_Repositorio.getInstance().getItemList(position);
-
-        holder.textRefeicao.setText(itemAtual.getNome());
-        holder.textMassa.setText(String.valueOf(itemAtual.getQuantidade()));
-        holder.textCalorias.setText(String.valueOf(itemAtual.getCalorias()));
+//        Refeicao itemAtual = (Refeicao) Refeicao_Repositorio.getInstance().getItemList(position);
+//
+//        holder.textRefeicao.setText(itemAtual.getNome());
+//        holder.textMassa.setText(String.valueOf(itemAtual.getQuantidade()));
+//        holder.textCalorias.setText(String.valueOf(itemAtual.getCalorias()));
     }
 
     @Override
     public int getItemCount() {
-        return Refeicao_Repositorio.getInstance().getList().size();
+        return 0;
+//        return Refeicao_Repositorio.getInstance().getList().size();
     }
 }
