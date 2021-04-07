@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "505486870243-2d0utjnfa832263k5dm0i5tnfr58tphi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ezhealth_mobile",
+            "certificate_hash": "b7343684523c157c52db635cfdf6c8f7ff965721"
+          }
+        },
+        {
           "client_id": "505486870243-33hqdql0i988f5ffpnav9uv3vpht33u4.apps.googleusercontent.com",
           "client_type": 3
         }
