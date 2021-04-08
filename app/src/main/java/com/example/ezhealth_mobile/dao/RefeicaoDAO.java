@@ -23,6 +23,10 @@ public class RefeicaoDAO {
         void handler(Refeicao refeicao);
     }
 
+    public interface HandlerRefeicaoPersonalizada {
+        void handlerListPersonalizada(List<Refeicao> listRefeicao);
+    }
+
     private static RefeicaoDAO instance;
 
     private RefeicaoDAO(){}
@@ -49,15 +53,48 @@ public class RefeicaoDAO {
 
                         for (DocumentSnapshot doc : documents) {
                             Refeicao refeicao = doc.toObject(Refeicao.class);
-                            ArrayList<Alimento> list = new ArrayList();
-                            list.add(new Alimento("Coxinha", 1, "g", 54,
-                            21, 21, 54));
-                            refeicao.setListAlimentos(list);
-                            if(refeicao.isDiaria())
+                            if(refeicao.isDiaria()) {
+                                ArrayList<Alimento> list = new ArrayList();
+                                list.add(new Alimento("Coxinha", 1, "g", 54,
+                                        21, 21, 54));
+                                refeicao.setListAlimentos(list);
                                 handlerRefeicao.handler(refeicao);
+                            }
                         }
 
                     }
+                ).addOnFailureListener(e -> Log.e("erro ao buscar refeicao", e.getMessage() ));
+    }
+
+    public void getRefeicoesPersonalizadas(HandlerRefeicaoPersonalizada handlerRefeicao){
+        String idUsuario = FirebaseAuth.getInstance().getUid();
+
+        FirebaseFirestore
+                .getInstance()
+                .collection("/usuarios").document(idUsuario)
+                .collection("/refeicoes")
+                .get()
+                .addOnSuccessListener(
+                        documentSnapshots -> {
+                            List<DocumentSnapshot> documents = documentSnapshots.getDocuments();
+                            List<Refeicao> listRefeicao = new ArrayList<Refeicao>();
+                            if(documents == null)
+                                return;
+
+                            for (DocumentSnapshot doc : documents) {
+                                Refeicao refeicao = doc.toObject(Refeicao.class);
+                                if(!refeicao.isDiaria()) {
+                                    ArrayList<Alimento> list = new ArrayList();
+                                    list.add(new Alimento("Coxinha", 1, "g", 54,
+                                            21, 21, 54));
+                                    refeicao.setListAlimentos(list);
+                                    listRefeicao.add(refeicao);
+                                }
+                            }
+
+                            handlerRefeicao.handlerListPersonalizada(listRefeicao);
+
+                        }
                 ).addOnFailureListener(e -> Log.e("erro ao buscar refeicao", e.getMessage() ));
     }
 

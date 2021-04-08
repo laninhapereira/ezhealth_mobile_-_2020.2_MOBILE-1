@@ -13,29 +13,51 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.ezhealth_mobile.R;
 import com.example.ezhealth_mobile.util.ExampleAdapterObjectDefault;
 
-public interface PainelInformacoes_Content {
+public class PainelInformacoes_Content {
 
-     static void configura(String titulo, View view, boolean menuOpcoesHabilitado,
-                                     ExampleAdapterObjectDefault exampleAdapterObjectDefault) {
+    private static LayoutInflater inflater;
+    private static Context context;
+    private static TextView textViewTituloPrimeiroPainel;
+    private static ConstraintLayout includeFirstPanel;
+    private static ImageView imageViewButtonAdd;
+    private static RecyclerView recyclerView;
 
-        Context context = view.getContext();
+    public static void configura(String titulo, View view, boolean menuOpcoesHabilitado,
+                                 ExampleAdapterObjectDefault exampleAdapterObjectDefault,
+                                 View.OnClickListener buttonAdd) {
 
-        // Classe para configuração do conteúdo do painel
-        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        context = view.getContext();
+        inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        ConstraintLayout includeFirstPanel = (ConstraintLayout) view.findViewById(R.id.include);
-        includeFirstPanel.removeAllViews();
-        includeFirstPanel.addView(inflater.inflate(R.layout.content_panel_first_info, null));
+        includeFirstPanel = view.findViewById(R.id.include);
+        textViewTituloPrimeiroPainel = view.findViewById(R.id.textViewTituloPrimeiroPainel);
+        imageViewButtonAdd = view.findViewById(R.id.imageViewButtonAdd);
+        recyclerView = view.findViewById(R.id.recyclerView);
 
-        ((TextView) view.findViewById(R.id.textViewTituloPrimeiroPainel)).setText("Lista de "+titulo);
+        outrasConfiguracoes(titulo);
+        configuraButaoAdicionar(menuOpcoesHabilitado, buttonAdd);
+        configuraItensPanel();
+        configuraRecycleView(exampleAdapterObjectDefault);
+    }
 
-        // Configura itens do menu de opções do adapter
-        if(!menuOpcoesHabilitado)
-            ((ImageView) view.findViewById(R.id.imageViewButtonAdd)).setVisibility(View.INVISIBLE);
-
-        RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
+    private static void configuraRecycleView(ExampleAdapterObjectDefault exampleAdapterObjectDefault){
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         recyclerView.setAdapter(exampleAdapterObjectDefault);
+    }
+
+    private static void configuraItensPanel(){
+        includeFirstPanel.removeAllViews();
+        includeFirstPanel.addView(inflater.inflate(R.layout.content_panel_first_info, null));
+    }
+
+    private static void configuraButaoAdicionar(boolean menuOpcoesHabilitado, View.OnClickListener buttonAdd){
+        if(!menuOpcoesHabilitado)
+            imageViewButtonAdd.setVisibility(View.INVISIBLE);
+        imageViewButtonAdd.setOnClickListener(buttonAdd);
+    }
+
+    private static void outrasConfiguracoes(String titulo){
+        textViewTituloPrimeiroPainel.setText("Lista de "+titulo);
     }
 
 }

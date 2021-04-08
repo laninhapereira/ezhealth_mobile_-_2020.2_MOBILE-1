@@ -2,16 +2,21 @@ package com.example.ezhealth_mobile.activity;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Layout;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.ezhealth_mobile.R;
 import com.example.ezhealth_mobile.content.PainelInformacoes_Content;
@@ -21,6 +26,7 @@ import com.example.ezhealth_mobile.util.ExampleAdapterObjectDefault;
 import com.example.ezhealth_mobile.util.OnClickListenerAdapter;
 
 import java.util.ArrayList;
+import java.util.zip.Inflater;
 
 public class EditarRefeicao_Activity extends AppCompatActivity {
 
@@ -41,11 +47,17 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
     private TextView textViewTerceiraMedida;
     private TextView textViewValorTotalKcal;
     private ImageView imageViewButtonAdd;
+    private View viewFirstInfoPanel;
+    private Button buttonCheck;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dual_panel);
+
+        LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        viewFirstInfoPanel = inflater.inflate(R.layout.content_panel_first_info, null);
+        imageViewButtonAdd = viewFirstInfoPanel.findViewById(R.id.imageViewButtonAdd);
 
         textViewTitelDualPanel = findViewById(R.id.textViewTitelDualPanel);
         textViewTituloSegundoPainel = findViewById(R.id.textViewTituloSegundoPainel);
@@ -59,10 +71,11 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
         textViewTerceiroValor = findViewById(R.id.textViewTerceiroValor);
         textViewTerceiraMedida = findViewById(R.id.textViewTerceiraMedida);
         textViewValorTotalKcal = findViewById(R.id.textViewValorTotalKcal);
-        imageViewButtonAdd = findViewById(R.id.imageViewButtonAdd);
 
-        procurarRefeicao();
-//        configuraPopup();
+
+        this.procurarRefeicao();
+        this.configuraPrimeiroPainel();
+        this.configuraSegundoPainel();
     }
 
     @Override
@@ -91,26 +104,34 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
 
     @SuppressLint("WrongViewCast")
     private void configuraPrimeiroPainel(){
-        OnClickListenerAdapter botaoEditar;
-        OnClickListenerAdapter botaoEditarNome;
-        OnClickListenerAdapter botaoExcluir;
-        ExampleAdapterObjectDefault exampleAdapterObjectDefault;
-        ImageView buttonAdd = (ImageView) findViewById(R.id.imageViewButtonAdd);
-
-        buttonAdd.setOnClickListener(
-                v -> {
-                    Intent intent = new Intent(this, AdicionarAlimentoRefeicao_Activity.class);
-                    startActivityForResult(intent, EDITAR_ACTIVITY);
-                }
+        ExampleAdapterObjectDefault exampleAdapterObjectDefault = new ExampleAdapterObjectDefault(
+                true,
+                refeicao.getListAlimentos(),
+                configuraAlimentoBotaoEditar(),
+                configuraAlimentoBotaoEditarNome(),
+                configuraAlimentoBotaoExcluir()
         );
 
-        botaoEditar = alimento -> {
+        PainelInformacoes_Content.configura(
+                "Alimentos",
+                getWindow().getDecorView(),
+                true,
+                exampleAdapterObjectDefault,
+                configuraAlimentoBotaoAdicionar()
+        );
+
+    }
+
+    private OnClickListenerAdapter configuraAlimentoBotaoEditar(){
+        return alimento -> {
             Intent intent = new Intent(this, EditarAlimento_Activity.class);
             intent.putExtra("ALIMENTO", (Alimento) alimento);
             this.startActivityForResult(intent, 0);
         };
+    }
 
-        botaoEditarNome = alimento -> {
+    private OnClickListenerAdapter configuraAlimentoBotaoEditarNome(){
+        return alimento -> {
             dialogEditarNome = PopupNome.configuraPopup(this, "alimento", nome -> {
                 ((Alimento) alimento).setNome(nome);
                 onResume();
@@ -121,27 +142,20 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
 
             dialogEditarNome.show();
         };
+    }
 
-        botaoExcluir = alimento -> {
+    private OnClickListenerAdapter configuraAlimentoBotaoExcluir(){
+        return alimento -> {
             refeicao.getListAlimentos().remove(alimento);
             onResume();
         };
+    }
 
-        exampleAdapterObjectDefault = new ExampleAdapterObjectDefault(
-                true,
-                refeicao.getListAlimentos(),
-                botaoEditar,
-                botaoEditarNome,
-                botaoExcluir
-        );
-
-        PainelInformacoes_Content.configura(
-                "Alimentos",
-                getWindow().getDecorView(),
-                true,
-                exampleAdapterObjectDefault
-        );
-
+    private View.OnClickListener configuraAlimentoBotaoAdicionar(){
+        return v -> {
+            Intent intent = new Intent(this, AdicionarAlimentoRefeicao_Activity.class);
+            startActivityForResult(intent, EDITAR_ACTIVITY);
+        };
     }
 
     private void configuraSegundoPainel(){
@@ -162,15 +176,14 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
         textViewValorTotalKcal.setText(String.valueOf(refeicao.getCalorias()));
     }
 
+
     //Botão "check" para confirmar que o usuário deseja salvar os itens
     public void salvar(View v){
-        imageViewButtonAdd.setOnClickListener(v1 -> {
-            Intent intent = new Intent();
-            intent.putExtra("SALVO", refeicao);
+        Intent intent = new Intent();
+        intent.putExtra("SALVO", refeicao);
 
-            setResult(RESULT_OK);
-            finish();
-        });
+        setResult(RESULT_OK);
+        finish();
     }
 
     //Botão "voltar" para caso o usuário desista e volte para a tela anterior

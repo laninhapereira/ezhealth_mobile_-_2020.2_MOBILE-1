@@ -27,7 +27,6 @@ public class ExampleAdapterRefeicaoPersonalizada extends RecyclerView.Adapter<Ex
         this.botaoEditarNome = botaoEditarNome;
     }
 
-
     public class ExampleViewHolder extends RecyclerView.ViewHolder {
 
         private TextView textRefeicaoPersonalizada;

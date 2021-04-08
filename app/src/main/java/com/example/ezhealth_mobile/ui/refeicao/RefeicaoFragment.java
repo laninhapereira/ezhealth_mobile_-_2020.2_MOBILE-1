@@ -24,16 +24,21 @@ import com.example.ezhealth_mobile.activity.EditarRefeicao_Activity;
 import com.example.ezhealth_mobile.activity.Home_Activity;
 import com.example.ezhealth_mobile.activity.PopupNome;
 import com.example.ezhealth_mobile.activity.TelaCadastro8_Activity;
+import com.example.ezhealth_mobile.dao.RefeicaoDAO;
+import com.example.ezhealth_mobile.entity.Alimento;
 import com.example.ezhealth_mobile.entity.Refeicao;
+import com.example.ezhealth_mobile.util.ExampleAdapterObjectDefault;
 import com.example.ezhealth_mobile.util.ExampleAdapterRefeicaoPersonalizada;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class RefeicaoFragment extends Fragment {
 
@@ -41,12 +46,14 @@ public class RefeicaoFragment extends Fragment {
     private Dialog dialogEditarNome;
     private FloatingActionButton fabButtonAdicionar;
     private RecyclerView recyclerView;
+    private ArrayList<Refeicao> listRefeicao;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_refeicao, container, false);
 
         recyclerView = root.findViewById(R.id.recyclerViewRefeicaoPersonalizada);
         fabButtonAdicionar = root.findViewById(R.id.fab);
+        listRefeicao = new ArrayList<Refeicao>();
 
         configurarFab();
         configuraPopupAdicionar();
@@ -87,21 +94,25 @@ public class RefeicaoFragment extends Fragment {
     }
 
     private void configuraRecycle(View root){
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.setAdapter(new ExampleAdapterRefeicaoPersonalizada(
-                object -> {
-                    Intent intent = new Intent(root.getRootView().getContext(), EditarRefeicao_Activity.class);
-                    intent.putExtra("REFEICAO", (Refeicao) object);
-                    startActivity(intent);
-                },
-                object -> {
-                    ((EditText)dialogEditarNome.findViewById(R.id.editTextPopupNome)).setText("");
-                    dialogEditarNome.show();
-                },
-                object -> {
+        RefeicaoDAO.getInstance().getRefeicoesPersonalizadas(listRefeicao -> {
+            recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+            recyclerView.setAdapter(new ExampleAdapterObjectDefault(
+                    true,
+                    listRefeicao,
+                    object -> {
+                        Intent intent = new Intent(root.getRootView().getContext(), EditarRefeicao_Activity.class);
+                        intent.putExtra("REFEICAO", (Refeicao) object);
+                        startActivity(intent);
+                    },
+                    object -> {
+                        ((EditText)dialogEditarNome.findViewById(R.id.editTextPopupNome)).setText("");
+                        dialogEditarNome.show();
+                    },
+                    object -> {
 
-                }
-        ));
+                    }
+            ));
+        });
     }
 
     private void salvarNomeEditado(String nome){
