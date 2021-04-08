@@ -31,11 +31,11 @@ public class PainelInformacoes_Content {
 
         includeFirstPanel = view.findViewById(R.id.include);
         textViewTituloPrimeiroPainel = view.findViewById(R.id.textViewTituloPrimeiroPainel);
-        imageViewButtonAdd = view.findViewById(R.id.imageViewButtonAdd);
+//        imageViewButtonAdd = view.findViewById(R.id.imageViewButtonAdd);
         recyclerView = view.findViewById(R.id.recyclerView);
 
         outrasConfiguracoes(titulo);
-        configuraButaoAdicionar(menuOpcoesHabilitado, buttonAdd);
+//        configuraButaoAdicionar(menuOpcoesHabilitado, buttonAdd);
         configuraItensPanel();
         configuraRecycleView(exampleAdapterObjectDefault);
     }
@@ -50,11 +50,11 @@ public class PainelInformacoes_Content {
         includeFirstPanel.addView(inflater.inflate(R.layout.content_panel_first_info, null));
     }
 
-    private static void configuraButaoAdicionar(boolean menuOpcoesHabilitado, View.OnClickListener buttonAdd){
-        if(!menuOpcoesHabilitado)
-            imageViewButtonAdd.setVisibility(View.INVISIBLE);
-        imageViewButtonAdd.setOnClickListener(buttonAdd);
-    }
+//    private static void configuraButaoAdicionar(boolean menuOpcoesHabilitado, View.OnClickListener buttonAdd){
+//        if(!menuOpcoesHabilitado)
+//            imageViewButtonAdd.setVisibility(View.INVISIBLE);
+//        imageViewButtonAdd.setOnClickListener(buttonAdd);
+//    }
 
     private static void outrasConfiguracoes(String titulo){
         textViewTituloPrimeiroPainel.setText("Lista de "+titulo);

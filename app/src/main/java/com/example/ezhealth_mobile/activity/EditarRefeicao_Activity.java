@@ -57,7 +57,7 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
 
         LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         viewFirstInfoPanel = inflater.inflate(R.layout.content_panel_first_info, null);
-        imageViewButtonAdd = viewFirstInfoPanel.findViewById(R.id.imageViewButtonAdd);
+//        imageViewButtonAdd = viewFirstInfoPanel.findViewById(R.id.imageViewButtonAdd);
 
         textViewTitelDualPanel = findViewById(R.id.textViewTitelDualPanel);
         textViewTituloSegundoPainel = findViewById(R.id.textViewTituloSegundoPainel);
@@ -117,7 +117,7 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
                 getWindow().getDecorView(),
                 true,
                 exampleAdapterObjectDefault,
-                configuraAlimentoBotaoAdicionar()
+                null
         );
 
     }
@@ -151,12 +151,18 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
         };
     }
 
-    private View.OnClickListener configuraAlimentoBotaoAdicionar(){
-        return v -> {
-            Intent intent = new Intent(this, AdicionarAlimentoRefeicao_Activity.class);
-            startActivityForResult(intent, EDITAR_ACTIVITY);
-        };
+    public void adicionar(View v){
+        Intent intent = new Intent(this, AdicionarAlimentoRefeicao_Activity.class);
+        startActivityForResult(intent, EDITAR_ACTIVITY);
     }
+
+//    private View.OnClickListener configuraAlimentoBotaoAdicionar(){
+//        View.OnClickListener onclick = v -> {
+//            Intent intent = new Intent(this, AdicionarAlimentoRefeicao_Activity.class);
+//            startActivityForResult(intent, EDITAR_ACTIVITY);
+//        };
+//        return onclick;
+//    }
 
     private void configuraSegundoPainel(){
         textViewTituloSegundoPainel.setText("Informações gerais");

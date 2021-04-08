@@ -75,7 +75,7 @@ public class ExercicioFragment extends Fragment {
         textViewtextViewTitelDualPanel = viewFragment.findViewById(R.id.textViewTitelDualPanel);
         textViewtextViewDataDualPanel = viewFragment.findViewById(R.id.textViewDataDualPanel);
         button = viewFragment.findViewById(R.id.buttonVoltar);
-        imageViewButtonAdd = viewFragment.findViewById(R.id.imageViewButtonAdd);
+//        imageViewButtonAdd = viewFragment.findViewById(R.id.imageViewButtonAdd);
 
         this.configuraFragment();
         this.configuraPrimeiroPainel();
