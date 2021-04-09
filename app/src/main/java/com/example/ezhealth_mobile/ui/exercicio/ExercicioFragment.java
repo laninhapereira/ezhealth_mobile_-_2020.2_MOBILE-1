@@ -147,9 +147,9 @@ public class ExercicioFragment extends Fragment {
 //    }
 
     public void configuraBotoes(){
-        textViewbuttonCheck.setOnClickListener(v1 -> getActivity().finish());
-        imageViewButtonAdd.setOnClickListener(v1 ->
-                startActivity(new Intent(getContext(), AdicionarExercicio_Activity.class)));
+//        textViewbuttonCheck.setOnClickListener(v1 -> getActivity().finish());
+//        imageViewButtonAdd.setOnClickListener(v1 ->
+//                startActivity(new Intent(getContext(), AdicionarExercicio_Activity.class)));
     }
 
 }
