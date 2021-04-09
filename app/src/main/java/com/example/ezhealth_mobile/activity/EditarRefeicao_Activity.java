@@ -15,15 +15,23 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ezhealth_mobile.R;
 import com.example.ezhealth_mobile.content.PainelInformacoes_Content;
+import com.example.ezhealth_mobile.dao.RefeicaoDAO;
 import com.example.ezhealth_mobile.entity.Alimento;
 import com.example.ezhealth_mobile.entity.Refeicao;
+import com.example.ezhealth_mobile.entity.Usuario;
 import com.example.ezhealth_mobile.util.ExampleAdapterObjectDefault;
 import com.example.ezhealth_mobile.util.OnClickListenerAdapter;
+import com.xwray.groupie.GroupAdapter;
+import com.xwray.groupie.Item;
+import com.xwray.groupie.ViewHolder;
 
 import java.util.ArrayList;
 import java.util.zip.Inflater;
@@ -47,8 +55,9 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
     private TextView textViewTerceiraMedida;
     private TextView textViewValorTotalKcal;
     private ImageView imageViewButtonAdd;
-    private View viewFirstInfoPanel;
+//    private View viewFirstInfoPanel;
     private Button buttonCheck;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +65,7 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_dual_panel);
 
         LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        viewFirstInfoPanel = inflater.inflate(R.layout.content_panel_first_info, null);
+//        viewFirstInfoPanel = inflater.inflate(R.layout.content_panel_first_info, null);
 //        imageViewButtonAdd = viewFirstInfoPanel.findViewById(R.id.imageViewButtonAdd);
 
         textViewTitelDualPanel = findViewById(R.id.textViewTitelDualPanel);
@@ -82,7 +91,7 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
     public void onResume(){ // escreva esse método na act1
         super.onResume();
 
-        procurarRefeicao();
+//        procurarRefeicao();
         textViewTitelDualPanel.setText(refeicao.getNome());
 
         this.configuraPrimeiroPainel();
@@ -116,8 +125,7 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
                 "Alimentos",
                 getWindow().getDecorView(),
                 true,
-                exampleAdapterObjectDefault,
-                null
+                exampleAdapterObjectDefault
         );
 
     }
@@ -156,14 +164,6 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
         startActivityForResult(intent, EDITAR_ACTIVITY);
     }
 
-//    private View.OnClickListener configuraAlimentoBotaoAdicionar(){
-//        View.OnClickListener onclick = v -> {
-//            Intent intent = new Intent(this, AdicionarAlimentoRefeicao_Activity.class);
-//            startActivityForResult(intent, EDITAR_ACTIVITY);
-//        };
-//        return onclick;
-//    }
-
     private void configuraSegundoPainel(){
         textViewTituloSegundoPainel.setText("Informações gerais");
 
@@ -188,6 +188,8 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
         Intent intent = new Intent();
         intent.putExtra("SALVO", refeicao);
 
+        RefeicaoDAO.getInstance().saveRefeicao(refeicao);
+
         setResult(RESULT_OK);
         finish();
     }
@@ -202,14 +204,16 @@ public class EditarRefeicao_Activity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == EDITAR_ACTIVITY) {
-            if (resultCode == RESULT_OK) {
-                Alimento alimento = (Alimento) data.getSerializableExtra("ALIMENTO");
-                refeicao.getListAlimentos().set(alimento.getPosition(), alimento);
-                onResume();
-            }
+        if (resultCode == RESULT_OK) {
+            Alimento alimento = (Alimento) data.getSerializableExtra("ALIMENTO");
+            refeicao.getListAlimentos().add(alimento);
+            refeicao.setCalorias(
+                    alimento.getCalorias() + refeicao.getCalorias()
+            );
+            onResume();
         }
 
     }
+
 
 }
