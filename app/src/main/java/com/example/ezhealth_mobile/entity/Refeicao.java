@@ -98,16 +98,16 @@ public class Refeicao extends ObjectDefault implements Serializable {
         return total;
     }
 
-    public int getCalorias(){
-        Integer total = 0;
-
-        if(listAlimento == null || listAlimento.size() == 0)
-            return total;
-
-        for (Alimento obj: listAlimento)
-            total += obj.getCalorias();
-        return total;
-    }
+//    public Integer getCalorias(){
+//        Integer total = 0;
+//
+//        if(listAlimento == null || listAlimento.size() == 0)
+//            return total;
+//
+//        for (Alimento obj: listAlimento)
+//            total += obj.getCalorias();
+//        return total;
+//    }
 
 
 

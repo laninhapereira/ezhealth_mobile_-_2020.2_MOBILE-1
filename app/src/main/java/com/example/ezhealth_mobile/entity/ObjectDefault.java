@@ -7,11 +7,12 @@ import java.io.Serializable;
 
 public abstract class ObjectDefault implements Serializable {
 
+    private String id;
     private int position;
     private String nome;
     private int quantidade;
     private String unidadeMedida;
-    private int calorias;
+    private Integer calorias;
 
     public ObjectDefault(String nome, int quantidade, String unidadeMedida, int calorias) {
         this.nome = (nome != null)? nome : "Not named";
@@ -21,6 +22,14 @@ public abstract class ObjectDefault implements Serializable {
     }
 
     public ObjectDefault() {}
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getNome() {
         return nome;
@@ -46,11 +55,11 @@ public abstract class ObjectDefault implements Serializable {
         this.unidadeMedida = unidadeMedida;
     }
 
-    public int getCalorias() {
+    public Integer getCalorias() {
         return calorias;
     }
 
-    public void setCalorias(int calorias) {
+    public void setCalorias(Integer calorias) {
         this.calorias = calorias;
     }
 

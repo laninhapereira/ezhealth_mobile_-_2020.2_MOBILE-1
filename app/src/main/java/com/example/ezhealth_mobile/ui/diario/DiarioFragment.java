@@ -18,6 +18,7 @@ import com.example.ezhealth_mobile.R;
 import com.example.ezhealth_mobile.activity.EditarRefeicao_Activity;
 import com.example.ezhealth_mobile.activity.Main_Activity;
 import com.example.ezhealth_mobile.dao.RefeicaoDAO;
+import com.example.ezhealth_mobile.entity.Alimento;
 import com.example.ezhealth_mobile.entity.Refeicao;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -28,11 +29,11 @@ import java.util.ArrayList;
 public class DiarioFragment extends Fragment {
 
     private View root;
-    private Integer caloriasTotaisDiarias;
+    private static Integer caloriaisConsumidas;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         root = inflater.inflate(R.layout.fragment_diario, container, false);
-
+        caloriaisConsumidas = 0;
         buscarRefeicoesDiarias();
         //Verificar se o usuário está logado para continuar no app ou voltar para login
         Intent intent = new Intent(root.getRootView().getContext(), Main_Activity.class);
@@ -44,10 +45,9 @@ public class DiarioFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        caloriasTotaisDiarias = 0;
+        caloriaisConsumidas = 0;
         buscarRefeicoesDiarias();
 
-        ((TextView) root.findViewById(R.id.textViewFragmentKcalConsumidosValor)).setText(caloriasTotaisDiarias.toString());
     }
 
     private void verificarAutenticacao(Intent intent) {
@@ -62,8 +62,12 @@ public class DiarioFragment extends Fragment {
         RefeicaoDAO
             .getInstance()
             .getRefeicoesDiarias(
-                refeicao -> configuraBotoes(refeicao)
+                refeicao -> {
+                    configuraBotoes(refeicao);
+                    caloriaisConsumidas =+ refeicao.getCalorias();
+                }
             );
+        configurarPainelCalorias();
     }
 
     private void configuraBotoes(Refeicao refeicao){
@@ -86,13 +90,21 @@ public class DiarioFragment extends Fragment {
                 configurarJantar(refeicao, intent);
                 break;
         }
+
+    }
+
+    private void configurarPainelCalorias(){
+        TextView consumidos = root.findViewById(R.id.textViewFragmentKcalConsumidosValor);
+        TextView consumir = root.findViewById(R.id.textViewFragmentKcalConsumirValor);
+
+
     }
 
     private void configurarCafeManha(Refeicao refeicao, Intent intent){
         TextView txtKcal = (TextView) root.findViewById(R.id.textViewItemPainelValorKcalCafe);
         ImageView buttonAdd = root.findViewById(R.id.imageViewItemPanelAddCafe);
 
-        caloriasTotaisDiarias += refeicao.getCalorias();
+        caloriaisConsumidas += refeicao.getCalorias();
         txtKcal.setText(String.valueOf(refeicao.getCalorias()));
         buttonAdd.setOnClickListener(
                 v -> {
@@ -106,7 +118,7 @@ public class DiarioFragment extends Fragment {
         TextView txtKcal = (TextView) root.findViewById(R.id.textViewItemPainelValorKcalLancheManha);
         ImageView buttonAdd = root.findViewById(R.id.imageViewItemPanelAddLancheManha);
 
-        caloriasTotaisDiarias += refeicao.getCalorias();
+        caloriaisConsumidas += refeicao.getCalorias();
         txtKcal.setText(String.valueOf(refeicao.getCalorias()));
         buttonAdd.setOnClickListener(
                 v -> {
@@ -120,7 +132,7 @@ public class DiarioFragment extends Fragment {
         TextView txtKcal = (TextView) root.findViewById(R.id.textViewItemPainelValorKcalAlmoco);
         ImageView buttonAdd = root.findViewById(R.id.imageViewItemPanelAddAlmoco);
 
-        caloriasTotaisDiarias += refeicao.getCalorias();
+        caloriaisConsumidas += refeicao.getCalorias();
         txtKcal.setText(String.valueOf(refeicao.getCalorias()));
         buttonAdd.setOnClickListener(
                 v -> {
@@ -134,7 +146,7 @@ public class DiarioFragment extends Fragment {
         TextView txtKcal = (TextView) root.findViewById(R.id.textViewItemPainelValorKcalLancheTarde);
         ImageView buttonAdd = root.findViewById(R.id.imageViewItemPanelAddLancheTarde);
 
-        caloriasTotaisDiarias += refeicao.getCalorias();
+        caloriaisConsumidas += refeicao.getCalorias();
         txtKcal.setText(String.valueOf(refeicao.getCalorias()));
         buttonAdd.setOnClickListener(
                 v -> {
@@ -148,7 +160,7 @@ public class DiarioFragment extends Fragment {
         TextView txtKcal = (TextView) root.findViewById(R.id.textViewItemPainelValorKcalJantar);
         ImageView buttonAdd = root.findViewById(R.id.imageViewItemPanelAddJantar);
 
-        caloriasTotaisDiarias += refeicao.getCalorias();
+        caloriaisConsumidas += refeicao.getCalorias();
         txtKcal.setText(String.valueOf(refeicao.getCalorias()));
         buttonAdd.setOnClickListener(
                 v -> {
@@ -156,6 +168,13 @@ public class DiarioFragment extends Fragment {
                     startActivity(intent);
                 }
         );
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        onResume();
     }
 
 }

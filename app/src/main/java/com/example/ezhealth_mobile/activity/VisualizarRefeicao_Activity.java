@@ -49,7 +49,7 @@ public class VisualizarRefeicao_Activity extends AppCompatActivity {
         );
 
         PainelInformacoes_Content.configura("Alimentos", getWindow().getDecorView(),
-                false, exampleAdapterObjectDefault, null);
+                false, exampleAdapterObjectDefault);
     }
 
     private void configuraSegundoPainel(){
