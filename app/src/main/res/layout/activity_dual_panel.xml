@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
 
         android:paddingLeft="72dp"
-        android:text="10/02"
+        android:text="09/04"
         android:textColor="#999A9C"
         android:textSize="15dp"
         app:layout_constraintStart_toStartOf="parent"
